@@ -1,26 +1,27 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JCNay Vida Team | Expertos en IUL</title>
+    <title>JCNay Vida Team | Estrategias IUL</title>
     <style>
         :root { --azul: #1a2a44; --dorado: #D4AF37; --blanco: #ffffff; }
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--blanco); color: #333; }
         nav { background: var(--azul); padding: 15px; border-bottom: 3px solid var(--dorado); text-align: center; }
-        .logo { color: var(--dorado); font-weight: bold; font-size: 1.5rem; text-transform: uppercase; }
+        .logo { color: var(--dorado); font-weight: bold; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
         .hero { background: var(--azul); color: white; padding: 60px 20px; text-align: center; }
         .gold { color: var(--dorado); }
-        .beneficios { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 40px 10%; background: #f4f4f4; }
-        .card { background: white; padding: 20px; border-radius: 10px; border-bottom: 4px solid var(--dorado); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .form-container { max-width: 500px; margin: -50px auto 50px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative; z-index: 10; }
-        input, select, button { width: 100%; padding: 12px; margin: 10px 0; border-radius: 5px; border: 1px solid #ddd; box-sizing: border-box; }
-        button { background: var(--dorado); color: var(--azul); font-weight: bold; border: none; cursor: pointer; font-size: 1.1rem; transition: 0.3s; }
-        button:hover { background: #b8962d; transform: scale(1.02); }
-        .crm-section { padding: 40px 5%; background: white; overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 12px; border: 1px solid #eee; text-align: left; }
-        th { background: var(--azul); color: white; }
+        .beneficios { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 40px 10%; background: #f9f9f9; }
+        .card { background: white; padding: 25px; border-radius: 10px; border-bottom: 4px solid var(--dorado); box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; }
+        .form-container { max-width: 500px; margin: -50px auto 50px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative; z-index: 10; border: 1px solid #eee; }
+        input, select, button { width: 100%; padding: 12px; margin: 10px 0; border-radius: 5px; border: 1px solid #ddd; font-size: 1rem; }
+        button { background: var(--dorado); color: var(--azul); font-weight: bold; border: none; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
+        button:hover { background: #b8962d; transform: translateY(-2px); }
+        footer { background: var(--azul); color: white; text-align: center; padding: 20px; font-size: 0.8rem; }
+        
+        /* CRM OCULTO: Solo tú puedes verlo si sabes que está ahí */
+        #crm-secreto { display: none; padding: 20px; background: #eee; }
     </style>
 </head>
 <body>
@@ -28,42 +29,43 @@
 <nav><div class="logo">JCNay Vida Team</div></nav>
 
 <section class="hero">
-    <h1>Protege tu Futuro con <span class="gold">Estrategias Tax-Free</span></h1>
-    <p>Descubre cómo el IUL protege tu capital contra pérdidas de mercado.</p>
+    <h1>Asegura tu Retiro <span class="gold">Libre de Impuestos</span></h1>
+    <p>Protección contra caídas de mercado y crecimiento indexado garantizado.</p>
 </section>
 
 <div class="form-container">
-    <h3 style="text-align: center; color: var(--azul);">Descargar Guía y Solicitar Auditoría</h3>
+    <h3 style="text-align: center; color: var(--azul); margin-top: 0;">Obtener Guía IUL Gratuita</h3>
     <form id="mainForm">
         <input type="text" id="nombre" placeholder="Nombre Completo" required>
-        <input type="number" id="edad" placeholder="Edad" required>
+        <input type="number" id="edad" placeholder="Tu Edad" required>
         <select id="ingresos" required>
-            <option value="">Ingresos Anuales...</option>
+            <option value="">Rango de Ingresos Anuales...</option>
             <option value="50k-100k">$50,000 - $100,000</option>
             <option value="100k+">Más de $100,000</option>
         </select>
-        <button type="submit">OBTENER MI GUÍA AHORA</button>
+        <button type="submit">DESCARGAR GUÍA Y AGENDAR</button>
     </form>
 </div>
 
 <section class="beneficios">
-    <div class="card"><h3>📈 Crecimiento</h3><p>Participa en las ganancias del mercado cuando la bolsa sube.</p></div>
-    <div class="card"><h3>🛡️ Piso del 0%</h3><p>Tu principal está protegido. Si el mercado cae, tú no pierdes nada.</p></div>
-    <div class="card"><h3>🚫 Libre de Impuestos</h3><p>Retira tu dinero en el futuro sin pagar impuestos al IRS.</p></div>
+    <div class="card"><h3>🛡️ Protección</h3><p>Si el mercado cae, tu balance se mantiene en el 0%. Nunca pierdes tu principal.</p></div>
+    <div class="card"><h3>💸 Tax-Free</h3><p>Accede a tu dinero mediante préstamos libres de impuestos en tu jubilación.</p></div>
+    <div class="card"><h3>📈 Ganancias</h3><p>Tu dinero crece basado en el rendimiento de índices como el S&P 500.</p></div>
 </section>
 
-<section class="crm-section">
-    <h3 style="color: var(--azul);">Base de Datos de Prospectos</h3>
-    <table>
-        <thead><tr><th>Nombre</th><th>Edad</th><th>Ingresos</th></tr></thead>
-        <tbody id="crmBody"></tbody>
-    </table>
-</section>
+<div id="crm-secreto">
+    <h3>Base de Datos Privada</h3>
+    <div id="lista-leads"></div>
+</div>
+
+<footer>
+    <p>&copy; 2026 JCNay Vida Team | Financial Strategies</p>
+</footer>
 
 <script>
     // --- CONFIGURACIÓN ---
     const MI_TELEFONO = "19086774196"; 
-    const MI_CALENDLY = "https://calendly.com/blindajefamiliarus;
+    const MI_CALENDLY = "https://calendly.com/blindajefamiliarus; 
 
     const form = document.getElementById('mainForm');
     
@@ -73,31 +75,24 @@
         const datos = {
             nombre: document.getElementById('nombre').value,
             edad: document.getElementById('edad').value,
-            ingresos: document.getElementById('ingresos').value
+            ingresos: document.getElementById('ingresos').value,
+            fecha: new Date().toLocaleString()
         };
 
-        // 1. Guardar en CRM Local
-        let leads = JSON.parse(localStorage.getItem('jcnay_leads')) || [];
+        // 1. Guardar en memoria local (Invisible para otros)
+        let leads = JSON.parse(localStorage.getItem('jcnay_leads_privados')) || [];
         leads.push(datos);
-        localStorage.setItem('jcnay_leads', JSON.stringify(leads));
-        actualizarTabla();
+        localStorage.setItem('jcnay_leads_privados', JSON.stringify(leads));
 
-        // 2. Abrir WhatsApp
-        const msg = `Hola JCNay Vida Team, soy ${datos.nombre}. Acabo de descargar la guía IUL y quiero más información.`;
-        window.open(`https://wa.me/${19086774196}?text=${encodeURIComponent(msg)}`, '_blank');
+        // 2. WhatsApp Directo
+        const msg = `Hola JCNay Vida Team, soy ${datos.nombre}. Me interesa la estrategia IUL.`;
+        window.open(`https://wa.me/${MI_TELEFONO}?text=${encodeURIComponent(msg)}`, '_blank');
 
         // 3. Redirigir a Calendly
         setTimeout(() => {
-            window.location.href = https://calendly.com/blindajefamiliarus
-        }, 1000);
+            window.location.href = MI_CALENDLY;
+        }, 800);
     });
-
-    function actualizarTabla() {
-        let leads = JSON.parse(localStorage.getItem('jcnay_leads')) || [];
-        document.getElementById('crmBody').innerHTML = leads.map(l => 
-            `<tr><td>${l.nombre}</td><td>${l.edad}</td><td>${l.ingresos}</td></tr>`).join('');
-    }
-    actualizarTabla();
 </script>
 
 </body>
