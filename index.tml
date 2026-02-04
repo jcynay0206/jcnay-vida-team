@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JCNay Vida Team | Expertos en IUL y Anualidades</title>
+    <style>
+        :root {
+            --azul-marino: #1a2a44;
+            --dorado: #D4AF37;
+            --blanco: #ffffff;
+        }
+
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--blanco); scroll-behavior: smooth; }
+        
+        /* Navegación */
+        nav { background: var(--azul-marino); padding: 15px 5%; border-bottom: 3px solid var(--dorado); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { color: var(--dorado); font-weight: bold; font-size: 1.4rem; }
+
+        /* Hero y Video */
+        .hero { background: var(--azul-marino); color: white; text-align: center; padding: 50px 5% 80px; }
+        .hero h1 span { color: var(--dorado); }
+        .video-box { max-width: 800px; margin: -50px auto 30px; border: 4px solid var(--dorado); aspect-ratio: 16/9; background: #000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+
+        /* Sección IUL / Lead Magnet */
+        .seccion-iul { background: var(--azul-marino); color: white; padding: 60px 5%; text-align: center; border-top: 4px solid var(--dorado); }
+        .grid-iul { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0; }
+        .card-iul { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; border-bottom: 3px solid var(--dorado); text-align: left; }
+
+        /* Formulario */
+        .form-container { max-width: 600px; margin: 40px auto; padding: 30px; border: 2px solid var(--dorado); border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        input, select, .btn-main { width: 100%; padding: 12px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; }
+        .btn-main { background: var(--dorado); color: var(--azul-marino); font-weight: bold; border: none; cursor: pointer; font-size: 1.1rem; }
+        .btn-main:hover { background: #b8962d; }
+
+        /* CRM Table */
+        .crm-box { background: #f9f9f9; padding: 40px 5%; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; background: white; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background: var(--azul-marino); color: white; }
+
+        /* Pop-up */
+        #popup { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); }
+        .popup-inner { background: white; margin: 15% auto; padding: 30px; max-width: 400px; border-radius: 15px; text-align: center; border: 4px solid var(--dorado); position: relative; }
+    </style>
+</head>
+<body>
+
+<nav><div class="logo">JCNay Vida Team</div></nav>
+
+<header class="hero">
+    <h1>Protección Financiera con <span>JCNay Vida</span></h1>
+    <p>Estrategias de IUL y Anualidades para un Futuro Tax-Free</p>
+</header>
+
+<div class="video-box">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<section class="seccion-iul">
+    <h2 style="color: var(--dorado);">Guía: Beneficios Fiscales del IUL</h2>
+    <div class="grid-iul">
+        <div class="card-iul"><h4>🛡️ Protección Total</h4><p>Cero riesgo de mercado. Si la bolsa cae, tu dinero no pierde.</p></div>
+        <div class="card-iul"><h4>💸 Retiros Libres de Impuestos</h4><p>Accede a tus ganancias sin pagar un centavo al IRS.</p></div>
+        <div class="card-iul"><h4>📈 Crecimiento Indexado</h4><p>Tu dinero crece aprovechando las subidas del mercado.</p></div>
+    </div>
+    <p>Solicita tu guía completa llenando el formulario de abajo.</p>
+</section>
+
+<section id="contacto" class="form-container">
+    <h2 style="text-align: center; color: var(--azul-marino);">Obtener Guía y Cotización</h2>
+    <form id="mainForm">
+        <input type="text" id="nombre" placeholder="Nombre Completo" required>
+        <div style="display: flex; gap: 10px;">
+            <input type="number" id="edad" placeholder="Edad" required>
+            <input type="number" id="dep" placeholder="Dependientes" required>
+        </div>
+        <select id="ingresos" required>
+            <option value="">Rango de Ingresos Anuales...</option>
+            <option value="Menos de 50k">Menos de $50k</option>
+            <option value="50k-100k">$50k - $100k</option>
+            <option value="Más de 100k">Más de $100k</option>
+        </select>
+        <button type="submit" class="btn-main">ENVIAR Y DESCARGAR GUÍA</button>
+    </form>
+</section>
+
+<section class="crm-box">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+        <h3>Base de Datos de Prospectos</h3>
+        <button onclick="exportarExcel()" style="padding: 10px; cursor: pointer; background: var(--azul-marino); color: white; border: none; border-radius: 5px;">Descargar Excel (.csv)</button>
+    </div>
+    <table>
+        <thead><tr><th>Nombre</th><th>Edad</th><th>Dep.</th><th>Ingresos</th></tr></thead>
+        <tbody id="crmBody"></tbody>
+    </table>
+</section>
+
+<footer style="background: var(--azul-marino); color: white; text-align: center; padding: 30px;">
+    <p>&copy; 2026 JCNay Vida Team | Todos los derechos reservados</p>
+</footer>
+
+<div id="popup">
+    <div class="popup-inner">
+        <span onclick="document.getElementById('popup').style.display='none'" style="position:absolute; right:15px; top:5px; font-size:24px; cursor:pointer;">&times;</span>
+        <h2 style="color: var(--azul-marino);">🎁 ¡Oferta Especial!</h2>
+        <p>Recibe una Auditoría Financiera Gratuita hoy mismo.</p>
+        <button onclick="document.getElementById('popup').style.display='none'; window.location='#contacto';" class="btn-main">LO QUIERO</button>
+    </div>
+</div>
+
+<script>
+    // CONFIGURACIÓN: Cambia estos dos datos
+    const TU_TELEFONO = "17861234567"; // Tu número sin símbolos
+    const CALENDLY_URL = "https://calendly.com/tu_usuario"; // Tu link de Calendly
+
+    // Pop-up a los 5 segundos
+    setTimeout(() => { document.getElementById('popup').style.display = 'block'; }, 5000);
+
+    const form = document.getElementById('mainForm');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const datos = {
+            nombre: document.getElementById('nombre').value,
+            edad: document.getElementById('edad').value,
+            dep: document.getElementById('dep').value,
+            ingresos: document.getElementById('ingresos').value
+        };
+
+        // Guardar en CRM Local
+        let leads = JSON.parse(localStorage.getItem('jcnay_leads')) || [];
+        leads.push(datos);
+        localStorage.setItem('jcnay_leads', JSON.stringify(leads));
+        actualizarCRM();
+
+        // Enviar a WhatsApp
+        const msg = `Hola JCNay Vida Team, soy ${datos.nombre}. Quiero la guía de IUL. Mi edad: ${datos.edad}, Ingresos: ${datos.ingresos}.`;
+        window.open(`https://wa.me/$19086774196?text=${encodeURIComponent(msg)}`, '_blank');
+
+        // Redirigir a Calendly
+        alert("¡Datos recibidos! Ahora te llevaremos a nuestro calendario para tu cita.");
+        window.location.href = https://calendly.com/blindajefamiliarus
+    });
+
+    function actualizarCRM() {
+        let leads = JSON.parse(localStorage.getItem('jcnay_leads')) || [];
+        document.getElementById('crmBody').innerHTML = leads.map(l => 
+            `<tr><td>${l.nombre}</td><td>${l.edad}</td><td>${l.dep}</td><td>${l.ingresos}</td></tr>`).join('');
+    }
+
+    function exportarExcel() {
+        let leads = JSON.parse(localStorage.getItem('jcnay_leads')) || [];
+        let csv = "Nombre,Edad,Dependientes,Ingresos\n" + leads.map(l => `${l.nombre},${l.edad},${l.dep},${l.ingresos}`).join("\n");
+        let blob = new Blob([csv], { type: 'text/csv' });
+        let url = window.URL.createObjectURL(blob);
+        let a = document.createElement('a');
+        a.setAttribute('hidden', '');
+        a.setAttribute('href', url);
+        a.setAttribute('download', 'prospectos_jcnay.csv');
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
+
+    actualizarCRM(); // Cargar datos al abrir
+</script>
+
+</body>
+</html>
