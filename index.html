@@ -63,35 +63,41 @@
 </footer>
 
 <script>
+   <script>
     // --- CONFIGURACIÓN ---
-    const MI_TELEFONO = "19086774196"; 
-    const MI_CALENDLY = "https://calendly.com/blindajefamiliarus; 
+    const MI_TELEFONO = "17861234567"; 
+    const MI_CALENDLY = "https://calendly.com/tu-link"; 
+    const LINK_PDF = "https://drive.google.com/file/d/1A_PIWAzPpcDPsnuutBLTqrkV-3_pRlSc/view?usp=sharing"; 
 
     const form = document.getElementById('mainForm');
     
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const datos = {
-            nombre: document.getElementById('nombre').value,
-            edad: document.getElementById('edad').value,
-            ingresos: document.getElementById('ingresos').value,
-            fecha: new Date().toLocaleString()
-        };
+        const nombre = document.getElementById('nombre').value;
+        const edad = document.getElementById('edad').value;
+        const ingresos = document.getElementById('ingresos').value;
 
-        // 1. Guardar en memoria local (Invisible para otros)
+        // 1. Guardar datos en el navegador
+        const datos = { nombre, edad, ingresos, fecha: new Date().toLocaleString() };
         let leads = JSON.parse(localStorage.getItem('jcnay_leads_privados')) || [];
         leads.push(datos);
         localStorage.setItem('jcnay_leads_privados', JSON.stringify(leads));
 
-        // 2. WhatsApp Directo
-        const msg = `Hola JCNay Vida Team, soy ${datos.nombre}. Me interesa la estrategia IUL.`;
-        window.open(`https://wa.me/${MI_TELEFONO}?text=${encodeURIComponent(msg)}`, '_blank');
+        // 2. DESCARGA AUTOMÁTICA DEL PDF
+        window.open(LINK_PDF, '_blank');
 
-        // 3. Redirigir a Calendly
+        // 3. WHATSAPP 
+        const mensajeWA = `Hola JCNay Vida Team! Soy ${nombre}. Acabo de descargar la guía 'El Banco Libre de Impuestos'. Tengo ${edad} años e ingresos de ${ingresos}. Quiero mi auditoría.`;
+        
+        setTimeout(() => {
+            window.open(`https://wa.me/${MI_TELEFONO}?text=${encodeURIComponent(mensajeWA)}`, '_blank');
+        }, 1000);
+
+        // 4. CALENDLY 
         setTimeout(() => {
             window.location.href = MI_CALENDLY;
-        }, 800);
+        }, 3000);
     });
 </script>
 
