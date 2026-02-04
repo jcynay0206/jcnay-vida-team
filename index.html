@@ -90,41 +90,46 @@
 </footer>
 
 <script>
-   // --- CONFIGURACIÓN JCNay Vida Team ---
-    const MI_TELEFONO = "9086774196"; 
-    const MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
-    const LINK_PDF = "https://drive.google.com/uc?export=download&id=1A_PIWAzPpcDPsnuutBLTqrkV-3_pRlSc"; 
+<script>
+        const MI_TELEFONO = "9086774196"; 
+        const MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
+        const LINK_PDF = "https://drive.google.com/uc?export=download&id=1A_PIWAzPpcDPsnuutBLTqrkV-3_pRlSc"; 
 
-    const form = document.getElementById('mainForm');
-    
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const nombre = document.getElementById('nombre').value;
-        const edad = document.getElementById('edad').value;
-        const ingresos = document.getElementById('ingresos').value;
+        // Esperar a que cargue el documento
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('mainForm');
+            
+            if(form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const nombre = document.getElementById('nombre').value;
+                    const edad = document.getElementById('edad').value;
+                    const ingresos = document.getElementById('ingresos').value;
 
-        // 1. Guardar datos en el navegador (Privado)
-        const datos = { nombre, edad, ingresos, fecha: new Date().toLocaleString() };
-        let leads = JSON.parse(localStorage.getItem('jcnay_leads_privados')) || [];
-        leads.push(datos);
-        localStorage.setItem('jcnay_leads_privados', JSON.stringify(leads));
+                    // 1. Guardar Datos Localmente
+                    const datos = { nombre, edad, ingresos, fecha: new Date().toLocaleString() };
+                    let leads = JSON.parse(localStorage.getItem('jcnay_leads_privados')) || [];
+                    leads.push(datos);
+                    localStorage.setItem('jcnay_leads_privados', JSON.stringify(leads));
 
-        // 2. DESCARGA AUTOMÁTICA DEL PDF
-        window.open(LINK_PDF, '_blank');
+                    // 2. DISPARAR DESCARGA (Se abre en pestaña nueva)
+                    window.open(LINK_PDF, '_blank');
 
-        // 3. WHATSAPP (Mensaje directo a tu número)
-        const mensajeWA = `Hola JCNay Vida Team! Soy ${nombre}. Acabo de descargar la guía 'El Banco Libre de Impuestos'. Tengo ${edad} años e ingresos de ${ingresos}. Quiero mi auditoría.`;
-        
-        setTimeout(() => {
-            window.open(`https://wa.me/${MI_TELEFONO}?text=${encodeURIComponent(mensajeWA)}`, '_blank');
-        }, 1000);
+                    // 3. ABRIR WHATSAPP
+                    const mensajeWA = `Hola JCNay Vida Team! Soy ${nombre}. Acabo de descargar la guía 'El Banco Libre de Impuestos'. Tengo ${edad} años e ingresos de ${ingresos}. Quiero mi auditoría.`;
+                    
+                    setTimeout(() => {
+                        window.open(`https://wa.me/${MI_TELEFONO}?text=${encodeURIComponent(mensajeWA)}`, '_blank');
+                    }, 1000);
 
-        // 4. REDIRIGIR A CALENDLY
-        setTimeout(() => {
-            window.location.href = MI_CALENDLY;
-        }, 3500);
-    });
-
+                    // 4. REDIRIGIR A CALENDLY
+                    setTimeout(() => {
+                        window.location.href = MI_CALENDLY;
+                    }, 3000);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
