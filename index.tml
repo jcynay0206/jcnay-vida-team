@@ -136,11 +136,11 @@
 
         // Enviar a WhatsApp
         const msg = `Hola JCNay Vida Team, soy ${datos.nombre}. Quiero la guía de IUL. Mi edad: ${datos.edad}, Ingresos: ${datos.ingresos}.`;
-        window.open(`https://wa.me/$19086774196?text=${encodeURIComponent(msg)}`, '_blank');
+        window.open(`https://wa.me/${TU_TELEFONO}?text=${encodeURIComponent(msg)}`, '_blank');
 
         // Redirigir a Calendly
         alert("¡Datos recibidos! Ahora te llevaremos a nuestro calendario para tu cita.");
-        window.location.href = https://calendly.com/blindajefamiliarus
+        window.location.href = CALENDLY_URL;
     });
 
     function actualizarCRM() {
