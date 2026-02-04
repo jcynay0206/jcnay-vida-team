@@ -91,45 +91,36 @@
 
 <script>
 
-        const MI_TELEFONO = "9086774196"; 
-        const MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
-        const LINK_PDF = "https://drive.google.com/uc?export=download&id=1A_PIWAzPpcDPsnuutBLTqrkV-3_pRlSc"; 
+      <script>
+    const MI_TELEFONO = "9086774196"; 
+    const MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
 
-        // Esperar a que cargue el documento
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('mainForm');
-            
-            if(form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    const nombre = document.getElementById('nombre').value;
-                    const edad = document.getElementById('edad').value;
-                    const ingresos = document.getElementById('ingresos').value;
+    const form = document.getElementById('mainForm');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const nombre = document.getElementById('nombre').value;
+        const edad = document.getElementById('edad').value;
+        const ingresos = document.getElementById('ingresos').value;
 
-                    // 1. Guardar Datos Localmente
-                    const datos = { nombre, edad, ingresos, fecha: new Date().toLocaleString() };
-                    let leads = JSON.parse(localStorage.getItem('jcnay_leads_privados')) || [];
-                    leads.push(datos);
-                    localStorage.setItem('jcnay_leads_privados', JSON.stringify(leads));
+        // 1. Guardar datos (CRM Invisible)
+        const datos = { nombre, edad, ingresos, fecha: new Date().toLocaleString() };
+        let leads = JSON.parse(localStorage.getItem('jcnay_leads_privados')) || [];
+        leads.push(datos);
+        localStorage.setItem('jcnay_leads_privados', JSON.stringify(leads));
 
-                    // 2. DISPARAR DESCARGA (Se abre en pestaña nueva)
-                    window.open(LINK_PDF, '_blank');
+        // 2. Abrir WhatsApp con el perfil del cliente
+        // Usamos backticks (`) para que las variables ${nombre} funcionen
+        const mensajeWA = `Hola JCNay Vida Team! Soy ${nombre}. Quiero mi auditoría de libertad financiera. Tengo ${edad} años e ingresos de ${ingresos}.`;
+        window.open(`https://wa.me/${MI_TELEFONO}?text=${encodeURIComponent(mensajeWA)}`, '_blank');
 
-                    // 3. ABRIR WHATSAPP
-                    const mensajeWA = `Hola JCNay Vida Team! Soy ${nombre}. Acabo de descargar la guía 'El Banco Libre de Impuestos'. Tengo ${edad} años e ingresos de ${ingresos}. Quiero mi auditoría.`;
-                    
-                    setTimeout(() => {
-                        window.open(`https://wa.me/${MI_TELEFONO}?text=${encodeURIComponent(mensajeWA)}`, '_blank');
-                    }, 1000);
-
-                    // 4. REDIRIGIR A CALENDLY
-                    setTimeout(() => {
-                        window.location.href = MI_CALENDLY;
-                    }, 3000);
-                });
-            }
-        });
-    </script>
+        // 3. Saltar a Calendly para que agenden
+        setTimeout(() => {
+            window.location.href = MI_CALENDLY;
+        }, 1500);
+    });
+</script>
+    
 </body>
 </html>
