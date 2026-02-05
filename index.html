@@ -3,135 +3,140 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JCNay Vida Team | Estrategia y Libertad Financiera</title>
-    <style>
-        :root { --azul: #1a2a44; --dorado: #d4af37; --gris: #f4f4f4; --blanco: #ffffff; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: var(--gris); color: #333; line-height: 1.6; }
-        header { background: var(--azul); color: white; padding: 50px 20px; text-align: center; border-bottom: 5px solid var(--dorado); }
-        .container { max-width: 900px; margin: 20px auto; padding: 20px; }
-        
-        .section-card { background: var(--blanco); padding: 30px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        h2 { color: var(--azul); border-bottom: 2px solid var(--dorado); display: inline-block; padding-bottom: 5px; }
-        
-        /* Estilos de los botones de herramientas */
-        .tools-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-        .tool-box { border: 1px solid #ddd; padding: 20px; border-radius: 10px; text-align: center; transition: 0.3s; text-decoration: none; color: inherit; }
-        .tool-box:hover { border-color: var(--dorado); box-shadow: 0 5px 15px rgba(0,0,0,0.1); transform: translateY(-5px); }
-        .tool-box h4 { margin: 0 0 10px 0; color: var(--azul); }
-        .tool-box p { font-size: 0.9rem; color: #666; margin-bottom: 15px; }
-        .btn-tool { background: var(--azul); color: white; padding: 10px 15px; border-radius: 5px; font-size: 0.8rem; text-transform: uppercase; font-weight: bold; }
-
-        .btn-principal { width: 100%; background: var(--dorado); color: var(--azul); padding: 18px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.2rem; transition: 0.3s; margin-top: 10px; }
-        .btn-principal:hover { background: #b8962d; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-        
-        @media (max-width: 600px) { .tools-grid { grid-template-columns: 1fr; } }
-        footer { text-align: center; padding: 40px; font-size: 0.9rem; color: #777; background: #eee; margin-top: 40px; }
+    <title>JCNay Vida Team - Sistema Integral</title>
+    <link rel="stylesheet" href="style.css"> <style>
+        /* Estilos rápidos para las nuevas secciones */
+        .calculator-section { padding: 40px 20px; background: #f9f9f9; border-radius: 15px; margin: 20px 0; border: 1px solid #ddd; }
+        .result-box { background: #fff; padding: 20px; border-radius: 10px; margin-top: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .grid-calc { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 600px) { .grid-calc { grid-template-columns: 1fr; } }
+        .btn-agent { background-color: #25d366; color: white; padding: 15px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>JCNay Vida Team</h1>
-        <p style="font-style: italic; font-size: 1.2rem;">"Más que seguros, diseñamos libertad financiera"</p>
-    </header>
+    <section id="inicio">
+        <h1>Protege tu Futuro y el de tu Familia</h1>
+        <form id="mainForm">
+            <input type="text" id="nombre" placeholder="Nombre completo" required>
+            <input type="number" id="edad" placeholder="Tu Edad" required>
+            <select id="ingresos" required>
+                <option value="">Nivel de Ingresos Anuales</option>
+                <option value="Menos de $50k">Menos de $50k</option>
+                <option value="$50k - $100k">$50k - $100k</option>
+                <option value="Más de $100k">Más de $100k</option>
+            </select>
+            <button type="submit">Descargar Guía y Ver Calculadoras</button>
+        </form>
+    </section>
 
-    <div class="container">
-        <section class="section-card">
-            <h2>Sobre Nosotros</h2>
-            <p>En <strong>JCNay Vida Team</strong>, nos especializamos en estrategias de blindaje familiar y acumulación de riqueza. Nuestra misión es proporcionarte las herramientas para que tu futuro sea sólido y libre de impuestos.</p>
-        </section>
-
-        <section class="section-card">
-            <h2 style="text-align: center; display: block;">Descarga: El Banco Libre de Impuestos</h2>
-            <p style="text-align: center;">Regístrate para bajar la guía y activar tus herramientas de análisis.</p>
-            
-            <form id="mainForm">
-                <input type="text" id="nombre" placeholder="Nombre Completo" style="width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc;" required>
-                <input type="number" id="edad" placeholder="Edad" style="width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc;" required>
-                <select id="ingresos" style="width:100%; padding:12px; margin-bottom:15px; border-radius:8px; border:1px solid #ccc;" required>
-                    <option value="">Ingresos Anuales...</option>
-                    <option value="Menos de $50k">Menos de $50,000</option>
-                    <option value="$50k - $100k">$50,000 - $100,000</option>
-                    <option value="Más de $100k">Más de $100,000</option>
-                </select>
-                <button type="submit" class="btn-principal">OBTENER GUÍA Y ACTIVAR HERRAMIENTAS</button>
-            </form>
-        </section>
-
-        <section class="section-card">
-            <h2>Herramientas de Análisis Real</h2>
-            <p>Utiliza nuestras calculadoras interactivas para comparar tu situación actual vs. una estrategia optimizada:</p>
-            
-            <div class="tools-grid">
-                <a href="https://jcynay0206.github.io/escudo-financiero/" class="tool-box" target="_blank">
-                    <h4>🛡️ Escudo Financiero</h4>
-                    <p>Compara el rendimiento real: IUL vs. Banco tradicional (Últimos 10 años).</p>
-                    <span class="btn-tool">Calcular Escudo</span>
-                </a>
-
-                <a href="https://jcynay0206.github.io/calculadora-iul/" class="tool-box" target="_blank">
-                    <h4>🎯 Mapa hacia el 0%</h4>
-                    <p>Mira cuánto dinero pierdes en impuestos con un 401(k) vs. un IUL.</p>
-                    <span class="btn-tool">Ver Mi Mapa</span>
-                </a>
+    <section id="herramientas">
+        
+        <div class="calculator-section">
+            <h2>🎓 Calculadora Universitaria: Banco vs IUL</h2>
+            <p>Descubre cuánto podrías acumular para la educación de tus hijos.</p>
+            <div class="grid-calc">
+                <div>
+                    <label>Aporte Mensual ($):</label>
+                    <input type="number" id="uni_aporte" value="300" oninput="calcularUni()">
+                    <label>Edad actual del niño:</label>
+                    <input type="number" id="uni_edad" value="1" oninput="calcularUni()">
+                </div>
+                <div class="result-box">
+                    <p>Al cumplir 18 años:</p>
+                    <h4 style="color: #d9534f;">Banco (0.5%): <span id="res_banco">$0</span></h4>
+                    <h4 style="color: #5cb85c;">IUL (7%): <span id="res_iul">$0</span></h4>
+                    <hr>
+                    <p><strong>Diferencia a favor del IUL:</strong> <span id="res_diff" style="font-size: 1.2em; color: #0275d8;">$0</span></p>
+                </div>
             </div>
+        </div>
+
         </section>
 
-        <section class="section-card" style="border-left: 5px solid var(--dorado);">
-            <h2>Trabaja con Nosotros</h2>
-            <p>¿Buscas una carrera con propósito? Únete a nuestro equipo de consultores.</p>
-            <a href="https://wa.me/19086774196?text=Hola!%20Me%20interesa%20unirme%20al%20equipo" target="_blank" style="color: var(--dorado); font-weight: bold; text-decoration: none;">Más información →</a>
-        </section>
-    </div>
+    <section id="unete" class="calculator-section">
+        <h2>💼 Únete a JCNay Vida Team</h2>
+        <p>¿Buscas una carrera con propósito? Completa tus datos para una entrevista.</p>
+        <form id="agenteForm">
+            <input type="text" id="reg_nombre" placeholder="Nombre completo" required style="width: 100%; margin-bottom: 10px; padding: 10px;">
+            <input type="text" id="reg_estado" placeholder="Estado de residencia" required style="width: 100%; margin-bottom: 10px; padding: 10px;">
+            <select id="reg_licencia" required style="width: 100%; margin-bottom: 10px; padding: 10px;">
+                <option value="">¿Tienes licencia de seguros?</option>
+                <option value="Si">Sí, tengo licencia</option>
+                <option value="No">No, pero quiero obtenerla</option>
+            </select>
+            <input type="tel" id="reg_telefono" placeholder="Número de WhatsApp" required style="width: 100%; margin-bottom: 10px; padding: 10px;">
+            <button type="submit" class="btn-agent">Enviar Mi Solicitud</button>
+        </form>
+    </section>
 
-    <footer>
-        &copy; 2026 JCNay Vida Team. Especialistas en Blindaje Familiar.
-    </footer>
-
-<script>
+    <script>
         // 1. CONFIGURACIÓN
-        var URL_CRM = "https://script.google.com/macros/s/AKfycby0gDgCPhvUeoFRM6lv_7dWzqmCcbV-i1CCgzyyOKcrpPu4dhdV4WDQAHaHJ2mhbTcTbg/exec"; 
-        var MI_TELEFONO = "19086774196"; 
-        var MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
-        var URL_PDF = "https://raw.githubusercontent.com/jcynay0206/jcnay-vida-team/main/Banco_Libre.pdf";
+        const URL_CRM = "https://script.google.com/macros/s/AKfycby0gDgCPhvUeoFRM6lv_7dWzqmCcbV-i1CCgzyyOKcrpPu4dhdV4WDQAHaHJ2mhbTcTbg/exec";
+        const MI_TELEFONO = "19086774196";
+        const URL_PDF = "https://raw.githubusercontent.com/jcynay0206/jcnay-vida-team/main/Banco_Libre.pdf";
 
+        // 2. LÓGICA CALCULADORA UNIVERSITARIA
+        function calcularUni() {
+            let aporte = parseFloat(document.getElementById('uni_aporte').value) || 0;
+            let edad = parseInt(document.getElementById('uni_edad').value) || 0;
+            let años = 18 - edad;
+            
+            if(años < 0) años = 0;
+
+            // Fórmulas de interés compuesto mensual
+            let rBanco = 0.005 / 12;
+            let rIul = 0.07 / 12;
+            let n = años * 12;
+
+            let totalBanco = aporte * ((Math.pow(1 + rBanco, n) - 1) / rBanco);
+            let totalIul = aporte * ((Math.pow(1 + rIul, n) - 1) / rIul);
+
+            document.getElementById('res_banco').innerText = "$" + (totalBanco || 0).toLocaleString(undefined, {maximumFractionDigits: 0});
+            document.getElementById('res_iul').innerText = "$" + (totalIul || 0).toLocaleString(undefined, {maximumFractionDigits: 0});
+            document.getElementById('res_diff').innerText = "$" + ((totalIul - totalBanco) || 0).toLocaleString(undefined, {maximumFractionDigits: 0});
+        }
+        window.onload = calcularUni; // Iniciar cálculos al cargar
+
+        // 3. ENVÍO FORMULARIO CLIENTES
         document.getElementById('mainForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // CAPTURAMOS LOS DATOS
-            var nombre = document.getElementById('nombre').value;
-            var edad = document.getElementById('edad').value;
-            var ingresos = document.getElementById('ingresos').value;
+            let nombre = document.getElementById('nombre').value;
+            let edad = document.getElementById('edad').value;
+            let ingresos = document.getElementById('ingresos').value;
 
-            // 1. ENVIAR AL CRM (Google Sheets)
-            // Enviamos los nombres de variables exactos: nombre, edad, ingresos
             fetch(URL_CRM, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
-                    nombre: nombre, 
-                    edad: edad, 
-                    ingresos: ingresos 
-                })
+                body: JSON.stringify({ tipo: "CLIENTE", nombre, edad, ingresos })
             });
 
-            // 2. DESCARGA DEL PDF
-            var link = document.createElement('a');
-            link.href = URL_PDF;
-            link.download = "Guia_Banco_Libre.pdf";
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            // Descarga y Redirección
+            window.open("https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent("Hola, ya descargué la guía y quiero asesoría."), "_blank");
+            alert("¡Guía solicitada! Revisa tus descargas.");
+        });
 
-            // 3. WHATSAPP
-            var textoWA = "Hola! Soy " + nombre + ". Ya tengo la guía y usé las calculadoras. Quiero mi auditoría. (Edad: " + edad + ")";
-            window.open("https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(textoWA), "_blank");
+        // 4. ENVÍO FORMULARIO AGENTES
+        document.getElementById('agenteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let datos = {
+                tipo: "AGENTE",
+                nombre: document.getElementById('reg_nombre').value,
+                estado: document.getElementById('reg_estado').value,
+                licencia: document.getElementById('reg_licencia').value,
+                telefono: document.getElementById('reg_telefono').value
+            };
 
-            // 4. CALENDLY (Redirección final)
-            setTimeout(function() {
-                window.location.href = MI_CALENDLY;
-            }, 2500);
+            fetch(URL_CRM, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(datos)
+            }).then(() => {
+                alert("¡Gracias " + datos.nombre + "! Hemos recibido tu solicitud de agente.");
+                document.getElementById('agenteForm').reset();
+            });
         });
     </script>
 </body>
