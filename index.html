@@ -268,7 +268,51 @@
     }
 }
 
-    // LÓGICA AGENTES (Mantén tus funciones abrirFiltro y validarYEnviar aquí abajo)
+// === FUNCIONES PARA LA POSTULACIÓN DE AGENTES ===
+
+function abrirFiltro() {
+    // 1. Verificamos que hayan puesto nombre y teléfono
+    const nombre = document.getElementById('an').value;
+    const tel = document.getElementById('at').value;
+    
+    if (nombre.trim() !== "" && tel.trim() !== "") {
+        // Muestra el cuadro de requisitos (Modal)
+        document.getElementById('modalFiltro').style.display = 'flex';
+    } else {
+        alert("Por favor, completa tu nombre y teléfono antes de continuar.");
+    }
+}
+
+function cerrarFiltro() {
+    // Esconde el cuadro de requisitos
+    document.getElementById('modalFiltro').style.display = 'none';
+}
+
+async function validarYEnviar() {
+    // 2. Verificamos que hayan marcado los dos requisitos
+    const edadCheck = document.getElementById('checkEdad').checked;
+    const ssnCheck = document.getElementById('checkSSN').checked;
+
+    if (edadCheck && ssnCheck) {
+        // Preparamos los datos para el CRM
+        const datosAgente = { 
+            tipo: "AGENTE", 
+            nombre: document.getElementById('an').value, 
+            estado: document.getElementById('ae').value, 
+            licencia: document.getElementById('al').value, 
+            telefono: document.getElementById('at').value 
+        };
+        
+        // Enviamos los datos (usando la función enviarDatos que ya tienes arriba)
+        await enviarDatos(datosAgente); 
+        
+        alert("✅ ¡Postulación enviada con éxito! Nos contactaremos pronto.");
+        cerrarFiltro();
+        document.getElementById('agenteForm').reset();
+    } else {
+        alert("⚠️ Debes cumplir con ambos requisitos (Edad y SSN/SIN) para postularte.");
+    }
+}
 </script>
 </body>
 </html>
