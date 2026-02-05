@@ -3,59 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JCNay Vida Team | Estrategia Financiera</title>
+    <title>JCNay Vida Team | Estrategia y Libertad Financiera</title>
     <style>
-        :root { --azul: #1a2a44; --dorado: #d4af37; --gris: #f4f4f4; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--gris); color: #333; }
-        header { background: var(--azul); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--dorado); }
-        .container { max-width: 800px; margin: 20px auto; padding: 20px; }
-        .form-container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        :root { --azul: #1a2a44; --dorado: #d4af37; --gris: #f4f4f4; --blanco: #ffffff; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: var(--gris); color: #333; line-height: 1.6; }
+        header { background: var(--azul); color: white; padding: 50px 20px; text-align: center; border-bottom: 5px solid var(--dorado); }
+        .container { max-width: 900px; margin: 20px auto; padding: 20px; }
+        
+        .section-card { background: var(--blanco); padding: 30px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { color: var(--azul); border-bottom: 2px solid var(--dorado); display: inline-block; padding-bottom: 5px; }
+        
         .form-group { margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--azul); }
-        input, select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; }
-        .btn-principal { width: 100%; background: var(--dorado); color: var(--azul); padding: 18px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.2rem; }
-        footer { text-align: center; padding: 30px; color: #777; }
+        input, select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 1rem; }
+        
+        .btn-principal { width: 100%; background: var(--dorado); color: var(--azul); padding: 18px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.2rem; transition: 0.3s; margin-top: 10px; }
+        .btn-principal:hover { background: #b8962d; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        
+        footer { text-align: center; padding: 40px; font-size: 0.9rem; color: #777; background: #eee; margin-top: 40px; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>JCNay Vida Team</h1>
-        <p>"Más que seguros, diseñamos libertad financiera"</p>
+        <p style="font-style: italic; font-size: 1.2rem;">"Más que seguros, diseñamos libertad financiera"</p>
     </header>
 
     <div class="container">
-        <div class="form-container">
-            <h2 style="text-align: center; color: var(--azul);">Descarga: El Banco Libre de Impuestos</h2>
+        <section class="section-card">
+            <h2>Sobre Nosotros</h2>
+            <p>En <strong>JCNay Vida Team</strong>, nos especializamos en estrategias de blindaje familiar y acumulación de riqueza. Nuestra misión es proporcionarte las herramientas necesarias para que tu futuro financiero sea sólido, predecible y exitoso, utilizando instrumentos financieros de alta eficiencia.</p>
+        </section>
+
+        <section class="section-card">
+            <h2 style="text-align: center; display: block;">Descarga: El Banco Libre de Impuestos</h2>
+            <p style="text-align: center;">Completa tus datos para recibir la guía y agendar tu auditoría financiera gratuita.</p>
+            
             <form id="mainForm">
                 <div class="form-group">
-                    <label>Nombre Completo:</label>
-                    <input type="text" id="nombre" required>
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" placeholder="Juan Pérez" required>
                 </div>
                 <div class="form-group">
-                    <label>Edad:</label>
-                    <input type="number" id="edad" required>
+                    <label for="edad">Edad:</label>
+                    <input type="number" id="edad" placeholder="35" required>
                 </div>
                 <div class="form-group">
-                    <label>Ingresos Anuales:</label>
+                    <label for="ingresos">Ingresos Anuales Estimados:</label>
                     <select id="ingresos" required>
-                        <option value="">Seleccione...</option>
+                        <option value="">Seleccione una opción</option>
                         <option value="Menos de $50k">Menos de $50,000</option>
                         <option value="$50k - $100k">$50,000 - $100,000</option>
-                        <option value="Más de $100k">Más de $100,000</option>
+                        <option value="$100k - $250k">$100,000 - $250,000</option>
+                        <option value="Más de $250k">Más de $250,000</option>
                     </select>
                 </div>
-                <button type="submit" class="btn-principal">DESCARGAR GUÍA Y SOLICITAR CITA</button>
+                <button type="submit" class="btn-principal">OBTENER GUÍA Y AUDITORÍA</button>
             </form>
-        </div>
+        </section>
+
+        <section class="section-card" style="border-left: 5px solid var(--dorado);">
+            <h2>Trabaja con Nosotros</h2>
+            <p>¿Buscas una carrera con propósito y alto potencial de ingresos? En JCNay Vida Team estamos expandiendo nuestro equipo de consultores financieros.</p>
+            <p><strong>Beneficios:</strong> Capacitación continua, independencia de tiempo y la oportunidad de impactar vidas positivamente.</p>
+            <a href="https://wa.me/19086774196?text=Hola!%20Me%20interesa%20unirme%20al%20equipo%20de%20JCNay%20Vida%20Team" target="_blank" style="color: var(--dorado); font-weight: bold; text-decoration: none;">Más información sobre vacantes →</a>
+        </section>
     </div>
+
+    <footer>
+        &copy; 2026 JCNay Vida Team. Todos los derechos reservados.<br>
+        Expertos en Blindaje Familiar y Estrategias IUL.
+    </footer>
 
     <script>
         var MI_TELEFONO = "19086774196"; 
         var MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
         var URL_CRM = "https://script.google.com/macros/s/AKfycbz0-5pNl_6O3QCd40j8xUGHZmoezbPvqWKGD6djzBEw2i1TJr2avQez8UmceNT8xSzgIQ/exec"; 
         
-        // USANDO LINK DE GITHUB PARA EVITAR EL ERROR 404 DE DRIVE
+        // URL corregida para el archivo que subiste como Banco_Libre.pdf
         var URL_PDF = "https://raw.githubusercontent.com/jcynay0206/jcnay-vida-team/main/Banco_Libre.pdf";
 
         document.getElementById('mainForm').addEventListener('submit', function(e) {
@@ -65,14 +91,15 @@
             var edad = document.getElementById('edad').value;
             var ingresos = document.getElementById('ingresos').value;
 
-            // 1. CRM
+            // 1. CRM (Google Sheets)
             fetch(URL_CRM, {
                 method: 'POST',
                 mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ nombre: nombre, edad: edad, ingresos: ingresos })
             });
 
-            // 2. DESCARGA (Método forzado)
+            // 2. Descarga del PDF (Banco_Libre.pdf)
             var link = document.createElement('a');
             link.href = URL_PDF;
             link.download = "El_Banco_Libre_de_Impuestos.pdf";
@@ -81,14 +108,14 @@
             link.click();
             document.body.removeChild(link);
 
-            // 3. WHATSAPP
-            var textoWA = "Hola! Soy " + nombre + ". Ya descargué la guía y quiero mi auditoría. (Edad: " + edad + ")";
+            // 3. WhatsApp
+            var textoWA = "Hola JCNay Vida Team! Soy " + nombre + ". Acabo de descargar la guía 'El Banco Libre'. Tengo " + edad + " años y quiero mi auditoría.";
             window.open("https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(textoWA), "_blank");
 
-            // 4. CALENDLY
+            // 4. Calendly
             setTimeout(function() {
                 window.location.href = MI_CALENDLY;
-            }, 2000);
+            }, 2500);
         });
     </script>
 </body>
