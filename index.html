@@ -164,22 +164,6 @@
 </div>
 
 <script>
-    const URL_CRM = "https://script.google.com/macros/s/AKfycbw03lfXmU4-MHDG4_56GbO-XpOqWGnd3flJ5-KolntarhDYWrBr53Tag01JdMT7h8Mvuw/exec";
-    const PDF_URL = "https://raw.githubusercontent.com/jcynay0206/jcnay-vida-team/main/Banco_Libre.pdf";
-
-    async function enviarDatos(datos) {
-        fetch(URL_CRM, { method: 'POST', mode: 'no-cors', body: JSON.stringify(datos) });
-    }
-
-    document.getElementById('mainForm').onsubmit = async (e) => {
-        e.preventDefault();
-        const d = { tipo: "CLIENTE", nombre: document.getElementById('nom').value, edad: document.getElementById('ed').value, ingresos: document.getElementById('ing').value };
-        await enviarDatos(d);
-        window.open(PDF_URL, '_blank');
-        document.getElementById('formRegistro').style.display = 'none';
-        document.getElementById('postEnvio').style.display = 'block';
-    };
-
     function abrirFiltro() {
         if(document.getElementById('an').value && document.getElementById('at').value) {
             document.getElementById('modalFiltro').style.display = 'flex';
@@ -196,7 +180,13 @@
         const edad = document.getElementById('checkEdad').checked;
         const ssn = document.getElementById('checkSSN').checked;
         if (edad && ssn) {
-            const d = { tipo: "AGENTE", nombre: document.getElementById('an').value, estado: document.getElementById('ae').value, licencia: document.getElementById('al').value, telefono: document.getElementById('at').value };
+            const d = { 
+                tipo: "AGENTE", 
+                nombre: document.getElementById('an').value, 
+                estado: document.getElementById('ae').value, 
+                licencia: document.getElementById('al').value, 
+                telefono: document.getElementById('at').value 
+            };
             await enviarDatos(d);
             alert("¡Postulación enviada exitosamente!");
             cerrarFiltro();
