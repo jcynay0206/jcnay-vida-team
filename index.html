@@ -87,33 +87,52 @@
         </form>
     </div>
 
-    <script>
-        var MI_TELEFONO = "9086774196"; 
-        var MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
+  <script>
+    // --- CONFIGURACIÓN JCNay Vida Team ---
+    var MI_TELEFONO = "9086774196"; 
+    var MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
+    var URL_CRM = "https://script.google.com/macros/s/AKfycbz0-5pNl_6O3QCd40j8xUGHZmoezbPvqWKGD6djzBEw2i1TJr2avQez8UmceNT8xSzgIQ/exec"; 
 
-        document.getElementById('mainForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            var nombre = document.getElementById('nombre').value;
-            var edad = document.getElementById('edad').value;
-            var ingresos = document.getElementById('ingresos').value;
+    document.getElementById('mainForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // 1. Capturar datos del formulario
+        var nombre = document.getElementById('nombre').value;
+        var edad = document.getElementById('edad').value;
+        var ingresos = document.getElementById('ingresos').value;
 
-            // 1. Guardar copia local (Tu CRM invisible)
-            var datos = { nombre: nombre, edad: edad, ingresos: ingresos, fecha: new Date().toLocaleString() };
-            var leads = JSON.parse(localStorage.getItem('jcnay_leads_privados')) || [];
-            leads.push(datos);
-            localStorage.setItem('jcnay_leads_privados', JSON.stringify(leads));
-
-            // 2. WhatsApp
-            var textoWA = "Hola JCNay Vida Team! Soy " + nombre + ". Quiero mi auditoría de libertad financiera. Tengo " + edad + " años e ingresos de " + ingresos + ".";
-            window.open("https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(textoWA), "_blank");
-
-            // 3. Calendly
-            setTimeout(function() {
-                window.location.href = MI_CALENDLY;
-            }, 1200);
+        // 2. ENVIAR AL CRM (Google Sheets)
+        // Esto sucede en segundo plano
+        fetch(URL_CRM, {
+            method: 'POST',
+            mode: 'no-cors',
+            cache: 'no-cache',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                nombre: nombre,
+                edad: edad,
+                ingresos: ingresos
+            })
+        }).then(function() {
+            console.log("Datos enviados al CRM");
+        }).catch(function(err) {
+            console.log("Error CRM:", err);
         });
-    </script>
+
+        // 3. PREPARAR Y ABRIR WHATSAPP
+        var textoWA = "Hola JCNay Vida Team! Soy " + nombre + ". Quiero mi auditoría de libertad financiera. Tengo " + edad + " años e ingresos de " + ingresos + ".";
+        var urlWA = "https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(textoWA);
+        
+        // Abrimos WhatsApp en pestaña nueva
+        window.open(urlWA, '_blank');
+
+        // 4. REDIRIGIR A CALENDLY
+        // Esperamos 1.5 segundos para que la pestaña de WhatsApp no sea bloqueada
+        setTimeout(function() {
+            window.location.href = MI_CALENDLY;
+        }, 1500);
+    });
+</script>
 </body>
 </html>
     
