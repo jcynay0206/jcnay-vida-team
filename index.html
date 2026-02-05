@@ -19,10 +19,8 @@
         .btn-verde { background: var(--verde); color: white; }
         .btn-outline { background: transparent; color: var(--azul); border: 2px solid var(--azul); padding: 10px; font-size: 14px; margin-top: 8px; border-radius: 8px; }
         #postEnvio { display: none; text-align: center; }
-        
-        /* ESTILO DEL MODAL (FILTRO) */
-        #modalFiltro { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; align-items:center; justify-content:center; }
-        .modal-content { background:white; padding:30px; border-radius:15px; max-width:350px; width:90%; text-align:center; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
+        #modalFiltro { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:10000; align-items:center; justify-content:center; }
+        .modal-content { background:white; padding:30px; border-radius:15px; max-width:400px; width:90%; text-align:center; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
     </style>
 </head>
 <body>
@@ -58,133 +56,66 @@
             </div>
         </div>
     </section>
-<section style="background-color: #fffcf5; padding: 40px 20px; border-top: 5px solid #d4af37; border-bottom: 5px solid #d4af37; margin: 30px 0; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-    <h2 style="text-align: center; color: #1a2a6c; margin-bottom: 10px;">📊 Análisis de Protección Familiar (D.I.M.E.)</h2>
-    <p style="text-align: center; font-size: 14px; color: #555; margin-bottom: 30px; max-width: 600px; margin: auto;">
-        Calcula el vacío financiero que tu familia enfrentaría hoy si llegaras a faltar.
-    </p>
 
-    <div style="display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; max-width: 1000px; margin: auto;">
-        
-        <div style="flex: 1; min-width: 300px; background: white; padding: 25px; border-radius: 15px; border: 1px solid #e0e0e0; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-            <h4 style="border-bottom: 3px solid #ff4444; color: #ff4444; margin-top: 0; padding-bottom: 10px;">💸 Gastos y Deudas</h4>
-            
-            <label style="display:block; font-size:12px; font-weight:bold; margin-top:15px; color:#333;">Total Deudas (Tarjetas/Auto)</label>
-            <input type="number" id="d_deudas" placeholder="$0" oninput="calcularDIME()" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px;">
-            
-            <label style="display:block; font-size:12px; font-weight:bold; margin-top:15px; color:#333;">Saldo de Hipoteca (Mortgage)</label>
-            <input type="number" id="d_hipoteca" placeholder="$0" oninput="calcularDIME()" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px;">
-            
-            <label style="display:block; font-size:12px; font-weight:bold; margin-top:15px; color:#333;">Número de Hijos</label>
-            <input type="number" id="d_hijos" placeholder="0" oninput="calcularDIME()" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px;">
-            
-            <label style="display:block; font-size:12px; font-weight:bold; margin-top:15px; color:#333;">Univ. por Hijo ($50k recomendado)</label>
-            <input type="number" id="d_univ" value="50000" oninput="calcularDIME()" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px;">
-            
-            <label style="display:block; font-size:12px; font-weight:bold; margin-top:15px; color:#333;">Gastos Funerarios ($15k recomendado)</label>
-            <input type="number" id="d_funeral" value="15000" oninput="calcularDIME()" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px;">
-        </div>
+    <section style="background-color: #fffcf5; padding: 40px 20px; border-top: 5px solid #d4af37; border-bottom: 5px solid #d4af37; border-radius: 20px;">
+        <h2 style="text-align: center; color: #1a2a6c;">📊 Análisis de Protección Familiar (D.I.M.E.)</h2>
+        <p style="text-align: center; font-size: 14px; color: #555; margin-bottom: 30px;">Calcula el vacío financiero que tu familia enfrentaría hoy.</p>
 
-        <div style="flex: 1; min-width: 300px; background: white; padding: 25px; border-radius: 15px; border: 1px solid #e0e0e0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
-            <h4 style="border-bottom: 3px solid #2ecc71; color: #2ecc71; margin-top: 0; padding-bottom: 10px;">💰 Recursos Actuales</h4>
-            
-            <label style="display:block; font-size:12px; font-weight:bold; margin-top:15px; color:#333;">Ahorros en Banco / Cash</label>
-            <input type="number" id="h_banco" placeholder="$0" oninput="calcularDIME()" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px;">
-            
-            <label style="display:block; font-size:12px; font-weight:bold; margin-top:15px; color:#333;">401k / IRA / Inversiones</label>
-            <input type="number" id="h_inv" placeholder="$0" oninput="calcularDIME()" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px;">
-            
-            <label style="display:block; font-size:12px; font-weight:bold; margin-top:15px; color:#333;">Seguro de Vida Actual</label>
-            <input type="number" id="h_seguro" placeholder="$0" oninput="calcularDIME()" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px;">
-            
-            <div style="background: #1a2a6c; color: white; padding: 25px; border-radius: 12px; text-align: center; margin-top: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
-                <p style="margin:0; font-size:11px; text-transform:uppercase; letter-spacing: 1px; opacity: 0.8;">Tu Brecha de Protección</p>
-                <div id="res_brecha" style="font-size: 34px; font-weight: bold; color: #ffbb33; margin: 10px 0;">$0</div>
-                <p id="res_mensaje" style="font-size: 12px; line-height: 1.4; margin-bottom: 15px;">Completa los datos para ver tu análisis.</p>
-                <a id="btnWhatsappDIME" href="#" target="_blank" class="btn btn-verde" style="display:none; text-decoration:none; background:#25d366; color:white; padding:12px; border-radius:8px; font-weight:bold; width:100%; box-sizing:border-box;">📲 SOLICITAR ASESORÍA</a>
+        <div style="display: flex; flex-wrap: wrap; gap: 25px; justify-content: center;">
+            <div style="flex: 1; min-width: 300px; background: white; padding: 20px; border-radius: 15px; border: 1px solid #ddd;">
+                <h4 style="border-bottom: 3px solid #ff4444; color: #ff4444;">💸 Gastos y Deudas</h4>
+                <label style="font-size:12px; font-weight:bold;">Total Deudas</label>
+                <input type="number" id="d_deudas" placeholder="$0" oninput="calcularDIME()">
+                <label style="font-size:12px; font-weight:bold;">Hipoteca</label>
+                <input type="number" id="d_hipoteca" placeholder="$0" oninput="calcularDIME()">
+                <label style="font-size:12px; font-weight:bold;">Número de Hijos</label>
+                <input type="number" id="d_hijos" placeholder="0" oninput="calcularDIME()">
+                <label style="font-size:12px; font-weight:bold;">Universidad p/Hijo</label>
+                <input type="number" id="d_univ" value="50000" oninput="calcularDIME()">
+                <label style="font-size:12px; font-weight:bold;">Gastos Funerarios</label>
+                <input type="number" id="d_funeral" value="15000" oninput="calcularDIME()">
+            </div>
+            <div style="flex: 1; min-width: 300px; background: white; padding: 20px; border-radius: 15px; border: 1px solid #ddd;">
+                <h4 style="border-bottom: 3px solid #2ecc71; color: #2ecc71;">💰 Recursos Actuales</h4>
+                <input type="number" id="h_banco" placeholder="Banco / Cash" oninput="calcularDIME()">
+                <input type="number" id="h_inv" placeholder="401k / Inversiones" oninput="calcularDIME()">
+                <input type="number" id="h_seguro" placeholder="Seguro de Vida Actual" oninput="calcularDIME()">
+                
+                <div style="background: #1a2a6c; color: white; padding: 20px; border-radius: 12px; text-align: center; margin-top: 20px;">
+                    <small>BRECHA DE PROTECCIÓN</small>
+                    <div id="res_brecha" style="font-size: 30px; font-weight: bold; color: #ffbb33;">$0</div>
+                    <p id="res_mensaje" style="font-size: 11px;">Ingresa tus datos.</p>
+                    <a id="btnWhatsappDIME" href="#" target="_blank" class="btn btn-verde" style="display:none;">📲 SOLICITAR ASESORÍA</a>
+                </div>
             </div>
         </div>
+    </section>
 
-</section>
-
-<div class="grid-links"> ... </div>
     <div class="grid-links">
         <div class="card">
             <h3>🛡️ Escudo Financiero</h3>
             <a href="https://jcynay0206.github.io/escudo-financiero/" class="btn btn-azul">Usar Aquí</a>
-            <a href="https://jcynay0206.github.io/escudo-financiero/" target="_blank" class="btn btn-outline">Pantalla completa ↗</a>
         </div>
         <div class="card">
             <h3>📈 Retiro IUL</h3>
             <a href="https://jcynay0206.github.io/calculadora-iul/" class="btn btn-azul">Usar Aquí</a>
-            <a href="https://jcynay0206.github.io/calculadora-iul/" target="_blank" class="btn btn-outline">Pantalla completa ↗</a>
         </div>
         <div class="card">
             <h3>🎓 Universitaria</h3>
             <a href="https://jcynay0206.github.io/calculadora-universitaria/" class="btn btn-azul">Usar Aquí</a>
-            <a href="https://jcynay0206.github.io/calculadora-universitaria/" target="_blank" class="btn btn-outline">Pantalla completa ↗</a>
         </div>
     </div>
 
- <section style="border-top: 6px solid var(--verde);">
+    <section style="border-top: 6px solid var(--verde);">
         <h3>💼 Únete a nuestro Equipo de Agentes</h3>
         <form id="agenteForm">
             <input type="text" id="an" placeholder="Nombre completo" required>
             <div style="display: flex; gap: 10px;">
                 <select id="ae" required style="flex:1">
-                    <option value="">Selecciona Estado / País</option>
-                    <option value="Canadá">🇨🇦 Canadá</option>
-                    <option value="Alabama">Alabama</option>
-                    <option value="Alaska">Alaska</option>
-                    <option value="Arizona">Arizona</option>
-                    <option value="Arkansas">Arkansas</option>
-                    <option value="California">California</option>
-                    <option value="Carolina del Norte">Carolina del Norte</option>
-                    <option value="Carolina del Sur">Carolina del Sur</option>
-                    <option value="Colorado">Colorado</option>
-                    <option value="Connecticut">Connecticut</option>
-                    <option value="Dakota del Norte">Dakota del Norte</option>
-                    <option value="Dakota del Sur">Dakota del Sur</option>
-                    <option value="Delaware">Delaware</option>
+                    <option value="">Estado / País</option>
                     <option value="Florida">Florida</option>
-                    <option value="Georgia">Georgia</option>
-                    <option value="Hawái">Hawái</option>
-                    <option value="Idaho">Idaho</option>
-                    <option value="Illinois">Illinois</option>
-                    <option value="Indiana">Indiana</option>
-                    <option value="Iowa">Iowa</option>
-                    <option value="Kansas">Kansas</option>
-                    <option value="Kentucky">Kentucky</option>
-                    <option value="Luisiana">Luisiana</option>
-                    <option value="Maine">Maine</option>
-                    <option value="Maryland">Maryland</option>
-                    <option value="Massachusetts">Massachusetts</option>
-                    <option value="Michigan">Michigan</option>
-                    <option value="Minnesota">Minnesota</option>
-                    <option value="Misisipi">Misisipi</option>
-                    <option value="Misuri">Misuri</option>
-                    <option value="Montana">Montana</option>
-                    <option value="Nebraska">Nebraska</option>
-                    <option value="Nevada">Nevada</option>
-                    <option value="Nueva Jersey">Nueva Jersey</option>
-                    <option value="Nueva York">Nueva York</option>
-                    <option value="Nuevo Hampshire">Nuevo Hampshire</option>
-                    <option value="Nuevo México">Nuevo México</option>
-                    <option value="Ohio">Ohio</option>
-                    <option value="Oklahoma">Oklahoma</option>
-                    <option value="Oregón">Oregón</option>
-                    <option value="Pensilvania">Pensilvania</option>
-                    <option value="Rhode Island">Rhode Island</option>
-                    <option value="Tennessee">Tennessee</option>
                     <option value="Texas">Texas</option>
-                    <option value="Utah">Utah</option>
-                    <option value="Vermont">Vermont</option>
-                    <option value="Virginia">Virginia</option>
-                    <option value="Virginia Occidental">Virginia Occidental</option>
-                    <option value="Washington">Washington</option>
-                    <option value="Washington D.C.">Washington D.C.</option>
-                    <option value="Wisconsin">Wisconsin</option>
-                    <option value="Wyoming">Wyoming</option>
+                    <option value="Canadá">Canadá</option>
                     <option value="Otros">Otros</option>
                 </select>
                 <select id="al" required style="flex:1">
@@ -194,21 +125,19 @@
                 </select>
             </div>
             <input type="tel" id="at" placeholder="Teléfono / WhatsApp" required>
-           <button type="button" onclick="abrirFiltro()" class="btn btn-verde" style="width:100%; font-weight:bold;">
-    CONTINUAR POSTULACIÓN
-</button>
+            <button type="button" onclick="abrirFiltro()" class="btn btn-verde">CONTINUAR POSTULACIÓN</button>
         </form>
     </section>
 </div>
 
-<div id="modalFiltro" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:10000; align-items:center; justify-content:center;">
-    <div style="background:white; padding:30px; border-radius:15px; max-width:400px; width:90%; text-align:center;">
-        <h3 style="color: #1a2a6c;">🛡️ Requisitos Mínimos</h3>
+<div id="modalFiltro">
+    <div class="modal-content">
+        <h3>🛡️ Requisitos Mínimos</h3>
         <div style="text-align:left; margin-bottom:20px;">
             <label><input type="checkbox" id="checkEdad"> Soy mayor de 18 años</label><br><br>
             <label><input type="checkbox" id="checkSSN"> Tengo SSN / SIN o Permiso</label>
         </div>
-        <button onclick="validarYEnviar()" class="btn btn-azul" style="width:100%;">CONFIRMAR Y ENVIAR</button>
+        <button onclick="validarYEnviar()" class="btn btn-azul">CONFIRMAR Y ENVIAR</button>
         <button onclick="cerrarFiltro()" style="background:none; border:none; color:gray; cursor:pointer; margin-top:10px;">Cancelar</button>
     </div>
 </div>
@@ -221,7 +150,7 @@
         fetch(URL_CRM, { method: 'POST', mode: 'no-cors', body: JSON.stringify(datos) });
     }
 
-    // REACTIVAR DESCARGA DE PDF
+    // FORMULARIO GUÍA
     document.getElementById('mainForm').onsubmit = async (e) => {
         e.preventDefault();
         const d = { 
@@ -231,88 +160,12 @@
             ingresos: document.getElementById('ing').value 
         };
         await enviarDatos(d);
-        window.open(PDF_URL, '_blank'); // ESTA LÍNEA ABRE EL PDF
+        window.open(PDF_URL, '_blank');
         document.getElementById('formRegistro').style.display = 'none';
         document.getElementById('postEnvio').style.display = 'block';
     };
 
-    // FUNCION DIME
-  function calcularDIME() {
-    const deudas = parseFloat(document.getElementById('d_deudas').value) || 0;
-    const hipo = parseFloat(document.getElementById('d_hipoteca').value) || 0;
-    const hijos = parseFloat(document.getElementById('d_hijos').value) || 0;
-    const univ = parseFloat(document.getElementById('d_univ').value) || 0;
-    const funeral = parseFloat(document.getElementById('d_funeral').value) || 0;
-    const banco = parseFloat(document.getElementById('h_banco').value) || 0;
-    const inv = parseFloat(document.getElementById('h_inv').value) || 0;
-    const seguro = parseFloat(document.getElementById('h_seguro').value) || 0;
-
-    const necesidad = deudas + hipo + (hijos * univ) + funeral;
-    const recursos = banco + inv + seguro;
-    const brecha = necesidad - recursos;
-
-    const resDiv = document.getElementById('res_brecha');
-    const btnWa = document.getElementById('btnWhatsappDIME');
-
-    if (necesidad > 0) {
-        const total = Math.max(0, brecha);
-        resDiv.innerText = "$" + total.toLocaleString();
-        
-        if (total > 0) {
-            btnWa.style.display = 'block';
-            const txt = encodeURIComponent(`Hola JCNay, mi brecha DIME es de $${total.toLocaleString()}. Necesito asesoría.`);
-            btnWa.href = `https://wa.me/19086774196?text=${txt}`;
-        } else {
-            btnWa.style.display = 'none';
-        }
-    }
-}
-
-// === FUNCIONES PARA LA POSTULACIÓN DE AGENTES ===
-
-function abrirFiltro() {
-    // 1. Verificamos que hayan puesto nombre y teléfono
-    const nombre = document.getElementById('an').value;
-    const tel = document.getElementById('at').value;
-    
-    if (nombre.trim() !== "" && tel.trim() !== "") {
-        // Muestra el cuadro de requisitos (Modal)
-        document.getElementById('modalFiltro').style.display = 'flex';
-    } else {
-        alert("Por favor, completa tu nombre y teléfono antes de continuar.");
-    }
-}
-
-function cerrarFiltro() {
-    // Esconde el cuadro de requisitos
-    document.getElementById('modalFiltro').style.display = 'none';
-}
-
-async function validarYEnviar() {
-    // 2. Verificamos que hayan marcado los dos requisitos
-    const edadCheck = document.getElementById('checkEdad').checked;
-    const ssnCheck = document.getElementById('checkSSN').checked;
-
-    if (edadCheck && ssnCheck) {
-        // Preparamos los datos para el CRM
-        const datosAgente = { 
-            tipo: "AGENTE", 
-            nombre: document.getElementById('an').value, 
-            estado: document.getElementById('ae').value, 
-            licencia: document.getElementById('al').value, 
-            telefono: document.getElementById('at').value 
-        };
-        
-        // Enviamos los datos (usando la función enviarDatos que ya tienes arriba)
-        await enviarDatos(datosAgente); 
-        
-        alert("✅ ¡Postulación enviada con éxito! Nos contactaremos pronto.");
-        cerrarFiltro();
-        document.getElementById('agenteForm').reset();
-    } else {
-        alert("⚠️ Debes cumplir con ambos requisitos (Edad y SSN/SIN) para postularte.");
-    }
-}
-</script>
-</body>
-</html>
+    // CALCULO DIME
+    function calcularDIME() {
+        const deudas = parseFloat(document.getElementById('d_deudas').value) || 0;
+        const hipo = parseFloat(document.getElementById('d_hipoteca').value) || 0;
