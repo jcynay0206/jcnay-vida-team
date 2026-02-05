@@ -3,160 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JCNay Vida Team | Protección y Futuro</title>
+    <title>JCNay Vida Team | Sistema Integral</title>
     <style>
-        :root { --primary: #1a2a6c; --secondary: #b21f1f; --accent: #fdbb2d; --white: #ffffff; --gray: #f4f4f4; --success: #25d366; }
-        body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); margin: 0; padding: 20px; color: #333; }
-        .container { max-width: 900px; margin: 0 auto; }
-        section { background: var(--white); padding: 30px; margin-bottom: 30px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border-top: 5px solid var(--primary); }
-        h1, h2, h3 { color: var(--primary); text-align: center; }
-        input, select { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
-        button, .btn { width: 100%; padding: 15px; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; margin-top: 10px; text-decoration: none; display: block; text-align: center; box-sizing: border-box; }
-        .btn-main { background: linear-gradient(to right, var(--primary), var(--secondary)); color: white; }
-        .btn-calendly { background: var(--accent); color: #000; border: 2px solid #000; }
-        .btn-whatsapp { background: var(--success); color: white; }
-        .calculator-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-        @media (max-width: 600px) { .calculator-grid { grid-template-columns: 1fr; } }
-        .result-box { background: var(--gray); padding: 20px; border-radius: 10px; border-left: 5px solid var(--accent); }
-        .highlight { font-weight: bold; font-size: 1.2em; color: var(--secondary); }
-        #postEnvio { display: none; text-align: center; padding: 20px; }
+        :root {
+            --primary-azul: #1a2a6c;
+            --dorado: #b8860b;
+            --dorado-brillante: #fdbb2d;
+            --verde-recluta: #25d366;
+            --blanco: #ffffff;
+            --fondo: #f4f7f9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--fondo);
+            background-image: radial-gradient(circle at top right, #eef2f3, #dce5e8);
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container { max-width: 850px; margin: 0 auto; }
+
+        section {
+            background: var(--blanco);
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-top: 6px solid var(--primary-azul);
+        }
+
+        h1, h2 { color: var(--primary-azul); text-align: center; margin-top: 0; }
+        
+        /* Estilo Dorado para Calculadoras */
+        .calc-header { color: var(--dorado); border-bottom: 2px solid var(--dorado); padding-bottom: 10px; margin-bottom: 20px; }
+
+        input, select {
+            width: 100%; padding: 12px; margin: 10px 0;
+            border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%; padding: 15px; border: none; border-radius: 8px;
+            font-size: 18px; font-weight: bold; cursor: pointer;
+            transition: 0.3s; margin-top: 10px;
+        }
+
+        .btn-main { background: linear-gradient(to right, var(--primary-azul), var(--dorado)); color: white; }
+        .btn-calendly { background: var(--dorado-brillante); color: #000; margin-top: 15px; text-decoration: none; display: block; text-align: center; }
+        .btn-whatsapp { background: var(--verde-recluta); color: white; }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+
+        .res-box {
+            background: #f9f9f9; padding: 20px; border-radius: 10px;
+            border-left: 5px solid var(--dorado);
+        }
+
+        .valor { font-weight: bold; font-size: 1.3em; color: var(--primary-azul); }
+
+        /* Sección Reclutamiento */
+        .recluta { border-top: 6px solid var(--verde-recluta); }
+        .btn-verde { background: var(--verde-recluta); color: white; }
+
+        #postEnvio { display: none; text-align: center; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <section id="seccionLeads">
-        <h1>🚀 JCNay Vida Team</h1>
-        <p style="text-align:center">Descarga nuestra guía "Banco Libre" y asegura tu patrimonio.</p>
+    <section id="leads">
+        <h1>🛡️ Escudo Financiero</h1>
+        <p style="text-align:center">Descarga la guía <b>"Banco Libre"</b> y activa tus proyecciones.</p>
         <form id="mainForm">
             <input type="text" id="nombre" placeholder="Nombre completo" required>
-            <input type="number" id="edad" placeholder="Tu Edad" required>
+            <input type="number" id="edad" placeholder="Tu Edad actual" required>
             <select id="ingresos" required>
-                <option value="">Ingresos Anuales</option>
+                <option value="">Ingresos Anuales Aproximados</option>
                 <option value="Menos de $50k">Menos de $50k</option>
                 <option value="$50k - $100k">$50k - $100k</option>
                 <option value="Más de $100k">Más de $100k</option>
             </select>
-            <button type="submit" class="btn-main">📥 Obtener Guía Gratis</button>
+            <button type="submit" class="btn-main">📥 Descargar Guía y Activar Calculadoras</button>
         </form>
 
         <div id="postEnvio">
-            <h2 style="color: var(--success);">¡Guía Enviada! ✅</h2>
-            <p>Se ha iniciado la descarga. ¿Cómo prefieres continuar?</p>
+            <h2 style="color: var(--primary-azul);">¡Guía Banco Libre Descargada! ✅</h2>
+            <p>Hemos enviado tus datos. Para una asesoría personalizada:</p>
             <a href="https://calendly.com/blindajefamiliarus" target="_blank" class="btn btn-calendly">📅 Agendar Cita en Calendly</a>
-            <a href="https://wa.me/19086774196" target="_blank" class="btn btn-whatsapp">💬 Hablar por WhatsApp</a>
+            <a href="https://wa.me/19086774196" target="_blank" class="btn btn-whatsapp">💬 Contactar por WhatsApp</a>
         </div>
     </section>
 
     <section>
-        <h2>🎓 Plan Universitario: Banco vs IUL</h2>
-        <div class="calculator-grid">
+        <h2 class="calc-header">🎓 Calculadora Universitaria</h2>
+        <div class="grid">
             <div>
                 <label>Aporte Mensual ($):</label>
-                <input type="number" id="uni_aporte" value="300" oninput="calcularTodo()">
+                <input type="number" id="u_aporte" value="300" oninput="calcular()">
                 <label>Edad del niño:</label>
-                <input type="number" id="uni_edad" value="1" oninput="calcularTodo()">
+                <input type="number" id="u_edad" value="1" oninput="calcular()">
             </div>
-            <div class="result-box">
-                <p>A los 18 años tendrías:</p>
-                <div>Banco (0.5%): <span id="res_banco" class="highlight">$0</span></div>
-                <div>Estrategia IUL (7%): <span id="res_iul" class="highlight" style="color: #28a745;">$0</span></div>
+            <div class="res-box">
+                <p>Al llegar a los 18 años:</p>
+                <div>Banco (0.5%): <span id="r_u_banco" class="valor">$0</span></div>
+                <div>Estrategia IUL (7%): <span id="r_u_iul" class="valor" style="color: green;">$0</span></div>
             </div>
         </div>
     </section>
 
     <section>
-        <h2>退休 Proyección de Jubilación</h2>
-        <div class="calculator-grid">
+        <h2 class="calc-header">📈 Proyección de Jubilación IUL</h2>
+        <div class="grid">
             <div>
                 <label>Ahorro Mensual ($):</label>
-                <input type="number" id="jub_aporte" value="500" oninput="calcularTodo()">
-                <label>Años hasta jubilarse:</label>
-                <input type="number" id="jub_anos" value="25" oninput="calcularTodo()">
+                <input type="number" id="j_aporte" value="500" oninput="calcular()">
+                <label>Años de contribución:</label>
+                <input type="number" id="j_anos" value="25" oninput="calcular()">
             </div>
-            <div class="result-box">
-                <p>Fondo estimado al jubilarse:</p>
-                <div class="highlight" style="font-size: 1.5em;" id="res_jubilacion">$0</div>
-                <small>*Basado en un promedio histórico del 7% anual.</small>
+            <div class="res-box">
+                <p>Fondo de Retiro Estimado:</p>
+                <div class="valor" style="font-size: 2em;" id="r_j_total">$0</div>
+                <small>*Proyección basada en interés compuesto al 7%</small>
             </div>
         </div>
     </section>
 
-    <section style="border-top: 5px solid #25d366;">
-        <h2>💼 Únete a Nuestro Equipo</h2>
-        <form id="agenteForm">
-            <input type="text" id="reg_nombre" placeholder="Nombre completo" required>
-            <input type="text" id="reg_estado" placeholder="Estado" required>
-            <select id="reg_licencia" required>
-                <option value="">¿Tienes licencia?</option>
-                <option value="Si">Sí</option>
-                <option value="No">No</option>
-            </select>
-            <input type="tel" id="reg_telefono" placeholder="WhatsApp" required>
-            <button type="submit" class="btn-agent">Enviar Solicitud</button>
-        </form>
+    <section>
+        <h2 class="calc-header">🛡️ Escudo de Interés Compuesto</h2>
+        <div class="grid">
+            <div>
+                <label>Inversión Inicial ($):</label>
+                <input type="number" id="i_inicial" value="1000" oninput="calcular()">
+                <label>Tiempo (Años):</label>
+                <input type="number" id="i_tiempo" value="10" oninput="calcular()">
+            </div>
+            <div class="res-box">
+                <p>Crecimiento Total:</p>
+                <div class="valor" id="r_i_final">$0</div>
+            </div>
+        </div>
     </section>
-</div>
 
-<script>
-    const URL_CRM = "https://script.google.com/macros/s/AKfycbz7s1TT3LelZK_3bki-lG0DisknW11JxkE4dSEFjUB2IzmZmkU_oL95m1vf9yq13lFE_w/exec";
-    const URL_PDF = "https://raw.githubusercontent.com/jcynay0206/jcnay-vida-team/main/Banco_Libre.pdf";
-
-    // ENVÍO AL CRM
-    async function enviarDatos(payload) {
-        try {
-            await fetch(URL_CRM, {
-                method: 'POST',
-                mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-        } catch (e) { console.log("Error CRM"); }
-    }
-
-    // FORMULARIO CLIENTES
-    document.getElementById('mainForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const data = {
-            tipo: "CLIENTE",
-            nombre: document.getElementById('nombre').value,
-            edad: document.getElementById('edad').value,
-            ingresos: document.getElementById('ingresos').value
-        };
-        
-        await enviarDatos(data);
-        
-        // Descarga
-        const link = document.createElement('a');
-        link.href = URL_PDF;
-        link.download = "Guia_Banco_Libre.pdf";
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        document.getElementById('mainForm').style.display = 'none';
-        document.getElementById('postEnvio').style.display = 'block';
-    });
-
-    // FORMULARIO AGENTES
-    document.getElementById('agenteForm').addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const data = {
-            tipo: "AGENTE",
-            nombre: document.getElementById('reg_nombre').value,
-            estado: document.getElementById('reg_estado').value,
-            licencia: document.getElementById('reg_licencia').value,
-            telefono: document.getElementById('reg_telefono').value
-        };
-        await enviarDatos(data);
-        alert("¡Solicitud enviada! Nos contactaremos pronto.");
-        document.getElementById('agenteForm').reset();
-    });
-
-    // CÁLCULOS
-    function calcularTodo() {
-        // Uni
-        let uAporte = parseFloat(document.getElementById('uni_aporte').value) || 0;
-        let uAnos = Math.max(0, 18 - (parseInt(document.getElementById('uni_edad').value) || 0));
-        let uBanco = uAporte * ((Math.pow(1 + 0.005/12, uAnos*12) - 1) / (0.005/12));
-        let uIul = uAporte * ((Math.pow(1 + 0.0
+    <section class="recluta">
+        <h2>💼 Únete a JCNay Vida Team</h2>
+        <p style="text-align:center">¿Buscas una carrera como agente? Post
