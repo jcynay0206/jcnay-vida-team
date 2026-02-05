@@ -5,89 +5,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JCNay Vida Team | Escudo Financiero</title>
     <style>
-        /* COLORES PALETA AZUL Y DORADO */
         :root {
             --azul: #1a2a6c;
             --dorado: #b8860b;
             --dorado-brillante: #fdbb2d;
             --verde: #25d366;
             --blanco: #ffffff;
+            --fondo: #f0f2f5;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, sans-serif;
-            background: #eef2f3; /* Color de fondo para que resalten las tarjetas */
+            background-color: var(--fondo);
             margin: 0;
-            padding: 20px;
+            padding: 10px;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; }
+        .container { max-width: 1100px; margin: 0 auto; }
 
-        /* HEADER */
         header {
             background: var(--azul);
             color: white;
-            padding: 30px;
+            padding: 25px;
             text-align: center;
             border-radius: 15px;
-            border-bottom: 8px solid var(--dorado);
-            margin-bottom: 25px;
+            border-bottom: 6px solid var(--dorado);
+            margin-bottom: 20px;
         }
 
-        /* SECCIONES */
         section {
             background: var(--blanco);
-            padding: 25px;
+            padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
         }
 
-        /* FUERZA LAS CALCULADORAS AL LADO (GRID) */
-        .contenedor-calculadoras {
+        /* FUERZA CALCULADORAS EN FILA */
+        .grid-calcs {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
+            gap: 15px;
+            justify-content: space-between;
         }
 
         .calc-card {
             background: var(--blanco);
-            border: 2px solid #eee;
-            border-top: 6px solid var(--dorado);
-            border-radius: 15px;
-            padding: 20px;
+            border-top: 5px solid var(--dorado);
+            border-radius: 12px;
+            padding: 15px;
             flex: 1;
-            min-width: 300px; /* Evita que se vean muy pequeñas */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            min-width: 300px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-sizing: border-box;
         }
 
         h2, h3 { color: var(--azul); margin-top: 0; text-align: center; }
 
         input, select {
-            width: 100%; padding: 12px; margin: 10px 0;
-            border: 2px solid #ddd; border-radius: 8px; box-sizing: border-box;
+            width: 100%; padding: 10px; margin: 8px 0;
+            border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box;
         }
 
-        /* BOTONES */
         .btn {
-            width: 100%; padding: 15px; border: none; border-radius: 8px;
-            font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s;
+            width: 100%; padding: 14px; border: none; border-radius: 8px;
+            font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.3s;
             text-decoration: none; display: block; text-align: center; margin-top: 10px;
         }
         .btn-azul { background: var(--azul); color: white; }
-        .btn-dorado { background: var(--dorado-brillante); color: black; border: 1px solid var(--dorado); }
+        .btn-dorado { background: var(--dorado-brillante); color: black; }
         .btn-verde { background: var(--verde); color: white; }
 
-        /* RESULTADOS */
         .res-box {
-            background: #f4f7f9;
-            padding: 15px;
-            border-radius: 10px;
-            border-left: 5px solid var(--dorado);
-            margin-top: 15px;
+            background: #f8f9fa; padding: 12px; border-radius: 8px;
+            border-left: 4px solid var(--dorado); margin-top: 10px;
         }
-        .res-num { font-weight: bold; font-size: 1.3em; color: var(--azul); }
+        .res-num { font-weight: bold; font-size: 1.2em; color: var(--azul); }
 
         #areaPostEnvio { display: none; }
     </style>
@@ -97,59 +90,58 @@
 <div class="container">
     <header>
         <h1>🛡️ JCNay Vida Team</h1>
-        <p>Expertos en Protección IUL y Blindaje Familiar</p>
+        <p>Estrategias IUL y Protección Familiar</p>
     </header>
 
-    <section>
+    <section id="seccion-registro">
         <div id="formOriginal">
-            <h3>📥 Obtén la Guía "Banco Libre"</h3>
+            <h3>📥 Descargar Guía "Banco Libre"</h3>
             <form id="registroForm">
                 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-                    <input type="text" id="nom" placeholder="Nombre" required style="flex:1">
+                    <input type="text" id="nom" placeholder="Nombre" required style="flex:2">
                     <input type="number" id="ed" placeholder="Edad" required style="flex:1">
                     <select id="ing" required style="flex:1">
-                        <option value="">Ingresos Anuales</option>
+                        <option value="">Ingresos</option>
                         <option value="Bajo">< $50k</option>
                         <option value="Medio">$50k-$100k</option>
                         <option value="Alto">> $100k</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-azul">DESCARGAR GUÍA Y ACTIVAR TODO</button>
+                <button type="submit" class="btn btn-azul">DESCARGAR GUÍA Y ACTIVAR</button>
             </form>
         </div>
 
         <div id="areaPostEnvio">
-            <h2 style="color: var(--verde);">¡Enviado con Éxito! ✅</h2>
-            <p style="text-align:center;">La guía se ha descargado. ¿Qué sigue?</p>
+            <h2 style="color: var(--verde);">¡Registro Exitoso! ✅</h2>
             <div style="display:flex; gap:10px;">
-                <a href="https://calendly.com/blindajefamiliarus" target="_blank" class="btn btn-dorado">📅 Cita en Calendly</a>
+                <a href="https://calendly.com/blindajefamiliarus" target="_blank" class="btn btn-dorado">📅 Cita Calendly</a>
                 <a href="https://wa.me/19086774196" target="_blank" class="btn btn-verde">💬 WhatsApp</a>
             </div>
         </div>
     </section>
 
-    <div class="contenedor-calculadoras">
+    <div class="grid-calcs">
         <div class="calc-card">
             <h3>🎓 Universidad</h3>
-            <label>Ahorro Mensual ($):</label>
+            <label>Mensual ($):</label>
             <input type="number" id="u_a" value="300" oninput="doCalcs()">
-            <label>Edad del niño:</label>
+            <label>Edad niño:</label>
             <input type="number" id="u_e" value="1" oninput="doCalcs()">
             <div class="res-box">
-                <div>Banco: <span id="r_u_b" class="res-num">$0</span></div>
-                <div>IUL: <span id="r_u_i" class="res-num" style="color:green">$0</span></div>
+                <div>Banco (0.5%): <span id="r_u_b" class="res-num">$0</span></div>
+                <div>IUL (7%): <span id="r_u_i" class="res-num" style="color:green">$0</span></div>
             </div>
         </div>
 
         <div class="calc-card">
             <h3>📈 Retiro IUL</h3>
-            <label>Mensualidad ($):</label>
+            <label>Mensual ($):</label>
             <input type="number" id="r_a" value="500" oninput="doCalcs()">
-            <label>Años de ahorro:</label>
+            <label>Años ahorro:</label>
             <input type="number" id="r_t" value="25" oninput="doCalcs()">
             <div class="res-box">
                 <p>Proyección Final:</p>
-                <div class="res-num" style="font-size: 1.6em;" id="r_total">$0</div>
+                <div class="res-num" style="font-size: 1.4em;" id="r_total">$0</div>
             </div>
         </div>
 
@@ -157,17 +149,92 @@
             <h3>🛡️ Escudo</h3>
             <label>Capital Inicial ($):</label>
             <input type="number" id="i_i" value="1000" oninput="doCalcs()">
-            <label>Tiempo (Años):</label>
+            <label>Años:</label>
             <input type="number" id="i_t" value="10" oninput="doCalcs()">
             <div class="res-box">
-                <p>Resultado:</p>
+                <p>Resultado Final:</p>
                 <div class="res-num" id="r_escudo">$0</div>
             </div>
         </div>
     </div>
 
-    <section style="margin-top:25px; border-top: 8px solid var(--verde);">
-        <h2 style="color: var(--verde);">💼 Únete como Agente</h2>
+    <section style="margin-top:20px; border-top: 6px solid var(--verde);">
+        <h3>💼 Únete como Agente</h3>
         <form id="agenteForm">
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
-                <input type="text" id="an" placeholder="Nombre"
+                <input type="text" id="an" placeholder="Nombre" required>
+                <input type="text" id="ae" placeholder="Estado" required>
+                <select id="al" required>
+                    <option value="">¿Licencia?</option>
+                    <option value="Si">Sí</option>
+                    <option value="No">No</option>
+                </select>
+                <input type="tel" id="at" placeholder="Teléfono" required>
+            </div>
+            <button type="submit" class="btn btn-verde">POSTULARME</button>
+        </form>
+    </section>
+</div>
+
+<script>
+    const CRM_URL = "https://script.google.com/macros/s/AKfycbzUdldzmbp-UpoNEDKQsbsC8D-Ggu9GGKXy7HsyfyZxVa2gW8j3DVgQYo5DXIMnrSSYjA/exec";
+    const PDF_URL = "https://raw.githubusercontent.com/jcynay0206/jcnay-vida-team/main/Banco_Libre.pdf";
+
+    function doCalcs() {
+        // Universidad
+        let ua = parseFloat(document.getElementById('u_a').value) || 0;
+        let ut = Math.max(0, 18 - (parseInt(document.getElementById('u_e').value) || 0));
+        let ub = ua * ((Math.pow(1 + 0.005/12, ut*12) - 1) / (0.005/12));
+        let ui = ua * ((Math.pow(1 + 0.07/12, ut*12) - 1) / (0.07/12));
+        document.getElementById('r_u_b').innerText = "$" + Math.round(ub).toLocaleString();
+        document.getElementById('r_u_i').innerText = "$" + Math.round(ui).toLocaleString();
+
+        // Retiro
+        let ra = parseFloat(document.getElementById('r_a').value) || 0;
+        let rt = parseInt(document.getElementById('r_t').value) || 0;
+        let rtot = ra * ((Math.pow(1 + 0.07/12, rt*12) - 1) / (0.07/12));
+        document.getElementById('r_total').innerText = "$" + Math.round(rtot).toLocaleString();
+
+        // Escudo
+        let ii = parseFloat(document.getElementById('i_i').value) || 0;
+        let it = parseInt(document.getElementById('i_t').value) || 0;
+        let ifin = ii * Math.pow(1 + 0.07, it);
+        document.getElementById('r_escudo').innerText = "$" + Math.round(ifin).toLocaleString();
+    }
+
+    async function sendData(d) {
+        fetch(CRM_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(d) });
+    }
+
+    document.getElementById('registroForm').onsubmit = async (e) => {
+        e.preventDefault();
+        const d = {
+            tipo: "CLIENTE",
+            nombre: document.getElementById('nom').value,
+            edad: document.getElementById('ed').value,
+            ingresos: document.getElementById('ing').value
+        };
+        await sendData(d);
+        window.open(PDF_URL, '_blank');
+        document.getElementById('formOriginal').style.display = 'none';
+        document.getElementById('areaPostEnvio').style.display = 'block';
+    };
+
+    document.getElementById('agenteForm').onsubmit = async (e) => {
+        e.preventDefault();
+        const d = {
+            tipo: "AGENTE",
+            nombre: document.getElementById('an').value,
+            estado: document.getElementById('ae').value,
+            licencia: document.getElementById('al').value,
+            telefono: document.getElementById('at').value
+        };
+        await sendData(d);
+        alert("Solicitud enviada correctamente.");
+        document.getElementById('agenteForm').reset();
+    };
+
+    window.onload = doCalcs;
+</script>
+</body>
+</html>
