@@ -88,21 +88,23 @@
         &copy; 2026 JCNay Vida Team. Especialistas en Blindaje Familiar.
     </footer>
 
-   <script>
+<script>
+        // 1. CONFIGURACIÓN
+        var URL_CRM = "https://script.google.com/macros/s/AKfycby0gDgCPhvUeoFRM6lv_7dWzqmCcbV-i1CCgzyyOKcrpPu4dhdV4WDQAHaHJ2mhbTcTbg/exec"; 
         var MI_TELEFONO = "19086774196"; 
         var MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
-       var URL_CRM = "https://script.google.com/macros/s/AKfycbymlOnL8q5UbbjNCU1JeBA9Nx5WYB4YiRDWHCWO0iPwKI5W5fTlgNz03bn6BBqiHs7lBg/exec";
         var URL_PDF = "https://raw.githubusercontent.com/jcynay0206/jcnay-vida-team/main/Banco_Libre.pdf";
 
         document.getElementById('mainForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // CAPTURAMOS LOS 3 DATOS DEL FORMULARIO
+            // CAPTURAMOS LOS DATOS
             var nombre = document.getElementById('nombre').value;
             var edad = document.getElementById('edad').value;
             var ingresos = document.getElementById('ingresos').value;
 
-            // 1. ENVIAR AL CRM (Ahora con los 3 datos corregidos)
+            // 1. ENVIAR AL CRM (Google Sheets)
+            // Enviamos los nombres de variables exactos: nombre, edad, ingresos
             fetch(URL_CRM, {
                 method: 'POST',
                 mode: 'no-cors',
@@ -126,7 +128,7 @@
             var textoWA = "Hola! Soy " + nombre + ". Ya tengo la guía y usé las calculadoras. Quiero mi auditoría. (Edad: " + edad + ")";
             window.open("https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(textoWA), "_blank");
 
-            // 4. CALENDLY
+            // 4. CALENDLY (Redirección final)
             setTimeout(function() {
                 window.location.href = MI_CALENDLY;
             }, 2500);
