@@ -90,37 +90,39 @@
 </footer>
 
 <script>
-    // Configuración real de JCNay Vida Team
-    const MI_TELEFONO = "9086774196"; 
-    const MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
+    // Configuración JCNay Vida Team
+    var MI_TELEFONO = "9086774196"; 
+    var MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
 
-    const form = document.getElementById('mainForm');
+    var form = document.getElementById('mainForm');
     
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Captura de datos
-        const nombre = document.getElementById('nombre').value;
-        const edad = document.getElementById('edad').value;
-        const ingresos = document.getElementById('ingresos').value;
+        // Capturar los valores de los campos
+        var nombre = document.getElementById('nombre').value;
+        var edad = document.getElementById('edad').value;
+        var ingresos = document.getElementById('ingresos').value;
 
-        // 1. Guardar copia local (CRM Invisible)
-        const datos = { nombre, edad, ingresos, fecha: new Date().toLocaleString() };
-        let leads = JSON.parse(localStorage.getItem('jcnay_leads_privados')) || [];
+        // 1. Guardar datos en el navegador (CRM Privado)
+        var datos = { nombre: nombre, edad: edad, ingresos: ingresos, fecha: new Date().toLocaleString() };
+        var leads = JSON.parse(localStorage.getItem('jcnay_leads_privados')) || [];
         leads.push(datos);
         localStorage.setItem('jcnay_leads_privados', JSON.stringify(leads));
 
-        // 2. Crear mensaje para WhatsApp
-        const mensajeWA = "Hola JCNay Vida Team! Soy " + nombre + ". Quiero mi auditoría de libertad financiera. Tengo " + edad + " años e ingresos de " + ingresos + ".";
-        
-        // 3. Abrir WhatsApp en pestaña nueva
-        window.open("https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(mensajeWA), "_blank");
+        // 2. Crear el mensaje de WhatsApp
+        var textoWA = "Hola JCNay Vida Team! Soy " + nombre + ". Quiero mi auditoría de libertad financiera. Tengo " + edad + " años e ingresos de " + ingresos + ".";
+        var urlWA = "https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(textoWA);
 
-        // 4. Redirigir la página actual a Calendly
+        // 3. Abrir WhatsApp en una pestaña nueva
+        window.open(urlWA, '_blank');
+
+        // 4. Redirigir a Calendly en la pestaña actual después de 1 segundo
         setTimeout(function() {
             window.location.href = MI_CALENDLY;
         }, 1000);
     });
 </script>
+    
 </body>
 </html>
