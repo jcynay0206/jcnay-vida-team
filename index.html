@@ -90,37 +90,39 @@
 </footer>
 
 <script>
-    // Configuración JCNay Vida Team
-    var MI_TELEFONO = "9086774196"; 
-    var MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
+    const MI_TELEFONO = "9086774196"; 
+    const MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
+    const LINK_PDF = "https://drive.google.com/uc?export=download&id=1A_PIWAzPpcDPsnuutBLTqrkV-3_pRlSc"; 
 
-    var form = document.getElementById('mainForm');
+    const form = document.getElementById('mainForm');
     
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Capturar los valores de los campos
-        var nombre = document.getElementById('nombre').value;
-        var edad = document.getElementById('edad').value;
-        var ingresos = document.getElementById('ingresos').value;
+        const nombre = document.getElementById('nombre').value;
+        const edad = document.getElementById('edad').value;
+        const ingresos = document.getElementById('ingresos').value;
 
-        // 1. Guardar datos en el navegador (CRM Privado)
-        var datos = { nombre: nombre, edad: edad, ingresos: ingresos, fecha: new Date().toLocaleString() };
-        var leads = JSON.parse(localStorage.getItem('jcnay_leads_privados')) || [];
+        // 1. Guardar datos del prospecto
+        const datos = { nombre, edad, ingresos, fecha: new Date().toLocaleString() };
+        let leads = JSON.parse(localStorage.getItem('jcnay_leads_privados')) || [];
         leads.push(datos);
         localStorage.setItem('jcnay_leads_privados', JSON.stringify(leads));
 
-        // 2. Crear el mensaje de WhatsApp
-        var textoWA = "Hola JCNay Vida Team! Soy " + nombre + ". Quiero mi auditoría de libertad financiera. Tengo " + edad + " años e ingresos de " + ingresos + ".";
-        var urlWA = "https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(textoWA);
+        // 2. DESCARGA AUTOMÁTICA (El "premio" inmediato)
+        window.open(LINK_PDF, '_blank');
 
-        // 3. Abrir WhatsApp en una pestaña nueva
-        window.open(urlWA, '_blank');
-
-        // 4. Redirigir a Calendly en la pestaña actual después de 1 segundo
-        setTimeout(function() {
-            window.location.href = MI_CALENDLY;
+        // 3. ABRIR WHATSAPP (Para el contacto personal)
+        const mensajeWA = `Hola JCNay Vida Team! Soy ${nombre}. Acabo de solicitar mi auditoría y descargar la guía. Tengo ${edad} años y mi rango de ingresos es ${ingresos}.`;
+        
+        setTimeout(() => {
+            window.open(`https://wa.me/${MI_TELEFONO}?text=${encodeURIComponent(mensajeWA)}`, '_blank');
         }, 1000);
+
+        // 4. LLEVAR A CALENDLY (Para cerrar la cita)
+        setTimeout(() => {
+            window.location.href = MI_CALENDLY;
+        }, 3000);
     });
 </script>
     
