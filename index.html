@@ -3,74 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JCNay Vida Team | El Banco Libre de Impuestos</title>
+    <title>JCNay Vida Team | Estrategia Financiera</title>
     <style>
         :root { --azul: #1a2a44; --dorado: #d4af37; --gris: #f4f4f4; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: var(--gris); color: #333; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--gris); color: #333; }
         header { background: var(--azul); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--dorado); }
         .container { max-width: 800px; margin: 20px auto; padding: 20px; }
-        .sobre-nosotros { background: white; padding: 30px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .form-container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .form-group { margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--azul); }
-        input, select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
-        .btn-principal { width: 100%; background: var(--dorado); color: var(--azul); padding: 18px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.2rem; transition: 0.3s; }
-        .btn-principal:hover { background: #b8962d; transform: translateY(-2px); }
-        footer { text-align: center; padding: 30px; font-size: 0.9rem; color: #777; }
+        input, select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; }
+        .btn-principal { width: 100%; background: var(--dorado); color: var(--azul); padding: 18px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.2rem; }
+        footer { text-align: center; padding: 30px; color: #777; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>JCNay Vida Team</h1>
-        <p style="font-style: italic; font-size: 1.2rem;">"Más que seguros, diseñamos libertad financiera"</p>
+        <p>"Más que seguros, diseñamos libertad financiera"</p>
     </header>
 
     <div class="container">
-        <section class="sobre-nosotros">
-            <h2 style="color: var(--azul);">Sobre Nosotros</h2>
-            <p>En <strong>JCNay Vida Team</strong>, nos especializamos en estrategias de blindaje familiar y acumulación de riqueza. Nuestra misión es proporcionarte las herramientas necesarias para que tu futuro financiero sea sólido, predecible y exitoso.</p>
-        </section>
-
         <div class="form-container">
             <h2 style="text-align: center; color: var(--azul);">Descarga: El Banco Libre de Impuestos</h2>
-            <p style="text-align: center;">Aprende cómo proteger tu capital y crecer tu patrimonio con la estrategia del IUL.</p>
-            
             <form id="mainForm">
                 <div class="form-group">
-                    <label for="nombre">Nombre Completo:</label>
-                    <input type="text" id="nombre" placeholder="Ej: Juan Pérez" required>
+                    <label>Nombre Completo:</label>
+                    <input type="text" id="nombre" required>
                 </div>
                 <div class="form-group">
-                    <label for="edad">Edad:</label>
-                    <input type="number" id="edad" placeholder="Ej: 35" required>
+                    <label>Edad:</label>
+                    <input type="number" id="edad" required>
                 </div>
                 <div class="form-group">
-                    <label for="ingresos">Ingresos Anuales Estimados:</label>
+                    <label>Ingresos Anuales:</label>
                     <select id="ingresos" required>
-                        <option value="">Seleccione una opción</option>
+                        <option value="">Seleccione...</option>
                         <option value="Menos de $50k">Menos de $50,000</option>
                         <option value="$50k - $100k">$50,000 - $100,000</option>
-                        <option value="$100k - $250k">$100,000 - $250,000</option>
-                        <option value="Más de $250k">Más de $250,000</option>
+                        <option value="Más de $100k">Más de $100,000</option>
                     </select>
                 </div>
-                <button type="submit" class="btn-principal">DESCARGAR GUÍA Y SOLICITAR AUDITORÍA</button>
+                <button type="submit" class="btn-principal">DESCARGAR GUÍA Y SOLICITAR CITA</button>
             </form>
         </div>
     </div>
-
-    <footer>
-        &copy; 2026 JCNay Vida Team. Todos los derechos reservados.
-    </footer>
 
     <script>
         var MI_TELEFONO = "19086774196"; 
         var MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
         var URL_CRM = "https://script.google.com/macros/s/AKfycbz0-5pNl_6O3QCd40j8xUGHZmoezbPvqWKGD6djzBEw2i1TJr2avQez8UmceNT8xSzgIQ/exec"; 
         
-        // Link directo para descarga del PDF desde tu Drive
-        var URL_PDF = "https://drive.google.com/uc?export=download&id=1A_PIWAzPpcDPsnuutBLTqrkV-3_pRlSc";
+        // USANDO LINK DE GITHUB PARA EVITAR EL ERROR 404 DE DRIVE
+        var URL_PDF = "https://raw.githubusercontent.com/jcynay0206/jcnay-vida-team/main/Banco_Libre.pdf";
 
         document.getElementById('mainForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -79,26 +65,30 @@
             var edad = document.getElementById('edad').value;
             var ingresos = document.getElementById('ingresos').value;
 
-            // 1. Enviar datos al CRM (Google Sheets)
+            // 1. CRM
             fetch(URL_CRM, {
                 method: 'POST',
                 mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ nombre: nombre, edad: edad, ingresos: ingresos })
             });
 
-            // 2. Descarga automática del PDF "El Banco Libre de Impuestos"
-            window.open(URL_PDF, '_blank');
+            // 2. DESCARGA (Método forzado)
+            var link = document.createElement('a');
+            link.href = URL_PDF;
+            link.download = "El_Banco_Libre_de_Impuestos.pdf";
+            link.target = "_blank";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
 
-            // 3. Abrir WhatsApp con mensaje personalizado
-            var textoWA = "¡Hola JCNay Vida Team! Soy " + nombre + ". Acabo de descargar la guía 'El Banco Libre de Impuestos'. Tengo " + edad + " años y deseo mi auditoría gratuita.";
-            var urlWA = "https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(textoWA);
-            window.open(urlWA, '_blank');
+            // 3. WHATSAPP
+            var textoWA = "Hola! Soy " + nombre + ". Ya descargué la guía y quiero mi auditoría. (Edad: " + edad + ")";
+            window.open("https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(textoWA), "_blank");
 
-            // 4. Redirigir a Calendly
+            // 4. CALENDLY
             setTimeout(function() {
                 window.location.href = MI_CALENDLY;
-            }, 2500);
+            }, 2000);
         });
     </script>
 </body>
