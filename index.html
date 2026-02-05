@@ -87,7 +87,7 @@
         </form>
     </div>
 
-  <script>
+<script>
     // --- CONFIGURACIÓN JCNay Vida Team ---
     var MI_TELEFONO = "9086774196"; 
     var MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
@@ -96,13 +96,11 @@
     document.getElementById('mainForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // 1. Capturar datos del formulario
         var nombre = document.getElementById('nombre').value;
         var edad = document.getElementById('edad').value;
         var ingresos = document.getElementById('ingresos').value;
 
-        // 2. ENVIAR AL CRM (Google Sheets)
-        // Esto sucede en segundo plano
+        // 1. ENVIAR AL CRM (Google Sheets)
         fetch(URL_CRM, {
             method: 'POST',
             mode: 'no-cors',
@@ -113,21 +111,13 @@
                 edad: edad,
                 ingresos: ingresos
             })
-        }).then(function() {
-            console.log("Datos enviados al CRM");
-        }).catch(function(err) {
-            console.log("Error CRM:", err);
         });
 
-        // 3. PREPARAR Y ABRIR WHATSAPP
+        // 2. WHATSAPP
         var textoWA = "Hola JCNay Vida Team! Soy " + nombre + ". Quiero mi auditoría de libertad financiera. Tengo " + edad + " años e ingresos de " + ingresos + ".";
-        var urlWA = "https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(textoWA);
-        
-        // Abrimos WhatsApp en pestaña nueva
-        window.open(urlWA, '_blank');
+        window.open("https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(textoWA), "_blank");
 
-        // 4. REDIRIGIR A CALENDLY
-        // Esperamos 1.5 segundos para que la pestaña de WhatsApp no sea bloqueada
+        // 3. CALENDLY
         setTimeout(function() {
             window.location.href = MI_CALENDLY;
         }, 1500);
