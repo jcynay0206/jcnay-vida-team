@@ -100,72 +100,98 @@
             </div>
         </div>
 
+     <section style="border-top: 6px solid var(--verde);">
+        <h3>💼 Únete a nuestro Equipo de Agentes</h3>
         <form id="agenteForm">
             <input type="text" id="an" placeholder="Nombre completo" required>
             <div style="display: flex; gap: 10px;">
                 <select id="ae" required style="flex:1">
-                    <option value="">Tu Estado</option>
+                    <option value="">Selecciona Estado</option>
                     <option value="Florida">Florida</option>
                     <option value="Texas">Texas</option>
-                    <option value="California">California</option>
                     <option value="New Jersey">New Jersey</option>
-                    <option value="New York">New York</option>
                     <option value="Otros">Otros</option>
                 </select>
                 <select id="al" required style="flex:1">
-                    <option value="">¿Tienes Licencia?</option>
+                    <option value="">¿Licencia?</option>
                     <option value="Si">Sí</option>
                     <option value="No">No</option>
                 </select>
             </div>
-            <input type="tel" id="at" placeholder="Teléfono de contacto (WhatsApp)" required>
-            <button type="submit" class="btn btn-verde">ENVIAR MI POSTULACIÓN</button>
+            <input type="tel" id="at" placeholder="Teléfono / WhatsApp" required>
+            
+            <button type="button" onclick="abrirFiltro()" class="btn btn-verde">CONTINUAR POSTULACIÓN</button>
         </form>
     </section>
+</div> <div id="modalFiltro" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:white; padding:25px; border-radius:15px; max-width:350px; width:90%; text-align:center; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+        <h3 style="color: var(--azul);">🛡️ Requisitos Mínimos</h3>
+        <p style="font-size: 14px; color: #555;">Para procesar tu solicitud, confirma lo siguiente:</p>
+        
+        <div style="text-align:left; margin:20px 0; font-size: 15px;">
+            <label style="display:block; margin-bottom:15px;"><input type="checkbox" id="checkEdad"> Soy mayor de 18 años</label>
+            <label style="display:block;"><input type="checkbox" id="checkSSN"> Tengo SSN o Permiso de Trabajo</label>
+        </div>
+
+        <button onclick="validarYEnviar()" class="btn btn-azul">CONFIRMAR Y ENVIAR</button>
+        <button onclick="cerrarFiltro()" style="background:none; border:none; color:gray; cursor:pointer; margin-top:15px; font-size:13px;">Regresar</button>
+    </div>
 </div>
 
 <script>
-    // URL DEL CRM (TU NUEVO LINK)
-    const URL_CRM = "https://script.google.com/macros/s/AKfycbwIZOFj-eFzIGjobJgsFub_CA_MomRGMsqYU9rP_k-YRFUzMYbZZn7nhlUyk1yYXYGM9g/exec";
+ const URL_CRM = "https://script.google.com/macros/s/AKfycbw03lfXmU4-MHDG4_56GbO-XpOqWGnd3flJ5-KolntarhDYWrBr53Tag01JdMT7h8Mvuw/exec";
     const PDF_URL = "https://raw.githubusercontent.com/jcynay0206/jcnay-vida-team/main/Banco_Libre.pdf";
 
     async function enviarDatos(datos) {
-        // mode 'no-cors' para evitar bloqueos del navegador
         fetch(URL_CRM, { method: 'POST', mode: 'no-cors', body: JSON.stringify(datos) });
     }
 
     // Proceso Clientes
     document.getElementById('mainForm').onsubmit = async (e) => {
         e.preventDefault();
-        const d = { 
-            tipo: "CLIENTE", 
-            nombre: document.getElementById('nom').value, 
-            edad: document.getElementById('ed').value, 
-            ingresos: document.getElementById('ing').value 
-        };
+        const d = { tipo: "CLIENTE", nombre: document.getElementById('nom').value, edad: document.getElementById('ed').value, ingresos: document.getElementById('ing').value };
         await enviarDatos(d);
-        
-        // Descarga automática
         window.open(PDF_URL, '_blank');
-        
-        // Cambio de interfaz
         document.getElementById('formRegistro').style.display = 'none';
         document.getElementById('postEnvio').style.display = 'block';
     };
 
-    // Proceso Agentes
-    document.getElementById('agenteForm').onsubmit = async (e) => {
-        e.preventDefault();
-        const d = { 
-            tipo: "AGENTE", 
-            nombre: document.getElementById('an').value, 
-            estado: document.getElementById('ae').value, 
-            licencia: document.getElementById('al').value, 
-            telefono: document.getElementById('at').value 
-        };
-        await enviarDatos(d);
-        alert("¡Solicitud enviada! Nos pondremos en contacto contigo a la brevedad.");
-        document.getElementById('agenteForm').reset();
+    // FUNCIONES DEL FILTRO DE AGENTES
+    function abrirFiltro() {
+        // Validar que el formulario esté lleno antes de abrir el modal
+        const nombre = document.getElementById('an').value;
+        const tel = document.getElementById('at').value;
+        if(nombre && tel) {
+            document.getElementById('modalFiltro').style.display = 'flex';
+        } else {
+            alert("Por favor, completa tus datos de contacto.");
+        }
+    }
+
+    function cerrarFiltro() {
+        document.getElementById('modalFiltro').style.display = 'none';
+    }
+
+    async function validarYEnviar() {
+        const edad = document.getElementById('checkEdad').checked;
+        const ssn = document.getElementById('checkSSN').checked;
+
+        if (edad && ssn) {
+            const d = { 
+                tipo: "AGENTE", 
+                nombre: document.getElementById('an').value, 
+                estado: document.getElementById('ae').value, 
+                licencia: document.getElementById('al').value, 
+                telefono: document.getElementById('at').value 
+            };
+            await enviarDatos(d);
+            alert("¡Postulación enviada exitosamente!");
+            cerrarFiltro();
+            document.getElementById('agenteForm').reset();
+        } else {
+            alert("Debes cumplir con ambos requisitos (Edad y SSN) para postularte.");
+        }
+    }
     };
 </script>
 </body>
