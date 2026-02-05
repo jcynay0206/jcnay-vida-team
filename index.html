@@ -92,6 +92,8 @@
     var MI_TELEFONO = "9086774196"; 
     var MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
     var URL_CRM = "https://script.google.com/macros/s/AKfycbz0-5pNl_6O3QCd40j8xUGHZmoezbPvqWKGD6djzBEw2i1TJr2avQez8UmceNT8xSzgIQ/exec"; 
+    // Link de tu PDF (Asegúrate de que este link sea el correcto)
+    var URL_PDF = "https://raw.githubusercontent.com/jcynay0206/jcnay-vida-team/main/Guia_IUL_JCNay.pdf";
 
     document.getElementById('mainForm').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -113,14 +115,22 @@
             })
         });
 
-        // 2. WHATSAPP
-        var textoWA = "Hola JCNay Vida Team! Soy " + nombre + ". Quiero mi auditoría de libertad financiera. Tengo " + edad + " años e ingresos de " + ingresos + ".";
+        // 2. DESCARGA AUTOMÁTICA DEL PDF
+        var linkDescarga = document.createElement('a');
+        linkDescarga.href = URL_PDF;
+        linkDescarga.download = "Guia_Libertad_Financiera.pdf";
+        document.body.appendChild(linkDescarga);
+        linkDescarga.click();
+        document.body.removeChild(linkDescarga);
+
+        // 3. WHATSAPP (Abre en pestaña nueva)
+        var textoWA = "Hola JCNay Vida Team! Soy " + nombre + ". Acabo de descargar la guía y quiero mi auditoría. Tengo " + edad + " años.";
         window.open("https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(textoWA), "_blank");
 
-        // 3. CALENDLY
+        // 4. CALENDLY (Redirige la pestaña actual)
         setTimeout(function() {
             window.location.href = MI_CALENDLY;
-        }, 1500);
+        }, 2000);
     });
 </script>
 </body>
