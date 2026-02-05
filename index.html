@@ -88,7 +88,7 @@
         &copy; 2026 JCNay Vida Team. Especialistas en Blindaje Familiar.
     </footer>
 
-    <script>
+   <script>
         var MI_TELEFONO = "19086774196"; 
         var MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
         var URL_CRM = "https://script.google.com/macros/s/AKfycbz0-5pNl_6O3QCd40j8xUGHZmoezbPvqWKGD6djzBEw2i1TJr2avQez8UmceNT8xSzgIQ/exec"; 
@@ -96,12 +96,25 @@
 
         document.getElementById('mainForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            var nombre = document.getElementById('nombre').value;
             
-            // 1. CRM
-            fetch(URL_CRM, { method: 'POST', mode: 'no-cors', body: JSON.stringify({ nombre: nombre }) });
+            // CAPTURAMOS LOS 3 DATOS DEL FORMULARIO
+            var nombre = document.getElementById('nombre').value;
+            var edad = document.getElementById('edad').value;
+            var ingresos = document.getElementById('ingresos').value;
 
-            // 2. Descarga PDF
+            // 1. ENVIAR AL CRM (Ahora con los 3 datos corregidos)
+            fetch(URL_CRM, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    nombre: nombre, 
+                    edad: edad, 
+                    ingresos: ingresos 
+                })
+            });
+
+            // 2. DESCARGA DEL PDF
             var link = document.createElement('a');
             link.href = URL_PDF;
             link.download = "Guia_Banco_Libre.pdf";
@@ -109,12 +122,14 @@
             link.click();
             document.body.removeChild(link);
 
-            // 3. WhatsApp
-            var textoWA = "Hola! Soy " + nombre + ". Ya tengo la guía y usé las calculadoras. Quiero mi auditoría.";
+            // 3. WHATSAPP
+            var textoWA = "Hola! Soy " + nombre + ". Ya tengo la guía y usé las calculadoras. Quiero mi auditoría. (Edad: " + edad + ")";
             window.open("https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(textoWA), "_blank");
 
-            // 4. Calendly
-            setTimeout(function() { window.location.href = MI_CALENDLY; }, 2500);
+            // 4. CALENDLY
+            setTimeout(function() {
+                window.location.href = MI_CALENDLY;
+            }, 2500);
         });
     </script>
 </body>
