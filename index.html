@@ -61,70 +61,59 @@
     </p>
 </div>
 <div class="form-container">
-    <h3 style="text-align: center; color: var(--azul); margin-top: 0;">Obtener Guía IUL Gratuita</h3>
-    <form id="mainForm">
-        <input type="text" id="nombre" placeholder="Nombre Completo" required>
-        <input type="number" id="edad" placeholder="Tu Edad" required>
-        <select id="ingresos" required>
-            <option value="">Rango de Ingresos Anuales...</option>
-            <option value="50k-100k">$50,000 - $100,000</option>
-            <option value="100k+">Más de $100,000</option>
-        </select>
-        <button type="submit">DESCARGAR GUÍA Y AGENDAR</button>
-    </form>
-</div>
-
-<section class="beneficios">
-    <div class="card"><h3>🛡️ Protección</h3><p>Si el mercado cae, tu balance se mantiene en el 0%. Nunca pierdes tu principal.</p></div>
-    <div class="card"><h3>💸 Tax-Free</h3><p>Accede a tu dinero mediante préstamos libres de impuestos en tu jubilación.</p></div>
-    <div class="card"><h3>📈 Ganancias</h3><p>Tu dinero crece basado en el rendimiento de índices como el S&P 500.</p></div>
-</section>
-
-<div id="crm-secreto">
-    <h3>Base de Datos Privada</h3>
-    <div id="lista-leads"></div>
-</div>
-
-<footer>
-    <p>&copy; 2026 JCNay Vida Team | Financial Strategies</p>
-</footer>
-
-<script>
-    const MI_TELEFONO = "9086774196"; 
-    const MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
-    const LINK_PDF = "https://drive.google.com/uc?export=download&id=1A_PIWAzPpcDPsnuutBLTqrkV-3_pRlSc"; 
-
-    const form = document.getElementById('mainForm');
-    
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+        <h2 style="text-align: center; color: #1a2a44;">Diseña tu Blindaje Familiar</h2>
+        <p style="text-align: center; color: #666;">Completa tus datos para iniciar tu auditoría personalizada.</p>
         
-        const nombre = document.getElementById('nombre').value;
-        const edad = document.getElementById('edad').value;
-        const ingresos = document.getElementById('ingresos').value;
+        <form id="mainForm">
+            <div class="form-group">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+            </div>
+            <div class="form-group">
+                <label for="edad">Edad:</label>
+                <input type="number" id="edad" name="edad" placeholder="Ej: 35" required>
+            </div>
+            <div class="form-group">
+                <label for="ingresos">Rango de Ingresos Anuales:</label>
+                <select id="ingresos" name="ingresos" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="Menos de $50k">Menos de $50,000</option>
+                    <option value="$50k - $100k">$50,000 - $100,000</option>
+                    <option value="$100k - $250k">$100,000 - $250,000</option>
+                    <option value="Más de $250k">Más de $250,000</option>
+                </select>
+            </div>
+            <button type="submit" style="width: 100%; background: #d4af37; color: #1a2a44; padding: 15px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 1.1rem;">SOLICITAR AUDITORÍA GRATUITA</button>
+        </form>
+    </div>
 
-        // 1. Guardar datos del prospecto
-        const datos = { nombre, edad, ingresos, fecha: new Date().toLocaleString() };
-        let leads = JSON.parse(localStorage.getItem('jcnay_leads_privados')) || [];
-        leads.push(datos);
-        localStorage.setItem('jcnay_leads_privados', JSON.stringify(leads));
+    <script>
+        var MI_TELEFONO = "9086774196"; 
+        var MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
 
-        // 2. DESCARGA AUTOMÁTICA (El "premio" inmediato)
-        window.open(LINK_PDF, '_blank');
+        document.getElementById('mainForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var nombre = document.getElementById('nombre').value;
+            var edad = document.getElementById('edad').value;
+            var ingresos = document.getElementById('ingresos').value;
 
-        // 3. ABRIR WHATSAPP (Para el contacto personal)
-        const mensajeWA = `Hola JCNay Vida Team! Soy ${nombre}. Acabo de solicitar mi auditoría y descargar la guía. Tengo ${edad} años y mi rango de ingresos es ${ingresos}.`;
-        
-        setTimeout(() => {
-            window.open(`https://wa.me/${MI_TELEFONO}?text=${encodeURIComponent(mensajeWA)}`, '_blank');
-        }, 1000);
+            // 1. Guardar copia local (Tu CRM invisible)
+            var datos = { nombre: nombre, edad: edad, ingresos: ingresos, fecha: new Date().toLocaleString() };
+            var leads = JSON.parse(localStorage.getItem('jcnay_leads_privados')) || [];
+            leads.push(datos);
+            localStorage.setItem('jcnay_leads_privados', JSON.stringify(leads));
 
-        // 4. LLEVAR A CALENDLY (Para cerrar la cita)
-        setTimeout(() => {
-            window.location.href = MI_CALENDLY;
-        }, 3000);
-    });
-</script>
-    
+            // 2. WhatsApp
+            var textoWA = "Hola JCNay Vida Team! Soy " + nombre + ". Quiero mi auditoría de libertad financiera. Tengo " + edad + " años e ingresos de " + ingresos + ".";
+            window.open("https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(textoWA), "_blank");
+
+            // 3. Calendly
+            setTimeout(function() {
+                window.location.href = MI_CALENDLY;
+            }, 1200);
+        });
+    </script>
 </body>
 </html>
+    
