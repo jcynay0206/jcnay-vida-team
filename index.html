@@ -77,16 +77,65 @@
         </div>
     </div>
 
-    <section style="border-top: 6px solid var(--verde);">
+ <section style="border-top: 6px solid var(--verde);">
         <h3>💼 Únete a nuestro Equipo de Agentes</h3>
         <form id="agenteForm">
             <input type="text" id="an" placeholder="Nombre completo" required>
             <div style="display: flex; gap: 10px;">
                 <select id="ae" required style="flex:1">
-                    <option value="">Selecciona Estado</option>
+                    <option value="">Selecciona Estado / País</option>
+                    <option value="Canadá">🇨🇦 Canadá</option>
+                    <option value="Alabama">Alabama</option>
+                    <option value="Alaska">Alaska</option>
+                    <option value="Arizona">Arizona</option>
+                    <option value="Arkansas">Arkansas</option>
+                    <option value="California">California</option>
+                    <option value="Carolina del Norte">Carolina del Norte</option>
+                    <option value="Carolina del Sur">Carolina del Sur</option>
+                    <option value="Colorado">Colorado</option>
+                    <option value="Connecticut">Connecticut</option>
+                    <option value="Dakota del Norte">Dakota del Norte</option>
+                    <option value="Dakota del Sur">Dakota del Sur</option>
+                    <option value="Delaware">Delaware</option>
                     <option value="Florida">Florida</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Hawái">Hawái</option>
+                    <option value="Idaho">Idaho</option>
+                    <option value="Illinois">Illinois</option>
+                    <option value="Indiana">Indiana</option>
+                    <option value="Iowa">Iowa</option>
+                    <option value="Kansas">Kansas</option>
+                    <option value="Kentucky">Kentucky</option>
+                    <option value="Luisiana">Luisiana</option>
+                    <option value="Maine">Maine</option>
+                    <option value="Maryland">Maryland</option>
+                    <option value="Massachusetts">Massachusetts</option>
+                    <option value="Michigan">Michigan</option>
+                    <option value="Minnesota">Minnesota</option>
+                    <option value="Misisipi">Misisipi</option>
+                    <option value="Misuri">Misuri</option>
+                    <option value="Montana">Montana</option>
+                    <option value="Nebraska">Nebraska</option>
+                    <option value="Nevada">Nevada</option>
+                    <option value="Nueva Jersey">Nueva Jersey</option>
+                    <option value="Nueva York">Nueva York</option>
+                    <option value="Nuevo Hampshire">Nuevo Hampshire</option>
+                    <option value="Nuevo México">Nuevo México</option>
+                    <option value="Ohio">Ohio</option>
+                    <option value="Oklahoma">Oklahoma</option>
+                    <option value="Oregón">Oregón</option>
+                    <option value="Pensilvania">Pensilvania</option>
+                    <option value="Rhode Island">Rhode Island</option>
+                    <option value="Tennessee">Tennessee</option>
                     <option value="Texas">Texas</option>
-                    <option value="New Jersey">New Jersey</option>
+                    <option value="Utah">Utah</option>
+                    <option value="Vermont">Vermont</option>
+                    <option value="Virginia">Virginia</option>
+                    <option value="Virginia Occidental">Virginia Occidental</option>
+                    <option value="Washington">Washington</option>
+                    <option value="Washington D.C.">Washington D.C.</option>
+                    <option value="Wisconsin">Wisconsin</option>
+                    <option value="Wyoming">Wyoming</option>
                     <option value="Otros">Otros</option>
                 </select>
                 <select id="al" required style="flex:1">
@@ -101,16 +150,16 @@
     </section>
 </div>
 
-<div id="modalFiltro">
-    <div class="modal-content">
-        <h3 style="color: var(--azul); margin-top:0;">🛡️ Requisitos Mínimos</h3>
+<div id="modalFiltro" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; align-items:center; justify-content:center;">
+    <div style="background:white; padding:25px; border-radius:15px; max-width:350px; width:90%; text-align:center;">
+        <h3 style="color: #1a2a6c; margin-top:0;">🛡️ Requisitos Mínimos</h3>
         <p style="font-size: 14px; color: #555;">Confirma que cumples con lo siguiente para procesar tu solicitud:</p>
         <div style="text-align:left; margin:20px 0;">
-            <label style="display:block; margin-bottom:15px; cursor:pointer;"><input type="checkbox" id="checkEdad"> Soy mayor de 18 años</label>
-            <label style="display:block; cursor:pointer;"><input type="checkbox" id="checkSSN"> Tengo SSN o Permiso de Trabajo</label>
+            <label style="display:block; margin-bottom:15px;"><input type="checkbox" id="checkEdad"> Soy mayor de 18 años</label>
+            <label style="display:block;"><input type="checkbox" id="checkSSN"> Tengo SSN / SIN o Permiso de Trabajo</label>
         </div>
-        <button onclick="validarYEnviar()" class="btn btn-azul">CONFIRMAR Y ENVIAR</button>
-        <button onclick="cerrarFiltro()" style="background:none; border:none; color:gray; cursor:pointer; margin-top:15px;">Cancelar</button>
+        <button onclick="validarYEnviar()" class="btn btn-azul" style="width:100%; padding:12px; background:#1a2a6c; color:white; border:none; border-radius:8px; cursor:pointer;">CONFIRMAR Y ENVIAR</button>
+        <button onclick="cerrarFiltro()" style="background:none; border:none; color:gray; cursor:pointer; margin-top:15px; width:100%;">Cancelar</button>
     </div>
 </div>
 
