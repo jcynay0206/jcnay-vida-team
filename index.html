@@ -90,6 +90,7 @@
 </footer>
 
 <script>
+    // Configuración real de JCNay Vida Team
     const MI_TELEFONO = "9086774196"; 
     const MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
 
@@ -98,27 +99,28 @@
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
+        // Captura de datos
         const nombre = document.getElementById('nombre').value;
         const edad = document.getElementById('edad').value;
         const ingresos = document.getElementById('ingresos').value;
 
-        // 1. Guardar datos (CRM Invisible)
+        // 1. Guardar copia local (CRM Invisible)
         const datos = { nombre, edad, ingresos, fecha: new Date().toLocaleString() };
         let leads = JSON.parse(localStorage.getItem('jcnay_leads_privados')) || [];
         leads.push(datos);
         localStorage.setItem('jcnay_leads_privados', JSON.stringify(leads));
 
-        // 2. Abrir WhatsApp con el perfil del cliente
-        // Usamos backticks (`) para que las variables ${nombre} funcionen
-        const mensajeWA = `Hola JCNay Vida Team! Soy ${nombre}. Quiero mi auditoría de libertad financiera. Tengo ${edad} años e ingresos de ${ingresos}.`;
-        window.open(`https://wa.me/${MI_TELEFONO}?text=${encodeURIComponent(mensajeWA)}`, '_blank');
+        // 2. Crear mensaje para WhatsApp
+        const mensajeWA = "Hola JCNay Vida Team! Soy " + nombre + ". Quiero mi auditoría de libertad financiera. Tengo " + edad + " años e ingresos de " + ingresos + ".";
+        
+        // 3. Abrir WhatsApp en pestaña nueva
+        window.open("https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(mensajeWA), "_blank");
 
-        // 3. Saltar a Calendly para que agenden
-        setTimeout(() => {
+        // 4. Redirigir la página actual a Calendly
+        setTimeout(function() {
             window.location.href = MI_CALENDLY;
-        }, 1500);
+        }, 1000);
     });
 </script>
-    
 </body>
 </html>
