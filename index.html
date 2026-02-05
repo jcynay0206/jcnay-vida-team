@@ -58,38 +58,53 @@
             </div>
         </div>
     </section>
-<section style="border-top: 6px solid var(--dorado); background: #fffcf5; padding: 25px; border-radius: 12px; margin-bottom: 20px;">
-    <h2 style="text-align: center; color: var(--azul);">📊 Análisis de Protección Familiar (D.I.M.E.)</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-        <div>
-            <h4 style="border-bottom: 2px solid #ff4444;">💸 Necesidades</h4>
-            <label style="font-size:12px;">Deudas Totales</label>
-            <input type="number" id="d_deudas" placeholder="0" oninput="calcularDIME()">
-            <label style="font-size:12px;">Hipoteca</label>
-            <input type="number" id="d_hipoteca" placeholder="0" oninput="calcularDIME()">
-            <label style="font-size:12px;">Hijos</label>
-            <input type="number" id="d_hijos" placeholder="0" oninput="calcularDIME()">
-            <label style="font-size:12px;">Uni por hijo ($)</label>
-            <input type="number" id="d_univ" value="50000" oninput="calcularDIME()">
-            <label style="font-size:12px;">Gastos Finales ($)</label>
-            <input type="number" id="d_funeral" value="15000" oninput="calcularDIME()">
-        </div>
-        <div>
-            <h4 style="border-bottom: 2px solid var(--verde);">💰 Recursos</h4>
-            <label style="font-size:12px;">Ahorros</label>
-            <input type="number" id="h_banco" placeholder="0" oninput="calcularDIME()">
-            <label style="font-size:12px;">Inversiones/401k</label>
-            <input type="number" id="h_inv" placeholder="0" oninput="calcularDIME()">
-            <label style="font-size:12px;">Seguro Actual</label>
-            <input type="number" id="h_seguro" placeholder="0" oninput="calcularDIME()">
+<section style="background-color: #fffcf5; padding: 40px 20px; border-top: 5px solid #d4af37; border-bottom: 5px solid #d4af37; margin: 30px 0; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+    <h2 style="text-align: center; color: #1a2a6c; margin-bottom: 10px;">📊 Análisis de Protección Familiar (D.I.M.E.)</h2>
+    <p style="text-align: center; font-size: 14px; color: #555; margin-bottom: 30px; max-width: 600px; margin: auto;">
+        Calcula el vacío financiero que tu familia enfrentaría hoy si llegaras a faltar.
+    </p>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; max-width: 1000px; margin: auto;">
+        
+        <div style="flex: 1; min-width: 300px; background: white; padding: 25px; border-radius: 15px; border: 1px solid #e0e0e0; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+            <h4 style="border-bottom: 3px solid #ff4444; color: #ff4444; margin-top: 0; padding-bottom: 10px;">💸 Gastos y Deudas</h4>
             
-            <div style="background: var(--azul); color: white; padding: 15px; border-radius: 10px; text-align: center; margin-top: 10px;">
-                <p style="margin:0; font-size:12px;">BRECHA DE PROTECCIÓN</p>
-                <div id="res_brecha" style="font-size: 24px; font-weight: bold; color: #ffbb33;">$0</div>
-                <a id="btnWhatsappDIME" href="#" target="_blank" class="btn btn-verde" style="display:none; font-size:14px; text-decoration:none;">📲 SOLICITAR ASESORÍA</a>
+            <label style="display:block; font-size:12px; font-weight:bold; margin-top:15px; color:#333;">Total Deudas (Tarjetas/Auto)</label>
+            <input type="number" id="d_deudas" placeholder="$0" oninput="calcularDIME()" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px;">
+            
+            <label style="display:block; font-size:12px; font-weight:bold; margin-top:15px; color:#333;">Saldo de Hipoteca (Mortgage)</label>
+            <input type="number" id="d_hipoteca" placeholder="$0" oninput="calcularDIME()" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px;">
+            
+            <label style="display:block; font-size:12px; font-weight:bold; margin-top:15px; color:#333;">Número de Hijos</label>
+            <input type="number" id="d_hijos" placeholder="0" oninput="calcularDIME()" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px;">
+            
+            <label style="display:block; font-size:12px; font-weight:bold; margin-top:15px; color:#333;">Univ. por Hijo ($50k recomendado)</label>
+            <input type="number" id="d_univ" value="50000" oninput="calcularDIME()" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px;">
+            
+            <label style="display:block; font-size:12px; font-weight:bold; margin-top:15px; color:#333;">Gastos Funerarios ($15k recomendado)</label>
+            <input type="number" id="d_funeral" value="15000" oninput="calcularDIME()" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px;">
+        </div>
+
+        <div style="flex: 1; min-width: 300px; background: white; padding: 25px; border-radius: 15px; border: 1px solid #e0e0e0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
+            <h4 style="border-bottom: 3px solid #2ecc71; color: #2ecc71; margin-top: 0; padding-bottom: 10px;">💰 Recursos Actuales</h4>
+            
+            <label style="display:block; font-size:12px; font-weight:bold; margin-top:15px; color:#333;">Ahorros en Banco / Cash</label>
+            <input type="number" id="h_banco" placeholder="$0" oninput="calcularDIME()" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px;">
+            
+            <label style="display:block; font-size:12px; font-weight:bold; margin-top:15px; color:#333;">401k / IRA / Inversiones</label>
+            <input type="number" id="h_inv" placeholder="$0" oninput="calcularDIME()" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px;">
+            
+            <label style="display:block; font-size:12px; font-weight:bold; margin-top:15px; color:#333;">Seguro de Vida Actual</label>
+            <input type="number" id="h_seguro" placeholder="$0" oninput="calcularDIME()" style="width:100%; padding:10px; margin-top:5px; border:1px solid #ccc; border-radius:8px;">
+            
+            <div style="background: #1a2a6c; color: white; padding: 25px; border-radius: 12px; text-align: center; margin-top: auto; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                <p style="margin:0; font-size:11px; text-transform:uppercase; letter-spacing: 1px; opacity: 0.8;">Tu Brecha de Protección</p>
+                <div id="res_brecha" style="font-size: 34px; font-weight: bold; color: #ffbb33; margin: 10px 0;">$0</div>
+                <p id="res_mensaje" style="font-size: 12px; line-height: 1.4; margin-bottom: 15px;">Completa los datos para ver tu análisis.</p>
+                <a id="btnWhatsappDIME" href="#" target="_blank" class="btn btn-verde" style="display:none; text-decoration:none; background:#25d366; color:white; padding:12px; border-radius:8px; font-weight:bold; width:100%; box-sizing:border-box;">📲 SOLICITAR ASESORÍA</a>
             </div>
         </div>
-    </div>
+
 </section>
 
 <div class="grid-links"> ... </div>
@@ -221,40 +236,38 @@
     };
 
     // FUNCION DIME
-    function calcularDIME() {
-        const d = {
-            deudas: parseFloat(document.getElementById('d_deudas').value) || 0,
-            hipo: parseFloat(document.getElementById('d_hipoteca').value) || 0,
-            hijos: parseFloat(document.getElementById('d_hijos').value) || 0,
-            univ: parseFloat(document.getElementById('d_univ').value) || 0,
-            funer: parseFloat(document.getElementById('d_funeral').value) || 0,
-            cash: parseFloat(document.getElementById('h_banco').value) || 0,
-            inv: parseFloat(document.getElementById('h_inv').value) || 0,
-            seg: parseFloat(document.getElementById('h_seguro').value) || 0
-        };
+  function calcularDIME() {
+    const deudas = parseFloat(document.getElementById('d_deudas').value) || 0;
+    const hipo = parseFloat(document.getElementById('d_hipoteca').value) || 0;
+    const hijos = parseFloat(document.getElementById('d_hijos').value) || 0;
+    const univ = parseFloat(document.getElementById('d_univ').value) || 0;
+    const funeral = parseFloat(document.getElementById('d_funeral').value) || 0;
+    const banco = parseFloat(document.getElementById('h_banco').value) || 0;
+    const inv = parseFloat(document.getElementById('h_inv').value) || 0;
+    const seguro = parseFloat(document.getElementById('h_seguro').value) || 0;
 
-        const necesidad = d.deudas + d.hipo + (d.hijos * d.univ) + d.funer;
-        const recursos = d.cash + d.inv + d.seg;
-        const brecha = necesidad - recursos;
+    const necesidad = deudas + hipo + (hijos * univ) + funeral;
+    const recursos = banco + inv + seguro;
+    const brecha = necesidad - recursos;
 
-        const resDiv = document.getElementById('res_brecha');
-        const btnWa = document.getElementById('btnWhatsappDIME');
+    const resDiv = document.getElementById('res_brecha');
+    const btnWa = document.getElementById('btnWhatsappDIME');
 
-        if (necesidad > 0) {
-            const final = Math.max(0, brecha);
-            resDiv.innerText = "$" + final.toLocaleString();
-            if (final > 0) {
-                btnWa.style.display = 'block';
-                const msg = encodeURIComponent(`Hola JCNay, mi brecha DIME es de $${final.toLocaleString()}. Necesito asesoría.`);
-                btnWa.href = `https://wa.me/19086774196?text=${msg}`;
-            } else {
-                btnWa.style.display = 'none';
-            }
+    if (necesidad > 0) {
+        const total = Math.max(0, brecha);
+        resDiv.innerText = "$" + total.toLocaleString();
+        
+        if (total > 0) {
+            btnWa.style.display = 'block';
+            const txt = encodeURIComponent(`Hola JCNay, mi brecha DIME es de $${total.toLocaleString()}. Necesito asesoría.`);
+            btnWa.href = `https://wa.me/19086774196?text=${txt}`;
+        } else {
+            btnWa.style.display = 'none';
         }
     }
+}
 
     // LÓGICA AGENTES (Mantén tus funciones abrirFiltro y validarYEnviar aquí abajo)
-</script>
 </script>
 </body>
 </html>
