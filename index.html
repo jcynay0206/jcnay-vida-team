@@ -1,138 +1,105 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JCNay Vida Team | Estrategias IUL</title>
+    <title>JCNay Vida Team | El Banco Libre de Impuestos</title>
     <style>
-        :root { --azul: #1a2a44; --dorado: #D4AF37; --blanco: #ffffff; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--blanco); color: #333; }
-        nav { background: var(--azul); padding: 15px; border-bottom: 3px solid var(--dorado); text-align: center; }
-        .logo { color: var(--dorado); font-weight: bold; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
-        .hero { background: var(--azul); color: white; padding: 60px 20px; text-align: center; }
-        .gold { color: var(--dorado); }
-        .beneficios { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 40px 10%; background: #f9f9f9; }
-        .card { background: white; padding: 25px; border-radius: 10px; border-bottom: 4px solid var(--dorado); box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; }
-        .form-container { max-width: 500px; margin: -50px auto 50px; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); position: relative; z-index: 10; border: 1px solid #eee; }
-        input, select, button { width: 100%; padding: 12px; margin: 10px 0; border-radius: 5px; border: 1px solid #ddd; font-size: 1rem; }
-        button { background: var(--dorado); color: var(--azul); font-weight: bold; border: none; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
-        button:hover { background: #b8962d; transform: translateY(-2px); }
-        footer { background: var(--azul); color: white; text-align: center; padding: 20px; font-size: 0.8rem; }
-        
-        /* CRM OCULTO: Solo tú puedes verlo si sabes que está ahí */
-        #crm-secreto { display: none; padding: 20px; background: #eee; }
+        :root { --azul: #1a2a44; --dorado: #d4af37; --gris: #f4f4f4; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: var(--gris); color: #333; }
+        header { background: var(--azul); color: white; padding: 40px 20px; text-align: center; border-bottom: 5px solid var(--dorado); }
+        .container { max-width: 800px; margin: 20px auto; padding: 20px; }
+        .sobre-nosotros { background: white; padding: 30px; border-radius: 15px; margin-bottom: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .form-container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--azul); }
+        input, select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+        .btn-principal { width: 100%; background: var(--dorado); color: var(--azul); padding: 18px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.2rem; transition: 0.3s; }
+        .btn-principal:hover { background: #b8962d; transform: translateY(-2px); }
+        footer { text-align: center; padding: 30px; font-size: 0.9rem; color: #777; }
     </style>
 </head>
 <body>
 
-<nav><div class="logo">JCNay Vida Team</div></nav>
+    <header>
+        <h1>JCNay Vida Team</h1>
+        <p style="font-style: italic; font-size: 1.2rem;">"Más que seguros, diseñamos libertad financiera"</p>
+    </header>
 
-<section class="hero">
-    <h1>Asegura tu Retiro <span class="gold">Libre de Impuestos</span></h1>
-    <p>Protección contra caídas de mercado y crecimiento indexado garantizado.</p>
-</section>
-<div style="max-width: 800px; margin: 40px auto; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); line-height: 1.6; border: 1px solid #eee;">
-    <div style="text-align: center; margin-bottom: 25px;">
-        <h2 style="color: #1a2a44; font-size: 2rem; margin-bottom: 5px;">JCNay Vida Team</h2>
-        <p style="color: #d4af37; font-weight: bold; font-style: italic; font-size: 1.2rem; margin-top: 0;">
-            “Más que seguros, diseñamos libertad financiera.”
-        </p>
+    <div class="container">
+        <section class="sobre-nosotros">
+            <h2 style="color: var(--azul);">Sobre Nosotros</h2>
+            <p>En <strong>JCNay Vida Team</strong>, nos especializamos en estrategias de blindaje familiar y acumulación de riqueza. Nuestra misión es proporcionarte las herramientas necesarias para que tu futuro financiero sea sólido, predecible y exitoso.</p>
+        </section>
+
+        <div class="form-container">
+            <h2 style="text-align: center; color: var(--azul);">Descarga: El Banco Libre de Impuestos</h2>
+            <p style="text-align: center;">Aprende cómo proteger tu capital y crecer tu patrimonio con la estrategia del IUL.</p>
+            
+            <form id="mainForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" placeholder="Ej: Juan Pérez" required>
+                </div>
+                <div class="form-group">
+                    <label for="edad">Edad:</label>
+                    <input type="number" id="edad" placeholder="Ej: 35" required>
+                </div>
+                <div class="form-group">
+                    <label for="ingresos">Ingresos Anuales Estimados:</label>
+                    <select id="ingresos" required>
+                        <option value="">Seleccione una opción</option>
+                        <option value="Menos de $50k">Menos de $50,000</option>
+                        <option value="$50k - $100k">$50,000 - $100,000</option>
+                        <option value="$100k - $250k">$100,000 - $250,000</option>
+                        <option value="Más de $250k">Más de $250,000</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-principal">DESCARGAR GUÍA Y SOLICITAR AUDITORÍA</button>
+            </form>
+        </div>
     </div>
 
-    <p style="font-size: 1.1rem; color: #444; text-align: justify;">
-        En <strong>JCNay Vida Team</strong>, entendemos que el sistema financiero tradicional no siempre trabaja a tu favor. Por eso, nos dedicamos a asesorar a familias y profesionales en la implementación de estrategias avanzadas de <strong>IUL (Seguro de Vida Indexado)</strong>. 
-    </p>
-    
-    <div style="background: #f4f7f9; padding: 20px; border-radius: 10px; margin: 25px 0;">
-        <h3 style="color: #1a2a44; margin-top: 0; border-left: 4px solid #d4af37; padding-left: 15px;">Trabajar con Nosotros</h3>
-        <p style="color: #555;">
-            Nuestra filosofía se basa en tres pilares que garantizan tu éxito patrimonial:
-        </p>
-        <ul style="list-style: none; padding-left: 5px;">
-            <li style="margin-bottom: 10px;">🛡️ <strong>Protección Total:</strong> Tu capital está blindado contra pérdidas de mercado (Piso del 0%).</li>
-            <li style="margin-bottom: 10px;">💸 <strong>Eficiencia Fiscal:</strong> Diseñamos planes para que tus retiros sean legalmente libres de impuestos.</li>
-            <li style="margin-bottom: 10px;">📈 <strong>Crecimiento Real:</strong> Aprovechamos el interés compuesto para que tu dinero crezca de forma exponencial.</li>
-        </ul>
-    </div>
+    <footer>
+        &copy; 2026 JCNay Vida Team. Todos los derechos reservados.
+    </footer>
 
-    <p style="color: #666; font-size: 0.95rem; text-align: center;">
-        <em>Estamos aquí para ser tus arquitectos financieros y acompañarte en cada paso hacia tu blindaje familiar.</em>
-    </p>
-</div>
-<div class="form-container">
-        <h2 style="text-align: center; color: #1a2a44;">Diseña tu Blindaje Familiar</h2>
-        <p style="text-align: center; color: #666;">Completa tus datos para iniciar tu auditoría personalizada.</p>
+    <script>
+        var MI_TELEFONO = "19086774196"; 
+        var MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
+        var URL_CRM = "https://script.google.com/macros/s/AKfycbz0-5pNl_6O3QCd40j8xUGHZmoezbPvqWKGD6djzBEw2i1TJr2avQez8UmceNT8xSzgIQ/exec"; 
         
-        <form id="mainForm">
-            <div class="form-group">
-                <label for="nombre">Nombre Completo:</label>
-                <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
-            </div>
-            <div class="form-group">
-                <label for="edad">Edad:</label>
-                <input type="number" id="edad" name="edad" placeholder="Ej: 35" required>
-            </div>
-            <div class="form-group">
-                <label for="ingresos">Rango de Ingresos Anuales:</label>
-                <select id="ingresos" name="ingresos" required>
-                    <option value="">Seleccione una opción</option>
-                    <option value="Menos de $50k">Menos de $50,000</option>
-                    <option value="$50k - $100k">$50,000 - $100,000</option>
-                    <option value="$100k - $250k">$100,000 - $250,000</option>
-                    <option value="Más de $250k">Más de $250,000</option>
-                </select>
-            </div>
-            <button type="submit" style="width: 100%; background: #d4af37; color: #1a2a44; padding: 15px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; font-size: 1.1rem;">SOLICITAR AUDITORÍA GRATUITA</button>
-        </form>
-    </div>
+        // Link directo para descarga del PDF desde tu Drive
+        var URL_PDF = "https://drive.google.com/uc?export=download&id=1A_PIWAzPpcDPsnuutBLTqrkV-3_pRlSc";
 
-<script>
-    // --- CONFIGURACIÓN JCNay Vida Team ---
-    var MI_TELEFONO = "9086774196"; 
-    var MI_CALENDLY = "https://calendly.com/blindajefamiliarus"; 
-    var URL_CRM = "https://script.google.com/macros/s/AKfycbz0-5pNl_6O3QCd40j8xUGHZmoezbPvqWKGD6djzBEw2i1TJr2avQez8UmceNT8xSzgIQ/exec"; 
-    // Link de tu PDF (Asegúrate de que este link sea el correcto)
-    var URL_PDF = "https://raw.githubusercontent.com/jcynay0206/jcnay-vida-team/main/Guia_IUL_JCNay.pdf";
+        document.getElementById('mainForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var nombre = document.getElementById('nombre').value;
+            var edad = document.getElementById('edad').value;
+            var ingresos = document.getElementById('ingresos').value;
 
-    document.getElementById('mainForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        var nombre = document.getElementById('nombre').value;
-        var edad = document.getElementById('edad').value;
-        var ingresos = document.getElementById('ingresos').value;
+            // 1. Enviar datos al CRM (Google Sheets)
+            fetch(URL_CRM, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nombre: nombre, edad: edad, ingresos: ingresos })
+            });
 
-        // 1. ENVIAR AL CRM (Google Sheets)
-        fetch(URL_CRM, {
-            method: 'POST',
-            mode: 'no-cors',
-            cache: 'no-cache',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                nombre: nombre,
-                edad: edad,
-                ingresos: ingresos
-            })
+            // 2. Descarga automática del PDF "El Banco Libre de Impuestos"
+            window.open(URL_PDF, '_blank');
+
+            // 3. Abrir WhatsApp con mensaje personalizado
+            var textoWA = "¡Hola JCNay Vida Team! Soy " + nombre + ". Acabo de descargar la guía 'El Banco Libre de Impuestos'. Tengo " + edad + " años y deseo mi auditoría gratuita.";
+            var urlWA = "https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(textoWA);
+            window.open(urlWA, '_blank');
+
+            // 4. Redirigir a Calendly
+            setTimeout(function() {
+                window.location.href = MI_CALENDLY;
+            }, 2500);
         });
-
-        // 2. DESCARGA AUTOMÁTICA DEL PDF
-        var linkDescarga = document.createElement('a');
-        linkDescarga.href = URL_PDF;
-        linkDescarga.download = "Guia_Libertad_Financiera.pdf";
-        document.body.appendChild(linkDescarga);
-        linkDescarga.click();
-        document.body.removeChild(linkDescarga);
-
-        // 3. WHATSAPP (Abre en pestaña nueva)
-        var textoWA = "Hola JCNay Vida Team! Soy " + nombre + ". Acabo de descargar la guía y quiero mi auditoría. Tengo " + edad + " años.";
-        window.open("https://wa.me/" + MI_TELEFONO + "?text=" + encodeURIComponent(textoWA), "_blank");
-
-        // 4. CALENDLY (Redirige la pestaña actual)
-        setTimeout(function() {
-            window.location.href = MI_CALENDLY;
-        }, 2000);
-    });
-</script>
+    </script>
 </body>
 </html>
-    
