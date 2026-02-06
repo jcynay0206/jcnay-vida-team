@@ -20,7 +20,7 @@
         .btn-outline { background: transparent; color: var(--azul); border: 2px solid var(--azul); padding: 10px; font-size: 14px; margin-top: 8px; border-radius: 8px; }
         #postEnvio { display: none; text-align: center; }
         #modalFiltro { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:10000; align-items:center; justify-content:center; }
-        .modal-content { background:white; padding:30px; border-radius:15px; max-width:400px; width:90%; text-align:center; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
+        .modal-content { background:white; padding:30px; border-radius:15px; max-width:400px; width:90%; text-align:center; }
     </style>
 </head>
 <body>
@@ -31,7 +31,7 @@
         <p>Estrategias de Protección y Libertad Financiera</p>
     </header>
 
-    <section>
+    <section id="secGuia">
         <div id="formRegistro">
             <h3>📥 Descarga la Guía "Banco Libre"</h3>
             <form id="mainForm">
@@ -57,74 +57,42 @@
         </div>
     </section>
 
-    <section style="background-color: #fffcf5; padding: 40px 20px; border-top: 5px solid #d4af37; border-bottom: 5px solid #d4af37; border-radius: 20px;">
-        <h2 style="text-align: center; color: #1a2a6c;">📊 Análisis de Protección Familiar (D.I.M.E.)</h2>
-        <p style="text-align: center; font-size: 14px; color: #555; margin-bottom: 30px;">Calcula el vacío financiero que tu familia enfrentaría hoy.</p>
-
-        <div style="display: flex; flex-wrap: wrap; gap: 25px; justify-content: center;">
-            <div style="flex: 1; min-width: 300px; background: white; padding: 20px; border-radius: 15px; border: 1px solid #ddd;">
-                <h4 style="border-bottom: 3px solid #ff4444; color: #ff4444;">💸 Gastos y Deudas</h4>
-                <label style="font-size:12px; font-weight:bold;">Total Deudas</label>
-                <input type="number" id="d_deudas" placeholder="$0" oninput="calcularDIME()">
-                <label style="font-size:12px; font-weight:bold;">Hipoteca</label>
-                <input type="number" id="d_hipoteca" placeholder="$0" oninput="calcularDIME()">
-                <label style="font-size:12px; font-weight:bold;">Número de Hijos</label>
-                <input type="number" id="d_hijos" placeholder="0" oninput="calcularDIME()">
-                <label style="font-size:12px; font-weight:bold;">Universidad p/Hijo</label>
-                <input type="number" id="d_univ" value="50000" oninput="calcularDIME()">
-                <label style="font-size:12px; font-weight:bold;">Gastos Funerarios</label>
-                <input type="number" id="d_funeral" value="15000" oninput="calcularDIME()">
+    <section style="background-color: #fffcf5; border-top: 5px solid #d4af37; border-bottom: 5px solid #d4af37;">
+        <h2 style="text-align: center; color: #1a2a6c;">📊 Análisis D.I.M.E.</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+            <div style="flex: 1; min-width: 280px;">
+                <h4 style="color: #ff4444;">💸 Gastos y Deudas</h4>
+                <input type="number" id="d_deudas" placeholder="Deudas Totales" oninput="calcularDIME()">
+                <input type="number" id="d_hipoteca" placeholder="Hipoteca" oninput="calcularDIME()">
+                <input type="number" id="d_hijos" placeholder="Nº Hijos" oninput="calcularDIME()">
+                <input type="hidden" id="d_univ" value="50000">
+                <input type="hidden" id="d_funeral" value="15000">
             </div>
-            <div style="flex: 1; min-width: 300px; background: white; padding: 20px; border-radius: 15px; border: 1px solid #ddd;">
-                <h4 style="border-bottom: 3px solid #2ecc71; color: #2ecc71;">💰 Recursos Actuales</h4>
-                <input type="number" id="h_banco" placeholder="Banco / Cash" oninput="calcularDIME()">
-                <input type="number" id="h_inv" placeholder="401k / Inversiones" oninput="calcularDIME()">
-                <input type="number" id="h_seguro" placeholder="Seguro de Vida Actual" oninput="calcularDIME()">
-                
-                <div style="background: #1a2a6c; color: white; padding: 20px; border-radius: 12px; text-align: center; margin-top: 20px;">
-                    <small>BRECHA DE PROTECCIÓN</small>
-                    <div id="res_brecha" style="font-size: 30px; font-weight: bold; color: #ffbb33;">$0</div>
-                    <p id="res_mensaje" style="font-size: 11px;">Ingresa tus datos.</p>
-                    <a id="btnWhatsappDIME" href="#" target="_blank" class="btn btn-verde" style="display:none;">📲 SOLICITAR ASESORÍA</a>
+            <div style="flex: 1; min-width: 280px;">
+                <h4 style="color: #2ecc71;">💰 Recursos</h4>
+                <input type="number" id="h_banco" placeholder="Banco / Ahorros" oninput="calcularDIME()">
+                <input type="number" id="h_inv" placeholder="Inversiones / 401k" oninput="calcularDIME()">
+                <input type="number" id="h_seguro" placeholder="Seguro Actual" oninput="calcularDIME()">
+                <div style="background: #1a2a6c; color: white; padding: 15px; border-radius: 10px; text-align: center; margin-top: 10px;">
+                    <small>BRECHA:</small>
+                    <div id="res_brecha" style="font-size: 28px; font-weight: bold; color: #ffbb33;">$0</div>
+                    <a id="btnWhatsappDIME" href="#" target="_blank" class="btn btn-verde" style="display:none; font-size:14px;">📲 ASESORÍA DIME</a>
                 </div>
             </div>
         </div>
     </section>
 
     <div class="grid-links">
-        <div class="card">
-            <h3>🛡️ Escudo Financiero</h3>
-            <a href="https://jcynay0206.github.io/escudo-financiero/" class="btn btn-azul">Usar Aquí</a>
-        </div>
-        <div class="card">
-            <h3>📈 Retiro IUL</h3>
-            <a href="https://jcynay0206.github.io/calculadora-iul/" class="btn btn-azul">Usar Aquí</a>
-        </div>
-        <div class="card">
-            <h3>🎓 Universitaria</h3>
-            <a href="https://jcynay0206.github.io/calculadora-universitaria/" class="btn btn-azul">Usar Aquí</a>
-        </div>
+        <div class="card"><h3>🛡️ Escudo</h3><a href="https://jcynay0206.github.io/escudo-financiero/" class="btn btn-azul">Abrir</a></div>
+        <div class="card"><h3>📈 Retiro</h3><a href="https://jcynay0206.github.io/calculadora-iul/" class="btn btn-azul">Abrir</a></div>
+        <div class="card"><h3>🎓 Univ.</h3><a href="https://jcynay0206.github.io/calculadora-universitaria/" class="btn btn-azul">Abrir</a></div>
     </div>
 
-    <section style="border-top: 6px solid var(--verde);">
-        <h3>💼 Únete a nuestro Equipo de Agentes</h3>
+    <section>
+        <h3>💼 Equipo de Agentes</h3>
         <form id="agenteForm">
-            <input type="text" id="an" placeholder="Nombre completo" required>
-            <div style="display: flex; gap: 10px;">
-                <select id="ae" required style="flex:1">
-                    <option value="">Estado / País</option>
-                    <option value="Florida">Florida</option>
-                    <option value="Texas">Texas</option>
-                    <option value="Canadá">Canadá</option>
-                    <option value="Otros">Otros</option>
-                </select>
-                <select id="al" required style="flex:1">
-                    <option value="">¿Licencia?</option>
-                    <option value="Si">Sí</option>
-                    <option value="No">No</option>
-                </select>
-            </div>
-            <input type="tel" id="at" placeholder="Teléfono / WhatsApp" required>
+            <input type="text" id="an" placeholder="Nombre" required>
+            <input type="tel" id="at" placeholder="Teléfono" required>
             <button type="button" onclick="abrirFiltro()" class="btn btn-verde">CONTINUAR POSTULACIÓN</button>
         </form>
     </section>
@@ -132,13 +100,11 @@
 
 <div id="modalFiltro">
     <div class="modal-content">
-        <h3>🛡️ Requisitos Mínimos</h3>
-        <div style="text-align:left; margin-bottom:20px;">
-            <label><input type="checkbox" id="checkEdad"> Soy mayor de 18 años</label><br><br>
-            <label><input type="checkbox" id="checkSSN"> Tengo SSN / SIN o Permiso</label>
-        </div>
-        <button onclick="validarYEnviar()" class="btn btn-azul">CONFIRMAR Y ENVIAR</button>
-        <button onclick="cerrarFiltro()" style="background:none; border:none; color:gray; cursor:pointer; margin-top:10px;">Cancelar</button>
+        <h3>🛡️ Requisitos</h3>
+        <label><input type="checkbox" id="checkEdad"> Mayor de 18 años</label><br><br>
+        <label><input type="checkbox" id="checkSSN"> SSN / SIN o Permiso</label><br><br>
+        <button onclick="validarYEnviar()" class="btn btn-azul">ENVIAR</button>
+        <button onclick="cerrarFiltro()" style="border:none; background:none; color:gray; cursor:pointer;">Cerrar</button>
     </div>
 </div>
 
@@ -146,12 +112,12 @@
     const URL_CRM = "https://script.google.com/macros/s/AKfycbw03lfXmU4-MHDG4_56GbO-XpOqWGnd3flJ5-KolntarhDYWrBr53Tag01JdMT7h8Mvuw/exec";
     const PDF_URL = "https://raw.githubusercontent.com/jcynay0206/jcnay-vida-team/main/Banco_Libre.pdf";
 
-    async function enviarDatos(datos) {
+    function enviarDatos(datos) {
         fetch(URL_CRM, { method: 'POST', mode: 'no-cors', body: JSON.stringify(datos) });
     }
 
-    // FORMULARIO GUÍA
-    document.getElementById('mainForm').onsubmit = async (e) => {
+    // PDF Y GUIA
+    document.getElementById('mainForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const d = { 
             tipo: "CLIENTE", 
@@ -159,13 +125,46 @@
             edad: document.getElementById('ed').value, 
             ingresos: document.getElementById('ing').value 
         };
-        await enviarDatos(d);
+        enviarDatos(d);
         window.open(PDF_URL, '_blank');
         document.getElementById('formRegistro').style.display = 'none';
         document.getElementById('postEnvio').style.display = 'block';
-    };
+    });
 
-    // CALCULO DIME
+    // DIME
     function calcularDIME() {
-        const deudas = parseFloat(document.getElementById('d_deudas').value) || 0;
-        const hipo = parseFloat(document.getElementById('d_hipoteca').value) || 0;
+        const d = parseFloat(document.getElementById('d_deudas').value) || 0;
+        const h = parseFloat(document.getElementById('d_hipoteca').value) || 0;
+        const n = parseFloat(document.getElementById('d_hijos').value) || 0;
+        const b = parseFloat(document.getElementById('h_banco').value) || 0;
+        const i = parseFloat(document.getElementById('h_inv').value) || 0;
+        const s = parseFloat(document.getElementById('h_seguro').value) || 0;
+
+        const brecha = Math.max(0, (d + h + (n * 50000) + 15000) - (b + i + s));
+        document.getElementById('res_brecha').innerText = "$" + brecha.toLocaleString();
+        
+        const btn = document.getElementById('btnWhatsappDIME');
+        if(brecha > 0) {
+            btn.style.display = 'block';
+            btn.href = "https://wa.me/19086774196?text=" + encodeURIComponent("Mi brecha DIME es de $" + brecha.toLocaleString());
+        }
+    }
+
+    // AGENTES
+    function abrirFiltro() {
+        if(document.getElementById('an').value && document.getElementById('at').value) {
+            document.getElementById('modalFiltro').style.display = 'flex';
+        } else { alert("Llena tus datos."); }
+    }
+    function cerrarFiltro() { document.getElementById('modalFiltro').style.display = 'none'; }
+
+    function validarYEnviar() {
+        if(document.getElementById('checkEdad').checked && document.getElementById('checkSSN').checked) {
+            enviarDatos({ tipo: "AGENTE", nombre: document.getElementById('an').value, telefono: document.getElementById('at').value });
+            alert("Enviado con éxito");
+            cerrarFiltro();
+        } else { alert("Marca los requisitos."); }
+    }
+</script>
+</body>
+</html>
