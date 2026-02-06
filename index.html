@@ -23,19 +23,8 @@
 
         .container { max-width: 850px; margin: 0 auto; }
         
-        header { 
-            padding: 30px 20px; 
-            text-align: center; 
-            margin-bottom: 20px;
-        }
-
-        .frase { 
-            font-style: italic; 
-            color: var(--dorado); 
-            margin-top: 10px; 
-            font-size: 1.25em;
-            font-weight: 300;
-        }
+        header { padding: 30px 20px; text-align: center; margin-bottom: 20px; }
+        .frase { font-style: italic; color: var(--dorado); margin-top: 10px; font-size: 1.25em; font-weight: 300; }
 
         section { 
             background: var(--tarjeta); 
@@ -83,6 +72,7 @@
             background:rgba(0,0,0,0.9); z-index:9999; align-items:center; justify-content:center; 
         }
         .modal-content { background:white; padding:35px; border-radius:25px; width:90%; max-width:420px; text-align:center; color: #2d3436; }
+        small { color: #636e72; font-weight: bold; display: block; margin-top: 5px;}
     </style>
 </head>
 <body>
@@ -98,7 +88,7 @@
         <form id="f_guia">
             <input type="text" id="n1" placeholder="Nombre completo" required>
             <div style="display: flex; gap: 10px;">
-                <input type="number" id="e1" placeholder="Edad" required style="flex:1">
+                <input type="number" id="e1" placeholder="Tu Edad" required style="flex:1">
                 <select id="i1" required style="flex:2">
                     <option value="">Ingresos Anuales</option>
                     <option value="Menos de $50k">Menos de $50k</option>
@@ -106,12 +96,12 @@
                     <option value="Más de $100k">Más de $100k</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-azul">DESCARGAR GUÍA Y ACTIVAR</button>
+            <button type="submit" class="btn btn-azul">OBTENER GUÍA Y ACTIVAR</button>
         </form>
         <div id="okGuia" style="display:none; text-align:center; margin-top:20px;">
             <h3 style="color:var(--azul-botones)">¡Registro Exitoso! ✅</h3>
             <div style="display:flex; gap:10px;">
-                <a href="https://calendly.com/blindajefamiliarus" target="_blank" class="btn btn-dorado" style="flex:1">📅 Agendar Cita</a>
+                <a href="https://calendly.com/blindajefamiliarus" target="_blank" class="btn btn-dorado" style="flex:1">📅 Cita</a>
                 <a href="https://wa.me/19086774196" target="_blank" class="btn btn-verde" style="flex:1">💬 WhatsApp</a>
             </div>
         </div>
@@ -120,12 +110,18 @@
     <section>
         <h3 style="text-align:center">📊 Calculadora de Protección D.I.M.E.</h3>
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
-            <div><small>Deudas Totales</small><input type="number" id="d_deu" placeholder="$ Ej: 5000" oninput="runDIME()"></div>
-            <div><small>Hipoteca</small><input type="number" id="d_hip" placeholder="$ Ej: 200000" oninput="runDIME()"></div>
-            <div><small>Hijos (Universidad/Gastos)</small><input type="number" id="d_hij_val" placeholder="$ Cantidad total" oninput="runDIME()"></div>
-            <div><small>Gastos Finales</small><input type="number" id="d_fun_val" placeholder="$ Ej: 15000" oninput="runDIME()"></div>
-            <div style="grid-column: span 2;"><small>Ahorros / Seguro Actual</small><input type="number" id="h_aho" placeholder="$" oninput="runDIME()"></div>
+            <div><small>Deudas Totales</small><input type="number" id="d_deu" placeholder="$ Deudas" oninput="runDIME()"></div>
+            <div><small>Hipoteca</small><input type="number" id="d_hip" placeholder="$ Saldo Casa" oninput="runDIME()"></div>
+            
+            <div><small>Número de Hijos</small><input type="number" id="d_hij_num" placeholder="¿Cuántos?" oninput="runDIME()"></div>
+            <div><small>Edades de Hijos</small><input type="text" id="d_hij_edad" placeholder="Ej: 2, 8"></div>
+            
+            <div><small>Gastos Universidad</small><input type="number" id="d_hij_val" placeholder="$ Presupuesto Manual" oninput="runDIME()"></div>
+            <div><small>Gastos Finales</small><input type="number" id="d_fun_val" placeholder="$ Funerarios Manual" oninput="runDIME()"></div>
+            
+            <div style="grid-column: span 2;"><small>Ahorros / Seguros</small><input type="number" id="h_aho" placeholder="$ Lo que ya tengo" oninput="runDIME()"></div>
         </div>
+        
         <div style="text-align:center; background:#f1f2f6; padding:20px; border-radius:15px; margin-top:15px; border: 1px solid #dfe6e9;">
             <small>BRECHA DE PROTECCIÓN NECESARIA:</small>
             <div id="res_brecha">$0</div>
@@ -134,18 +130,9 @@
     </section>
 
     <div class="grid-externas">
-        <div class="card-ext">
-            <h4>🛡️ Escudo</h4>
-            <a href="https://jcynay0206.github.io/escudo-financiero/" class="btn btn-dorado">Abrir</a>
-        </div>
-        <div class="card-ext">
-            <h4>📈 Retiro IUL</h4>
-            <a href="https://jcynay0206.github.io/calculadora-iul/" class="btn btn-dorado">Abrir</a>
-        </div>
-        <div class="card-ext">
-            <h4>🎓 Universitaria</h4>
-            <a href="https://jcynay0206.github.io/calculadora-universitaria/" class="btn btn-dorado">Abrir</a>
-        </div>
+        <div class="card-ext"><h4>🛡️ Escudo</h4><a href="https://jcynay0206.github.io/escudo-financiero/" class="btn btn-dorado">Abrir</a></div>
+        <div class="card-ext"><h4>📈 Retiro IUL</h4><a href="https://jcynay0206.github.io/calculadora-iul/" class="btn btn-dorado">Abrir</a></div>
+        <div class="card-ext"><h4>🎓 Universitaria</h4><a href="https://jcynay0206.github.io/calculadora-universitaria/" class="btn btn-dorado">Abrir</a></div>
     </div>
 
     <section style="border-top: 6px solid var(--verde);">
@@ -202,21 +189,21 @@
     function runDIME() {
         const d = parseFloat(document.getElementById('d_deu').value) || 0;
         const h = parseFloat(document.getElementById('d_hip').value) || 0;
-        const n_val = parseFloat(document.getElementById('d_hij_val').value) || 0;
-        const f_val = parseFloat(document.getElementById('d_fun_val').value) || 0;
+        const u_man = parseFloat(document.getElementById('d_hij_val').value) || 0;
+        const f_man = parseFloat(document.getElementById('d_fun_val').value) || 0;
         const a = parseFloat(document.getElementById('h_aho').value) || 0;
         
-        // El cálculo ahora suma directamente los valores ingresados por el usuario
-        const total = Math.max(0, (d + h + n_val + f_val) - a);
+        // Suma manual de todos los componentes
+        const total = Math.max(0, (d + h + u_man + f_man) - a);
+        
         document.getElementById('res_brecha').innerText = "$" + total.toLocaleString();
         
         const btn = document.getElementById('waDIME');
         if(total > 0) {
             btn.style.display = 'block';
-            btn.href = "https://wa.me/19086774196?text=Mi brecha DIME es: $" + total.toLocaleString();
-        } else {
-            btn.style.display = 'none';
-        }
+            const msg = `Mi brecha DIME es: $${total.toLocaleString()}. Hijos: ${document.getElementById('d_hij_num').value} (Edades: ${document.getElementById('d_hij_edad').value})`;
+            btn.href = "https://wa.me/19086774196?text=" + encodeURIComponent(msg);
+        } else { btn.style.display = 'none'; }
     }
 
     function showM() { 
