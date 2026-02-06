@@ -110,22 +110,19 @@
     <section>
         <h3 style="text-align:center">📊 Calculadora de Protección D.I.M.E.</h3>
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
-            <div><small>Deudas Totales</small><input type="number" id="d_deu" placeholder="$ Deudas" oninput="runDIME()"></div>
-            <div><small>Hipoteca</small><input type="number" id="d_hip" placeholder="$ Saldo Casa" oninput="runDIME()"></div>
-            
-            <div><small>Número de Hijos</small><input type="number" id="d_hij_num" placeholder="¿Cuántos?" oninput="runDIME()"></div>
+            <div><small>Deudas Totales</small><input type="number" id="d_deu" placeholder="$" oninput="runDIME()"></div>
+            <div><small>Hipoteca</small><input type="number" id="d_hip" placeholder="$" oninput="runDIME()"></div>
+            <div><small>Número de Hijos</small><input type="number" id="d_hij_num" placeholder="Cant." oninput="runDIME()"></div>
             <div><small>Edades de Hijos</small><input type="text" id="d_hij_edad" placeholder="Ej: 2, 8"></div>
-            
-            <div><small>Gastos Universidad</small><input type="number" id="d_hij_val" placeholder="$ Presupuesto Manual" oninput="runDIME()"></div>
-            <div><small>Gastos Finales</small><input type="number" id="d_fun_val" placeholder="$ Funerarios Manual" oninput="runDIME()"></div>
-            
-            <div style="grid-column: span 2;"><small>Ahorros / Seguros</small><input type="number" id="h_aho" placeholder="$ Lo que ya tengo" oninput="runDIME()"></div>
+            <div><small>Gastos Universidad</small><input type="number" id="d_hij_val" placeholder="$ Manual" oninput="runDIME()"></div>
+            <div><small>Gastos Finales</small><input type="number" id="d_fun_val" placeholder="$ Manual" oninput="runDIME()"></div>
+            <div style="grid-column: span 2;"><small>Ahorros / Seguros Actuales</small><input type="number" id="h_aho" placeholder="$" oninput="runDIME()"></div>
         </div>
         
         <div style="text-align:center; background:#f1f2f6; padding:20px; border-radius:15px; margin-top:15px; border: 1px solid #dfe6e9;">
             <small>BRECHA DE PROTECCIÓN NECESARIA:</small>
             <div id="res_brecha">$0</div>
-            <a id="waDIME" href="#" target="_blank" class="btn btn-verde" style="display:none">📲 Enviar resultado a Asesor</a>
+            <a id="waDIME" href="#" target="_blank" class="btn btn-verde" style="display:none">📲 Enviar Análisis y Solicitar Asesoría</a>
         </div>
     </section>
 
@@ -141,7 +138,7 @@
             <input type="text" id="an" placeholder="Nombre completo" required>
             <div style="display: flex; gap: 10px;">
                 <select id="ae" required style="flex:2">
-                    <option value="">Selecciona Ubicación</option>
+                    <option value="">Ubicación (Canadá/50 Estados)</option>
                     <option value="Canada">🇨🇦 Canadá</option>
                     <option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option>
                 </select>
@@ -189,36 +186,57 @@
     function runDIME() {
         const d = parseFloat(document.getElementById('d_deu').value) || 0;
         const h = parseFloat(document.getElementById('d_hip').value) || 0;
-        const u_man = parseFloat(document.getElementById('d_hij_val').value) || 0;
-        const f_man = parseFloat(document.getElementById('d_fun_val').value) || 0;
+        const u = parseFloat(document.getElementById('d_hij_val').value) || 0;
+        const f = parseFloat(document.getElementById('d_fun_val').value) || 0;
         const a = parseFloat(document.getElementById('h_aho').value) || 0;
         
-        // Suma manual de todos los componentes
-        const total = Math.max(0, (d + h + u_man + f_man) - a);
+        const nombre = document.getElementById('n1').value || "[Nombre]";
+        const edad = document.getElementById('e1').value || "[Edad]";
+        const hijos = document.getElementById('d_hij_num').value || "0";
+        const edades = document.getElementById('d_hij_edad').value || "N/A";
         
+        const total = Math.max(0, (d + h + u + f) - a);
         document.getElementById('res_brecha').innerText = "$" + total.toLocaleString();
         
         const btn = document.getElementById('waDIME');
         if(total > 0) {
             btn.style.display = 'block';
-            const msg = `Mi brecha DIME es: $${total.toLocaleString()}. Hijos: ${document.getElementById('d_hij_num').value} (Edades: ${document.getElementById('d_hij_edad').value})`;
-            btn.href = "https://wa.me/19086774196?text=" + encodeURIComponent(msg);
+            let msg = `*🚀 SOLICITUD DE ASESORÍA D.I.M.E.*%0A%0A`;
+            msg += `👋 Hola, mi nombre es *${nombre}*, tengo *${edad}* años.%0A%0A`;
+            msg += `🎯 Mi *Brecha de Protección* necesaria es de: *$${total.toLocaleString()}*%0A`;
+            msg += `━━━━━━━━━━━━━━━━━━━━%0A`;
+            msg += `💳 *Deudas:* $${d.toLocaleString()}%0A`;
+            msg += `🏠 *Hipoteca:* $${h.toLocaleString()}%0A`;
+            msg += `🎓 *Universidad:* $${u.toLocaleString()}%0A`;
+            msg += `⚰️ *G. Funerarios:* $${f.toLocaleString()}%0A`;
+            msg += `💰 *Ahorros/Seguros:* $${a.toLocaleString()}%0A`;
+            msg += `━━━━━━━━━━━━━━━━━━━━%0A`;
+            msg += `👨‍👩‍👧‍👦 *Hijos:* ${hijos} (Edades: ${edades})%0A%0A`;
+            msg += `📝 *Deseo recibir asesoría para cubrir mi brecha de protección y asegurar mi futuro.*`;
+            
+            btn.href = "https://wa.me/19086774196?text=" + msg;
         } else { btn.style.display = 'none'; }
     }
 
     function showM() { 
         if(document.getElementById('an').value && document.getElementById('at').value) {
             document.getElementById('modalFiltro').style.display = 'flex'; 
-        } else { alert("Ingresa tus datos."); }
+        } else { alert("Por favor, ingresa tu nombre y teléfono."); }
     }
     function hideM() { document.getElementById('modalFiltro').style.display = 'none'; }
     
     function enviarA() {
         if(document.getElementById('c1').checked && document.getElementById('c2').checked) {
-            send({ tipo: "AGENTE", nombre: document.getElementById('an').value, estado: document.getElementById('ae').value, tel: document.getElementById('at').value, licencia: document.getElementById('al').value });
-            alert("Enviado con éxito ✅");
+            send({ 
+                tipo: "AGENTE", 
+                nombre: document.getElementById('an').value, 
+                estado: document.getElementById('ae').value, 
+                tel: document.getElementById('at').value, 
+                licencia: document.getElementById('al').value 
+            });
+            alert("¡Postulación enviada con éxito! ✅ Nos pondremos en contacto contigo pronto.");
             hideM();
-        } else { alert("Marca los requisitos."); }
+        } else { alert("Debes confirmar que cumples con los requisitos (Edad y Documentación)."); }
     }
 </script>
 </body>
