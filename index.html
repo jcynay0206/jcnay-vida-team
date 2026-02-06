@@ -31,7 +31,7 @@
         <p>Estrategias de Protección y Libertad Financiera</p>
     </header>
 
-    <section id="secGuia">
+    <section>
         <div id="formRegistro">
             <h3>📥 Descarga la Guía "Banco Libre"</h3>
             <form id="mainForm">
@@ -57,41 +57,63 @@
         </div>
     </section>
 
-    <section style="background-color: #fffcf5; border-top: 5px solid #d4af37; border-bottom: 5px solid #d4af37;">
-        <h2 style="text-align: center; color: #1a2a6c;">📊 Análisis D.I.M.E.</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
-            <div style="flex: 1; min-width: 280px;">
-                <h4 style="color: #ff4444;">💸 Gastos y Deudas</h4>
-                <input type="number" id="d_deudas" placeholder="Deudas Totales" oninput="calcularDIME()">
-                <input type="number" id="d_hipoteca" placeholder="Hipoteca" oninput="calcularDIME()">
-                <input type="number" id="d_hijos" placeholder="Nº Hijos" oninput="calcularDIME()">
-                <input type="hidden" id="d_univ" value="50000">
-                <input type="hidden" id="d_funeral" value="15000">
+    <section style="background-color: #fffcf5; padding: 30px 20px; border-top: 5px solid #d4af37; border-bottom: 5px solid #d4af37; border-radius: 20px;">
+        <h2 style="text-align: center; color: #1a2a6c; margin-bottom: 10px;">📊 Análisis D.I.M.E.</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <div style="flex: 1; min-width: 280px; background: white; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
+                <h4 style="color: #ff4444; border-bottom: 2px solid #ff4444;">💸 Gastos</h4>
+                <label style="font-size:12px;">Deudas Totales</label>
+                <input type="number" id="d_deudas" placeholder="$0" oninput="calcularDIME()">
+                <label style="font-size:12px;">Hipoteca</label>
+                <input type="number" id="d_hipoteca" placeholder="$0" oninput="calcularDIME()">
+                <label style="font-size:12px;">Hijos</label>
+                <input type="number" id="d_hijos" placeholder="0" oninput="calcularDIME()">
             </div>
-            <div style="flex: 1; min-width: 280px;">
-                <h4 style="color: #2ecc71;">💰 Recursos</h4>
+            <div style="flex: 1; min-width: 280px; background: white; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
+                <h4 style="color: #2ecc71; border-bottom: 2px solid #2ecc71;">💰 Recursos</h4>
                 <input type="number" id="h_banco" placeholder="Banco / Ahorros" oninput="calcularDIME()">
-                <input type="number" id="h_inv" placeholder="Inversiones / 401k" oninput="calcularDIME()">
+                <input type="number" id="h_inv" placeholder="401k / Inversiones" oninput="calcularDIME()">
                 <input type="number" id="h_seguro" placeholder="Seguro Actual" oninput="calcularDIME()">
                 <div style="background: #1a2a6c; color: white; padding: 15px; border-radius: 10px; text-align: center; margin-top: 10px;">
-                    <small>BRECHA:</small>
+                    <small>BRECHA DE PROTECCIÓN:</small>
                     <div id="res_brecha" style="font-size: 28px; font-weight: bold; color: #ffbb33;">$0</div>
-                    <a id="btnWhatsappDIME" href="#" target="_blank" class="btn btn-verde" style="display:none; font-size:14px;">📲 ASESORÍA DIME</a>
+                    <a id="btnWhatsappDIME" href="#" target="_blank" class="btn btn-verde" style="display:none; padding:10px; font-size:14px;">📲 SOLICITAR ASESORÍA</a>
                 </div>
             </div>
         </div>
     </section>
 
     <div class="grid-links">
-        <div class="card"><h3>🛡️ Escudo</h3><a href="https://jcynay0206.github.io/escudo-financiero/" class="btn btn-azul">Abrir</a></div>
-        <div class="card"><h3>📈 Retiro</h3><a href="https://jcynay0206.github.io/calculadora-iul/" class="btn btn-azul">Abrir</a></div>
-        <div class="card"><h3>🎓 Univ.</h3><a href="https://jcynay0206.github.io/calculadora-universitaria/" class="btn btn-azul">Abrir</a></div>
+        <div class="card"><h3>🛡️ Escudo</h3><a href="https://jcynay0206.github.io/escudo-financiero/" class="btn btn-azul">Usar Aquí</a></div>
+        <div class="card"><h3>📈 Retiro IUL</h3><a href="https://jcynay0206.github.io/calculadora-iul/" class="btn btn-azul">Usar Aquí</a></div>
+        <div class="card"><h3>🎓 Univ.</h3><a href="https://jcynay0206.github.io/calculadora-universitaria/" class="btn btn-azul">Usar Aquí</a></div>
     </div>
 
-    <section>
-        <h3>💼 Equipo de Agentes</h3>
+    <section style="border-top: 6px solid var(--verde);">
+        <h3>💼 Únete a nuestro Equipo de Agentes</h3>
         <form id="agenteForm">
-            <input type="text" id="an" placeholder="Nombre" required>
+            <input type="text" id="an" placeholder="Nombre completo" required>
+            <div style="display: flex; gap: 10px;">
+                <select id="ae" required style="flex:1">
+                    <option value="">Selecciona Estado / País</option>
+                    <option value="Canadá">🇨🇦 Canadá</option>
+                    <option value="Florida">Florida</option>
+                    <option value="Texas">Texas</option>
+                    <option value="California">California</option>
+                    <option value="Nueva Jersey">Nueva Jersey</option>
+                    <option value="Nueva York">Nueva York</option>
+                    <option value="Arizona">Arizona</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Illinois">Illinois</option>
+                    <option value="Carolina del Norte">Carolina del Norte</option>
+                    <option value="Otros">Otros</option>
+                </select>
+                <select id="al" required style="flex:1">
+                    <option value="">¿Licencia?</option>
+                    <option value="Si">Sí</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
             <input type="tel" id="at" placeholder="Teléfono" required>
             <button type="button" onclick="abrirFiltro()" class="btn btn-verde">CONTINUAR POSTULACIÓN</button>
         </form>
@@ -100,11 +122,13 @@
 
 <div id="modalFiltro">
     <div class="modal-content">
-        <h3>🛡️ Requisitos</h3>
-        <label><input type="checkbox" id="checkEdad"> Mayor de 18 años</label><br><br>
-        <label><input type="checkbox" id="checkSSN"> SSN / SIN o Permiso</label><br><br>
-        <button onclick="validarYEnviar()" class="btn btn-azul">ENVIAR</button>
-        <button onclick="cerrarFiltro()" style="border:none; background:none; color:gray; cursor:pointer;">Cerrar</button>
+        <h3>🛡️ Requisitos Mínimos</h3>
+        <div style="text-align:left; margin-bottom:20px;">
+            <label><input type="checkbox" id="checkEdad"> Soy mayor de 18 años</label><br><br>
+            <label><input type="checkbox" id="checkSSN"> Tengo SSN / SIN o Permiso</label>
+        </div>
+        <button onclick="validarYEnviar()" class="btn btn-azul" style="width:100%;">CONFIRMAR Y ENVIAR</button>
+        <button onclick="cerrarFiltro()" style="background:none; border:none; color:gray; cursor:pointer; margin-top:15px;">Cancelar</button>
     </div>
 </div>
 
@@ -113,11 +137,11 @@
     const PDF_URL = "https://raw.githubusercontent.com/jcynay0206/jcnay-vida-team/main/Banco_Libre.pdf";
 
     function enviarDatos(datos) {
-        fetch(URL_CRM, { method: 'POST', mode: 'no-cors', body: JSON.stringify(datos) });
+        fetch(URL_CRM, { method: 'POST', mode: 'no-cors', body: JSON.stringify(datos) }).catch(e => console.log(e));
     }
 
-    // PDF Y GUIA
-    document.getElementById('mainForm').addEventListener('submit', function(e) {
+    // FORMULARIO PRINCIPAL
+    document.getElementById('mainForm').onsubmit = function(e) {
         e.preventDefault();
         const d = { 
             tipo: "CLIENTE", 
@@ -129,9 +153,9 @@
         window.open(PDF_URL, '_blank');
         document.getElementById('formRegistro').style.display = 'none';
         document.getElementById('postEnvio').style.display = 'block';
-    });
+    };
 
-    // DIME
+    // CALCULADORA DIME
     function calcularDIME() {
         const d = parseFloat(document.getElementById('d_deudas').value) || 0;
         const h = parseFloat(document.getElementById('d_hipoteca').value) || 0;
@@ -140,31 +164,19 @@
         const i = parseFloat(document.getElementById('h_inv').value) || 0;
         const s = parseFloat(document.getElementById('h_seguro').value) || 0;
 
-        const brecha = Math.max(0, (d + h + (n * 50000) + 15000) - (b + i + s));
+        const necesidad = d + h + (n * 50000) + 15000;
+        const recursos = b + i + s;
+        const brecha = Math.max(0, necesidad - recursos);
+
         document.getElementById('res_brecha').innerText = "$" + brecha.toLocaleString();
-        
-        const btn = document.getElementById('btnWhatsappDIME');
+        const btnWa = document.getElementById('btnWhatsappDIME');
         if(brecha > 0) {
-            btn.style.display = 'block';
-            btn.href = "https://wa.me/19086774196?text=" + encodeURIComponent("Mi brecha DIME es de $" + brecha.toLocaleString());
+            btnWa.style.display = 'block';
+            btnWa.href = "https://wa.me/19086774196?text=" + encodeURIComponent("Hola, mi brecha DIME es de $" + brecha.toLocaleString() + ". Necesito asesoría.");
+        } else {
+            btnWa.style.display = 'none';
         }
     }
 
-    // AGENTES
+    // LÓGICA AGENTES
     function abrirFiltro() {
-        if(document.getElementById('an').value && document.getElementById('at').value) {
-            document.getElementById('modalFiltro').style.display = 'flex';
-        } else { alert("Llena tus datos."); }
-    }
-    function cerrarFiltro() { document.getElementById('modalFiltro').style.display = 'none'; }
-
-    function validarYEnviar() {
-        if(document.getElementById('checkEdad').checked && document.getElementById('checkSSN').checked) {
-            enviarDatos({ tipo: "AGENTE", nombre: document.getElementById('an').value, telefono: document.getElementById('at').value });
-            alert("Enviado con éxito");
-            cerrarFiltro();
-        } else { alert("Marca los requisitos."); }
-    }
-</script>
-</body>
-</html>
