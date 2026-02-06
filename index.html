@@ -117,4 +117,136 @@
             <form id="f_guia">
                 <input type="text" id="n1" placeholder="Nombre completo" required>
                 <div style="display: flex; gap: 10px;">
-                    <input type="number" id="
+                    <input type="number" id="e1" placeholder="Edad" required style="flex:1">
+                    <select id="i1" required style="flex:2">
+                        <option value="">Ingresos Anuales</option>
+                        <option value="Menos de $50k">Menos de $50k</option>
+                        <option value="$50k - $100k">$50k - $100k</option>
+                        <option value="Más de $100k">Más de $100k</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-azul">DESCARGAR GUÍA Y ACTIVAR</button>
+            </form>
+        </div>
+        <div id="okGuia" style="display:none; text-align:center;">
+            <h3 style="color:var(--azul-botones)">¡Registro Completado! ✅</h3>
+            <div style="display:flex; gap:12px; flex-wrap: wrap;">
+                <a href="https://calendly.com/blindajefamiliarus" target="_blank" class="btn btn-dorado" style="flex:1; min-width:140px;">📅 Agendar Cita</a>
+                <a href="https://wa.me/19086774196" target="_blank" class="btn btn-verde" style="flex:1; min-width:140px;">💬 WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h3 style="text-align:center">📊 Calculadora D.I.M.E.</h3>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+            <div><small>Deudas Totales</small><input type="number" id="d_deu" placeholder="$" oninput="runDIME()"></div>
+            <div><small>Hipoteca</small><input type="number" id="d_hip" placeholder="$" oninput="runDIME()"></div>
+            <div><small>Número de Hijos</small><input type="number" id="d_hij" placeholder="0" oninput="runDIME()"></div>
+            <div><small>Ahorros/Seguro actual</small><input type="number" id="h_aho" placeholder="$" oninput="runDIME()"></div>
+        </div>
+        <div style="text-align:center; background:#f1f2f6; padding:25px; border-radius:15px; margin-top:15px; border: 1px solid #dfe6e9;">
+            <small style="text-transform: uppercase; letter-spacing: 1px;">Brecha de Protección Necesaria:</small>
+            <div id="res_brecha">$0</div>
+            <a id="waDIME" href="#" target="_blank" class="btn btn-verde" style="display:none">📲 Enviar resultado a un Asesor</a>
+        </div>
+    </section>
+
+    <section style="border-top: 6px solid var(--verde);">
+        <h3>💼 Únete al Equipo de Agentes</h3>
+        <form id="f_agente">
+            <input type="text" id="an" placeholder="Nombre completo" required>
+            <div style="display: flex; gap: 10px;">
+                <select id="ae" required style="flex:2">
+                    <option value="">Selecciona Ubicación</option>
+                    <option value="Canada">🇨🇦 Canadá</option>
+                    <option value="Florida">Florida</option>
+                    <option value="Texas">Texas</option>
+                    <option value="California">California</option>
+                    <option value="New Jersey">New Jersey</option>
+                    <option value="New York">New York</option>
+                    <option value="Otros">Otros Estados USA</option>
+                </select>
+                <select id="al" required style="flex:1">
+                    <option value="">¿Licencia?</option>
+                    <option value="Si">Sí</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <input type="tel" id="at" placeholder="Teléfono de contacto" required>
+            <button type="button" onclick="showM()" class="btn btn-verde">CONTINUAR POSTULACIÓN</button>
+        </form>
+    </section>
+</div>
+
+<div id="modalFiltro">
+    <div class="modal-content">
+        <h3>🛡️ Validación de Requisitos</h3>
+        <p>Para postularte como agente en USA/Canadá, confirma:</p>
+        <div style="text-align:left; margin:20px 0;">
+            <label style="display:block; margin-bottom:10px;"><input type="checkbox" id="c1"> Soy mayor de 18 años</label>
+            <label style="display:block; margin-bottom:10px;"><input type="checkbox" id="c2"> Poseo SSN, SIN o permiso de trabajo</label>
+        </div>
+        <button onclick="enviarA()" class="btn btn-azul">CONFIRMAR Y ENVIAR</button>
+        <button onclick="hideM()" style="background:none; border:none; color:gray; margin-top:15px; cursor:pointer">Cerrar</button>
+    </div>
+</div>
+
+<script>
+    const CRM = "https://script.google.com/macros/s/AKfycbw03lfXmU4-MHDG4_56GbO-XpOqWGnd3flJ5-KolntarhDYWrBr53Tag01JdMT7h8Mvuw/exec";
+    const PDF = "https://raw.githubusercontent.com/jcynay0206/jcnay-vida-team/main/Banco_Libre.pdf";
+
+    function send(data) {
+        fetch(CRM, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
+    }
+
+    document.getElementById('f_guia').onsubmit = function(e) {
+        e.preventDefault();
+        send({ 
+            tipo: "CLIENTE", 
+            nombre: document.getElementById('n1').value,
+            edad: document.getElementById('e1').value,
+            ingresos: document.getElementById('i1').value
+        });
+        window.open(PDF, '_blank');
+        document.getElementById('formGuia').style.display = 'none';
+        document.getElementById('okGuia').style.display = 'block';
+    };
+
+    function runDIME() {
+        const d = parseFloat(document.getElementById('d_deu').value) || 0;
+        const h = parseFloat(document.getElementById('d_hip').value) || 0;
+        const n = parseFloat(document.getElementById('d_hij').value) || 0;
+        const a = parseFloat(document.getElementById('h_aho').value) || 0;
+        const total = Math.max(0, (d + h + (n * 50000) + 15000) - a);
+        document.getElementById('res_brecha').innerText = "$" + total.toLocaleString();
+        const btn = document.getElementById('waDIME');
+        if(total > 0) {
+            btn.style.display = 'block';
+            btn.href = "https://wa.me/19086774196?text=Hola, mi brecha DIME es de $" + total.toLocaleString();
+        }
+    }
+
+    function showM() { 
+        if(document.getElementById('an').value && document.getElementById('at').value) {
+            document.getElementById('modalFiltro').style.display = 'flex'; 
+        } else { alert("Ingresa tus datos de contacto."); }
+    }
+    function hideM() { document.getElementById('modalFiltro').style.display = 'none'; }
+    
+    function enviarA() {
+        if(document.getElementById('c1').checked && document.getElementById('c2').checked) {
+            send({ 
+                tipo: "AGENTE", 
+                nombre: document.getElementById('an').value, 
+                estado: document.getElementById('ae').value, 
+                tel: document.getElementById('at').value,
+                licencia: document.getElementById('al').value
+            });
+            alert("✅ ¡Postulación enviada! Pronto te contactaremos.");
+            hideM();
+        } else { alert("Debes marcar ambos requisitos para continuar."); }
+    }
+</script>
+</body>
+</html>
