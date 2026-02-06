@@ -5,87 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JCNay Vida Team | Protección Financiera</title>
     <style>
-        /* COLORES RELAJANTES PARA EVITAR FATIGA VISUAL */
         :root { 
-            --azul-mate: #2c3e50; 
-            --dorado-suave: #b59410; 
-            --verde-wa: #25d366; 
-            --fondo-seda: #f4f4f2; /* Gris cálido muy suave */
-            --texto: #333333; 
+            --fondo-oscuro: #1c252e; /* Gris Navy Oscuro Mate */
+            --tarjeta: #ffffff;
+            --dorado: #c5a059;
+            --azul-botones: #1a2a6c;
+            --verde: #25d366;
+            --texto-claro: #f1f2f6;
         }
         
         body { 
-            font-family: 'Segoe UI', Arial, sans-serif; 
-            background-color: var(--fondo-seda); 
-            margin: 0; padding: 15px; color: var(--texto); 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            background-color: var(--fondo-oscuro); 
+            margin: 0; padding: 15px; color: var(--texto-claro);
             line-height: 1.6;
         }
 
         .container { max-width: 850px; margin: 0 auto; }
         
         header { 
-            background: var(--azul-mate); 
-            color: white; 
-            padding: 35px 20px; 
+            padding: 40px 20px; 
             text-align: center; 
-            border-radius: 15px; 
-            border-bottom: 5px solid var(--dorado-suave); 
             margin-bottom: 25px;
         }
 
         .frase { 
             font-style: italic; 
-            color: #dcdde1; 
-            margin-top: 8px; 
-            font-size: 1.1em;
+            color: var(--dorado); 
+            margin-top: 12px; 
+            font-size: 1.25em;
             font-weight: 300;
         }
 
         section { 
-            background: white; 
-            padding: 25px; 
-            border-radius: 15px; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            background: var(--tarjeta); 
+            padding: 28px; 
+            border-radius: 18px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4); 
             margin-bottom: 25px; 
+            color: #2d3436; 
         }
 
-        /* GRID DE CALCULADORAS EXTERNAS */
         .grid-externas { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
             gap: 15px; 
             margin-bottom: 25px; 
         }
+        
         .card-ext { 
-            background: white; 
+            background: rgba(255,255,255,0.07); 
             padding: 20px; 
-            border-radius: 12px; 
+            border-radius: 15px; 
             text-align: center; 
-            border-top: 4px solid var(--azul-mate);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: white;
+            transition: 0.3s;
         }
+        .card-ext:hover { background: rgba(255,255,255,0.12); }
 
         input, select { 
-            width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; 
-            border-radius: 8px; font-size: 16px; box-sizing: border-box;
+            width: 100%; padding: 13px; margin: 10px 0; border: 1.5px solid #dfe6e9; 
+            border-radius: 10px; font-size: 16px; box-sizing: border-box; background: #fafafa;
         }
 
         .btn { 
-            width: 100%; padding: 15px; border: none; border-radius: 10px; font-size: 16px; 
+            width: 100%; padding: 16px; border: none; border-radius: 12px; font-size: 16px; 
             font-weight: bold; cursor: pointer; text-decoration: none; display: block; 
-            text-align: center; transition: 0.3s; box-sizing: border-box; margin-top: 10px;
+            text-align: center; transition: 0.4s; box-sizing: border-box; margin-top: 10px;
         }
-        .btn-azul { background: var(--azul-mate); color: white; }
-        .btn-verde { background: var(--verde-wa); color: white; }
-        .btn-dorado { background: var(--dorado-suave); color: white; }
+        .btn-azul { background: var(--azul-botones); color: white; }
+        .btn-verde { background: var(--verde); color: white; }
+        .btn-dorado { background: var(--dorado); color: white; }
 
-        #res_brecha { font-size: 32px; font-weight: bold; color: #c0392b; margin: 10px 0; }
+        #res_brecha { font-size: 36px; font-weight: bold; color: #d63031; margin: 10px 0; }
         
         #modalFiltro { 
             display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
-            background:rgba(0,0,0,0.7); z-index:9999; align-items:center; justify-content:center; 
+            background:rgba(0,0,0,0.9); z-index:9999; align-items:center; justify-content:center; 
         }
-        .modal-content { background:white; padding:30px; border-radius:20px; width:90%; max-width:400px; text-align:center; }
+        .modal-content { background:white; padding:35px; border-radius:25px; width:90%; max-width:420px; text-align:center; color: #2d3436; }
     </style>
 </head>
 <body>
@@ -98,129 +97,24 @@
 
     <div class="grid-externas">
         <div class="card-ext">
-            <h4>🛡️ Escudo</h4>
-            <a href="https://jcynay0206.github.io/escudo-financiero/" class="btn btn-azul">Abrir</a>
+            <h4>🛡️ Escudo Financiero</h4>
+            <a href="https://jcynay0206.github.io/escudo-financiero/" class="btn btn-dorado">Abrir Escudo</a>
         </div>
         <div class="card-ext">
             <h4>📈 Retiro IUL</h4>
-            <a href="https://jcynay0206.github.io/calculadora-iul/" class="btn btn-azul">Abrir</a>
+            <a href="https://jcynay0206.github.io/calculadora-iul/" class="btn btn-dorado">Abrir Retiro</a>
         </div>
         <div class="card-ext">
             <h4>🎓 Universitaria</h4>
-            <a href="https://jcynay0206.github.io/calculadora-universitaria/" class="btn btn-azul">Abrir</a>
+            <a href="https://jcynay0206.github.io/calculadora-universitaria/" class="btn btn-dorado">Abrir Plan</a>
         </div>
     </div>
 
     <section>
         <div id="formGuia">
-            <h3>📥 Guía Gratuita "Banco Libre"</h3>
+            <h3>📥 Guía "Banco Libre"</h3>
+            <p style="color:#636e72">Completa tus datos para activar la descarga y tus herramientas de asesoría.</p>
             <form id="f_guia">
-                <input type="text" id="n1" placeholder="Tu nombre completo" required>
-                <button type="submit" class="btn btn-azul">DESCARGAR Y ACTIVAR CITAS</button>
-            </form>
-        </div>
-        <div id="okGuia" style="display:none; text-align:center;">
-            <h3 style="color:var(--azul-mate)">¡Registro Completado! ✅</h3>
-            <div style="display:flex; gap:10px;">
-                <a href="https://calendly.com/blindajefamiliarus" target="_blank" class="btn btn-dorado" style="flex:1">📅 Calendly</a>
-                <a href="https://wa.me/19086774196" target="_blank" class="btn btn-verde" style="flex:1">💬 WhatsApp</a>
-            </div>
-        </div>
-    </section>
-
-    <section style="border-top: 5px solid var(--dorado-suave);">
-        <h3 style="text-align:center">📊 Calculadora D.I.M.E.</h3>
-        <p style="font-size:0.9em; text-align:center; color:#666;">Calcula la protección que tu familia realmente necesita.</p>
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
-            <input type="number" id="d_deu" placeholder="Deudas" oninput="runDIME()">
-            <input type="number" id="d_hip" placeholder="Hipoteca" oninput="runDIME()">
-            <input type="number" id="d_hij" placeholder="Nº Hijos" oninput="runDIME()">
-            <input type="number" id="h_aho" placeholder="Ahorros" oninput="runDIME()">
-        </div>
-        
-        <div style="text-align:center; background:#f9f9f9; padding:20px; border-radius:15px; margin-top:15px; border: 1px solid #eee;">
-            <small>BRECHA DE PROTECCIÓN:</small>
-            <div id="res_brecha">$0</div>
-            <a id="waDIME" href="#" target="_blank" class="btn btn-verde" style="display:none">📲 Enviar resultado a un Asesor</a>
-        </div>
-    </section>
-
-    <section style="border-top: 5px solid var(--verde-wa);">
-        <h3>💼 Únete al Equipo de Agentes</h3>
-        <form id="f_agente">
-            <input type="text" id="an" placeholder="Nombre completo" required>
-            <select id="ae" required>
-                <option value="">Selecciona tu ubicación</option>
-                <option value="Canada">🇨🇦 Canadá</option>
-                <option value="Florida">Florida</option>
-                <option value="Texas">Texas</option>
-                <option value="California">California</option>
-                <option value="New Jersey">New Jersey</option>
-                <option value="New York">New York</option>
-                <option value="Georgia">Georgia</option>
-                <option value="Otros">Otros Estados USA</option>
-            </select>
-            <input type="tel" id="at" placeholder="Teléfono" required>
-            <button type="button" onclick="showM()" class="btn btn-verde">CONTINUAR POSTULACIÓN</button>
-        </form>
-    </section>
-</div>
-
-<div id="modalFiltro">
-    <div class="modal-content">
-        <h3>🛡️ Validación</h3>
-        <p>¿Cumples con estos requisitos?</p>
-        <label><input type="checkbox" id="c1"> Soy mayor de 18 años</label><br><br>
-        <label><input type="checkbox" id="c2"> Poseo SSN o SIN (Permiso)</label><br><br>
-        <button onclick="enviarA()" class="btn btn-azul">CONFIRMAR Y ENVIAR</button>
-        <button onclick="hideM()" style="background:none; border:none; color:gray; margin-top:15px; cursor:pointer">Cerrar</button>
-    </div>
-</div>
-
-<script>
-    const CRM = "https://script.google.com/macros/s/AKfycbw03lfXmU4-MHDG4_56GbO-XpOqWGnd3flJ5-KolntarhDYWrBr53Tag01JdMT7h8Mvuw/exec";
-    const PDF = "https://raw.githubusercontent.com/jcynay0206/jcnay-vida-team/main/Banco_Libre.pdf";
-
-    function send(data) {
-        fetch(CRM, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) });
-    }
-
-    document.getElementById('f_guia').onsubmit = function(e) {
-        e.preventDefault();
-        send({ tipo: "CLIENTE", nombre: document.getElementById('n1').value });
-        window.open(PDF, '_blank');
-        document.getElementById('formGuia').style.display = 'none';
-        document.getElementById('okGuia').style.display = 'block';
-    };
-
-    function runDIME() {
-        const d = parseFloat(document.getElementById('d_deu').value) || 0;
-        const h = parseFloat(document.getElementById('d_hip').value) || 0;
-        const n = parseFloat(document.getElementById('d_hij').value) || 0;
-        const a = parseFloat(document.getElementById('h_aho').value) || 0;
-        const total = Math.max(0, (d + h + (n * 50000) + 15000) - a);
-        document.getElementById('res_brecha').innerText = "$" + total.toLocaleString();
-        const btn = document.getElementById('waDIME');
-        if(total > 0) {
-            btn.style.display = 'block';
-            btn.href = "https://wa.me/19086774196?text=Hola, mi brecha DIME es de $" + total.toLocaleString();
-        }
-    }
-
-    function showM() { 
-        if(document.getElementById('an').value && document.getElementById('at').value) {
-            document.getElementById('modalFiltro').style.display = 'flex'; 
-        } else { alert("Ingresa tus datos de contacto."); }
-    }
-    function hideM() { document.getElementById('modalFiltro').style.display = 'none'; }
-    
-    function enviarA() {
-        if(document.getElementById('c1').checked && document.getElementById('c2').checked) {
-            send({ tipo: "AGENTE", nombre: document.getElementById('an').value, estado: document.getElementById('ae').value, tel: document.getElementById('at').value });
-            alert("Enviado con éxito ✅");
-            hideM();
-        } else { alert("Marca los requisitos."); }
-    }
-</script>
-</body>
-</html>
+                <input type="text" id="n1" placeholder="Nombre completo" required>
+                <div style="display: flex; gap: 10px;">
+                    <input type="number" id="
