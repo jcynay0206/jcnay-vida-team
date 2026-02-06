@@ -6,7 +6,7 @@
     <title>JCNay Vida Team | Protección Financiera</title>
     <style>
         :root { 
-            --fondo-oscuro: #1c252e; /* Gris Navy Oscuro Mate */
+            --fondo-oscuro: #1c252e; 
             --tarjeta: #ffffff;
             --dorado: #c5a059;
             --azul-botones: #1a2a6c;
@@ -24,22 +24,22 @@
         .container { max-width: 850px; margin: 0 auto; }
         
         header { 
-            padding: 40px 20px; 
+            padding: 30px 20px; 
             text-align: center; 
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .frase { 
             font-style: italic; 
             color: var(--dorado); 
-            margin-top: 12px; 
+            margin-top: 10px; 
             font-size: 1.25em;
             font-weight: 300;
         }
 
         section { 
             background: var(--tarjeta); 
-            padding: 28px; 
+            padding: 25px; 
             border-radius: 18px; 
             box-shadow: 0 10px 30px rgba(0,0,0,0.4); 
             margin-bottom: 25px; 
@@ -48,31 +48,29 @@
 
         .grid-externas { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
             gap: 15px; 
             margin-bottom: 25px; 
         }
         
         .card-ext { 
             background: rgba(255,255,255,0.07); 
-            padding: 20px; 
+            padding: 15px; 
             border-radius: 15px; 
             text-align: center; 
             border: 1px solid rgba(255,255,255,0.15);
             color: white;
-            transition: 0.3s;
         }
-        .card-ext:hover { background: rgba(255,255,255,0.12); }
 
         input, select { 
-            width: 100%; padding: 13px; margin: 10px 0; border: 1.5px solid #dfe6e9; 
+            width: 100%; padding: 12px; margin: 8px 0; border: 1.5px solid #dfe6e9; 
             border-radius: 10px; font-size: 16px; box-sizing: border-box; background: #fafafa;
         }
 
         .btn { 
-            width: 100%; padding: 16px; border: none; border-radius: 12px; font-size: 16px; 
+            width: 100%; padding: 15px; border: none; border-radius: 12px; font-size: 16px; 
             font-weight: bold; cursor: pointer; text-decoration: none; display: block; 
-            text-align: center; transition: 0.4s; box-sizing: border-box; margin-top: 10px;
+            text-align: center; transition: 0.3s; box-sizing: border-box; margin-top: 10px;
         }
         .btn-azul { background: var(--azul-botones); color: white; }
         .btn-verde { background: var(--verde); color: white; }
@@ -95,62 +93,60 @@
         <div class="frase">"Estrategias de Protección y Libertad Financiera"</div>
     </header>
 
-    <div class="grid-externas">
-        <div class="card-ext">
-            <h4>🛡️ Escudo Financiero</h4>
-            <a href="https://jcynay0206.github.io/escudo-financiero/" class="btn btn-dorado">Abrir Escudo</a>
-        </div>
-        <div class="card-ext">
-            <h4>📈 Retiro IUL</h4>
-            <a href="https://jcynay0206.github.io/calculadora-iul/" class="btn btn-dorado">Abrir Retiro</a>
-        </div>
-        <div class="card-ext">
-            <h4>🎓 Universitaria</h4>
-            <a href="https://jcynay0206.github.io/calculadora-universitaria/" class="btn btn-dorado">Abrir Plan</a>
-        </div>
-    </div>
-
     <section>
-        <div id="formGuia">
-            <h3>📥 Guía "Banco Libre"</h3>
-            <p style="color:#636e72">Completa tus datos para activar la descarga y tus herramientas de asesoría.</p>
-            <form id="f_guia">
-                <input type="text" id="n1" placeholder="Nombre completo" required>
-                <div style="display: flex; gap: 10px;">
-                    <input type="number" id="e1" placeholder="Edad" required style="flex:1">
-                    <select id="i1" required style="flex:2">
-                        <option value="">Ingresos Anuales</option>
-                        <option value="Menos de $50k">Menos de $50k</option>
-                        <option value="$50k - $100k">$50k - $100k</option>
-                        <option value="Más de $100k">Más de $100k</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-azul">DESCARGAR GUÍA Y ACTIVAR</button>
-            </form>
-        </div>
-        <div id="okGuia" style="display:none; text-align:center;">
-            <h3 style="color:var(--azul-botones)">¡Registro Completado! ✅</h3>
-            <div style="display:flex; gap:12px; flex-wrap: wrap;">
-                <a href="https://calendly.com/blindajefamiliarus" target="_blank" class="btn btn-dorado" style="flex:1; min-width:140px;">📅 Agendar Cita</a>
-                <a href="https://wa.me/19086774196" target="_blank" class="btn btn-verde" style="flex:1; min-width:140px;">💬 WhatsApp</a>
+        <h3>📥 Guía Gratuita "Banco Libre"</h3>
+        <form id="f_guia">
+            <input type="text" id="n1" placeholder="Nombre completo" required>
+            <div style="display: flex; gap: 10px;">
+                <input type="number" id="e1" placeholder="Edad" required style="flex:1">
+                <select id="i1" required style="flex:2">
+                    <option value="">Ingresos Anuales</option>
+                    <option value="Menos de $50k">Menos de $50k</option>
+                    <option value="$50k - $100k">$50k - $100k</option>
+                    <option value="Más de $100k">Más de $100k</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-azul">DESCARGAR GUÍA Y ACTIVAR</button>
+        </form>
+        <div id="okGuia" style="display:none; text-align:center; margin-top:20px;">
+            <h3 style="color:var(--azul-botones)">¡Registro Exitoso! ✅</h3>
+            <div style="display:flex; gap:10px;">
+                <a href="https://calendly.com/blindajefamiliarus" target="_blank" class="btn btn-dorado" style="flex:1">📅 Agendar Cita</a>
+                <a href="https://wa.me/19086774196" target="_blank" class="btn btn-verde" style="flex:1">💬 WhatsApp</a>
             </div>
         </div>
     </section>
 
     <section>
-        <h3 style="text-align:center">📊 Calculadora D.I.M.E.</h3>
+        <h3 style="text-align:center">📊 Calculadora de Protección D.I.M.E.</h3>
         <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
-            <div><small>Deudas Totales</small><input type="number" id="d_deu" placeholder="$" oninput="runDIME()"></div>
-            <div><small>Hipoteca</small><input type="number" id="d_hip" placeholder="$" oninput="runDIME()"></div>
-            <div><small>Número de Hijos</small><input type="number" id="d_hij" placeholder="0" oninput="runDIME()"></div>
-            <div><small>Ahorros/Seguro actual</small><input type="number" id="h_aho" placeholder="$" oninput="runDIME()"></div>
+            <div><small>Deudas Totales</small><input type="number" id="d_deu" placeholder="$ Ej: 5000" oninput="runDIME()"></div>
+            <div><small>Hipoteca</small><input type="number" id="d_hip" placeholder="$ Ej: 200000" oninput="runDIME()"></div>
+            <div><small>Hijos (Universidad/Gastos)</small><input type="number" id="d_hij_val" placeholder="$ Cantidad total" oninput="runDIME()"></div>
+            <div><small>Gastos Finales</small><input type="number" id="d_fun_val" placeholder="$ Ej: 15000" oninput="runDIME()"></div>
+            <div style="grid-column: span 2;"><small>Ahorros / Seguro Actual</small><input type="number" id="h_aho" placeholder="$" oninput="runDIME()"></div>
         </div>
-        <div style="text-align:center; background:#f1f2f6; padding:25px; border-radius:15px; margin-top:15px; border: 1px solid #dfe6e9;">
-            <small style="text-transform: uppercase; letter-spacing: 1px;">Brecha de Protección Necesaria:</small>
+        <div style="text-align:center; background:#f1f2f6; padding:20px; border-radius:15px; margin-top:15px; border: 1px solid #dfe6e9;">
+            <small>BRECHA DE PROTECCIÓN NECESARIA:</small>
             <div id="res_brecha">$0</div>
-            <a id="waDIME" href="#" target="_blank" class="btn btn-verde" style="display:none">📲 Enviar resultado a un Asesor</a>
+            <a id="waDIME" href="#" target="_blank" class="btn btn-verde" style="display:none">📲 Enviar resultado a Asesor</a>
         </div>
     </section>
+
+    <div class="grid-externas">
+        <div class="card-ext">
+            <h4>🛡️ Escudo</h4>
+            <a href="https://jcynay0206.github.io/escudo-financiero/" class="btn btn-dorado">Abrir</a>
+        </div>
+        <div class="card-ext">
+            <h4>📈 Retiro IUL</h4>
+            <a href="https://jcynay0206.github.io/calculadora-iul/" class="btn btn-dorado">Abrir</a>
+        </div>
+        <div class="card-ext">
+            <h4>🎓 Universitaria</h4>
+            <a href="https://jcynay0206.github.io/calculadora-universitaria/" class="btn btn-dorado">Abrir</a>
+        </div>
+    </div>
 
     <section style="border-top: 6px solid var(--verde);">
         <h3>💼 Únete al Equipo de Agentes</h3>
@@ -160,12 +156,7 @@
                 <select id="ae" required style="flex:2">
                     <option value="">Selecciona Ubicación</option>
                     <option value="Canada">🇨🇦 Canadá</option>
-                    <option value="Florida">Florida</option>
-                    <option value="Texas">Texas</option>
-                    <option value="California">California</option>
-                    <option value="New Jersey">New Jersey</option>
-                    <option value="New York">New York</option>
-                    <option value="Otros">Otros Estados USA</option>
+                    <option value="Alabama">Alabama</option><option value="Alaska">Alaska</option><option value="Arizona">Arizona</option><option value="Arkansas">Arkansas</option><option value="California">California</option><option value="Colorado">Colorado</option><option value="Connecticut">Connecticut</option><option value="Delaware">Delaware</option><option value="Florida">Florida</option><option value="Georgia">Georgia</option><option value="Hawaii">Hawaii</option><option value="Idaho">Idaho</option><option value="Illinois">Illinois</option><option value="Indiana">Indiana</option><option value="Iowa">Iowa</option><option value="Kansas">Kansas</option><option value="Kentucky">Kentucky</option><option value="Louisiana">Louisiana</option><option value="Maine">Maine</option><option value="Maryland">Maryland</option><option value="Massachusetts">Massachusetts</option><option value="Michigan">Michigan</option><option value="Minnesota">Minnesota</option><option value="Mississippi">Mississippi</option><option value="Missouri">Missouri</option><option value="Montana">Montana</option><option value="Nebraska">Nebraska</option><option value="Nevada">Nevada</option><option value="New Hampshire">New Hampshire</option><option value="New Jersey">New Jersey</option><option value="New Mexico">New Mexico</option><option value="New York">New York</option><option value="North Carolina">North Carolina</option><option value="North Dakota">North Dakota</option><option value="Ohio">Ohio</option><option value="Oklahoma">Oklahoma</option><option value="Oregon">Oregon</option><option value="Pennsylvania">Pennsylvania</option><option value="Rhode Island">Rhode Island</option><option value="South Carolina">South Carolina</option><option value="South Dakota">South Dakota</option><option value="Tennessee">Tennessee</option><option value="Texas">Texas</option><option value="Utah">Utah</option><option value="Vermont">Vermont</option><option value="Virginia">Virginia</option><option value="Washington">Washington</option><option value="West Virginia">West Virginia</option><option value="Wisconsin">Wisconsin</option><option value="Wyoming">Wyoming</option>
                 </select>
                 <select id="al" required style="flex:1">
                     <option value="">¿Licencia?</option>
@@ -173,7 +164,7 @@
                     <option value="No">No</option>
                 </select>
             </div>
-            <input type="tel" id="at" placeholder="Teléfono de contacto" required>
+            <input type="tel" id="at" placeholder="Teléfono" required>
             <button type="button" onclick="showM()" class="btn btn-verde">CONTINUAR POSTULACIÓN</button>
         </form>
     </section>
@@ -181,8 +172,8 @@
 
 <div id="modalFiltro">
     <div class="modal-content">
-        <h3>🛡️ Validación de Requisitos</h3>
-        <p>Para postularte como agente en USA/Canadá, confirma:</p>
+        <h3>🛡️ Requisitos Agente</h3>
+        <p>Confirma que cumples con lo siguiente:</p>
         <div style="text-align:left; margin:20px 0;">
             <label style="display:block; margin-bottom:10px;"><input type="checkbox" id="c1"> Soy mayor de 18 años</label>
             <label style="display:block; margin-bottom:10px;"><input type="checkbox" id="c2"> Poseo SSN, SIN o permiso de trabajo</label>
@@ -202,50 +193,45 @@
 
     document.getElementById('f_guia').onsubmit = function(e) {
         e.preventDefault();
-        send({ 
-            tipo: "CLIENTE", 
-            nombre: document.getElementById('n1').value,
-            edad: document.getElementById('e1').value,
-            ingresos: document.getElementById('i1').value
-        });
+        send({ tipo: "CLIENTE", nombre: document.getElementById('n1').value, edad: document.getElementById('e1').value, ingresos: document.getElementById('i1').value });
         window.open(PDF, '_blank');
-        document.getElementById('formGuia').style.display = 'none';
+        document.getElementById('f_guia').style.display = 'none';
         document.getElementById('okGuia').style.display = 'block';
     };
 
     function runDIME() {
         const d = parseFloat(document.getElementById('d_deu').value) || 0;
         const h = parseFloat(document.getElementById('d_hip').value) || 0;
-        const n = parseFloat(document.getElementById('d_hij').value) || 0;
+        const n_val = parseFloat(document.getElementById('d_hij_val').value) || 0;
+        const f_val = parseFloat(document.getElementById('d_fun_val').value) || 0;
         const a = parseFloat(document.getElementById('h_aho').value) || 0;
-        const total = Math.max(0, (d + h + (n * 50000) + 15000) - a);
+        
+        // El cálculo ahora suma directamente los valores ingresados por el usuario
+        const total = Math.max(0, (d + h + n_val + f_val) - a);
         document.getElementById('res_brecha').innerText = "$" + total.toLocaleString();
+        
         const btn = document.getElementById('waDIME');
         if(total > 0) {
             btn.style.display = 'block';
-            btn.href = "https://wa.me/19086774196?text=Hola, mi brecha DIME es de $" + total.toLocaleString();
+            btn.href = "https://wa.me/19086774196?text=Mi brecha DIME es: $" + total.toLocaleString();
+        } else {
+            btn.style.display = 'none';
         }
     }
 
     function showM() { 
         if(document.getElementById('an').value && document.getElementById('at').value) {
             document.getElementById('modalFiltro').style.display = 'flex'; 
-        } else { alert("Ingresa tus datos de contacto."); }
+        } else { alert("Ingresa tus datos."); }
     }
     function hideM() { document.getElementById('modalFiltro').style.display = 'none'; }
     
     function enviarA() {
         if(document.getElementById('c1').checked && document.getElementById('c2').checked) {
-            send({ 
-                tipo: "AGENTE", 
-                nombre: document.getElementById('an').value, 
-                estado: document.getElementById('ae').value, 
-                tel: document.getElementById('at').value,
-                licencia: document.getElementById('al').value
-            });
-            alert("✅ ¡Postulación enviada! Pronto te contactaremos.");
+            send({ tipo: "AGENTE", nombre: document.getElementById('an').value, estado: document.getElementById('ae').value, tel: document.getElementById('at').value, licencia: document.getElementById('al').value });
+            alert("Enviado con éxito ✅");
             hideM();
-        } else { alert("Debes marcar ambos requisitos para continuar."); }
+        } else { alert("Marca los requisitos."); }
     }
 </script>
 </body>
