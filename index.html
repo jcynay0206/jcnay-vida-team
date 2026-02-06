@@ -201,9 +201,9 @@
         const btn = document.getElementById('waDIME');
         if(total > 0) {
             btn.style.display = 'block';
-            let msg = `*👋 ¡Hola JCNay!*%0A%0A`;
-            msg += `Mi nombre es *${nombre}*${edad ? ' y tengo ' + edad + ' años' : ''}. Estuve usando la calculadora de tu página y me gustaría que me ayudaras con mi plan de protección.%0A%0A`;
-            msg += `Mi brecha hoy es de: *$${total.toLocaleString()}*%0A`;
+            let msg = `*🚀 SOLICITUD DE ASESORÍA D.I.M.E.*%0A%0A`;
+            msg += `👋 ¡Hola JCNay! Mi nombre es *${nombre}*${edad ? ' y tengo ' + edad + ' años' : ''}.%0A%0A`;
+            msg += `🎯 Estuve usando tu calculadora y mi *Brecha de Protección* hoy es de: *$${total.toLocaleString()}*%0A`;
             msg += `━━━━━━━━━━━━━━━━━━━━%0A`;
             msg += `💳 *Deudas:* $${d.toLocaleString()}%0A`;
             msg += `🏠 *Hipoteca:* $${h.toLocaleString()}%0A`;
@@ -212,7 +212,7 @@
             msg += `💰 *Ahorros actuales:* $${a.toLocaleString()}%0A`;
             msg += `━━━━━━━━━━━━━━━━━━━━%0A`;
             msg += `👨‍👩‍👧‍👦 *Hijos:* ${hijos} (Edades: ${edades})%0A%0A`;
-            msg += `*¿Podemos agendar una breve charla para ver cómo cubrir esto?*`;
+            msg += `*¿Podemos agendar una charla para ver cómo cubrir este plan?*`;
             
             btn.href = "https://wa.me/19086774196?text=" + msg;
         } else { btn.style.display = 'none'; }
