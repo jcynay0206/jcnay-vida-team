@@ -28,7 +28,6 @@
         header { padding: 40px 20px; text-align: center; }
         h1 { margin: 0; font-size: 2.5em; letter-spacing: -1px; }
 
-        /* --- ANIMACIÓN DE LA FRASE DORADA --- */
         .frase-dorada { 
             display: inline-block;
             position: relative;
@@ -41,69 +40,41 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             overflow: hidden;
-            transition: transform 0.3s ease;
         }
 
-        /* Destello de luz moviéndose */
+        /* Destello de luz */
         .frase-dorada::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(
-                to right, 
-                rgba(255,255,255,0) 0%, 
-                rgba(255,255,255,0.4) 50%, 
-                rgba(255,255,255,0) 100%
-            );
-            transform: skewX(-25deg);
-            animation: brillo 4s infinite;
+            content: ""; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+            transform: skewX(-25deg); animation: brillo 4s infinite;
         }
+        @keyframes brillo { 0% { left: -100%; } 20% { left: 150%; } 100% { left: 150%; } }
 
-        @keyframes brillo {
-            0% { left: -100%; }
-            20% { left: 150%; }
-            100% { left: 150%; }
-        }
-
-        .frase-dorada:hover {
-            transform: scale(1.05);
-        }
-
-        /* --- RESTO DE ESTILOS --- */
         section { 
             background: var(--tarjeta-oscura); 
-            padding: 30px; 
-            border-radius: 24px; 
-            border: 1px solid rgba(255,255,255,0.1);
-            margin-bottom: 25px; 
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            padding: 30px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 25px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
         }
 
+        /* Estilos Sobre Nosotros */
+        .nosotros-flex { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; text-align: left; }
+        .nosotros-img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--dorado-brillante); object-fit: cover; }
+        .nosotros-txt { flex: 1; min-width: 250px; }
+
         .grid-externas { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-            gap: 15px; 
-            margin-bottom: 25px; 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+            gap: 15px; margin-bottom: 25px; 
         }
         
         .card-ext { 
-            background: rgba(255,255,255,0.03); 
-            padding: 20px; 
-            border-radius: 20px; 
-            text-align: center; 
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: 0.3s;
+            background: rgba(255,255,255,0.03); padding: 20px; border-radius: 20px; 
+            text-align: center; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;
         }
-        .card-ext:hover { background: rgba(255,255,255,0.08); transform: translateY(-5px); }
+        .card-ext:hover { transform: translateY(-5px); background: rgba(255,255,255,0.08); }
 
         input, select { 
-            width: 100%; padding: 14px; margin: 10px 0; 
-            border: 1px solid rgba(255,255,255,0.1); 
-            border-radius: 12px; font-size: 16px; box-sizing: border-box; 
-            background: rgba(0,0,0,0.2); color: white;
+            width: 100%; padding: 14px; margin: 10px 0; border: 1px solid rgba(255,255,255,0.1); 
+            border-radius: 12px; background: rgba(0,0,0,0.2); color: white; font-size: 16px;
         }
 
         .btn { 
@@ -122,7 +93,7 @@
             display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
             background:rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index:9999; align-items:center; justify-content:center; 
         }
-        .modal-content { background: var(--tarjeta-oscura); padding: 40px; border-radius: 30px; width: 90%; max-width: 400px; text-align: center; border: 1px solid rgba(255,255,255,0.1); }
+        .modal-content { background: var(--tarjeta-oscura); padding: 40px; border-radius: 30px; width: 90%; max-width: 400px; text-align: center; }
     </style>
 </head>
 <body>
@@ -164,15 +135,25 @@
             <div><small>Hipoteca</small><input type="number" id="d_hip" placeholder="$" oninput="runDIME()"></div>
             <div><small>Hijos</small><input type="number" id="d_hij_num" placeholder="Cant." oninput="runDIME()"></div>
             <div><small>Edades</small><input type="text" id="d_hij_edad" placeholder="Ej: 2, 5"></div>
-            <div><small>Universidad</small><input type="number" id="d_hij_val" placeholder="$ Manual" oninput="runDIME()"></div>
-            <div><small>Gastos Finales</small><input type="number" id="d_fun_val" placeholder="$ Manual" oninput="runDIME()"></div>
+            <div><small>Universidad</small><input type="number" id="d_hij_val" placeholder="$" oninput="runDIME()"></div>
+            <div><small>Gastos Finales</small><input type="number" id="d_fun_val" placeholder="$" oninput="runDIME()"></div>
             <div style="grid-column: span 2;"><small>Ahorros actuales</small><input type="number" id="h_aho" placeholder="$" oninput="runDIME()"></div>
         </div>
-        
         <div style="text-align:center; background:rgba(0,0,0,0.3); padding:25px; border-radius:20px; margin-top:20px; border: 1px solid rgba(255,255,255,0.05);">
             <small>BRECHA DE PROTECCIÓN:</small>
             <div id="res_brecha">$0</div>
             <a id="waDIME" href="#" target="_blank" class="btn btn-verde" style="display:none">👋 JCNay, hablemos de mi plan</a>
+        </div>
+    </section>
+
+    <section id="sobre-nosotros">
+        <h3 style="margin-top:0; color:var(--dorado-brillante)">🤝 Sobre Nosotros</h3>
+        <div class="nosotros-flex">
+            <img src="https://via.placeholder.com/150" alt="JCNay" class="nosotros-img">
+            <div class="nosotros-txt">
+                <p>En <strong>JCNay Vida Team</strong>, no solo vendemos pólizas; diseñamos blindajes. Nuestra misión es guiar a las familias hispanas en EE.UU. y Canadá hacia la libertad financiera mediante estrategias inteligentes de protección y ahorro.</p>
+                <p style="color:var(--texto-secundario); font-size: 0.9em;">Expertos en IUL, Protección Hipotecaria y Planificación Universitaria.</p>
+            </div>
         </div>
     </section>
 
@@ -230,7 +211,7 @@
         const btn = document.getElementById('waDIME');
         if(total > 0) {
             btn.style.display = 'block';
-            let msg = `*👋 ¡Hola JCNay!*%0A%0AMi nombre es *${n}*. Mi brecha de protección hoy es de *$${total.toLocaleString()}*.%0A%0A💳 Deudas: $${d}%0A🏠 Hipoteca: $${h}%0A🎓 Universidad: $${u}%0A✨ G. Finales: $${f}%0A👨‍👩‍👧‍👦 Hijos: ${document.getElementById('d_hij_num').value}%0A%0A*¿Podemos hablar de mi plan?*`;
+            let msg = `*👋 ¡Hola JCNay!*%0A%0AMi nombre es *${n}*. Mi brecha de protección hoy es de *$${total.toLocaleString()}*.%0A%0A*¿Podemos hablar de mi plan?*`;
             btn.href = "https://wa.me/19086774196?text=" + msg;
         } else btn.style.display = 'none';
     }
