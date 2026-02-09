@@ -3,7 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JCNay Vida Team | Seguridad Financiera Elite</title>
+    
+    <title>JCNay Vida Team | Agente de Seguros en Elizabeth NJ y Todo EE.UU.</title>
+    <meta name="description" content="Protección financiera para familias latinas en Elizabeth, New Jersey y todo EE.UU. Seguros de vida con ITIN, ahorro para el retiro IUL y planes universitarios.">
+    <meta name="keywords" content="Seguros de vida Elizabeth NJ, Seguros con ITIN USA, Retiro IUL New Jersey, Agente de seguros hispano Elizabeth">
+    <link rel="canonical" href="https://jcynay0206.github.io/jcnay-vida-team/" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "InsuranceAgency",
+      "name": "JCNay Vida Team",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Elizabeth",
+        "addressRegion": "NJ",
+        "addressCountry": "US"
+      },
+      "url": "https://jcynay0206.github.io/jcnay-vida-team/",
+      "telephone": "+19086774196",
+      "priceRange": "$",
+      "areaServed": "United States"
+    }
+    </script>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -13,7 +35,7 @@
             --fondo-negro: #0f172a; 
             --tarjeta-oscura: #ffffff; 
             --dorado: #d4af37;
-            --azul-profundo: #1e3a8a;
+            --azul-profundo: #003366; 
             --verde-wa: #22c55e;
             --texto-oscuro: #1e293b;
             --texto-gris: #64748b;
@@ -25,8 +47,8 @@
 
         .container { max-width: 900px; margin: 0 auto; padding: 20px; }
         
-        nav { background: rgba(15, 23, 42, 0.9); padding: 15px; position: fixed; width: 100%; top: 0; z-index: 100; text-align: center; border-bottom: 1px solid rgba(212,175,55,0.2); backdrop-filter: blur(10px); }
-        nav a { color: white; text-decoration: none; margin: 0 10px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
+        nav { background: rgba(15, 23, 42, 0.95); padding: 15px; position: fixed; width: 100%; top: 0; z-index: 100; text-align: center; border-bottom: 1px solid var(--dorado); backdrop-filter: blur(10px); }
+        nav a { color: white; text-decoration: none; margin: 0 10px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
         header { padding: 120px 20px 40px; text-align: center; }
         .frase-dorada { 
@@ -39,141 +61,88 @@
         section { background: var(--tarjeta-oscura); padding: 40px; border-radius: 30px; margin-bottom: 30px; color: var(--texto-oscuro); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
         h3 { color: var(--azul-profundo); font-size: 1.6rem; margin-bottom: 20px; text-align: center; }
 
-        input, select { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; }
+        input, select { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 10px; }
         
-        .btn-gold { background: linear-gradient(135deg, var(--dorado), #b8860b); color: white; padding: 14px; border-radius: 50px; font-weight: bold; text-decoration: none; text-transform: uppercase; display: block; text-align: center; border: none; cursor: pointer; transition: 0.3s; width: 100%; }
+        .btn-gold { background: linear-gradient(135deg, var(--dorado), #b8860b); color: white; padding: 14px; border-radius: 50px; font-weight: bold; text-decoration: none; text-transform: uppercase; display: block; text-align: center; border: none; cursor: pointer; transition: 0.3s; }
         .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(212,175,55,0.4); }
 
-        /* Grid de Calculadoras Reconstruido */
         .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 30px; }
         .card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); text-align: center; }
-        .card h4 { color: var(--dorado); font-size: 0.9rem; margin-bottom: 12px; }
+        .card h4 { color: var(--dorado); font-size: 0.8rem; margin-bottom: 12px; }
 
-        /* Testimonios y FAQ */
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .test-card { background: #f8fafc; padding: 20px; border-radius: 15px; border-left: 4px solid var(--dorado); }
-        details { background: #f8fafc; padding: 12px; border-radius: 10px; margin-bottom: 8px; cursor: pointer; }
-        summary { font-weight: 700; color: var(--azul-profundo); }
-
-        /* CHATBOT */
-        #chat-container { position: fixed; bottom: 20px; right: 20px; z-index: 1001; }
-        #chat-box { display: none; width: 300px; height: 400px; background: white; border-radius: 20px; flex-direction: column; box-shadow: 0 10px 30px rgba(0,0,0,0.5); overflow: hidden; border: 1px solid var(--dorado); }
-        .chat-toggle { background: var(--azul-profundo); color: white; border: 2px solid var(--dorado); border-radius: 50%; width: 60px; height: 60px; cursor: pointer; font-size: 24px; }
-        #messages { flex: 1; padding: 15px; overflow-y: auto; background: #f8fafc; display: flex; flex-direction: column; gap: 8px; color: #333; font-size: 13px; }
-        .msg-bot { background: white; padding: 10px; border-radius: 12px 12px 12px 0; align-self: flex-start; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .msg-user { background: var(--azul-profundo); color: white; padding: 10px; border-radius: 12px 12px 0 12px; align-self: flex-end; }
+        /* Estilos del Chat */
+        #chat-window { display: none; width: 320px; height: 450px; background: white; border-radius: 12px; flex-direction: column; box-shadow: 0 10px 25px rgba(0,0,0,0.2); position: absolute; bottom: 80px; right: 0; border: 1px solid #ddd; overflow: hidden; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#guia">Guía</a>
-        <a href="#dime">D.I.M.E</a>
-        <a href="#herramientas">Calculadoras</a>
-        <a href="#testimonios">Opiniones</a>
+        <a href="#guia">Guía Gratis</a>
+        <a href="#dime">Calculadora DIME</a>
+        <a href="#herramientas">Seguros</a>
+        <a href="#contacto">Elizabeth NJ</a>
     </nav>
 
     <div class="container">
         <header data-aos="fade-down">
-            <h1>🛡️ JCNay Vida</h1>
-            <div class="frase-dorada">Tu Seguridad Financiera es nuestra prioridad</div>
+            <h1>🛡️ JCNay Vida Team</h1>
+            <div class="frase-dorada">Protección Latina en Elizabeth NJ y todo EE.UU.</div>
         </header>
 
         <section id="guia" data-aos="fade-up">
             <h3>📥 Guía "Banco Libre"</h3>
-            <p style="text-align:center; color: var(--texto-gris); margin-bottom:15px;">Descubre cómo blindar tu economía familiar gratis.</p>
+            <p style="text-align:center; color: var(--texto-gris); margin-bottom:15px;">Tu futuro financiero no tiene fronteras. Descarga la estrategia ahora.</p>
             <form id="f_guia">
                 <input type="text" id="n1" placeholder="Nombre completo" required>
-                <div style="display: flex; gap: 10px;">
-                    <input type="number" id="e1" placeholder="Edad" required style="flex:1">
-                    <select id="i1" required style="flex:2">
-                        <option value="">Ingresos Anuales</option>
-                        <option value="Menos de $50k">Menos de $50k</option>
-                        <option value="$50k - $100k">$50k - $100k</option>
-                        <option value="Más de $100k">Más de $100k</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-gold" style="margin-top:10px;">Obtener Guía Ahora</button>
+                <input type="number" id="e1" placeholder="Tu Edad" required>
+                <button type="submit" class="btn-gold" style="margin-top:10px;">Obtener Guía Gratis</button>
             </form>
-            <div id="okGuia" style="display:none; text-align:center; padding:20px;">
-                <p style="color:var(--verde-wa); font-weight:bold;">¡Listo! Descarga iniciada ✅</p>
-                <a href="https://wa.me/19086774196" target="_blank" class="btn-gold" style="background:var(--verde-wa); margin-top:10px;">Consultar por WhatsApp</a>
+            <div id="okGuia" style="display:none; text-align:center;">
+                <p style="color:var(--verde-wa); font-weight:bold;">¡Listo! Revisa tu descarga. ✅</p>
+                <a href="https://wa.me/19086774196" target="_blank" class="btn-gold" style="background:var(--verde-wa); margin-top:10px;">💬 Consultar por WhatsApp</a>
             </div>
         </section>
 
         <section id="dime" data-aos="fade-up">
-            <h3>📊 Análisis de Protección D.I.M.E.</h3>
+            <h3>📊 Análisis D.I.M.E. Elizabeth NJ</h3>
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
-                <div><small>Deudas</small><input type="number" id="d_deu" placeholder="$" oninput="runDIME()"></div>
-                <div><small>Hipoteca</small><input type="number" id="d_hip" placeholder="$" oninput="runDIME()"></div>
-                <div><small>Universidad</small><input type="number" id="d_hij_val" placeholder="$" oninput="runDIME()"></div>
-                <div><small>Gastos Finales</small><input type="number" id="d_fun_val" placeholder="$" oninput="runDIME()"></div>
+                <input type="number" id="d_deu" placeholder="Deudas $" oninput="runDIME()">
+                <input type="number" id="d_hip" placeholder="Hipoteca $" oninput="runDIME()">
             </div>
-            <div style="text-align:center; background: #eff6ff; padding: 20px; border-radius: 20px; margin-top: 20px; border: 1px dashed var(--dorado);">
-                <small style="color:var(--azul-profundo)">BRECHA DE PROTECCIÓN:</small>
+            <div style="text-align:center; background: #eff6ff; padding: 25px; border-radius: 20px; margin-top: 20px; border: 1px dashed var(--dorado);">
+                <small style="color:var(--azul-profundo); font-weight:bold;">BRECHA DE PROTECCIÓN:</small>
                 <div id="res_brecha" style="font-size: 2.5rem; font-weight: 900; color: #ef4444;">$0</div>
-                <a id="waDIME" href="#" target="_blank" class="btn-gold" style="background:var(--verde-wa); display:none; margin-top:10px;">Hablar con JCNay</a>
             </div>
         </section>
 
-        <h3 style="color:white; margin-bottom:20px;" id="herramientas">🛠️ Herramientas de Planificación</h3>
+        <h3 style="color:white; margin-bottom:20px;" id="herramientas">🛠️ Soluciones a Nivel Nacional</h3>
         <div class="grid-cards" data-aos="zoom-in">
-            <div class="card">
-                <h4>Blindaje</h4>
-                <a href="https://jcynay0206.github.io/landing-seguros/" class="btn-gold" style="font-size:0.7rem;">Abrir</a>
-            </div>
-            <div class="card">
-                <h4>Escudo</h4>
-                <a href="https://jcynay0206.github.io/escudo-financiero/" class="btn-gold" style="font-size:0.7rem;">Abrir</a>
-            </div>
-            <div class="card">
-                <h4>Retiro IUL</h4>
-                <a href="https://jcynay0206.github.io/calculadora-iul/" class="btn-gold" style="font-size:0.7rem;">Abrir</a>
-            </div>
-            <div class="card">
-                <h4>Universidad</h4>
-                <a href="https://jcynay0206.github.io/calculadora-universitaria/" class="btn-gold" style="font-size:0.7rem;">Abrir</a>
-            </div>
+            <div class="card"><h4>Blindaje Familiar</h4><a href="https://jcynay0206.github.io/landing-seguros/" class="btn-gold" style="font-size:0.6rem;">Abrir</a></div>
+            <div class="card"><h4>Escudo Financiero</h4><a href="https://jcynay0206.github.io/escudo-financiero/" class="btn-gold" style="font-size:0.6rem;">Abrir</a></div>
+            <div class="card"><h4>Retiro IUL</h4><a href="https://jcynay0206.github.io/calculadora-iul/" class="btn-gold" style="font-size:0.6rem;">Abrir</a></div>
+            <div class="card"><h4>Universidad</h4><a href="https://jcynay0206.github.io/calculadora-universitaria/" class="btn-gold" style="font-size:0.6rem;">Abrir</a></div>
         </div>
 
-        <section id="testimonios" data-aos="fade-up">
-            <h3>⭐ Opiniones Reales</h3>
-            <div class="testimonial-grid">
-                <div class="test-card">
-                    <p>"Excelente asesoría para mi familia. Muy profesionales."</p>
-                    <small><b>- Carlos M.</b></small>
-                </div>
-                <div class="test-card">
-                    <p>"Pude obtener mi protección solo con mi ITIN. Gracias!"</p>
-                    <small><b>- Elena P.</b></small>
-                </div>
-            </div>
-        </section>
-
-        <section data-aos="fade-up">
-            <h3>❓ Preguntas Frecuentes</h3>
-            <details><summary>¿Tengo protección si uso ITIN?</summary><p>¡Sí! Trabajamos con compañías que aceptan ITIN sin problemas.</p></details>
-            <details><summary>¿Cuánto cuesta?</summary><p>Tenemos planes desde $1 al día, según tu perfil.</p></details>
+        <section id="contacto" data-aos="fade-up">
+            <h3>📍 Tu Asesor en Elizabeth, NJ</h3>
+            <p style="text-align: center;">Estamos ubicados en Elizabeth, New Jersey, brindando asesoría personalizada a nuestra comunidad local, pero nuestra licencia nos permite proteger a familias en <b>todo Estados Unidos</b>.</p>
         </section>
 
         <footer style="text-align:center; padding: 40px; opacity: 0.5; font-size: 0.8rem;">
-            <p>&copy; 2026 JCNay Vida Team. Todos los derechos reservados.</p>
+            <p>&copy; 2026 JCNay Vida Team | Elizabeth, NJ | Todo EE.UU.</p>
         </footer>
     </div>
 
-    <div id="chat-container">
-        <button class="chat-toggle" onclick="toggleChat()">💬</button>
-        <div id="chat-box">
-            <div style="background: var(--azul-profundo); color:white; padding:15px; font-weight:bold; display:flex; justify-content:space-between; align-items:center;">
-                <span style="font-size:0.8rem">Asistente JCNay IA</span>
-                <span onclick="toggleChat()" style="cursor:pointer">✕</span>
+    <div id="jcnay-chat-widget" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+        <button onclick="toggleChat()" style="background: #003366; color: white; border: 2px solid #d4af37; border-radius: 50%; width: 60px; height: 60px; cursor: pointer; font-size: 24px;">💬</button>
+        <div id="chat-window">
+            <div style="background: #003366; color: white; padding: 15px; font-weight: bold; text-align: center; border-bottom: 2px solid #d4af37;">Asistente JCNay AI</div>
+            <div id="chat-content" style="flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: #333;">
+                <div style="background: #f1f1f1; padding: 10px; border-radius: 8px; align-self: flex-start;">¡Hola! Soy su asesor virtual basado en NJ. ¿En qué puedo ayudarle hoy?</div>
             </div>
-            <div id="messages">
-                <div class="msg-bot">¡Hola! ¿Deseas analizar tu protección financiera hoy?</div>
-            </div>
-            <div style="padding:10px; display:flex; gap:5px; background:white;">
-                <input type="text" id="user-input" placeholder="Escribe..." onkeypress="if(event.key==='Enter') sendMessage()" style="flex:1; padding:8px; border-radius:5px; border:1px solid #ddd;">
-                <button onclick="sendMessage()" style="background:var(--dorado); color:white; border:none; border-radius:5px; padding:0 10px;">➔</button>
+            <div style="padding: 10px; border-top: 1px solid #eee; display: flex;">
+                <input type="text" id="chat-input" placeholder="Escriba aquí..." onkeypress="if(event.key==='Enter') sendMsg()" style="flex: 1; border: 1px solid #ddd; border-radius: 4px; padding: 8px; outline: none; color:#333">
+                <button onclick="sendMsg()" style="background: #003366; color: white; border: none; padding: 8px 12px; margin-left: 5px; border-radius: 4px; cursor: pointer;">➤</button>
             </div>
         </div>
     </div>
@@ -181,7 +150,6 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
-
         const NGROK_URL = "https://blae-lashaunda-loopily.ngrok-free.dev";
         const PDF = "https://raw.githubusercontent.com/jcynay0206/jcnay-vida-team/main/Banco_Libre.pdf";
 
@@ -195,43 +163,35 @@
         function runDIME() {
             const d = parseFloat(document.getElementById('d_deu').value) || 0;
             const h = parseFloat(document.getElementById('d_hip').value) || 0;
-            const u = parseFloat(document.getElementById('d_hij_val').value) || 0;
-            const f = parseFloat(document.getElementById('d_fun_val').value) || 0;
-            const total = d + h + u + f;
-            document.getElementById('res_brecha').innerText = "$" + total.toLocaleString();
-            const btn = document.getElementById('waDIME');
-            if(total > 0) {
-                btn.style.display = 'block';
-                btn.href = "https://wa.me/19086774196?text=Hola JCNay, mi brecha es de $" + total.toLocaleString();
-            }
+            document.getElementById('res_brecha').innerText = "$" + (d + h).toLocaleString();
         }
 
         function toggleChat() {
-            const box = document.getElementById('chat-box');
-            box.style.display = box.style.display === 'none' ? 'flex' : 'none';
+            const win = document.getElementById('chat-window');
+            win.style.display = win.style.display === 'none' ? 'flex' : 'none';
         }
 
-        async function sendMessage() {
-            const input = document.getElementById('user-input');
-            const msgDiv = document.getElementById('messages');
-            if (!input.value) return;
-            const text = input.value;
-            msgDiv.innerHTML += `<div class="msg-user">${text}</div>`;
+        async function sendMsg() {
+            const input = document.getElementById('chat-input');
+            const content = document.getElementById('chat-content');
+            if (!input.value.trim()) return;
+            const val = input.value;
+            content.innerHTML += `<div style="background: #003366; color: white; padding: 10px; border-radius: 8px; align-self: flex-end; max-width: 80%;">${val}</div>`;
             input.value = '';
-            msgDiv.scrollTop = msgDiv.scrollHeight;
+            content.scrollTop = content.scrollHeight;
 
             try {
                 const response = await fetch(`${NGROK_URL}/webhook-web`, {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({message: text})
+                    body: JSON.stringify({message: val})
                 });
                 const data = await response.json();
-                msgDiv.innerHTML += `<div class="msg-bot">${data.reply}</div>`;
+                content.innerHTML += `<div style="background: #f1f1f1; padding: 10px; border-radius: 8px; align-self: flex-start; max-width: 80%;">${data.reply}</div>`;
+                content.scrollTop = content.scrollHeight;
             } catch (e) {
-                msgDiv.innerHTML += `<div class="msg-bot">Conectando...</div>`;
+                content.innerHTML += `<div style="color: red; font-size: 11px; align-self: center;">Bot desconectado.</div>`;
             }
-            msgDiv.scrollTop = msgDiv.scrollHeight;
         }
     </script>
 </body>
