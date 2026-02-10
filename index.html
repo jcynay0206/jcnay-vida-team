@@ -22,7 +22,7 @@
 
         .container { max-width: 900px; margin: 0 auto; padding: 20px; }
         
-        /* NAVEGACIÓN CON LOGO A LA IZQUIERDA */
+        /* NAVEGACIÓN CON LOGO EN CARPETA IMG */
         nav { 
             background: rgba(5, 7, 10, 0.95); 
             padding: 10px 5%; 
@@ -37,43 +37,40 @@
             backdrop-filter: blur(15px); 
         }
 
-        .brand-container { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-        .favicon-img { width: 50px; height: 50px; object-fit: contain; filter: drop-shadow(0 0 5px rgba(212,175,55,0.3)); }
+        .brand-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .favicon-img { width: 45px; height: 45px; border-radius: 5px; object-fit: cover; border: 1px solid var(--oro-premium); }
         .brand-info { display: flex; flex-direction: column; }
-        .brand-name { font-family: 'Cinzel', serif; color: white; font-size: 1.2rem; font-weight: 700; line-height: 1; letter-spacing: 1px; }
-        .brand-slogan-nav { font-size: 0.6rem; color: var(--oro-premium); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+        .brand-name { font-family: 'Cinzel', serif; color: white; font-size: 1.1rem; font-weight: 700; line-height: 1; }
+        .brand-slogan-nav { font-size: 0.55rem; color: var(--oro-premium); text-transform: uppercase; letter-spacing: 1px; margin-top: 3px; font-weight: 600; }
 
-        .nav-links { display: flex; list-style: none; gap: 20px; }
-        .nav-links a { color: var(--oro-premium); text-decoration: none; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .nav-links { display: flex; list-style: none; gap: 15px; }
+        .nav-links a { color: var(--oro-premium); text-decoration: none; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: white; }
 
-        /* HERO / HEADER REFORZADO */
-        header { padding: 180px 20px 80px; text-align: center; }
-        .hero-title { font-family: 'Cinzel', serif; font-size: clamp(2rem, 8vw, 4rem); color: white; margin-bottom: 10px; }
-        .hero-slogan { color: var(--oro-premium); font-size: 1.2rem; font-style: italic; letter-spacing: 2px; }
+        /* HEADER LIMPIO */
+        header { padding: 150px 20px 60px; text-align: center; }
+        .hero-slogan { color: var(--oro-premium); font-size: 1.4rem; font-family: 'Cinzel', serif; letter-spacing: 3px; text-transform: uppercase; font-weight: 700; }
 
         section { background: rgba(255, 255, 255, 0.03); padding: 50px; border-radius: 40px; margin-bottom: 40px; border: 1px solid rgba(212, 175, 55, 0.15); backdrop-filter: blur(5px); }
-        h3 { color: var(--oro-premium); font-size: 1.6rem; margin-bottom: 25px; text-align: center; font-family: 'Cinzel', serif; letter-spacing: 2px; text-transform: uppercase; }
+        h3 { color: var(--oro-premium); font-size: 1.5rem; margin-bottom: 25px; text-align: center; font-family: 'Cinzel', serif; letter-spacing: 2px; text-transform: uppercase; }
 
         .texto-dorado { color: var(--oro-premium); font-weight: 600; }
         input, select, textarea { width: 100%; padding: 15px; margin: 10px 0; border: 1px solid rgba(212,175,55,0.3); border-radius: 12px; background: rgba(0,0,0,0.5); color: white; font-family: inherit; }
         
-        .btn-gold { background: var(--gradient-oro); color: var(--negro-obsidiana); padding: 18px; border-radius: 50px; font-weight: 800; text-transform: uppercase; display: block; text-align: center; border: none; cursor: pointer; width: 100%; text-decoration: none; transition: 0.4s; }
+        .btn-gold { background: var(--gradient-oro); color: var(--negro-obsidiana); padding: 16px; border-radius: 50px; font-weight: 800; text-transform: uppercase; display: block; text-align: center; border: none; cursor: pointer; width: 100%; text-decoration: none; transition: 0.4s; font-size: 0.8rem; }
         .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(212,175,55,0.4); }
 
-        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .card { background: rgba(255,255,255,0.02); padding: 30px; border-radius: 25px; border: 1px solid rgba(212,175,55,0.2); text-align: center; }
-        
-        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .test-item { background: rgba(255,255,255,0.01); padding: 25px; border-radius: 20px; border-left: 2px solid var(--oro-premium); font-style: italic; font-size: 0.9rem; }
+        .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; }
+        .card { background: rgba(255,255,255,0.02); padding: 25px; border-radius: 25px; border: 1px solid rgba(212,175,55,0.2); text-align: center; }
+        .card h4 { color: var(--oro-brillante); font-size: 0.75rem; margin-bottom: 15px; font-family: 'Cinzel', serif; min-height: 40px; }
 
-        #chat-window { display: none; width: 350px; height: 500px; background: #0a0e14; border-radius: 20px; flex-direction: column; position: fixed; bottom: 100px; right: 25px; border: 1px solid var(--oro-premium); z-index: 9999; overflow: hidden; }
+        #chat-window { display: none; width: 320px; height: 450px; background: #0a0e14; border-radius: 20px; flex-direction: column; position: fixed; bottom: 100px; right: 25px; border: 1px solid var(--oro-premium); z-index: 9999; overflow: hidden; }
         .chat-header { background: var(--gradient-oro); color: #000; padding: 15px; text-align: center; font-weight: 800; font-family: 'Cinzel', serif; }
 
         @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 10px; }
-            .nav-links { gap: 10px; }
-            .brand-name { font-size: 1rem; }
+            nav { padding: 10px 2%; }
+            .brand-name { font-size: 0.9rem; }
+            .brand-slogan-nav { display: none; }
         }
     </style>
 </head>
@@ -81,7 +78,7 @@
 
     <nav>
         <a href="#" class="brand-container">
-            <img src="logo-jcnay.jpg" alt="JN" class="favicon-img">
+            <img src="img/logo-jcnay.jpg" alt="JN" class="favicon-img">
             <div class="brand-info">
                 <span class="brand-name">JCNay Vida Team</span>
                 <span class="brand-slogan-nav">Más que Seguros, diseñamos Seguridad Financiera</span>
@@ -96,7 +93,6 @@
 
     <div class="container">
         <header data-aos="zoom-in">
-            <h1 class="hero-title">JCNay Vida Team</h1>
             <p class="hero-slogan">Más que Seguros, diseñamos Seguridad Financiera</p>
         </header>
 
@@ -108,13 +104,13 @@
         </section>
 
         <section id="guia" data-aos="fade-up">
-            <h3>📥 Guía Gratis</h3>
+            <h3>📥 Guía Gratis "Banco Libre"</h3>
             <form id="f_guia">
                 <input type="text" id="n1" placeholder="Tu nombre" required>
                 <input type="number" id="e1" placeholder="Tu edad" required>
                 <button type="submit" class="btn-gold">Descargar Guía VIP</button>
             </form>
-            <div id="okGuia" style="display:none; text-align:center; margin-top:15px; color:var(--oro-premium);">Procesando envío... ✅</div>
+            <div id="okGuia" style="display:none; text-align:center; margin-top:15px; color:var(--oro-premium);">Enviando... ✅</div>
         </section>
 
         <section id="dime" data-aos="fade-up">
@@ -128,43 +124,45 @@
             <div style="text-align:center; background: rgba(212,175,55,0.05); padding: 25px; border-radius: 20px; margin-top: 20px;">
                 <div id="res_brecha" style="font-size: 2.5rem; font-weight: 800; color: #fff;">$0</div>
                 <button onclick="runDIME()" class="btn-gold" style="margin-top:15px; padding: 12px;">Calcular Brecha</button>
-                <a id="waDIME" href="#" target="_blank" class="btn-gold" style="background:#25D366; display:none; margin-top:10px;">Consultar por WhatsApp</a>
+                <a id="waDIME" href="#" target="_blank" class="btn-gold" style="background:#25D366; display:none; margin-top:10px; color:white;">Consultar por WhatsApp</a>
             </div>
         </section>
 
-        <h3 style="margin: 30px 0;" id="herramientas">🛠️ Calculadoras</h3>
+        <h3 style="margin: 30px 0;" id="herramientas">🛠️ Herramientas de Análisis</h3>
         <div class="grid-cards" data-aos="fade-up">
-            <div class="card"><h4>Retiro IUL</h4><a href="https://jcynay0206.github.io/calculadora-iul/" class="btn-gold" style="font-size:0.7rem; padding: 10px;">Abrir</a></div>
-            <div class="card"><h4>Escudo Financiero</h4><a href="https://jcynay0206.github.io/escudo-financiero/" class="btn-gold" style="font-size:0.7rem; padding: 10px;">Abrir</a></div>
+            <div class="card"><h4>Blindaje Familiar</h4><a href="https://jcynay0206.github.io/landing-seguros/" class="btn-gold" style="padding: 10px;">Abrir</a></div>
+            <div class="card"><h4>Escudo Financiero</h4><a href="https://jcynay0206.github.io/escudo-financiero/" class="btn-gold" style="padding: 10px;">Abrir</a></div>
+            <div class="card"><h4>Retiro IUL</h4><a href="https://jcynay0206.github.io/calculadora-iul/" class="btn-gold" style="padding: 10px;">Abrir</a></div>
+            <div class="card"><h4>Plan Universidad</h4><a href="https://jcynay0206.github.io/calculadora-universitaria/" class="btn-gold" style="padding: 10px;">Abrir</a></div>
         </div>
 
-        <section id="cotizar" data-aos="fade-up">
+        <section id="cotizar" data-aos="fade-up" style="margin-top: 40px;">
             <h3>📝 Solicitar Cotización</h3>
             <form id="f_leads">
-                <input type="text" name="name" placeholder="NOMBRE COMPLETO" required>
-                <input type="email" name="email" placeholder="EMAIL" required>
-                <textarea name="message" rows="4" placeholder="¿CUAL ES TU VISIÓN?" required></textarea>
-                <button type="submit" class="btn-gold" style="margin-top:10px;">Enviar Solicitud</button>
+                <input type="text" placeholder="NOMBRE COMPLETO" required>
+                <input type="email" placeholder="EMAIL" required>
+                <textarea rows="3" placeholder="¿CUAL ES TU VISIÓN?" required></textarea>
+                <button type="submit" class="btn-gold">Enviar Solicitud</button>
             </form>
         </section>
 
         <section id="testimonios" data-aos="fade-up">
-            <h3>Opiniones</h3>
+            <h3>Experiencias</h3>
             <div class="testimonial-grid">
                 <div class="test-item">
-                    "La estrategia de IUL me dio la tranquilidad que buscaba para mi familia."
-                    <span style="display:block; margin-top:10px; color:var(--oro-premium);">— Carlos M.</span>
+                    "La estrategia de IUL cambió el futuro de mis hijos. Seguridad absoluta."
+                    <span style="display:block; margin-top:10px; color:var(--oro-premium); font-weight:bold;">— Carlos M.</span>
                 </div>
                 <div class="test-item">
-                    "Excelente asesoría profesional. El análisis DIME fue clave."
-                    <span style="display:block; margin-top:10px; color:var(--oro-premium);">— Elena R.</span>
+                    "Excelente servicio profesional. El análisis DIME fue clave."
+                    <span style="display:block; margin-top:10px; color:var(--oro-premium); font-weight:bold;">— Elena R.</span>
                 </div>
             </div>
         </section>
 
         <section id="socios" data-aos="fade-up" style="border: 1px solid var(--oro-premium);">
             <h3>🤝 Únete al Equipo</h3>
-            <button onclick="alert('Formulario de socios en mantenimiento')" class="btn-gold">Aplicar como Socio</button>
+            <button onclick="alert('Formulario de socios próximamente')" class="btn-gold">Aplicar como Socio</button>
         </section>
     </div>
 
@@ -172,8 +170,8 @@
         <button onclick="toggleChat()" style="background: var(--gradient-oro); border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 25px; cursor: pointer;">💬</button>
         <div id="chat-window">
             <div class="chat-header">Asistente JCNay</div>
-            <div id="chat-content" style="flex:1; padding:20px; overflow-y:auto; color:white; font-size:0.9rem;">
-                Hola, ¿cómo podemos ayudarte hoy con tu seguridad financiera?
+            <div id="chat-content" style="flex:1; padding:20px; overflow-y:auto; color:white; font-size:0.8rem;">
+                Hola, ¿cómo podemos ayudarte hoy?
             </div>
         </div>
     </div>
