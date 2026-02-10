@@ -38,7 +38,8 @@
         }
 
         .brand-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-        .favicon-img { width: 45px; height: 45px; border-radius: 5px; object-fit: cover; border: 1px solid var(--oro-premium); }
+        /* Ajuste de tamaño para el favicon/logo */
+        .favicon-img { width: 50px; height: 50px; border-radius: 5px; object-fit: contain; }
         .brand-info { display: flex; flex-direction: column; }
         .brand-name { font-family: 'Cinzel', serif; color: white; font-size: 1.1rem; font-weight: 700; line-height: 1; }
         .brand-slogan-nav { font-size: 0.55rem; color: var(--oro-premium); text-transform: uppercase; letter-spacing: 1px; margin-top: 3px; font-weight: 600; }
@@ -47,7 +48,7 @@
         .nav-links a { color: var(--oro-premium); text-decoration: none; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
         .nav-links a:hover { color: white; }
 
-        /* ESPACIADO INICIAL (SIN HERO) */
+        /* ESPACIADO INICIAL */
         .spacer-top { padding-top: 120px; }
 
         section { background: rgba(255, 255, 255, 0.03); padding: 50px; border-radius: 40px; margin-bottom: 40px; border: 1px solid rgba(212, 175, 55, 0.15); backdrop-filter: blur(5px); }
@@ -105,7 +106,6 @@
                 <input type="number" id="e1" placeholder="Tu edad" required>
                 <button type="submit" class="btn-gold">Descargar Guía VIP</button>
             </form>
-            <div id="okGuia" style="display:none; text-align:center; margin-top:15px; color:var(--oro-premium);">Enviando... ✅</div>
         </section>
 
         <section id="dime" data-aos="fade-up">
@@ -149,15 +149,10 @@
                     <span style="display:block; margin-top:10px; color:var(--oro-premium); font-weight:bold;">— Carlos M.</span>
                 </div>
                 <div class="test-item">
-                    "Excelente servicio profesional. El análisis DIME fue clave para mi retiro."
+                    "Excelente servicio profesional. El análisis DIME fue clave."
                     <span style="display:block; margin-top:10px; color:var(--oro-premium); font-weight:bold;">— Elena R.</span>
                 </div>
             </div>
-        </section>
-
-        <section id="socios" data-aos="fade-up" style="border: 1px solid var(--oro-premium);">
-            <h3>🤝 Únete al Equipo</h3>
-            <button onclick="alert('Formulario de socios próximamente')" class="btn-gold">Aplicar como Socio</button>
         </section>
     </div>
 
@@ -174,6 +169,13 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1000, once: true });
+
+        // LÓGICA DE LA GUÍA CON REDIRECCIÓN
+        document.getElementById('f_guia').onsubmit = function(e) {
+            e.preventDefault();
+            // Redirigir a la página de gracias que creaste
+            window.location.href = "gracias.html";
+        };
 
         function runDIME() {
             const t = (parseFloat(document.getElementById('d_deu').value)||0) + (parseFloat(document.getElementById('d_hip').value)||0) + (parseFloat(document.getElementById('d_uni').value)||0) + (parseFloat(document.getElementById('d_fun').value)||0);
