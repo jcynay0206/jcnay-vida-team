@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JCNay Vida Team | Más que Seguros</title>
+    <title>JCNay Vida Team | Seguridad Financiera</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -23,55 +23,51 @@
 
         .container { max-width: 900px; margin: 0 auto; padding: 20px; }
         
-        /* Navegación */
         nav { background: rgba(15, 23, 42, 0.95); padding: 15px; position: fixed; width: 100%; top: 0; z-index: 100; text-align: center; border-bottom: 1px solid var(--dorado); backdrop-filter: blur(10px); }
-        nav a { color: white; text-decoration: none; margin: 0 10px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        nav a { color: white; text-decoration: none; margin: 0 10px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; }
 
-        /* Header y Logo */
-        header { padding: 140px 20px 40px; text-align: center; }
-        .logo-container { display: flex; flex-direction: column; align-items: center; }
-        .logo-img { max-width: 320px; height: auto; margin-bottom: 10px; }
-        .slogan-destacado { font-size: 1.1rem; color: var(--dorado); font-style: italic; font-weight: 300; letter-spacing: 1px; }
+        header { padding: 140px 20px 20px; text-align: center; }
+        .logo-img { max-width: 350px; height: auto; }
 
-        /* Secciones */
-        section { background: var(--tarjeta-oscura); padding: 40px; border-radius: 30px; margin-bottom: 30px; color: var(--texto-oscuro); box-shadow: 0 20px 40px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); }
+        section { background: var(--tarjeta-oscura); padding: 40px; border-radius: 30px; margin-bottom: 30px; color: var(--texto-oscuro); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
         h3 { color: var(--azul-profundo); font-size: 1.6rem; margin-bottom: 20px; text-align: center; font-family: 'Playfair Display', serif; }
 
-        input, select { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; font-size: 1rem; }
+        input, select { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; }
         
-        .btn-gold { background: linear-gradient(135deg, var(--dorado), #b8860b); color: white; padding: 15px; border-radius: 50px; font-weight: bold; text-transform: uppercase; display: block; text-align: center; border: none; cursor: pointer; transition: 0.3s; width: 100%; text-decoration: none; }
-        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(212,175,55,0.3); }
+        .btn-gold { background: linear-gradient(135deg, var(--dorado), #b8860b); color: white; padding: 15px; border-radius: 50px; font-weight: bold; text-transform: uppercase; display: block; text-align: center; border: none; cursor: pointer; width: 100%; text-decoration: none; }
 
-        /* Grid de Herramientas */
         .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin-bottom: 40px; }
-        .card { background: rgba(255,255,255,0.05); padding: 25px; border-radius: 20px; border: 1px solid rgba(212,175,55,0.2); text-align: center; backdrop-filter: blur(5px); }
-        .card h4 { color: var(--dorado); font-size: 0.9rem; margin-bottom: 15px; font-weight: 700; }
+        .card { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 20px; border: 1px solid rgba(212,175,55,0.2); text-align: center; }
+        .card h4 { color: var(--dorado); font-size: 0.9rem; margin-bottom: 15px; }
 
-        /* Modales y Chatbot */
         #form-socio-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 10000; justify-content: center; align-items: center; padding: 20px; }
-        .modal-socio { background: white; padding: 35px; border-radius: 25px; width: 100%; max-width: 500px; color: #333; position: relative; }
+        .modal-socio { background: white; padding: 35px; border-radius: 25px; width: 100%; max-width: 500px; color: #333; overflow-y: auto; max-height: 90vh; }
         
-        #chat-window { display: none; width: 320px; height: 450px; background: white; border-radius: 15px; flex-direction: column; box-shadow: 0 15px 35px rgba(0,0,0,0.3); position: fixed; bottom: 90px; right: 20px; border: 1px solid #ddd; overflow: hidden; z-index: 9999; }
+        #chat-window { display: none; width: 320px; height: 450px; background: white; border-radius: 15px; flex-direction: column; position: fixed; bottom: 90px; right: 20px; border: 1px solid #ddd; z-index: 9999; overflow: hidden; }
         .chat-header { background: var(--azul-profundo); color: white; padding: 15px; text-align: center; font-weight: bold; }
     </style>
 </head>
 <body>
 
     <nav>
+        <a href="#sobre">Nosotros</a>
         <a href="#guia">Guía</a>
         <a href="#dime">DIME</a>
-        <a href="#herramientas">Herramientas</a>
         <a href="#cotizar">Cotizar</a>
         <a href="#socios">Socios</a>
     </nav>
 
     <div class="container">
         <header data-aos="zoom-in">
-            <div class="logo-container">
-                <img src="img/logo-jcnay.png" alt="Logo JCNay Vida Team" class="logo-img">
-                <p class="slogan-destacado">Más que Seguros, diseñamos Seguridad Financiera</p>
-            </div>
+            <img src="img/logo-jcnay.png" alt="JCNay Vida Team" class="logo-img">
         </header>
+
+        <section id="sobre" data-aos="fade-up">
+            <h3>Sobre Nosotros</h3>
+            <p style="text-align: center; color: #475569;">
+                En <strong>JCNay Vida Team</strong>, no solo vendemos pólizas; diseñamos arquitecturas de protección financiera. Con sede en Elizabeth, NJ, y cobertura en todo USA, nuestro enfoque se basa en el concepto de "Nexo Infinito": conectar tus sueños con la seguridad que tu familia merece, garantizando un legado inquebrantable a través de soluciones modernas como el IUL y la Guía de Banco Libre.
+            </p>
+        </section>
 
         <section id="guia" data-aos="fade-up">
             <h3>📥 Guía Gratis "Banco Libre"</h3>
@@ -80,7 +76,7 @@
                 <input type="number" id="e1" placeholder="Edad" required>
                 <button type="submit" class="btn-gold">Descargar Guía PDF</button>
             </form>
-            <div id="okGuia" style="display:none; text-align:center; margin-top:15px; color:var(--verde-wa); font-weight:bold;">¡Registro exitoso! Descarga en curso... ✅</div>
+            <div id="okGuia" style="display:none; text-align:center; margin-top:15px; color:var(--verde-wa); font-weight:bold;">¡Listo! Descarga iniciada. ✅</div>
         </section>
 
         <section id="dime" data-aos="fade-up">
@@ -91,26 +87,18 @@
                 <input type="number" id="d_uni" placeholder="Universidad ($)" oninput="runDIME()">
                 <input type="number" id="d_fun" placeholder="Gastos Finales ($)" oninput="runDIME()">
             </div>
-            <div style="text-align:center; background: #f8fafc; padding: 25px; border-radius: 20px; margin-top: 20px; border: 1px solid #e2e8f0;">
-                <small style="color:var(--azul-profundo); font-weight:bold;">TU BRECHA DE PROTECCIÓN:</small>
+            <div style="text-align:center; background: #f8fafc; padding: 25px; border-radius: 20px; margin-top: 20px;">
+                <small style="color:var(--azul-profundo); font-weight:bold;">BRECHA ESTIMADA:</small>
                 <div id="res_brecha" style="font-size: 2.5rem; font-weight: 900; color: #ef4444;">$0</div>
-                <a id="waDIME" href="#" target="_blank" class="btn-gold" style="background:var(--verde-wa); display:none; margin-top:15px;">Enviar resultados por WhatsApp</a>
+                <a id="waDIME" href="#" target="_blank" class="btn-gold" style="background:var(--verde-wa); display:none; margin-top:15px;">Enviar por WhatsApp</a>
             </div>
         </section>
 
-        <h3 style="color:white; margin: 40px 0 20px;" id="herramientas">🛠️ Calculadoras Especializadas</h3>
-        <div class="grid-cards" data-aos="fade-up">
-            <div class="card"><h4>Blindaje Familiar</h4><a href="https://jcynay0206.github.io/landing-seguros/" class="btn-gold" style="font-size:0.7rem;">Abrir</a></div>
-            <div class="card"><h4>Escudo Financiero</h4><a href="https://jcynay0206.github.io/escudo-financiero/" class="btn-gold" style="font-size:0.7rem;">Abrir</a></div>
-            <div class="card"><h4>Retiro IUL</h4><a href="https://jcynay0206.github.io/calculadora-iul/" class="btn-gold" style="font-size:0.7rem;">Abrir</a></div>
-            <div class="card"><h4>Plan Universidad</h4><a href="https://jcynay0206.github.io/calculadora-universitaria/" class="btn-gold" style="font-size:0.7rem;">Abrir</a></div>
-        </div>
-
         <section id="cotizar" data-aos="fade-up" style="border-top: 4px solid var(--dorado);">
-            <h3>📝 Solicitar Mi Cotización</h3>
+            <h3>📝 Solicitar Cotización</h3>
             <form id="f_leads">
                 <input type="text" id="l_nombre" placeholder="Nombre completo" required>
-                <input type="tel" id="l_tel" placeholder="Número de Teléfono" required>
+                <input type="tel" id="l_tel" placeholder="Teléfono" required>
                 <small style="color:#64748b;">Ingresos Anuales Aproximados:</small>
                 <select id="l_ingresos" required>
                     <option value="Bajo $30k">Menos de $30,000</option>
@@ -118,40 +106,36 @@
                     <option value="$60k-$100k">$60,000 - $100,000</option>
                     <option value="Over $100k">Más de $100,000</option>
                 </select>
-                <button type="submit" class="btn-gold" style="background:var(--azul-profundo); margin-top:10px;">Enviar al Equipo JCNay</button>
+                <button type="submit" class="btn-gold" style="background:var(--azul-profundo); margin-top:10px;">Enviar Consulta</button>
             </form>
         </section>
 
         <section id="socios" data-aos="fade-up" style="background: #f1f5f9; border: 2px solid var(--dorado);">
-            <h3>🤝 ¿Quieres ser parte del Equipo?</h3>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 25px; font-size:0.8rem; color: #1e293b;">
-                <div style="background:white; padding:12px; border-radius:12px; text-align:center;">🚀 Leads Diarios</div>
-                <div style="background:white; padding:12px; border-radius:12px; text-align:center;">💸 Comisiones Altas</div>
-                <div style="background:white; padding:12px; border-radius:12px; text-align:center;">🏡 100% Remoto</div>
-                <div style="background:white; padding:12px; border-radius:12px; text-align:center;">🎓 Mentoría</div>
-            </div>
+            <h3>🤝 Únete al Equipo</h3>
             <button onclick="abrirModalSocio()" class="btn-gold" style="background: var(--azul-profundo);">Aplicar para el Equipo</button>
         </section>
     </div>
 
     <div id="form-socio-overlay">
         <div class="modal-socio">
-            <h3>Registro de Socio</h3>
+            <h3>Registro de Socio USA</h3>
             <form id="f_socio_crm">
                 <input type="text" id="s_nombre" placeholder="Nombre completo" required>
                 <input type="tel" id="s_tel" placeholder="Teléfono / WhatsApp" required>
-                <small>¿Tienes Licencia de Seguros en USA?</small>
                 <select id="s_licencia" required>
-                    <option value="No">No tengo licencia</option>
-                    <option value="Si">Sí, tengo licencia</option>
-                    <option value="Estudiando">Estoy estudiando</option>
+                    <option value="">¿Tiene Licencia?</option>
+                    <option value="Si">Sí, activa</option><option value="No">No</option><option value="Proceso">En curso</option>
                 </select>
                 <select id="s_estado" required>
-                    <option value="">Estado de residencia...</option>
-                    <option value="NJ">New Jersey</option><option value="FL">Florida</option><option value="TX">Texas</option><option value="NY">New York</option><option value="CA">California</option><option value="OT">Otro</option>
+                    <option value="">Estado...</option>
+                    <option value="AL">AL</option><option value="AK">AK</option><option value="AZ">AZ</option><option value="AR">AR</option><option value="CA">CA</option><option value="CO">CO</option><option value="CT">CT</option><option value="DE">DE</option><option value="FL">FL</option><option value="GA">GA</option><option value="HI">HI</option><option value="ID">ID</option><option value="IL">IL</option><option value="IN">IN</option><option value="IA">IA</option><option value="KS">KS</option><option value="KY">KY</option><option value="LA">LA</option><option value="ME">ME</option><option value="MD">MD</option><option value="MA">MA</option><option value="MI">MI</option><option value="MN">MN</option><option value="MS">MS</option><option value="MO">MO</option><option value="MT">MT</option><option value="NE">NE</option><option value="NV">NV</option><option value="NH">NH</option><option value="NJ">NJ</option><option value="NM">NM</option><option value="NY">NY</option><option value="NC">NC</option><option value="ND">ND</option><option value="OH">OH</option><option value="OK">OK</option><option value="OR">OR</option><option value="PA">PA</option><option value="RI">RI</option><option value="SC">SC</option><option value="SD">SD</option><option value="TN">TN</option><option value="TX">TX</option><option value="UT">UT</option><option value="VT">VT</option><option value="VA">VA</option><option value="WA">WA</option><option value="WV">WV</option><option value="WI">WI</option><option value="WY">WY</option>
                 </select>
-                <button type="submit" class="btn-gold" style="margin-top:15px;">Enviar Aplicación</button>
-                <button type="button" onclick="cerrarModalSocio()" style="border:none; background:none; color:gray; width:100%; margin-top:15px; cursor:pointer; font-size: 0.8rem;">[ CERRAR ]</button>
+                <div style="font-size: 0.8rem; margin: 10px 0;">
+                    <label><input type="checkbox" required> Soy mayor de 18 años.</label><br>
+                    <label><input type="checkbox" required> Tengo SSN válido.</label>
+                </div>
+                <button type="submit" class="btn-gold">Enviar Aplicación</button>
+                <button type="button" onclick="cerrarModalSocio()" style="border:none; background:none; color:gray; width:100%; margin-top:15px; cursor:pointer;">[ CERRAR ]</button>
             </form>
         </div>
     </div>
@@ -159,11 +143,11 @@
     <div style="position: fixed; bottom: 25px; right: 25px; z-index: 9999;">
         <button onclick="toggleChat()" style="background: #003366; color: white; border: 2px solid #d4af37; border-radius: 50%; width: 65px; height: 65px; font-size: 28px; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">💬</button>
         <div id="chat-window">
-            <div class="chat-header">Asistente Virtual JCNay</div>
-            <div id="chat-content" style="flex: 1; padding: 15px; overflow-y: auto; color: #333; display: flex; flex-direction: column; gap: 10px; font-size: 14px; background: #fafafa;"></div>
-            <div style="padding: 10px; display: flex; background: #f0f0f0; border-top: 1px solid #ddd;">
-                <input type="text" id="chat-input" placeholder="Escribe aquí..." style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 5px;" onkeypress="if(event.key==='Enter') sendMsg()">
-                <button onclick="sendMsg()" style="background: #003366; color: white; border: none; padding: 10px 15px; margin-left: 5px; border-radius: 5px;">➤</button>
+            <div class="chat-header">JCNay Virtual Assistant</div>
+            <div id="chat-content" style="flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 14px; background: #fafafa; color: #333;"></div>
+            <div style="padding: 10px; display: flex; background: #f0f0f0;">
+                <input type="text" id="chat-input" placeholder="Pregúntame..." style="flex: 1; padding: 10px; border-radius: 5px; border: 1px solid #ccc;" onkeypress="if(event.key==='Enter') sendMsg()">
+                <button onclick="sendMsg()" style="background: #003366; color: white; border: none; padding: 10px; margin-left: 5px; border-radius: 5px;">➤</button>
             </div>
         </div>
     </div>
@@ -175,7 +159,7 @@
         const NGROK_URL = "https://blae-lashaunda-loopily.ngrok-free.dev";
 
         async function enviarACRM(datos) {
-            try { await fetch(APPS_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(datos) }); } catch (e) { console.error(e); }
+            try { await fetch(APPS_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(datos) }); } catch (e) { }
         }
 
         document.getElementById('f_guia').onsubmit = async function(e) {
@@ -188,23 +172,22 @@
         document.getElementById('f_leads').onsubmit = async function(e) {
             e.preventDefault();
             await enviarACRM({ tipo: "CLIENTE", nombre: document.getElementById('l_nombre').value, tel: document.getElementById('l_tel').value, ingresos: document.getElementById('l_ingresos').value });
-            alert("Información enviada con éxito.");
+            alert("Recibido. Nos comunicaremos pronto.");
             this.reset();
         };
 
         document.getElementById('f_socio_crm').onsubmit = async function(e) {
             e.preventDefault();
             await enviarACRM({ tipo: "SOLICITUD_SOCIO", nombre: document.getElementById('s_nombre').value, tel: document.getElementById('s_tel').value, licencia: document.getElementById('s_licencia').value, estado: document.getElementById('s_estado').value });
-            alert("Aplicación recibida.");
+            alert("Aplicación enviada.");
             window.location.href = "https://www.phi-life.com/login";
         };
 
         function runDIME() {
             const t = (parseFloat(document.getElementById('d_deu').value)||0) + (parseFloat(document.getElementById('d_hip').value)||0) + (parseFloat(document.getElementById('d_uni').value)||0) + (parseFloat(document.getElementById('d_fun').value)||0);
             document.getElementById('res_brecha').innerText = "$" + t.toLocaleString();
-            const waBtn = document.getElementById('waDIME');
-            waBtn.style.display = t > 0 ? 'block' : 'none';
-            waBtn.href = `https://wa.me/19086774196?text=Mi brecha DIME es de $${t}.`;
+            document.getElementById('waDIME').style.display = t > 0 ? 'block' : 'none';
+            document.getElementById('waDIME').href = `https://wa.me/19086774196?text=Mi brecha DIME es $${t}.`;
         }
 
         function toggleChat() { const c = document.getElementById('chat-window'); c.style.display = (c.style.display === 'none' || c.style.display === '') ? 'flex' : 'none'; }
@@ -217,8 +200,8 @@
             try {
                 const res = await fetch(`${NGROK_URL}/webhook-web`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({message: val}) });
                 const data = await res.json();
-                cont.innerHTML += `<div style="align-self: flex-start; background:#e2e8f0; padding:10px; border-radius:10px; max-width:85%; color:#1e293b;">${data.reply}</div>`;
-            } catch (e) { cont.innerHTML += `<div style="color:red; font-size:11px;">Offline</div>`; }
+                cont.innerHTML += `<div style="align-self: flex-start; background:#e2e8f0; padding:10px; border-radius:10px; max-width:85%; color:#333;">${data.reply}</div>`;
+            } catch (e) { cont.innerHTML += `<div style="color:red; font-size:11px;">Error de conexión</div>`; }
             cont.scrollTop = cont.scrollHeight;
         }
         function abrirModalSocio() { document.getElementById('form-socio-overlay').style.display = 'flex'; }
