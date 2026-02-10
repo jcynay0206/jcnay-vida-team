@@ -22,61 +22,82 @@
 
         .container { max-width: 900px; margin: 0 auto; padding: 20px; }
         
-        /* Navegación */
-        nav { background: rgba(5, 7, 10, 0.9); padding: 15px; position: fixed; width: 100%; top: 0; z-index: 100; text-align: center; border-bottom: 1px solid rgba(212,175,55,0.2); backdrop-filter: blur(15px); }
-        nav a { color: var(--oro-premium); text-decoration: none; margin: 0 10px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        /* NAVEGACIÓN CON LOGO A LA IZQUIERDA */
+        nav { 
+            background: rgba(5, 7, 10, 0.95); 
+            padding: 10px 5%; 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid rgba(212,175,55,0.2); 
+            backdrop-filter: blur(15px); 
+        }
 
-        /* HEADER VISUAL (NUEVA ESTRUCTURA) */
-        header { padding: 140px 20px 60px; display: flex; align-items: center; justify-content: center; gap: 20px; }
-        .brand-icon { width: 80px; height: 80px; filter: drop-shadow(0 0 10px rgba(212,175,55,0.3)); }
-        .brand-text { text-align: left; border-left: 2px solid var(--oro-premium); padding-left: 20px; }
-        .brand-name { font-family: 'Cinzel', serif; font-size: 2.2rem; font-weight: 700; color: white; line-height: 1; letter-spacing: 2px; }
-        .brand-slogan { font-size: 0.8rem; color: var(--oro-premium); text-transform: uppercase; letter-spacing: 4px; margin-top: 5px; font-weight: 400; }
+        .brand-container { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .favicon-img { width: 50px; height: 50px; object-fit: contain; filter: drop-shadow(0 0 5px rgba(212,175,55,0.3)); }
+        .brand-info { display: flex; flex-direction: column; }
+        .brand-name { font-family: 'Cinzel', serif; color: white; font-size: 1.2rem; font-weight: 700; line-height: 1; letter-spacing: 1px; }
+        .brand-slogan-nav { font-size: 0.6rem; color: var(--oro-premium); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+        .nav-links { display: flex; list-style: none; gap: 20px; }
+        .nav-links a { color: var(--oro-premium); text-decoration: none; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .nav-links a:hover { color: white; }
+
+        /* HERO / HEADER REFORZADO */
+        header { padding: 180px 20px 80px; text-align: center; }
+        .hero-title { font-family: 'Cinzel', serif; font-size: clamp(2rem, 8vw, 4rem); color: white; margin-bottom: 10px; }
+        .hero-slogan { color: var(--oro-premium); font-size: 1.2rem; font-style: italic; letter-spacing: 2px; }
 
         section { background: rgba(255, 255, 255, 0.03); padding: 50px; border-radius: 40px; margin-bottom: 40px; border: 1px solid rgba(212, 175, 55, 0.15); backdrop-filter: blur(5px); }
         h3 { color: var(--oro-premium); font-size: 1.6rem; margin-bottom: 25px; text-align: center; font-family: 'Cinzel', serif; letter-spacing: 2px; text-transform: uppercase; }
 
         .texto-dorado { color: var(--oro-premium); font-weight: 600; }
-        input, select { width: 100%; padding: 15px; margin: 10px 0; border: 1px solid rgba(212,175,55,0.3); border-radius: 12px; background: rgba(0,0,0,0.5); color: white; font-family: inherit; }
+        input, select, textarea { width: 100%; padding: 15px; margin: 10px 0; border: 1px solid rgba(212,175,55,0.3); border-radius: 12px; background: rgba(0,0,0,0.5); color: white; font-family: inherit; }
         
         .btn-gold { background: var(--gradient-oro); color: var(--negro-obsidiana); padding: 18px; border-radius: 50px; font-weight: 800; text-transform: uppercase; display: block; text-align: center; border: none; cursor: pointer; width: 100%; text-decoration: none; transition: 0.4s; }
         .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(212,175,55,0.4); }
 
         .grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
         .card { background: rgba(255,255,255,0.02); padding: 30px; border-radius: 25px; border: 1px solid rgba(212,175,55,0.2); text-align: center; }
-        .card h4 { color: var(--oro-brillante); font-size: 0.8rem; margin-bottom: 20px; font-family: 'Cinzel', serif; }
-
+        
         .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .test-item { background: rgba(255,255,255,0.01); padding: 25px; border-radius: 20px; border-left: 2px solid var(--oro-premium); font-style: italic; font-size: 0.9rem; }
-        .test-name { display: block; margin-top: 15px; color: var(--oro-premium); font-weight: bold; font-family: 'Cinzel', serif; font-size: 0.75rem; }
 
-        #form-socio-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); z-index: 10000; justify-content: center; align-items: center; padding: 20px; }
-        .modal-socio { background: #0a0e14; padding: 40px; border-radius: 35px; width: 100%; max-width: 450px; border: 1px solid var(--oro-premium); }
-        
         #chat-window { display: none; width: 350px; height: 500px; background: #0a0e14; border-radius: 20px; flex-direction: column; position: fixed; bottom: 100px; right: 25px; border: 1px solid var(--oro-premium); z-index: 9999; overflow: hidden; }
         .chat-header { background: var(--gradient-oro); color: #000; padding: 15px; text-align: center; font-weight: 800; font-family: 'Cinzel', serif; }
-        #chat-content { flex: 1; padding: 20px; overflow-y: auto; background: #05070a; display: flex; flex-direction: column; gap: 10px; }
+
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 10px; }
+            .nav-links { gap: 10px; }
+            .brand-name { font-size: 1rem; }
+        }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#sobre">Nosotros</a>
-        <a href="#guia">Guía</a>
-        <a href="#dime">DIME</a>
-        <a href="#herramientas">Herramientas</a>
-        <a href="#cotizar">Cotizar</a>
-        <a href="#testimonios">Opiniones</a>
-        <a href="#socios">Socios</a>
+        <a href="#" class="brand-container">
+            <img src="logo-jcnay.jpg" alt="JN" class="favicon-img">
+            <div class="brand-info">
+                <span class="brand-name">JCNay Vida Team</span>
+                <span class="brand-slogan-nav">Más que Seguros, diseñamos Seguridad Financiera</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#sobre">Nosotros</a></li>
+            <li><a href="#herramientas">Herramientas</a></li>
+            <li><a href="#cotizar">Cotizar</a></li>
+        </ul>
     </nav>
 
     <div class="container">
-        <header data-aos="fade-down">
-            <img src="img/logo-iniciales.png" alt="JC" class="brand-icon">
-            <div class="brand-text">
-                <div class="brand-name">JCNay Vida Team</div>
-                <div class="brand-slogan">Nexo que Infinito</div>
-            </div>
+        <header data-aos="zoom-in">
+            <h1 class="hero-title">JCNay Vida Team</h1>
+            <p class="hero-slogan">Más que Seguros, diseñamos Seguridad Financiera</p>
         </header>
 
         <section id="sobre" data-aos="fade-up">
@@ -87,7 +108,7 @@
         </section>
 
         <section id="guia" data-aos="fade-up">
-            <h3>📥 Guía "Banco Libre"</h3>
+            <h3>📥 Guía Gratis</h3>
             <form id="f_guia">
                 <input type="text" id="n1" placeholder="Tu nombre" required>
                 <input type="number" id="e1" placeholder="Tu edad" required>
@@ -107,112 +128,59 @@
             <div style="text-align:center; background: rgba(212,175,55,0.05); padding: 25px; border-radius: 20px; margin-top: 20px;">
                 <div id="res_brecha" style="font-size: 2.5rem; font-weight: 800; color: #fff;">$0</div>
                 <button onclick="runDIME()" class="btn-gold" style="margin-top:15px; padding: 12px;">Calcular Brecha</button>
-                <a id="waDIME" href="#" target="_blank" class="btn-gold" style="background:#25D366; display:none; margin-top:10px;">Consultar Asesor VIP</a>
+                <a id="waDIME" href="#" target="_blank" class="btn-gold" style="background:#25D366; display:none; margin-top:10px;">Consultar por WhatsApp</a>
             </div>
         </section>
 
-        <h3 style="margin: 30px 0;" id="herramientas">🛠️ Herramientas de Análisis</h3>
+        <h3 style="margin: 30px 0;" id="herramientas">🛠️ Calculadoras</h3>
         <div class="grid-cards" data-aos="fade-up">
-            <div class="card"><h4>Blindaje Familiar</h4><a href="https://jcynay0206.github.io/landing-seguros/" class="btn-gold" style="font-size:0.7rem; padding: 10px;">Abrir</a></div>
-            <div class="card"><h4>Escudo Financiero</h4><a href="https://jcynay0206.github.io/escudo-financiero/" class="btn-gold" style="font-size:0.7rem; padding: 10px;">Abrir</a></div>
             <div class="card"><h4>Retiro IUL</h4><a href="https://jcynay0206.github.io/calculadora-iul/" class="btn-gold" style="font-size:0.7rem; padding: 10px;">Abrir</a></div>
-            <div class="card"><h4>Plan Universidad</h4><a href="https://jcynay0206.github.io/calculadora-universitaria/" class="btn-gold" style="font-size:0.7rem; padding: 10px;">Abrir</a></div>
+            <div class="card"><h4>Escudo Financiero</h4><a href="https://jcynay0206.github.io/escudo-financiero/" class="btn-gold" style="font-size:0.7rem; padding: 10px;">Abrir</a></div>
         </div>
 
-        <section id="cotizar" data-aos="fade-up" style="margin-top: 40px;">
+        <section id="cotizar" data-aos="fade-up">
             <h3>📝 Solicitar Cotización</h3>
             <form id="f_leads">
-                <input type="text" id="l_nombre" placeholder="Nombre completo" required>
-                <input type="tel" id="l_tel" placeholder="Teléfono" required>
-                <select id="l_ingresos" required>
-                    <option value="">Ingresos anuales aproximados...</option>
-                    <option value="Bajo $30k">Menos de $30k</option>
-                    <option value="$30k-$60k">$30k - $60k</option>
-                    <option value="$60k-$100k">$60k - $100k</option>
-                    <option value="Over $100k">Más de $100k</option>
-                </select>
-                <button type="submit" class="btn-gold" style="margin-top:10px;">Enviar Consulta</button>
+                <input type="text" name="name" placeholder="NOMBRE COMPLETO" required>
+                <input type="email" name="email" placeholder="EMAIL" required>
+                <textarea name="message" rows="4" placeholder="¿CUAL ES TU VISIÓN?" required></textarea>
+                <button type="submit" class="btn-gold" style="margin-top:10px;">Enviar Solicitud</button>
             </form>
         </section>
 
         <section id="testimonios" data-aos="fade-up">
-            <h3>Opiniones Pro</h3>
+            <h3>Opiniones</h3>
             <div class="testimonial-grid">
                 <div class="test-item">
-                    "La estrategia de IUL me dio la tranquilidad que buscaba para el futuro de mis hijos."
-                    <span class="test-name">— Carlos M. (New Jersey)</span>
+                    "La estrategia de IUL me dio la tranquilidad que buscaba para mi familia."
+                    <span style="display:block; margin-top:10px; color:var(--oro-premium);">— Carlos M.</span>
                 </div>
                 <div class="test-item">
-                    "Excelente asesoría profesional. El análisis DIME fue clave para entender mi situación."
-                    <span class="test-name">— Elena R. (Florida)</span>
+                    "Excelente asesoría profesional. El análisis DIME fue clave."
+                    <span style="display:block; margin-top:10px; color:var(--oro-premium);">— Elena R.</span>
                 </div>
             </div>
         </section>
 
         <section id="socios" data-aos="fade-up" style="border: 1px solid var(--oro-premium);">
             <h3>🤝 Únete al Equipo</h3>
-            <button onclick="abrirModalSocio()" class="btn-gold">Aplicar como Socio</button>
+            <button onclick="alert('Formulario de socios en mantenimiento')" class="btn-gold">Aplicar como Socio</button>
         </section>
     </div>
 
-    <div id="form-socio-overlay">
-        <div class="modal-socio">
-            <h3>Registro de Socio USA</h3>
-            <form id="f_socio_crm">
-                <input type="text" id="s_nombre" placeholder="Nombre" required>
-                <input type="tel" id="s_tel" placeholder="WhatsApp" required>
-                <select id="s_licencia" required>
-                    <option value="">¿Tiene Licencia?</option>
-                    <option value="Si">Sí</option><option value="No">No</option>
-                </select>
-                <button type="submit" class="btn-gold">Enviar Aplicación</button>
-                <button type="button" onclick="cerrarModalSocio()" style="background:none; border:none; color:gray; width:100%; margin-top:20px; cursor:pointer;">Cerrar</button>
-            </form>
-        </div>
-    </div>
-
     <div style="position: fixed; bottom: 30px; right: 30px; z-index: 9999;">
-        <button onclick="toggleChat()" style="background: var(--gradient-oro); border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 25px; cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.5);">💬</button>
+        <button onclick="toggleChat()" style="background: var(--gradient-oro); border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 25px; cursor: pointer;">💬</button>
         <div id="chat-window">
-            <div class="chat-header">JCNay Virtual Assistant</div>
-            <div id="chat-content"></div>
-            <div style="padding: 15px; display: flex; background: #111;">
-                <input type="text" id="chat-input" placeholder="Escribe aquí..." style="margin:0;" onkeypress="if(event.key==='Enter') sendMsg()">
-                <button onclick="sendMsg()" style="background: var(--oro-premium); border:none; padding:10px; margin-left:5px; border-radius:10px;">➤</button>
+            <div class="chat-header">Asistente JCNay</div>
+            <div id="chat-content" style="flex:1; padding:20px; overflow-y:auto; color:white; font-size:0.9rem;">
+                Hola, ¿cómo podemos ayudarte hoy con tu seguridad financiera?
             </div>
         </div>
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800 });
-        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbykZuGS78TLHdGUaGOPvkSVzLIa1h7BfMhcKE6FB-lhf4d3SVcubFkd-scoFGWWBg9hqg/exec";
-        const NGROK_URL = "https://blae-lashaunda-loopily.ngrok-free.dev";
-
-        async function enviarACRM(datos) {
-            try { await fetch(APPS_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(datos) }); } catch (e) { }
-        }
-
-        document.getElementById('f_guia').onsubmit = async function(e) {
-            e.preventDefault();
-            await enviarACRM({ tipo: "GUIA", nombre: document.getElementById('n1').value });
-            window.open("https://raw.githubusercontent.com/jcynay0206/jcnay-vida-team/main/Banco_Libre.pdf", '_blank');
-            document.getElementById('okGuia').style.display = 'block';
-        };
-
-        document.getElementById('f_leads').onsubmit = async function(e) {
-            e.preventDefault();
-            await enviarACRM({ tipo: "CLIENTE", nombre: document.getElementById('l_nombre').value, tel: document.getElementById('l_tel').value, ingresos: document.getElementById('l_ingresos').value });
-            alert("Recibido. Nos contactaremos pronto.");
-            this.reset();
-        };
-
-        document.getElementById('f_socio_crm').onsubmit = async function(e) {
-            e.preventDefault();
-            await enviarACRM({ tipo: "SOLICITUD_SOCIO", nombre: document.getElementById('s_nombre').value, tel: document.getElementById('s_tel').value });
-            alert("Aplicación enviada.");
-            window.location.href = "https://www.phi-life.com/login";
-        };
+        AOS.init({ duration: 1000, once: true });
 
         function runDIME() {
             const t = (parseFloat(document.getElementById('d_deu').value)||0) + (parseFloat(document.getElementById('d_hip').value)||0) + (parseFloat(document.getElementById('d_uni').value)||0) + (parseFloat(document.getElementById('d_fun').value)||0);
@@ -221,23 +189,10 @@
             document.getElementById('waDIME').href = `https://wa.me/19086774196?text=Mi brecha DIME es $${t}.`;
         }
 
-        function toggleChat() { const c = document.getElementById('chat-window'); c.style.display = (c.style.display === 'none' || c.style.display === '') ? 'flex' : 'none'; }
-        
-        async function sendMsg() {
-            const input = document.getElementById('chat-input');
-            const cont = document.getElementById('chat-content');
-            const val = input.value; if(!val) return;
-            cont.innerHTML += `<div style="align-self: flex-end; background:var(--oro-premium); color:#000; padding:8px 12px; border-radius:12px; font-size:0.8rem; font-weight:600;">${val}</div>`;
-            input.value = '';
-            try {
-                const res = await fetch(`${NGROK_URL}/webhook-web`, { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({message: val}) });
-                const data = await res.json();
-                cont.innerHTML += `<div style="align-self: flex-start; background:rgba(255,255,255,0.1); padding:8px 12px; border-radius:12px; font-size:0.8rem; color:#fff;">${data.reply}</div>`;
-            } catch (e) { cont.innerHTML += `<div style="color:var(--oro-premium); font-size:9px; text-align:center;">Offline</div>`; }
-            cont.scrollTop = cont.scrollHeight;
+        function toggleChat() {
+            const c = document.getElementById('chat-window');
+            c.style.display = (c.style.display === 'none' || c.style.display === '') ? 'flex' : 'none';
         }
-        function abrirModalSocio() { document.getElementById('form-socio-overlay').style.display = 'flex'; }
-        function cerrarModalSocio() { document.getElementById('form-socio-overlay').style.display = 'none'; }
     </script>
 </body>
 </html>
