@@ -13,10 +13,13 @@
             --oro: #d4af37;
             --negro-ebano: #050505;
             --gradient-oro: linear-gradient(45deg, #b8860b, #d4af37, #f2d472);
+            --blanco-marmol: #f5f5f5;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background-color: var(--negro-ebano); color: white; overflow-x: hidden; }
 
+        /* NAV */
         nav { 
             background: rgba(5, 5, 5, 0.95); padding: 15px 5%; position: fixed; width: 100%; top: 0; z-index: 1000; 
             display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212, 175, 55, 0.3); backdrop-filter: blur(15px); 
@@ -25,25 +28,40 @@
         .favicon-img { width: 45px; height: 45px; border-radius: 4px; border: 1px solid var(--oro); }
         .brand-name { font-family: 'Cinzel', serif; color: white; font-size: 1.1rem; font-weight: 700; }
 
+        /* HERO */
         .hero {
             height: 40vh; background: linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.8)), url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1350&q=80');
             background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; margin-top: 75px;
         }
 
-        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-        section.dark-section { background: rgba(255, 255, 255, 0.03); padding: 40px; border-radius: 4px; margin-bottom: 30px; border: 1px solid rgba(212, 175, 55, 0.15); }
+        /* LOGOS ASEGURADORAS */
+        .seccion-logos { background: white; padding: 40px 20px; text-align: center; }
+        .contenedor-logos { display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; }
+        .logo-img { height: 35px; filter: grayscale(100%); opacity: 0.7; transition: 0.3s; }
+
+        /* CONTENEDOR PRINCIPAL */
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+        section.dark-section { background: rgba(255, 255, 255, 0.03); padding: 40px; border-radius: 4px; margin-bottom: 40px; border: 1px solid rgba(212, 175, 55, 0.15); }
         h3 { font-family: 'Cinzel', serif; color: var(--oro); text-align: center; margin-bottom: 25px; letter-spacing: 2px; }
         
-        input, select, textarea { width: 100%; padding: 14px; margin: 8px 0; border: 1px solid rgba(212, 175, 55, 0.2); background: rgba(0,0,0,0.6); color: white; border-radius: 2px; font-size: 0.9rem; font-family: 'Poppins', sans-serif; }
-        option { background: #111; color: white; }
+        input, select { width: 100%; padding: 14px; margin: 8px 0; border: 1px solid rgba(212, 175, 55, 0.2); background: rgba(0,0,0,0.6); color: white; border-radius: 2px; }
         
         .boton-oro { 
             background: var(--gradient-oro); color: black !important; padding: 16px; font-weight: 800; text-transform: uppercase; 
-            border: none; cursor: pointer; width: 100%; letter-spacing: 1px; transition: 0.3s; margin-top: 10px;
+            border: none; cursor: pointer; width: 100%; letter-spacing: 1px; transition: 0.3s; display: block; text-align: center; text-decoration: none;
         }
 
-        .check-container { display: flex; align-items: center; gap: 10px; margin: 12px 0; font-size: 0.8rem; color: #bbb; cursor: pointer; }
-        footer { padding: 30px; text-align: center; color: #444; font-size: 0.7rem; }
+        /* GRID CALCULADORAS */
+        .grid-herramientas { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .card { background: white; padding: 30px; border-top: 4px solid var(--oro); text-align: center; color: black; transition: 0.3s; }
+        .card h4 { font-family: 'Cinzel', serif; margin-bottom: 10px; font-size: 0.9rem; }
+        .card p { font-size: 0.75rem; color: #666; margin-bottom: 15px; }
+
+        /* DIME STYLING */
+        #dime-tool input { background: #f9f9f9; color: black; border: 1px solid #ddd; margin: 5px 0; }
+        .res-brecha { font-family: 'Cinzel'; font-size: 2.5rem; color: var(--oro); margin: 15px 0; }
+
+        footer { padding: 40px; text-align: center; color: #555; font-size: 0.75rem; }
     </style>
 </head>
 <body>
@@ -56,35 +74,80 @@
     </nav>
 
     <header class="hero">
-        <p style="font-family: 'Playfair Display'; font-style: italic; font-size: 1.8rem;">Protección & Riqueza</p>
+        <p data-aos="fade-up" style="font-family: 'Playfair Display'; font-style: italic; font-size: 1.8rem;">Excelencia en Protección Financiera</p>
     </header>
 
+    <section class="seccion-logos">
+        <div class="contenedor-logos">
+            <img src="https://www.nationallife.com/images/logos/nlg_logo_header.png" alt="National Life" class="logo-img">
+            <img src="https://www.fglife.com/sites/default/files/fg-logo-header.png" alt="F&G" class="logo-img">
+            <img src="https://images.ctfassets.net/706v73v0z7id/3N1f9H8H8W9W1W1W1W1W1W/1908d172782e5b8801d0a5e865f3a093/ethos-logo.png" alt="Ethos" class="logo-img">
+            <img src="https://seniorlifeinsurancecompany.com/wp-content/uploads/2021/05/Logo.png" alt="Senior Life" class="logo-img">
+            <img src="https://www.americanamicable.com/images/logo.png" alt="American Amicable" class="logo-img">
+        </div>
+    </section>
+
     <div class="container">
+        
         <section id="guia" class="dark-section" data-aos="fade-up">
-            <h3>📥 Solicitar Guía Privada</h3>
+            <h3>📥 Guía Privada "Banco Libre"</h3>
             <form id="form-guia">
                 <input type="text" name="nombre_tipo" placeholder="NOMBRE COMPLETO" required>
                 <input type="number" name="edad_estado" placeholder="EDAD" required>
-                
                 <select name="ingresos_licencia" required>
-                    <option value="" disabled selected>INGRESOS ANUALES ESTIMADOS</option>
+                    <option value="" disabled selected>INGRESOS ANUALES</option>
                     <option value="Menos de 50K">Menos de 50K</option>
                     <option value="50K a 100K">50K a 100K</option>
                     <option value="Mas de 100K">Más de 100K</option>
                 </select>
-
                 <input type="text" name="telefonos" placeholder="TELÉFONO / CORREO" required>
-                
                 <input type="hidden" name="tipo_registro" value="GUIA">
-                <button type="submit" class="boton-oro">Obtener Guía</button>
+                <button type="submit" class="boton-oro">Solicitar Acceso</button>
             </form>
         </section>
 
-        <section id="socios" class="dark-section" data-aos="fade-up" style="border-top: 2px solid var(--oro)">
-            <h3>🤝 Aplicación de Carrera</h3>
+        <section id="dime-tool" class="dark-section" style="background: white; color: black;" data-aos="fade-up">
+            <h3 style="color: black;">📊 Análisis D.I.M.E.</h3>
+            <p style="text-align:center; color: #666; margin-bottom: 20px;">Calcula tu brecha de protección financiera inmediata.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <input type="number" id="d_deu" placeholder="Deudas ($)">
+                <input type="number" id="d_hip" placeholder="Hipoteca ($)">
+                <input type="number" id="d_uni" placeholder="Universidad ($)">
+                <input type="number" id="d_fun" placeholder="Gastos Finales ($)">
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <div class="res-brecha" id="res_brecha">$0</div>
+                <button onclick="runDIME()" class="boton-oro" style="width: auto; padding: 15px 40px; display: inline-block;">Calcular Brecha</button>
+            </div>
+        </section>
+
+        <div class="grid-herramientas">
+            <div class="card" data-aos="zoom-in">
+                <h4>Retiro IUL</h4>
+                <p>Planificación de jubilación libre de impuestos.</p>
+                <a href="https://jcynay0206.github.io/calculadora-iul/" class="boton-oro" style="font-size: 0.7rem; padding: 10px;">Abrir</a>
+            </div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="100">
+                <h4>Escudo Financiero</h4>
+                <p>Protección contra enfermedades críticas y crónicas.</p>
+                <a href="https://jcynay0206.github.io/escudo-financiero/" class="boton-oro" style="font-size: 0.7rem; padding: 10px;">Abrir</a>
+            </div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="200">
+                <h4>Plan Universidad</h4>
+                <p>Ahorro estructurado para educación superior.</p>
+                <a href="https://jcynay0206.github.io/calculadora-universitaria/" class="boton-oro" style="font-size: 0.7rem; padding: 10px;">Abrir</a>
+            </div>
+            <div class="card" data-aos="zoom-in" data-aos-delay="300">
+                <h4>Landing Seguros</h4>
+                <p>Explora nuestras soluciones integrales de vida.</p>
+                <a href="https://jcynay0206.github.io/landing-seguros/" class="boton-oro" style="font-size: 0.7rem; padding: 10px;">Abrir</a>
+            </div>
+        </div>
+
+        <section id="socios" class="dark-section" data-aos="fade-up" style="border: 2px solid var(--oro)">
+            <h3>🤝 Únete como Socio</h3>
             <form id="form-socio">
                 <input type="text" name="nombre_tipo" placeholder="NOMBRE COMPLETO" required>
-                
                 <select name="edad_estado" required>
                     <option value="" disabled selected>ESTADO DE RESIDENCIA (USA)</option>
                     <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option>
@@ -105,27 +168,32 @@
                     <option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option>
                     <option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
                 </select>
-
                 <input type="text" name="telefonos" placeholder="TELÉFONO / CORREO" required>
-                
-                <input type="hidden" name="ingresos_licencia" value="Aplicante Socio">
+                <input type="hidden" name="ingresos_licencia" value="Candidato Socio">
                 <input type="hidden" name="tipo_registro" value="SOCIO">
-
-                <label class="check-container">
-                    <input type="checkbox" required style="width:auto">
-                    <span>Poseo SSN y soy mayor de 18 años.</span>
-                </label>
-
+                <div style="display: flex; gap: 10px; margin: 10px 0; font-size: 0.8rem; color: #bbb; align-items: center;">
+                    <input type="checkbox" required style="width: auto;"> Poseo SSN y soy mayor de 18 años.
+                </div>
                 <button type="submit" class="boton-oro">Enviar Aplicación</button>
             </form>
         </section>
     </div>
 
+    <footer>JCNay Vida Team &copy; 2026 | Azure Gold Studio</footer>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+        AOS.init({ duration: 1000, once: true });
 
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbykZuGS78TLHdGUaGOPvkSVzLIa1h7BfMhcKE6FB-lhf4d3SVcubFkd-scoFGWWBg9hqg/exec';
+
+        function runDIME() {
+            const t = (parseFloat(document.getElementById('d_deu').value)||0) + 
+                      (parseFloat(document.getElementById('d_hip').value)||0) + 
+                      (parseFloat(document.getElementById('d_uni').value)||0) + 
+                      (parseFloat(document.getElementById('d_fun').value)||0);
+            document.getElementById('res_brecha').innerText = "$" + t.toLocaleString();
+        }
 
         function conectar(formId) {
             const form = document.getElementById(formId);
@@ -135,29 +203,22 @@
                 btn.innerText = 'ENVIANDO...';
                 btn.disabled = true;
 
-                // Enviamos nombre/TIPO combinados para tu columna 2
                 const nombreConTipo = form.nombre_tipo.value + " (" + form.tipo_registro.value + ")";
-                
                 const formData = new FormData();
                 formData.append('nombre_tipo', nombreConTipo);
                 formData.append('edad_estado', form.edad_estado.value);
                 formData.append('ingresos_licencia', form.ingresos_licencia.value);
                 formData.append('telefonos', form.telefonos.value);
 
-                fetch(SCRIPT_URL, { 
-                    method: 'POST', 
-                    body: formData,
-                    mode: 'no-cors' 
-                }).then(() => {
-                    window.location.href = "gracias.html";
-                }).catch(() => {
-                    alert('Reintente en un momento');
+                fetch(SCRIPT_URL, { method: 'POST', body: formData, mode: 'no-cors' })
+                .then(() => { window.location.href = "gracias.html"; })
+                .catch(() => {
+                    alert('Error en conexión');
                     btn.disabled = false;
                     btn.innerText = 'REINTENTAR';
                 });
             });
         }
-
         conectar('form-guia');
         conectar('form-socio');
     </script>
