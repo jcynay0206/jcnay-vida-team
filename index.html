@@ -14,27 +14,32 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background-color: var(--negro-ebano); color: white; overflow-x: hidden; }
 
-        /* NAV */
+        /* NAVEGACIÓN */
         nav { background: rgba(5, 5, 5, 0.95); padding: 10px 5%; position: fixed; width: 100%; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212, 175, 55, 0.3); backdrop-filter: blur(15px); }
         .brand-container { display: flex; align-items: center; gap: 15px; text-decoration: none; }
         .favicon-img { width: 45px; height: 45px; border-radius: 4px; border: 1px solid var(--oro); }
         .brand-name { font-family: 'Cinzel', serif; color: white; font-size: 1.1rem; font-weight: 700; }
 
-        /* HERO */
+        /* HERO CON TYPEWRITER */
         .hero { height: 60vh; background: linear-gradient(rgba(5, 5, 5, 0.85), rgba(5, 5, 5, 0.85)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; margin-top: 65px; }
         .main-slogan { font-family: 'Cinzel', serif; font-size: clamp(1.4rem, 5vw, 2.8rem); color: white; letter-spacing: 3px; text-transform: uppercase; min-height: 1.2em; }
         .sub-slogan { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1rem, 2.5vw, 1.8rem); color: var(--oro); margin-top: 10px; height: 1.5em; }
 
-        /* CONTAINER & SECTIONS */
+        /* ASEGURADORAS */
+        .seccion-logos { background: white; padding: 30px 0; border-top: 4px solid var(--oro); text-align: center; }
+        .contenedor-logos { display: flex; justify-content: center; align-items: center; gap: 35px; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; opacity: 0.8; }
+        .logo-img { height: 32px; filter: grayscale(1); transition: 0.3s; }
+
+        /* CONTENIDO GENERAL */
         .container { max-width: 1100px; margin: 0 auto; padding: 50px 20px; }
         .dark-section { background: rgba(255, 255, 255, 0.03); padding: 40px; border-radius: 4px; margin-bottom: 40px; border: 1px solid rgba(212, 175, 55, 0.15); position: relative; }
-        h3 { font-family: 'Cinzel', serif; color: var(--oro); text-align: center; margin-bottom: 30px; text-transform: uppercase; }
+        h3 { font-family: 'Cinzel', serif; color: var(--oro); text-align: center; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
         
         input, select { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid rgba(212, 175, 55, 0.2); background: rgba(0,0,0,0.6); color: white; border-radius: 4px; font-family: 'Poppins'; }
         .boton-oro { background: var(--gradient-oro); color: black !important; padding: 14px; font-weight: 800; text-transform: uppercase; border: none; cursor: pointer; width: 100%; text-decoration: none; display: block; text-align: center; transition: 0.3s; border-radius: 4px; }
         .boton-oro:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(212,175,55,0.3); }
-        
-        /* OVERLAY GRACIAS SOCIOS */
+
+        /* ÉXITO SOCIOS */
         #mensaje-exito-socio { display: none; text-align: center; padding: 30px; background: rgba(0,0,0,0.4); border: 2px solid var(--oro); border-radius: 8px; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -43,9 +48,27 @@
 </head>
 <body>
 
-    <nav><a href="#" class="brand-container"><img src="img/logo-jcnay.jpg" class="favicon-img" alt="Logo"><span class="brand-name">JCNay Vida Team</span></a></nav>
+    <nav>
+        <a href="#" class="brand-container">
+            <img src="img/logo-jcnay.jpg" class="favicon-img" alt="Logo">
+            <span class="brand-name">JCNay Vida Team</span>
+        </a>
+    </nav>
 
-    <header class="hero"><h1 id="typewriter-main" class="main-slogan"></h1><p id="typewriter-sub" class="sub-slogan"></p></header>
+    <header class="hero">
+        <h1 id="typewriter-main" class="main-slogan"></h1>
+        <p id="typewriter-sub" class="sub-slogan"></p>
+    </header>
+
+    <section class="seccion-logos">
+        <div class="contenedor-logos">
+            <img src="img/nlg.png" class="logo-img" alt="National Life Group">
+            <img src="img/fg.png" class="logo-img" alt="F&G">
+            <img src="img/ethos.png" class="logo-img" alt="Ethos">
+            <img src="img/american.png" class="logo-img" alt="American Amicable">
+            <img src="img/senior.png" class="logo-img" alt="Senior Life">
+        </div>
+    </section>
 
     <div class="container">
         
@@ -53,6 +76,13 @@
             <h3>📥 Obtener Guía Banco Libre</h3>
             <form id="form-guia">
                 <input type="text" name="nombre" placeholder="Nombre Completo" required>
+                <input type="number" name="edad" placeholder="Edad" required>
+                <select name="ingresos" required>
+                    <option value="" disabled selected>Ingresos Anuales</option>
+                    <option value="Menos de 50K">Menos de $50,000</option>
+                    <option value="50K a 100K">$50,000 - $100,000</option>
+                    <option value="Mas de 100K">Más de $100,000</option>
+                </select>
                 <input type="tel" name="telefono" placeholder="WhatsApp" required>
                 <input type="email" name="email" placeholder="Correo Electrónico" required>
                 <input type="hidden" name="tipo_registro" value="CLIENTE_GUIA">
@@ -67,13 +97,21 @@
                     <input type="text" name="nombre" placeholder="Nombre Completo" required>
                     <select name="estado" required>
                         <option value="" disabled selected>Estado de Residencia</option>
-                        <option value="NJ">New Jersey</option><option value="FL">Florida</option><option value="TX">Texas</option><option value="NY">New York</option><option value="CA">California</option><option value="GA">Georgia</option><option value="NC">North Carolina</option>
+                        <option value="NJ">New Jersey</option><option value="FL">Florida</option>
+                        <option value="TX">Texas</option><option value="NY">New York</option>
+                        <option value="CA">California</option><option value="GA">Georgia</option>
+                        <option value="NC">North Carolina</option><option value="PA">Pennsylvania</option>
+                    </select>
+                    <select name="licencia" required>
+                        <option value="" disabled selected>¿Tiene Licencia de Seguros?</option>
+                        <option value="Vida y Salud">Sí - Vida y Salud</option>
+                        <option value="No Licencia">No - Deseo obtenerla</option>
                     </select>
                     <input type="tel" name="telefono" placeholder="WhatsApp" required>
                     <input type="email" name="email" placeholder="Correo Electrónico" required>
                     <div style="margin:12px 0; font-size:0.85rem; color:#ccc; text-align:left;">
                         <label style="display:block; margin-bottom:5px;"><input type="checkbox" required style="width:auto; margin-right:10px;"> Soy mayor de 18 años.</label>
-                        <label style="display:block;"><input type="checkbox" required style="width:auto; margin-right:10px;"> Poseo SSN vigente para contratos.</label>
+                        <label style="display:block;"><input type="checkbox" required style="width:auto; margin-right:10px;"> Poseo SSN vigente para contratos legales.</label>
                     </div>
                     <input type="hidden" name="tipo_registro" value="AGENTE_NUEVO">
                     <button type="submit" class="boton-oro">Aplicar como Agente</button>
@@ -82,24 +120,24 @@
 
             <div id="mensaje-exito-socio">
                 <i class="fas fa-check-circle" style="color: var(--oro); font-size: 3rem; margin-bottom: 15px;"></i>
-                <h4 style="color: var(--oro); font-family: 'Cinzel'; margin-bottom: 15px;">¡Solicitud Recibida!</h4>
-                <p style="margin-bottom: 25px; font-size: 1rem; line-height: 1.6;">Tus datos están seguros con nosotros. Para acelerar tu proceso de inducción, únete a nuestro grupo oficial de agentes:</p>
+                <h4 style="color: var(--oro); font-family: 'Cinzel'; margin-bottom: 10px;">¡Solicitud Recibida!</h4>
+                <p style="margin-bottom: 25px; font-size: 1rem;">Para acelerar tu inducción y conocer al equipo, únete a nuestro grupo de WhatsApp:</p>
                 <a href="https://chat.whatsapp.com/E2W9x8EE3J2AK057sz7lSG" target="_blank" class="boton-oro" style="background: #25D366; color: white !important; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                    <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> Unirse al Grupo de WhatsApp
+                    <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i> Entrar al Grupo Oficial
                 </a>
             </div>
         </section>
 
     </div>
 
-    <footer>JCNay Vida Team &copy; 2026</footer>
+    <footer>JCNay Vida Team &copy; 2026 | Arquitectura Financiera</footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
         const CRM_URL = 'https://script.google.com/macros/s/AKfycbykZuGS78TLHdGUaGOPvkSVzLIa1h7BfMhcKE6FB-lhf4d3SVcubFkd-scoFGWWBg9hqg/exec';
 
-        // EFECTO TYPEWRITER
+        // TYPEWRITER EFFECT
         function typeWriter(text, elementId, speed, callback) {
             let i = 0; const element = document.getElementById(elementId);
             function type() { if (i < text.length) { element.innerHTML += text.charAt(i); i++; setTimeout(type, speed); } else if (callback) { callback(); } }
@@ -111,7 +149,7 @@
             });
         };
 
-        // FLUJO LEADS (GUÍA)
+        // ENVÍO CLIENTES (GUÍA)
         const formGuia = document.getElementById('form-guia');
         formGuia.addEventListener('submit', e => {
             e.preventDefault();
@@ -130,7 +168,7 @@
             });
         });
 
-        // FLUJO SOCIOS (WHATSAPP)
+        // ENVÍO SOCIOS (WHATSAPP)
         const formSocio = document.getElementById('form-socio');
         const contFormSocio = document.getElementById('contenedor-form-socio');
         const msjExitoSocio = document.getElementById('mensaje-exito-socio');
@@ -146,7 +184,7 @@
                 msjExitoSocio.style.display = 'block';
             })
             .catch(() => {
-                alert("Error de conexión. Por favor reintente.");
+                alert("Error al enviar datos. Inténtalo de nuevo.");
                 b.innerText = 'REINTENTAR'; b.disabled = false;
             });
         });
