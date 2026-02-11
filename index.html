@@ -52,9 +52,9 @@
         .nav-links a { color: var(--oro); text-decoration: none; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         .nav-links a:hover { color: white; text-shadow: 0 0 10px var(--oro); }
 
-        /* HERO SECTION - REINVENTADA */
+        /* HERO SECTION */
         .hero {
-            height: 80vh;
+            height: 70vh;
             background: linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.8)), 
                         url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
@@ -77,7 +77,45 @@
             color: var(--blanco-marmol);
         }
 
-        /* BOTONES ESTILO AZURE GOLD */
+        /* ESTILO LOGOS (TU PETICIÓN) */
+        .seccion-socios {
+            background-color: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .seccion-socios h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            color: #b5b5b5;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .contenedor-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            filter: grayscale(100%) opacity(0.6);
+            transition: all 0.5s ease;
+        }
+
+        .logo-img:hover {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.08);
+        }
+
+        /* BOTONES */
         .boton-oro {
             background: var(--gradient-oro);
             color: black !important;
@@ -94,16 +132,10 @@
             cursor: pointer;
         }
 
-        .boton-oro:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
-            filter: brightness(1.1);
-        }
-
-        /* SECCIONES */
+        /* CONTENEDORES Y SECCIONES OSCURAS */
         .container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
 
-        section { 
+        section.dark-section { 
             background: rgba(255, 255, 255, 0.02); 
             padding: 60px; 
             border-radius: 4px; 
@@ -112,27 +144,14 @@
             backdrop-filter: blur(10px);
         }
 
-        h3 { 
-            font-family: 'Cinzel', serif; 
-            color: var(--oro); 
-            font-size: 1.8rem; 
-            margin-bottom: 30px; 
-            text-align: center; 
-            letter-spacing: 3px;
-        }
+        h3 { font-family: 'Cinzel', serif; color: var(--oro); font-size: 1.8rem; margin-bottom: 30px; text-align: center; letter-spacing: 3px; }
 
-        /* FORMULARIOS Y INPUTS */
         input, textarea { 
             width: 100%; padding: 18px; margin: 12px 0; 
             border: 1px solid rgba(212, 175, 55, 0.2); 
-            background: rgba(0, 0, 0, 0.6); 
-            color: white; 
-            font-family: 'Poppins', sans-serif;
+            background: rgba(0, 0, 0, 0.6); color: white; 
         }
 
-        input:focus { border-color: var(--oro); outline: none; }
-
-        /* GRID DE CALCULADORAS */
         .grid-herramientas {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -141,47 +160,23 @@
         }
 
         .card {
-            background: white;
-            padding: 40px 30px;
-            border-top: 4px solid var(--oro);
-            text-align: center;
-            transition: 0.3s;
+            background: white; padding: 40px 30px; border-top: 4px solid var(--oro); text-align: center; transition: 0.3s;
         }
-
         .card h4 { font-family: 'Cinzel', serif; color: var(--negro-ebano); margin-bottom: 20px; font-size: 0.9rem; }
-        .card:hover { transform: translateY(-10px); }
-
-        /* ANALISIS DIME */
-        .dime-container {
-            background: var(--blanco-marmol);
-            color: var(--negro-ebano);
-            border-radius: 4px;
-        }
-
-        #res_brecha { font-family: 'Cinzel', serif; color: var(--negro-ebano); font-size: 3rem; font-weight: 700; }
 
         /* CHATBOT */
         #chat-window { 
             display: none; width: 350px; height: 500px; background: #050505; 
             position: fixed; bottom: 100px; right: 25px; border: 1px solid var(--oro); 
-            z-index: 9999; flex-direction: column; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            z-index: 9999; flex-direction: column; 
         }
-        .chat-header { background: var(--gradient-oro); color: black; padding: 15px; font-family: 'Cinzel', serif; font-weight: 700; text-align: center; }
+        .chat-header { background: var(--gradient-oro); color: black; padding: 15px; font-weight: 700; text-align: center; }
 
-        footer {
-            background: var(--negro-ebano);
-            padding: 60px 20px;
-            text-align: center;
-            border-top: 1px solid #222;
-            font-size: 0.75rem;
-            color: #666;
-            letter-spacing: 1px;
-        }
+        footer { background: var(--negro-ebano); padding: 60px 20px; text-align: center; color: #666; font-size: 0.75rem; }
 
         @media (max-width: 768px) {
-            section { padding: 30px 20px; }
-            .brand-slogan-nav { display: none; }
-            .nav-links { gap: 10px; }
+            .logo-img { height: 35px; }
+            .contenedor-logos { gap: 30px; }
         }
     </style>
 </head>
@@ -207,18 +202,28 @@
         <a href="#guia" class="boton-oro" data-aos="zoom-in">Descargar Guía Privada</a>
     </header>
 
+    <section class="seccion-socios">
+        <h2 data-aos="fade-up">Respaldados por la Excelencia</h2>
+        <div class="contenedor-logos">
+            <img src="https://www.nationallife.com/images/logos/nlg_logo_header.png" alt="National Life" class="logo-img">
+            <img src="https://www.fglife.com/sites/default/files/fg-logo-header.png" alt="F&G" class="logo-img">
+            <img src="https://images.ctfassets.net/706v73v0z7id/3N1f9H8H8W9W1W1W1W1W1W/1908d172782e5b8801d0a5e865f3a093/ethos-logo.png" alt="Ethos" class="logo-img">
+            <img src="https://seniorlifeinsurancecompany.com/wp-content/uploads/2021/05/Logo.png" alt="Senior Life" class="logo-img">
+            <img src="https://www.americanamicable.com/images/logo.png" alt="American Amicable" class="logo-img">
+        </div>
+    </section>
+
     <div class="container">
         
-        <section id="sobre" data-aos="fade-up">
+        <section id="sobre" class="dark-section" data-aos="fade-up">
             <h3>Arquitectura Financiera</h3>
             <p style="text-align: center; font-size: 1.1rem; line-height: 1.8; color: var(--blanco-marmol);">
-                En <span style="color: var(--oro); font-weight: 600;">JCNay Vida Team</span>, no solo vendemos pólizas. Diseñamos estructuras de protección de alto nivel bajo el concepto de Nexo Infinito. Conectamos tus metas con la seguridad real del siglo XXI a través de estrategias de <span style="color: var(--oro);">IUL y Anualidades</span>.
+                En <span style="color: var(--oro); font-weight: 600;">JCNay Vida Team</span>, diseñamos estructuras de protección de alto nivel bajo el concepto de Nexo Infinito. Especialistas en <span style="color: var(--oro);">IUL y Anualidades</span>.
             </p>
         </section>
 
-        <section id="guia" data-aos="fade-up">
+        <section id="guia" class="dark-section" data-aos="fade-up">
             <h3>📥 Guía "Banco Libre"</h3>
-            <p style="text-align: center; margin-bottom: 20px;">Acceda a la estrategia utilizada por las familias que dominan su flujo de caja.</p>
             <form id="f_guia" style="max-width: 500px; margin: 0 auto;">
                 <input type="text" id="n1" placeholder="NOMBRE COMPLETO" required>
                 <input type="number" id="e1" placeholder="EDAD ACTUAL" required>
@@ -226,89 +231,69 @@
             </form>
         </section>
 
-        <section id="dime" class="dime-container" data-aos="fade-up">
-            <h3 style="color: var(--negro-ebano);">📊 Análisis D.I.M.E.</h3>
+        <section id="dime" style="background: white; color: black; padding: 60px; border-radius: 4px;" data-aos="fade-up">
+            <h3 style="color: black;">📊 Análisis D.I.M.E.</h3>
             <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:15px; margin-bottom: 30px;">
-                <input type="number" id="d_deu" placeholder="Deudas ($)" style="background: white; color: black;">
-                <input type="number" id="d_hip" placeholder="Hipoteca ($)" style="background: white; color: black;">
-                <input type="number" id="d_uni" placeholder="Universidad ($)" style="background: white; color: black;">
-                <input type="number" id="d_fun" placeholder="Gastos Finales ($)" style="background: white; color: black;">
+                <input type="number" id="d_deu" placeholder="Deudas ($)" style="background: #f9f9f9; color: black; border: 1px solid #ddd;">
+                <input type="number" id="d_hip" placeholder="Hipoteca ($)" style="background: #f9f9f9; color: black; border: 1px solid #ddd;">
+                <input type="number" id="d_uni" placeholder="Universidad ($)" style="background: #f9f9f9; color: black; border: 1px solid #ddd;">
+                <input type="number" id="d_fun" placeholder="Gastos Finales ($)" style="background: #f9f9f9; color: black; border: 1px solid #ddd;">
             </div>
             <div style="text-align:center;">
-                <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #888;">Su Brecha de Protección:</p>
-                <div id="res_brecha">$0</div>
+                <div id="res_brecha" style="color: black; font-size: 3rem; font-family: 'Cinzel';">$0</div>
                 <button onclick="runDIME()" class="boton-oro" style="margin-top:20px;">Calcular Ahora</button>
-                <a id="waDIME" href="#" target="_blank" class="boton-oro" style="background:#25D366; display:none; margin-top:15px; color:white !important;">Consultar Análisis por WhatsApp</a>
+                <a id="waDIME" href="#" target="_blank" class="boton-oro" style="background:#25D366; display:none; margin-top:15px; color:white !important; border:none;">Consultar por WhatsApp</a>
             </div>
         </section>
 
-        <h3 id="herramientas" data-aos="fade-up">🛠️ Ecosistema Digital</h3>
-        <div class="grid-herramientas" data-aos="fade-up">
-            <div class="card">
-                <h4>Blindaje Familiar</h4>
-                <a href="https://jcynay0206.github.io/landing-seguros/" class="boton-oro" style="padding: 12px 25px; font-size: 0.7rem;">Abrir Portal</a>
-            </div>
-            <div class="card">
-                <h4>Escudo Financiero</h4>
-                <a href="https://jcynay0206.github.io/escudo-financiero/" class="boton-oro" style="padding: 12px 25px; font-size: 0.7rem;">Abrir Portal</a>
-            </div>
-            <div class="card">
-                <h4>Retiro IUL</h4>
-                <a href="https://jcynay0206.github.io/calculadora-iul/" class="boton-oro" style="padding: 12px 25px; font-size: 0.7rem;">Abrir Portal</a>
-            </div>
-            <div class="card">
-                <h4>Plan Universidad</h4>
-                <a href="https://jcynay0206.github.io/calculadora-universitaria/" class="boton-oro" style="padding: 12px 25px; font-size: 0.7rem;">Abrir Portal</a>
-            </div>
+        <h3 id="herramientas" style="margin-top: 80px;">🛠️ Ecosistema Digital</h3>
+        <div class="grid-herramientas">
+            <div class="card"><h4>Blindaje Familiar</h4><a href="https://jcynay0206.github.io/landing-seguros/" class="boton-oro" style="font-size: 0.7rem; padding: 12px;">Abrir</a></div>
+            <div class="card"><h4>Escudo Financiero</h4><a href="https://jcynay0206.github.io/escudo-financiero/" class="boton-oro" style="font-size: 0.7rem; padding: 12px;">Abrir</a></div>
+            <div class="card"><h4>Retiro IUL</h4><a href="https://jcynay0206.github.io/calculadora-iul/" class="boton-oro" style="font-size: 0.7rem; padding: 12px;">Abrir</a></div>
+            <div class="card"><h4>Plan Universidad</h4><a href="https://jcynay0206.github.io/calculadora-universitaria/" class="boton-oro" style="font-size: 0.7rem; padding: 12px;">Abrir</a></div>
         </div>
 
-        <section id="socios" data-aos="fade-up" style="margin-top: 80px; border: 2px solid var(--oro);">
-            <h3>🤝 Expansión de Negocios</h3>
-            <p style="text-align: center; margin-bottom: 30px;">Buscamos líderes visionarios para expandir el Nexo Infinito en todo el país.</p>
+        <section id="socios" class="dark-section" data-aos="fade-up" style="margin-top: 80px; border: 2px solid var(--oro);">
+            <h3>🤝 Unirse al Equipo</h3>
             <div style="text-align: center;">
-                <button onclick="alert('Formulario de socios en proceso de validación')" class="boton-oro">Aplicar como Socio Estratégico</button>
+                <button onclick="alert('Próximamente')" class="boton-oro">Aplicar como Socio</button>
             </div>
         </section>
 
     </div>
 
     <div style="position: fixed; bottom: 30px; right: 30px; z-index: 9999;">
-        <button onclick="toggleChat()" style="background: var(--gradient-oro); border: none; border-radius: 50%; width: 65px; height: 65px; font-size: 28px; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">💬</button>
+        <button onclick="toggleChat()" style="background: var(--gradient-oro); border: none; border-radius: 50%; width: 65px; height: 65px; font-size: 28px; cursor: pointer;">💬</button>
         <div id="chat-window">
             <div class="chat-header">Asistente Ejecutivo</div>
-            <div id="chat-content" style="flex:1; padding:25px; overflow-y:auto; color:white; font-size:0.9rem; line-height: 1.6;">
-                Bienvenido a JCNay Vida Team. ¿Cómo puedo asistirle hoy en el diseño de su seguridad financiera?
+            <div id="chat-content" style="flex:1; padding:25px; color:white; font-size:0.9rem;">
+                Bienvenido. ¿Cómo puedo asistirle hoy?
             </div>
         </div>
     </div>
 
     <footer>
         <p>&copy; 2026 JCNay Vida Team | Soluciones Financieras Premium</p>
-        <p style="margin-top: 10px; color: var(--oro);">DISEÑO EXCLUSIVO POR AZURE GOLD STUDIO</p>
+        <p style="margin-top: 10px; color: var(--oro);">DISEÑO POR AZURE GOLD STUDIO</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({ duration: 1200, once: true });
 
-        // Redirección Guía
         document.getElementById('f_guia').onsubmit = function(e) {
             e.preventDefault();
             window.location.href = "gracias.html";
         };
 
-        // Lógica DIME
         function runDIME() {
-            const t = (parseFloat(document.getElementById('d_deu').value)||0) + 
-                      (parseFloat(document.getElementById('d_hip').value)||0) + 
-                      (parseFloat(document.getElementById('d_uni').value)||0) + 
-                      (parseFloat(document.getElementById('d_fun').value)||0);
+            const t = (parseFloat(document.getElementById('d_deu').value)||0) + (parseFloat(document.getElementById('d_hip').value)||0) + (parseFloat(document.getElementById('d_uni').value)||0) + (parseFloat(document.getElementById('d_fun').value)||0);
             document.getElementById('res_brecha').innerText = "$" + t.toLocaleString();
             document.getElementById('waDIME').style.display = t > 0 ? 'inline-block' : 'none';
-            document.getElementById('waDIME').href = `https://wa.me/19086774196?text=He realizado mi análisis DIME y mi brecha de protección es de $${t.toLocaleString()}. Deseo una asesoría privada.`;
+            document.getElementById('waDIME').href = `https://wa.me/19086774196?text=Mi brecha DIME es de $${t.toLocaleString()}.`;
         }
 
-        // Chatbot
         function toggleChat() {
             const c = document.getElementById('chat-window');
             c.style.display = (c.style.display === 'none' || c.style.display === '') ? 'flex' : 'none';
