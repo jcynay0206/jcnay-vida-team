@@ -63,7 +63,7 @@
         <section class="dark-section" data-aos="fade-up">
             <h3>Arquitectos de tu Legado</h3>
             <p style="text-align: center; line-height: 1.8; color: #ccc;">
-                En <strong>JCNay Vida Team</strong> transformamos la seguridad financiera de las familias latinas. Somos especialistas en IUL, protección de ingresos y creación de bancos propios libres de impuestos. Diseñamos un futuro blindado para ti y los tuyos.
+                En <strong>JCNay Vida Team</strong> transformamos la seguridad financiera de las familias latinas. Somos especialistas en IUL, protección de ingresos y creación de bancos propios libres de impuestos.
             </p>
         </section>
 
@@ -72,17 +72,15 @@
             <form id="form-guia">
                 <input type="text" name="nombre" placeholder="Nombre Completo" required>
                 <input type="number" name="edad" placeholder="Tu Edad" required>
-                
                 <select name="ingresos" required>
                     <option value="" disabled selected>Ingresos Anuales Estimados</option>
                     <option value="Menos de 50K">Menos de $50,000</option>
                     <option value="50K a 100K">$50,000 a $100,000</option>
                     <option value="Mas de 100K">Más de $100,000</option>
                 </select>
-
                 <input type="tel" name="telefono" placeholder="WhatsApp" required>
                 <input type="email" name="email" placeholder="Email" required>
-                <input type="hidden" name="tipo" value="Lead Guía Banco Libre">
+                <input type="hidden" name="tipo" value="CLIENTE_GUIA">
                 <button type="submit" class="boton-oro">Descargar Ahora</button>
             </form>
         </section>
@@ -102,7 +100,6 @@
                 <div id="res-dime" style="display:none; margin-top:15px; color:#2e7d32; font-weight:bold; font-size:1.3rem;">Protección Sugerida: <span id="total-dime"></span></div>
             </div>
 
-            <h3>Herramientas Especializadas</h3>
             <div class="grid-herramientas">
                 <div class="card-calc externa"><h4>Acelerador de Deudas</h4><a href="https://jcynay0206.github.io/landing-seguros/" target="_blank" class="boton-oro">Abrir</a></div>
                 <div class="card-calc externa"><h4>Escudo Financiero</h4><a href="https://jcynay0206.github.io/escudo-financiero/" target="_blank" class="boton-oro">Abrir</a></div>
@@ -114,18 +111,13 @@
         <section class="dark-section" data-aos="fade-up">
             <h3>Testimonios</h3>
             <div style="background:rgba(255,255,255,0.03); padding:20px; border-left:4px solid var(--oro); margin-bottom:15px; border-radius:0 10px 10px 0;">
-                <p>"La calculadora DIME me abrió los ojos sobre la protección que mi familia realmente necesitaba."</p>
+                <p>"La calculadora DIME me dio la paz mental que mi familia necesitaba."</p>
                 <cite style="color:var(--oro);">- Roberto V. (Florida)</cite>
-            </div>
-            <div style="background:rgba(255,255,255,0.03); padding:20px; border-left:4px solid var(--oro); border-radius:0 10px 10px 0;">
-                <p>"Excelente equipo profesional. El proceso para mi IUL fue claro y honesto."</p>
-                <cite style="color:var(--oro);">- Carmen S. (New Jersey)</cite>
             </div>
         </section>
 
         <section id="socios" class="dark-section" data-aos="zoom-in" style="border: 2px solid var(--oro);">
             <h3>🤝 Únete al Equipo (50 Estados)</h3>
-            <p style="text-align:center; margin-bottom:20px;">¿Buscas una carrera con propósito? Aplica hoy mismo.</p>
             <form id="form-socio">
                 <input type="text" name="nombre" placeholder="Nombre Completo" required>
                 <select name="estado" id="estado-socio" required></select>
@@ -135,13 +127,12 @@
                     <option value="No">No, quiero obtenerla</option>
                 </select>
                 <input type="tel" name="telefono" placeholder="WhatsApp" required>
-                <input type="hidden" name="tipo" value="Aplicación para Socio">
+                <input type="hidden" name="tipo" value="SOCIO_NUEVO">
                 <button type="submit" class="boton-oro">Enviar Aplicación</button>
             </form>
             <div id="exito-socio" style="display:none; text-align:center; margin-top:20px;">
                 <p style="color:var(--oro); font-weight:bold; font-size:1.2rem;">¡Registro Exitoso!</p>
-                <p style="margin-bottom:15px;">Tus datos han sido registrados en el CRM. Únete al grupo VIP:</p>
-                <a href="https://chat.whatsapp.com/E2W9x8EE3J2AK057sz7lSG" class="boton-oro" style="background:#25D366; color:white!important;">Entrar al Grupo de WhatsApp VIP</a>
+                <a href="https://chat.whatsapp.com/E2W9x8EE3J2AK057sz7lSG" class="boton-oro" style="background:#25D366; color:white!important; margin-top:15px;">Entrar al Grupo VIP</a>
             </div>
         </section>
 
@@ -150,18 +141,18 @@
                 <img src="img/nlg.png" class="logo-aseg" alt="NLG">
                 <img src="img/fg.png" class="logo-aseg" alt="FG">
                 <img src="img/ethos.png" class="logo-aseg" alt="Ethos">
-                <img src="img/american.png" class="logo-aseg" alt="American Amicable">
-                <img src="img/senior.png" class="logo-aseg" alt="Senior Life">
+                <img src="img/american.png" class="logo-aseg" alt="American">
+                <img src="img/senior.png" class="logo-aseg" alt="Senior">
             </div>
         </section>
     </div>
 
     <div class="chat-window" id="chatWindow">
-        <div class="chat-header"><span>IA JCNay Support</span><span onclick="toggleChat()" style="cursor:pointer">&times;</span></div>
+        <div class="chat-header"><span>IA Support</span><span onclick="toggleChat()" style="cursor:pointer">&times;</span></div>
         <div id="chat-content"></div>
         <div class="chat-footer">
-            <input type="text" id="chat-input" placeholder="Escribe tu duda..." onkeypress="if(event.key==='Enter') sendMsg()">
-            <button onclick="sendMsg()" style="background:var(--oro); border:none; padding:10px; border-radius:50%; cursor:pointer;"><i class="fas fa-paper-plane"></i></button>
+            <input type="text" id="chat-input" placeholder="Tu mensaje..." onkeypress="if(event.key==='Enter') sendMsg()">
+            <button onclick="sendMsg()" style="background:var(--oro); border:none; padding:10px; border-radius:50%;"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
     <div class="bot-trigger" onclick="toggleChat()"><i class="fas fa-comment-dots"></i></div>
@@ -171,7 +162,7 @@
         AOS.init();
         const CRM_URL = 'https://script.google.com/macros/s/AKfycbykZuGS78TLHdGUaGOPvkSVzLIa1h7BfMhcKE6FB-lhf4d3SVcubFkd-scoFGWWBg9hqg/exec';
 
-        // SLOGAN TYPEWRITER
+        // SLOGAN
         const slogan = "Mas que Seguros diseñamos Seguridad Financiera";
         let i = 0;
         function typeWriter() {
@@ -183,7 +174,7 @@
         }
         window.onload = typeWriter;
 
-        // ESTADOS SOCIOS
+        // ESTADOS
         const est = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
         const selSocio = document.getElementById('estado-socio');
         est.forEach(e => { let o = document.createElement('option'); o.value=e; o.text=e; selSocio.add(o); });
@@ -221,11 +212,11 @@
             } catch (err) { console.log(err); }
         }
 
-        // FORMULARIOS A CRM
+        // FORMULARIOS CRM
         document.getElementById('form-guia').addEventListener('submit', function(e){
             e.preventDefault();
             fetch(CRM_URL, { method: 'POST', body: new FormData(this), mode: 'no-cors' });
-            alert("¡Registro exitoso! Iniciando descarga...");
+            alert("¡Registro exitoso! Descargando Guía...");
             const a = document.createElement('a'); a.href='Banco_Libre.pdf'; a.download='Banco_Libre.pdf'; a.click();
         });
 
