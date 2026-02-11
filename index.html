@@ -94,14 +94,16 @@
         <section data-aos="fade-up">
             <h3>Análisis D.I.M.E. Interactivo</h3>
             <div class="card-calc" style="max-width: 850px; margin: 0 auto 40px auto;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; text-align: left;">
-                    <input type="number" id="d_val" placeholder="(D) Deudas $" style="color:black; background:#eee;">
-                    <input type="number" id="i_val" placeholder="(I) Ingresos $" style="color:black; background:#eee;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; text-align: left;">
+                    <input type="number" id="d_val" placeholder="(D) Deudas Totales $" style="color:black; background:#eee;">
+                    <input type="number" id="i_val" placeholder="(I) Ingresos Anuales $" style="color:black; background:#eee;">
                     <input type="number" id="m_val" placeholder="(M) Hipoteca $" style="color:black; background:#eee;">
                     <input type="number" id="e_val" placeholder="(E) Educación $" style="color:black; background:#eee;">
+                    <input type="number" id="hijos_cant" placeholder="Cantidad de Hijos" style="color:black; background:#eee;">
+                    <input type="text" id="hijos_edades" placeholder="Edades (ej: 4, 9)" style="color:black; background:#eee;">
                 </div>
-                <button onclick="calcDIME()" class="boton-oro" style="margin-top:20px">Calcular Protección</button>
-                <div id="res-dime" style="display:none; margin-top:15px; color:#2e7d32; font-weight:bold; font-size:1.3rem;">Total: <span id="total-dime"></span></div>
+                <button onclick="calcDIME()" class="boton-oro" style="margin-top:20px">Calcular Necesidad de Protección</button>
+                <div id="res-dime" style="display:none; margin-top:15px; color:#2e7d32; font-weight:bold; font-size:1.3rem;">Protección Sugerida: <span id="total-dime"></span></div>
             </div>
 
             <div class="grid-herramientas">
