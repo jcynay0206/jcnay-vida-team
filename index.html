@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JCNay Vida Team | Arquitectura Financiera</title>
+    <title>JCNay Vida Team | Seguridad Financiera</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -14,42 +14,34 @@
         * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background-color: var(--negro); color: white; overflow-x: hidden; }
 
-        /* NAVEGACIÓN */
         nav { background: rgba(5, 5, 5, 0.95); padding: 10px 5%; position: fixed; width: 100%; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--oro); backdrop-filter: blur(10px); }
         .favicon-img { width: 45px; height: 45px; border: 1px solid var(--oro); border-radius: 4px; }
 
-        /* HERO CON TYPEWRITER */
         .hero { height: 60vh; background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; margin-top: 60px; border-bottom: 2px solid var(--oro); padding: 0 20px; }
-        .main-slogan { font-family: 'Cinzel', serif; font-size: clamp(1.2rem, 4vw, 2.5rem); color: white; letter-spacing: 1px; min-height: 3.5rem; max-width: 900px; line-height: 1.3; }
-        .cursor { display: inline-block; width: 3px; background-color: var(--oro); margin-left: 5px; animation: blink 0.7s infinite; }
-        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
+        .main-slogan { font-family: 'Cinzel', serif; font-size: clamp(1.2rem, 4vw, 2.5rem); color: white; min-height: 3.5rem; }
 
-        /* CONTENEDORES */
         .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
         .dark-section { background: rgba(255, 255, 255, 0.05); padding: 35px; border-radius: 15px; border: 1px solid rgba(212, 175, 55, 0.2); margin-bottom: 40px; }
         h3 { font-family: 'Cinzel', serif; color: var(--oro); text-align: center; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* CALCULADORAS */
-        .grid-herramientas { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .grid-herramientas { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .card-calc { background: white; color: black; padding: 25px; border-radius: 12px; text-align: center; border-top: 6px solid var(--oro); }
         .card-calc.externa { background: rgba(255,255,255,0.07); color: white; border-top: 1px solid var(--oro); }
 
-        /* ASEGURADORAS - EFECTO COLOR HOVER */
         .aseguradoras-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; align-items: center; }
-        .logo-aseg { max-width: 130px; height: auto; filter: grayscale(1) brightness(2); transition: all 0.4s ease; cursor: pointer; }
+        .logo-aseg { max-width: 130px; filter: grayscale(1) brightness(2); transition: 0.4s; cursor: pointer; }
         .logo-aseg:hover { filter: grayscale(0) brightness(1); transform: scale(1.1); }
 
-        /* FORMULARIOS */
-        input, select, textarea { width: 100%; padding: 14px; margin: 10px 0; background: rgba(0,0,0,0.7); border: 1px solid var(--oro); color: white; border-radius: 6px; }
+        input, select { width: 100%; padding: 12px; margin: 8px 0; background: rgba(0,0,0,0.7); border: 1px solid var(--oro); color: white; border-radius: 6px; }
         .boton-oro { background: var(--gradient-oro); color: black !important; padding: 16px; font-weight: 800; border: none; cursor: pointer; width: 100%; text-transform: uppercase; border-radius: 6px; text-decoration: none; display: block; text-align: center; transition: 0.3s; }
+        .boton-oro:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(212,175,55,0.4); }
 
-        /* CHATBOT */
-        .chat-window { position: fixed; bottom: 100px; right: 25px; width: 320px; height: 450px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); display: none; flex-direction: column; z-index: 3000; border: 1px solid var(--oro); overflow: hidden; }
-        .chat-header { background: var(--gradient-oro); color: black; padding: 15px; font-weight: bold; font-family: 'Cinzel'; display: flex; justify-content: space-between; }
-        #chat-content { flex: 1; padding: 15px; overflow-y: auto; color: #333; font-size: 0.85rem; background: #f9f9f9; display: flex; flex-direction: column; }
+        .chat-window { position: fixed; bottom: 100px; right: 25px; width: 320px; height: 450px; background: white; border-radius: 15px; display: none; flex-direction: column; z-index: 3000; border: 1px solid var(--oro); overflow: hidden; }
+        .chat-header { background: var(--gradient-oro); color: black; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; font-family: 'Cinzel'; }
+        #chat-content { flex: 1; padding: 15px; overflow-y: auto; color: #333; background: #f9f9f9; display: flex; flex-direction: column; font-size: 0.85rem; }
         .chat-footer { padding: 10px; display: flex; gap: 5px; background: white; border-top: 1px solid #eee; }
-        .chat-footer input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; color: black; outline: none; }
-        .bot-trigger { position: fixed; bottom: 25px; right: 25px; background: var(--gradient-oro); width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; cursor: pointer; z-index: 3001; color: black; }
+        .chat-footer input { color: black; background: #fff; border: 1px solid #ddd; border-radius: 20px; padding: 8px 15px; }
+        .bot-trigger { position: fixed; bottom: 25px; right: 25px; background: var(--gradient-oro); width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; cursor: pointer; z-index: 3001; color: black; box-shadow: 0 5px 20px rgba(0,0,0,0.4); }
     </style>
 </head>
 <body>
@@ -62,8 +54,8 @@
     </nav>
 
     <header class="hero">
-        <h1 class="main-slogan"><span id="type-text"></span><span class="cursor">|</span></h1>
-        <p style="color:var(--oro); font-style:italic; margin-top: 15px;">Protegiendo familias en los 50 Estados</p>
+        <h1 class="main-slogan" id="type-text"></h1>
+        <p style="color:var(--oro); font-style:italic; margin-top: 15px;">Diseñando Legados Financieros</p>
     </header>
 
     <div class="container">
@@ -71,7 +63,7 @@
         <section class="dark-section" data-aos="fade-up">
             <h3>Arquitectos de tu Legado</h3>
             <p style="text-align: center; line-height: 1.8; color: #ccc;">
-                En <strong>JCNay Vida Team</strong> transformamos la seguridad financiera de las familias latinas. Especialistas en planes de retiro IUL, protección de ingresos y bancos propios libres de impuestos.
+                En <strong>JCNay Vida Team</strong> transformamos la seguridad financiera de las familias latinas. Somos especialistas en IUL, protección de ingresos y creación de bancos propios libres de impuestos. Diseñamos un futuro blindado para ti y los tuyos.
             </p>
         </section>
 
@@ -79,83 +71,90 @@
             <h3>📥 Obtener Guía Banco Libre</h3>
             <form id="form-guia">
                 <input type="text" name="nombre" placeholder="Nombre Completo" required>
-                <select name="estado" id="estado-select" required></select>
+                <input type="number" name="edad" placeholder="Tu Edad" required>
+                <input type="number" name="ingresos" placeholder="Ingresos Mensuales Estimados ($)" required>
                 <input type="tel" name="telefono" placeholder="WhatsApp" required>
                 <input type="email" name="email" placeholder="Email" required>
-                <input type="hidden" name="tipo" value="Descarga Guia">
+                <input type="hidden" name="tipo" value="Lead Guía Banco Libre">
                 <button type="submit" class="boton-oro">Descargar Ahora</button>
             </form>
         </section>
 
         <section data-aos="fade-up">
-            <h3>Simuladores Financieros</h3>
-            <div class="grid-herramientas">
-                <div class="card-calc" style="grid-column: span 2;">
-                    <h4>Método D.I.M.E.</h4>
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; text-align: left; margin-top:10px;">
-                        <input type="number" id="d_val" placeholder="Deudas" style="color:black; background:#eee;">
-                        <input type="number" id="i_val" placeholder="Ingresos" style="color:black; background:#eee;">
-                        <input type="number" id="m_val" placeholder="Hipoteca" style="color:black; background:#eee;">
-                        <input type="number" id="e_val" placeholder="Educación" style="color:black; background:#eee;">
-                    </div>
-                    <button onclick="calcDIME()" class="boton-oro" style="margin-top:15px">Calcular Mi Escudo</button>
-                    <div id="res-dime" style="display:none; margin-top:15px; color:#2e7d32; font-weight:bold;">Necesidad Estimada: <span id="total-dime"></span></div>
+            <h3>Análisis D.I.M.E. Interactivo</h3>
+            <div class="card-calc" style="max-width: 850px; margin: 0 auto 40px auto;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: left;">
+                    <input type="number" id="d_val" placeholder="(D) Deudas Totales $" style="color:black; background:#eee;">
+                    <input type="number" id="i_val" placeholder="(I) Ingresos Anuales $" style="color:black; background:#eee;">
+                    <input type="number" id="m_val" placeholder="(M) Hipoteca $" style="color:black; background:#eee;">
+                    <input type="number" id="e_val" placeholder="(E) Educación $" style="color:black; background:#eee;">
+                    <input type="number" id="hijos_cant" placeholder="Cantidad de Hijos" style="color:black; background:#eee;">
+                    <input type="text" id="hijos_edades" placeholder="Edades (ej: 4, 9)" style="color:black; background:#eee;">
                 </div>
-                <div class="card-calc externa"><h4>Retiro IUL</h4><a href="https://jcynay0206.github.io/calculadora-iul/" target="_blank" class="boton-oro">Abrir</a></div>
-                <div class="card-calc externa"><h4>Escudo</h4><a href="https://jcynay0206.github.io/escudo-financiero/" target="_blank" class="boton-oro">Abrir</a></div>
+                <button onclick="calcDIME()" class="boton-oro" style="margin-top:20px">Calcular Necesidad de Ingresos</button>
+                <div id="res-dime" style="display:none; margin-top:15px; color:#2e7d32; font-weight:bold; font-size:1.3rem;">Protección Sugerida: <span id="total-dime"></span></div>
+            </div>
+
+            <h3>Herramientas Especializadas</h3>
+            <div class="grid-herramientas">
+                <div class="card-calc externa"><h4>Acelerador de Deudas</h4><a href="https://jcynay0206.github.io/landing-seguros/" target="_blank" class="boton-oro">Abrir</a></div>
+                <div class="card-calc externa"><h4>Escudo Financiero</h4><a href="https://jcynay0206.github.io/escudo-financiero/" target="_blank" class="boton-oro">Abrir</a></div>
+                <div class="card-calc externa"><h4>Calculadora Universitaria</h4><a href="https://jcynay0206.github.io/calculadora-universitaria/" target="_blank" class="boton-oro">Abrir</a></div>
+                <div class="card-calc externa"><h4>Simulador IUL</h4><a href="https://jcynay0206.github.io/calculadora-iul/" target="_blank" class="boton-oro">Abrir</a></div>
             </div>
         </section>
 
         <section class="dark-section" data-aos="fade-up">
             <h3>Testimonios</h3>
-            <div style="background:rgba(255,255,255,0.03); padding:15px; border-left:3px solid var(--oro); margin-bottom:15px;">
-                <p>"La claridad del plan DIME me dio la paz mental que buscaba."</p>
+            <div style="background:rgba(255,255,255,0.03); padding:20px; border-left:4px solid var(--oro); margin-bottom:15px; border-radius:0 10px 10px 0;">
+                <p>"La calculadora DIME me abrió los ojos sobre la protección que mi familia realmente necesitaba."</p>
                 <cite style="color:var(--oro);">- Roberto V. (Florida)</cite>
             </div>
-            <div style="background:rgba(255,255,255,0.03); padding:15px; border-left:3px solid var(--oro);">
-                <p>"Entender cómo funciona un IUL cambió el futuro de mis hijos."</p>
-                <cite style="color:var(--oro);">- Maria L. (Texas)</cite>
+            <div style="background:rgba(255,255,255,0.03); padding:20px; border-left:4px solid var(--oro); border-radius:0 10px 10px 0;">
+                <p>"Excelente equipo profesional. El proceso para mi IUL fue claro y honesto."</p>
+                <cite style="color:var(--oro);">- Carmen S. (New Jersey)</cite>
             </div>
         </section>
 
         <section id="socios" class="dark-section" data-aos="zoom-in" style="border: 2px solid var(--oro);">
-            <h3>🤝 Únete al Equipo</h3>
+            <h3>🤝 Únete al Equipo (50 Estados)</h3>
+            <p style="text-align:center; margin-bottom:20px;">¿Buscas una carrera con propósito? Aplica hoy mismo.</p>
             <form id="form-socio">
-                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="text" name="nombre" placeholder="Nombre Completo" required>
+                <select name="estado" id="estado-socio" required></select>
                 <select name="licencia" required>
-                    <option value="" disabled selected>¿Tienes licencia?</option>
+                    <option value="" disabled selected>¿Tienes licencia de seguros?</option>
                     <option value="Si">Sí, tengo licencia</option>
                     <option value="No">No, quiero obtenerla</option>
                 </select>
                 <input type="tel" name="telefono" placeholder="WhatsApp" required>
-                <input type="hidden" name="tipo" value="Socio Nuevo">
-                <button type="submit" class="boton-oro">Aplicar Ahora</button>
+                <input type="hidden" name="tipo" value="Aplicación para Socio">
+                <button type="submit" class="boton-oro">Enviar Aplicación</button>
             </form>
             <div id="exito-socio" style="display:none; text-align:center; margin-top:20px;">
-                <p style="color:var(--oro); font-weight:bold;">¡Aplicación Recibida!</p>
-                <a href="https://chat.whatsapp.com/E2W9x8EE3J2AK057sz7lSG" class="boton-oro" style="background:#25D366; color:white!important; margin-top:10px;">Entrar al Grupo VIP</a>
+                <p style="color:var(--oro); font-weight:bold; font-size:1.2rem;">¡Registro Exitoso!</p>
+                <p style="margin-bottom:15px;">Te hemos enviado a tu CRM. Ahora únete a nuestro grupo VIP:</p>
+                <a href="https://chat.whatsapp.com/E2W9x8EE3J2AK057sz7lSG" class="boton-oro" style="background:#25D366; color:white!important;">Entrar al Grupo de WhatsApp VIP</a>
             </div>
         </section>
 
-        <section class="dark-section" data-aos="fade-up">
-            <h3>Alianzas Estratégicas</h3>
+        <section class="dark-section">
             <div class="aseguradoras-grid">
-                <img src="img/nlg.png" class="logo-aseg" alt="National Life">
-                <img src="img/FG.png" class="logo-aseg" alt="F&G">
+                <img src="img/nlg.png" class="logo-aseg" alt="NLG">
+                <img src="img/FG.png" class="logo-aseg" alt="FG">
                 <img src="img/ethos.png" class="logo-aseg" alt="Ethos">
                 <img src="img/American.png" class="logo-aseg" alt="American Amicable">
                 <img src="img/senior.png" class="logo-aseg" alt="Senior Life">
             </div>
         </section>
-
     </div>
 
     <div class="chat-window" id="chatWindow">
-        <div class="chat-header"><span>Asistente JCNay</span><span onclick="toggleChat()" style="cursor:pointer">&times;</span></div>
+        <div class="chat-header"><span>IA JCNay Support</span><span onclick="toggleChat()" style="cursor:pointer">&times;</span></div>
         <div id="chat-content"></div>
         <div class="chat-footer">
-            <input type="text" id="chat-input" placeholder="Escribe..." onkeypress="if(event.key==='Enter') sendMsg()">
-            <button onclick="sendMsg()" style="background:var(--oro); border:none; padding:10px; border-radius:50%;"><i class="fas fa-paper-plane"></i></button>
+            <input type="text" id="chat-input" placeholder="Escribe tu duda..." onkeypress="if(event.key==='Enter') sendMsg()">
+            <button onclick="sendMsg()" style="background:var(--oro); border:none; padding:10px; border-radius:50%; cursor:pointer;"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
     <div class="bot-trigger" onclick="toggleChat()"><i class="fas fa-comment-dots"></i></div>
@@ -165,38 +164,43 @@
         AOS.init();
         const CRM_URL = 'https://script.google.com/macros/s/AKfycbykZuGS78TLHdGUaGOPvkSVzLIa1h7BfMhcKE6FB-lhf4d3SVcubFkd-scoFGWWBg9hqg/exec';
 
-        // TYPEWRITER EFFECT
-        const text = "Mas que Seguros diseñamos Seguridad Financiera";
-        let index = 0;
+        // SLOGAN TYPEWRITER
+        const slogan = "Mas que Seguros diseñamos Seguridad Financiera";
+        let i = 0;
         function typeWriter() {
-            if (index < text.length) {
-                document.getElementById("type-text").innerHTML += text.charAt(index);
-                index++;
-                setTimeout(typeWriter, 80);
+            if (i < slogan.length) {
+                document.getElementById("type-text").innerHTML += slogan.charAt(i);
+                i++;
+                setTimeout(typeWriter, 70);
             }
         }
         window.onload = typeWriter;
 
-        // ESTADOS
+        // CARGAR ESTADOS (SÓLO PARA SOCIOS)
         const est = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
-        const sel = document.getElementById('estado-select');
-        est.forEach(e => { let o = document.createElement('option'); o.value=e; o.text=e; sel.add(o); });
+        const selSocio = document.getElementById('estado-socio');
+        est.forEach(e => { let o = document.createElement('option'); o.value=e; o.text=e; selSocio.add(o); });
 
-        // DIME CALC
+        // CALCULADORA DIME
         function calcDIME() {
-            const total = (parseFloat(document.getElementById('d_val').value)||0) + (parseFloat(document.getElementById('i_val').value)||0) + (parseFloat(document.getElementById('m_val').value)||0) + (parseFloat(document.getElementById('e_val').value)||0);
+            const d = parseFloat(document.getElementById('d_val').value)||0;
+            const i = parseFloat(document.getElementById('i_val').value)||0;
+            const m = parseFloat(document.getElementById('m_val').value)||0;
+            const e = parseFloat(document.getElementById('e_val').value)||0;
+            const total = d + i + m + e;
             document.getElementById('total-dime').innerText = "$" + total.toLocaleString();
             document.getElementById('res-dime').style.display = 'block';
         }
 
-        // CHATBOT
+        // CHATBOT NGROK
         function toggleChat() { const w = document.getElementById('chatWindow'); w.style.display = (w.style.display==='flex')?'none':'flex'; }
+        
         async function sendMsg() {
             const input = document.getElementById('chat-input');
             const content = document.getElementById('chat-content');
             if (!input.value.trim()) return;
             const val = input.value;
-            content.innerHTML += `<div style="background:#003366; color:white; padding:10px; border-radius:8px; align-self:flex-end; margin-bottom:5px; max-width:80%; font-size:0.8rem;">${val}</div>`;
+            content.innerHTML += `<div style="background:#003366; color:white; padding:10px; border-radius:8px; align-self:flex-end; margin-bottom:10px; max-width:85%;">${val}</div>`;
             input.value = '';
             content.scrollTop = content.scrollHeight;
             try {
@@ -206,18 +210,19 @@
                     body: JSON.stringify({message: val})
                 });
                 const data = await response.json();
-                content.innerHTML += `<div style="background:#eee; padding:10px; border-radius:8px; align-self:flex-start; margin-bottom:5px; max-width:80%; color:#333; font-size:0.8rem;">${data.reply}</div>`;
+                content.innerHTML += `<div style="background:#eee; padding:10px; border-radius:8px; align-self:flex-start; margin-bottom:10px; max-width:85%; color:#333;">${data.reply}</div>`;
                 content.scrollTop = content.scrollHeight;
-            } catch (e) { console.error(e); }
+            } catch (err) { console.log("Error Bot:", err); }
         }
 
-        // CRM FORMS
+        // CRM INTEGRATION
         document.getElementById('form-guia').addEventListener('submit', function(e){
             e.preventDefault();
             fetch(CRM_URL, { method: 'POST', body: new FormData(this), mode: 'no-cors' });
+            alert("¡Registro exitoso! Tu guía se descargará ahora.");
             const a = document.createElement('a'); a.href='Banco_Libre.pdf'; a.download='Banco_Libre.pdf'; a.click();
-            window.location.href = "gracias.html";
         });
+
         document.getElementById('form-socio').addEventListener('submit', function(e){
             e.preventDefault();
             fetch(CRM_URL, { method: 'POST', body: new FormData(this), mode: 'no-cors' });
