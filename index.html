@@ -40,7 +40,7 @@
         .chat-header { background: var(--gradient-oro); color: black; padding: 15px; font-weight: bold; display: flex; justify-content: space-between; font-family: 'Cinzel'; }
         #chat-content { flex: 1; padding: 15px; overflow-y: auto; color: #333; background: #f9f9f9; display: flex; flex-direction: column; font-size: 0.85rem; }
         .chat-footer { padding: 10px; display: flex; gap: 5px; background: white; border-top: 1px solid #eee; }
-        .chat-footer input { color: black; background: #fff; border: 1px solid #ddd; border-radius: 20px; padding: 8px 15px; }
+        .chat-footer input { color: black; background: #fff; border: 1px solid #ddd; border-radius: 20px; padding: 8px 15px; outline: none;}
         .bot-trigger { position: fixed; bottom: 25px; right: 25px; background: var(--gradient-oro); width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; cursor: pointer; z-index: 3001; color: black; box-shadow: 0 5px 20px rgba(0,0,0,0.4); }
     </style>
 </head>
@@ -72,7 +72,14 @@
             <form id="form-guia">
                 <input type="text" name="nombre" placeholder="Nombre Completo" required>
                 <input type="number" name="edad" placeholder="Tu Edad" required>
-                <input type="number" name="ingresos" placeholder="Ingresos Mensuales Estimados ($)" required>
+                
+                <select name="ingresos" required>
+                    <option value="" disabled selected>Ingresos Anuales Estimados</option>
+                    <option value="Menos de 50K">Menos de $50,000</option>
+                    <option value="50K a 100K">$50,000 a $100,000</option>
+                    <option value="Mas de 100K">Más de $100,000</option>
+                </select>
+
                 <input type="tel" name="telefono" placeholder="WhatsApp" required>
                 <input type="email" name="email" placeholder="Email" required>
                 <input type="hidden" name="tipo" value="Lead Guía Banco Libre">
@@ -133,7 +140,7 @@
             </form>
             <div id="exito-socio" style="display:none; text-align:center; margin-top:20px;">
                 <p style="color:var(--oro); font-weight:bold; font-size:1.2rem;">¡Registro Exitoso!</p>
-                <p style="margin-bottom:15px;">Te hemos enviado a tu CRM. Ahora únete a nuestro grupo VIP:</p>
+                <p style="margin-bottom:15px;">Tus datos han sido registrados en el CRM. Únete al grupo VIP:</p>
                 <a href="https://chat.whatsapp.com/E2W9x8EE3J2AK057sz7lSG" class="boton-oro" style="background:#25D366; color:white!important;">Entrar al Grupo de WhatsApp VIP</a>
             </div>
         </section>
@@ -176,12 +183,12 @@
         }
         window.onload = typeWriter;
 
-        // CARGAR ESTADOS (SÓLO PARA SOCIOS)
+        // ESTADOS SOCIOS
         const est = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
         const selSocio = document.getElementById('estado-socio');
         est.forEach(e => { let o = document.createElement('option'); o.value=e; o.text=e; selSocio.add(o); });
 
-        // CALCULADORA DIME
+        // DIME
         function calcDIME() {
             const d = parseFloat(document.getElementById('d_val').value)||0;
             const i = parseFloat(document.getElementById('i_val').value)||0;
@@ -192,9 +199,8 @@
             document.getElementById('res-dime').style.display = 'block';
         }
 
-        // CHATBOT NGROK
+        // CHATBOT
         function toggleChat() { const w = document.getElementById('chatWindow'); w.style.display = (w.style.display==='flex')?'none':'flex'; }
-        
         async function sendMsg() {
             const input = document.getElementById('chat-input');
             const content = document.getElementById('chat-content');
@@ -212,14 +218,14 @@
                 const data = await response.json();
                 content.innerHTML += `<div style="background:#eee; padding:10px; border-radius:8px; align-self:flex-start; margin-bottom:10px; max-width:85%; color:#333;">${data.reply}</div>`;
                 content.scrollTop = content.scrollHeight;
-            } catch (err) { console.log("Error Bot:", err); }
+            } catch (err) { console.log(err); }
         }
 
-        // CRM INTEGRATION
+        // FORMULARIOS A CRM
         document.getElementById('form-guia').addEventListener('submit', function(e){
             e.preventDefault();
             fetch(CRM_URL, { method: 'POST', body: new FormData(this), mode: 'no-cors' });
-            alert("¡Registro exitoso! Tu guía se descargará ahora.");
+            alert("¡Registro exitoso! Iniciando descarga...");
             const a = document.createElement('a'); a.href='Banco_Libre.pdf'; a.download='Banco_Libre.pdf'; a.click();
         });
 
