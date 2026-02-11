@@ -65,6 +65,7 @@
             align-items: center;
             text-align: center;
             padding: 0 20px;
+            margin-top: 80px;
             border-bottom: 2px solid var(--oro);
         }
 
@@ -77,43 +78,12 @@
             color: var(--blanco-marmol);
         }
 
-        /* ESTILO LOGOS (TU PETICIÓN) */
-        .seccion-socios {
-            background-color: #ffffff;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .seccion-socios h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 1rem;
-            color: #b5b5b5;
-            letter-spacing: 4px;
-            margin-bottom: 40px;
-            text-transform: uppercase;
-        }
-
-        .contenedor-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .logo-img {
-            height: 45px;
-            width: auto;
-            filter: grayscale(100%) opacity(0.6);
-            transition: all 0.5s ease;
-        }
-
-        .logo-img:hover {
-            filter: grayscale(0%) opacity(1);
-            transform: scale(1.08);
-        }
+        /* LOGOS ASEGURADORAS */
+        .seccion-socios { background-color: #ffffff; padding: 60px 20px; text-align: center; }
+        .seccion-socios h2 { font-family: 'Cinzel', serif; font-size: 1rem; color: #b5b5b5; letter-spacing: 4px; margin-bottom: 40px; text-transform: uppercase; }
+        .contenedor-logos { display: flex; justify-content: center; align-items: center; gap: 50px; flex-wrap: wrap; max-width: 1100px; margin: 0 auto; }
+        .logo-img { height: 40px; filter: grayscale(100%) opacity(0.6); transition: 0.5s; }
+        .logo-img:hover { filter: grayscale(0%) opacity(1); transform: scale(1.1); }
 
         /* BOTONES */
         .boton-oro {
@@ -132,9 +102,7 @@
             cursor: pointer;
         }
 
-        /* CONTENEDORES Y SECCIONES OSCURAS */
         .container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
-
         section.dark-section { 
             background: rgba(255, 255, 255, 0.02); 
             padding: 60px; 
@@ -152,31 +120,27 @@
             background: rgba(0, 0, 0, 0.6); color: white; 
         }
 
-        .grid-herramientas {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .card {
-            background: white; padding: 40px 30px; border-top: 4px solid var(--oro); text-align: center; transition: 0.3s;
-        }
+        .grid-herramientas { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 40px; }
+        .card { background: white; padding: 40px 30px; border-top: 4px solid var(--oro); text-align: center; transition: 0.3s; }
         .card h4 { font-family: 'Cinzel', serif; color: var(--negro-ebano); margin-bottom: 20px; font-size: 0.9rem; }
 
-        /* CHATBOT */
+        /* CHATBOT CORREGIDO */
+        .bot-wrapper { position: fixed; bottom: 30px; right: 30px; z-index: 10000; }
         #chat-window { 
-            display: none; width: 350px; height: 500px; background: #050505; 
-            position: fixed; bottom: 100px; right: 25px; border: 1px solid var(--oro); 
-            z-index: 9999; flex-direction: column; 
+            display: none; width: 320px; height: 450px; background: #0a0a0a; 
+            position: absolute; bottom: 80px; right: 0; border: 1px solid var(--oro); 
+            flex-direction: column; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
-        .chat-header { background: var(--gradient-oro); color: black; padding: 15px; font-weight: 700; text-align: center; }
+        .chat-header { background: var(--gradient-oro); color: black; padding: 15px; font-weight: 700; text-align: center; font-family: 'Cinzel'; }
+        #chat-content { flex: 1; padding: 15px; overflow-y: auto; color: white; font-size: 0.85rem; }
+        .chat-input-area { display: flex; border-top: 1px solid #333; padding: 10px; }
+        .chat-input-area input { margin: 0; padding: 10px; font-size: 0.8rem; flex: 1; }
 
         footer { background: var(--negro-ebano); padding: 60px 20px; text-align: center; color: #666; font-size: 0.75rem; }
 
         @media (max-width: 768px) {
-            .logo-img { height: 35px; }
-            .contenedor-logos { gap: 30px; }
+            .hero { height: auto; padding: 100px 20px; }
+            .logo-img { height: 30px; }
         }
     </style>
 </head>
@@ -214,11 +178,10 @@
     </section>
 
     <div class="container">
-        
         <section id="sobre" class="dark-section" data-aos="fade-up">
             <h3>Arquitectura Financiera</h3>
             <p style="text-align: center; font-size: 1.1rem; line-height: 1.8; color: var(--blanco-marmol);">
-                En <span style="color: var(--oro); font-weight: 600;">JCNay Vida Team</span>, diseñamos estructuras de protección de alto nivel bajo el concepto de Nexo Infinito. Especialistas en <span style="color: var(--oro);">IUL y Anualidades</span>.
+                En <span style="color: var(--oro); font-weight: 600;">JCNay Vida Team</span>, diseñamos estructuras de protección de alto nivel. Especialistas en <span style="color: var(--oro);">IUL y Anualidades</span>.
             </p>
         </section>
 
@@ -242,7 +205,8 @@
             <div style="text-align:center;">
                 <div id="res_brecha" style="color: black; font-size: 3rem; font-family: 'Cinzel';">$0</div>
                 <button onclick="runDIME()" class="boton-oro" style="margin-top:20px;">Calcular Ahora</button>
-                <a id="waDIME" href="#" target="_blank" class="boton-oro" style="background:#25D366; display:none; margin-top:15px; color:white !important; border:none;">Consultar por WhatsApp</a>
+                <br>
+                <a id="waDIME" href="#" target="_blank" class="boton-oro" style="background:#25D366; display:none; margin-top:15px; color:white !important; border:none; padding: 12px 25px;">Consultar por WhatsApp</a>
             </div>
         </section>
 
@@ -260,22 +224,25 @@
                 <button onclick="alert('Próximamente')" class="boton-oro">Aplicar como Socio</button>
             </div>
         </section>
-
     </div>
 
-    <div style="position: fixed; bottom: 30px; right: 30px; z-index: 9999;">
-        <button onclick="toggleChat()" style="background: var(--gradient-oro); border: none; border-radius: 50%; width: 65px; height: 65px; font-size: 28px; cursor: pointer;">💬</button>
+    <div class="bot-wrapper">
+        <button onclick="toggleChat()" style="background: var(--gradient-oro); border: none; border-radius: 50%; width: 65px; height: 65px; font-size: 28px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">💬</button>
         <div id="chat-window">
             <div class="chat-header">Asistente Ejecutivo</div>
-            <div id="chat-content" style="flex:1; padding:25px; color:white; font-size:0.9rem;">
-                Bienvenido. ¿Cómo puedo asistirle hoy?
+            <div id="chat-content">
+                <p style="margin-bottom:10px;">Bienvenido a JCNay Vida Team. ¿Cómo puedo asistirle hoy?</p>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="user-msg" placeholder="Escriba su mensaje...">
+                <button onclick="sendMsg()" style="background:var(--oro); border:none; padding:0 10px; cursor:pointer;">➔</button>
             </div>
         </div>
     </div>
 
     <footer>
         <p>&copy; 2026 JCNay Vida Team | Soluciones Financieras Premium</p>
-        <p style="margin-top: 10px; color: var(--oro);">DISEÑO POR AZURE GOLD STUDIO</p>
+        <p style="margin-top: 10px; color: var(--oro); letter-spacing: 2px;">DISEÑO POR AZURE GOLD STUDIO</p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -284,19 +251,32 @@
 
         document.getElementById('f_guia').onsubmit = function(e) {
             e.preventDefault();
-            window.location.href = "gracias.html";
+            alert("Gracias. Redirigiendo a su guía privada...");
         };
 
         function runDIME() {
             const t = (parseFloat(document.getElementById('d_deu').value)||0) + (parseFloat(document.getElementById('d_hip').value)||0) + (parseFloat(document.getElementById('d_uni').value)||0) + (parseFloat(document.getElementById('d_fun').value)||0);
             document.getElementById('res_brecha').innerText = "$" + t.toLocaleString();
             document.getElementById('waDIME').style.display = t > 0 ? 'inline-block' : 'none';
-            document.getElementById('waDIME').href = `https://wa.me/19086774196?text=Mi brecha DIME es de $${t.toLocaleString()}.`;
+            document.getElementById('waDIME').href = `https://wa.me/19086774196?text=Hola, mi brecha DIME es de $${t.toLocaleString()}. Deseo asesoría.`;
         }
 
         function toggleChat() {
             const c = document.getElementById('chat-window');
             c.style.display = (c.style.display === 'none' || c.style.display === '') ? 'flex' : 'none';
+        }
+
+        function sendMsg() {
+            const msg = document.getElementById('user-msg').value;
+            if(msg.trim() !== "") {
+                const content = document.getElementById('chat-content');
+                content.innerHTML += `<p style="text-align:right; color:var(--oro); margin-top:10px;">${msg}</p>`;
+                document.getElementById('user-msg').value = "";
+                setTimeout(() => {
+                    content.innerHTML += `<p style="margin-top:10px; font-style:italic;">Entendido. Un consultor se pondrá en contacto en breve.</p>`;
+                    content.scrollTop = content.scrollHeight;
+                }, 1000);
+            }
         }
     </script>
 </body>
