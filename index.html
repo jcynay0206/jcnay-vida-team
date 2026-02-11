@@ -6,6 +6,7 @@
     <title>JCNay Vida Team | Protección & Riqueza</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:ital,wght@0,400;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
         :root {
@@ -14,21 +15,47 @@
             --azul-profundo: #0a192f;
             --blanco-marmol: #f5f5f5;
             --negro-ebano: #050505;
+            --gradient-oro: linear-gradient(45deg, #b8860b, #d4af37, #f2d472);
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
         body {
-            margin: 0;
-            padding: 0;
             font-family: 'Poppins', sans-serif;
             background-color: var(--negro-ebano);
             color: white;
-            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
-        /* Hero Section - Impacto Inicial */
+        /* NAVEGACIÓN PREMIUM */
+        nav { 
+            background: rgba(5, 5, 5, 0.95); 
+            padding: 15px 5%; 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3); 
+            backdrop-filter: blur(15px); 
+        }
+
+        .brand-container { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .favicon-img { width: 50px; height: 50px; border-radius: 4px; object-fit: cover; border: 1px solid var(--oro); }
+        .brand-info { display: flex; flex-direction: column; }
+        .brand-name { font-family: 'Cinzel', serif; color: white; font-size: 1.2rem; font-weight: 700; letter-spacing: 1px; }
+        .brand-slogan-nav { font-size: 0.6rem; color: var(--oro); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
+
+        .nav-links { display: flex; list-style: none; gap: 20px; }
+        .nav-links a { color: var(--oro); text-decoration: none; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .nav-links a:hover { color: white; text-shadow: 0 0 10px var(--oro); }
+
+        /* HERO SECTION - REINVENTADA */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), 
+            height: 80vh;
+            background: linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.8)), 
                         url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
@@ -37,170 +64,255 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            border-bottom: 4px solid var(--oro);
-        }
-
-        .hero h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 3.5rem;
-            color: var(--oro);
-            margin: 0;
-            letter-spacing: 4px;
+            padding: 0 20px;
+            border-bottom: 2px solid var(--oro);
         }
 
         .hero p {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 1.6rem;
-            max-width: 800px;
-            margin: 20px auto;
+            font-size: clamp(1.2rem, 4vw, 2.2rem);
+            max-width: 900px;
+            margin-bottom: 30px;
+            color: var(--blanco-marmol);
         }
 
-        /* Botón Estilo Azure Gold */
+        /* BOTONES ESTILO AZURE GOLD */
         .boton-oro {
-            background: linear-gradient(45deg, var(--oro), var(--oro-brillante));
+            background: var(--gradient-oro);
             color: black !important;
             padding: 18px 45px;
-            font-weight: bold;
+            font-weight: 800;
             text-transform: uppercase;
             text-decoration: none;
             border-radius: 2px;
             letter-spacing: 2px;
-            transition: 0.3s;
+            transition: 0.4s;
             display: inline-block;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            border: none;
+            cursor: pointer;
         }
 
         .boton-oro:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+            filter: brightness(1.1);
         }
 
-        /* Sección de Aliados Estratégicos */
-        .partners {
-            background: white;
-            padding: 40px 0;
-            text-align: center;
+        /* SECCIONES */
+        .container { max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
+
+        section { 
+            background: rgba(255, 255, 255, 0.02); 
+            padding: 60px; 
+            border-radius: 4px; 
+            margin-bottom: 60px; 
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            backdrop-filter: blur(10px);
         }
 
-        .partners h2 {
-            font-family: 'Cinzel', serif;
-            color: #888;
-            font-size: 0.9rem;
+        h3 { 
+            font-family: 'Cinzel', serif; 
+            color: var(--oro); 
+            font-size: 1.8rem; 
+            margin-bottom: 30px; 
+            text-align: center; 
             letter-spacing: 3px;
-            margin-bottom: 30px;
         }
 
-        .contenedor-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
-            padding: 0 20px;
+        /* FORMULARIOS Y INPUTS */
+        input, textarea { 
+            width: 100%; padding: 18px; margin: 12px 0; 
+            border: 1px solid rgba(212, 175, 55, 0.2); 
+            background: rgba(0, 0, 0, 0.6); 
+            color: white; 
+            font-family: 'Poppins', sans-serif;
         }
 
-        .logo-img {
-            height: 50px;
-            filter: grayscale(100%);
-            opacity: 0.6;
-            transition: 0.4s;
+        input:focus { border-color: var(--oro); outline: none; }
+
+        /* GRID DE CALCULADORAS */
+        .grid-herramientas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
         }
 
-        .logo-img:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: scale(1.1);
+        .card {
+            background: white;
+            padding: 40px 30px;
+            border-top: 4px solid var(--oro);
+            text-align: center;
+            transition: 0.3s;
         }
 
-        /* Contenedor para CRM y Calculadoras */
-        .seccion-herramientas {
-            padding: 80px 20px;
+        .card h4 { font-family: 'Cinzel', serif; color: var(--negro-ebano); margin-bottom: 20px; font-size: 0.9rem; }
+        .card:hover { transform: translateY(-10px); }
+
+        /* ANALISIS DIME */
+        .dime-container {
             background: var(--blanco-marmol);
             color: var(--negro-ebano);
-        }
-
-        .grid-herramientas {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-
-        .caja-crm, .caja-calculadora {
-            background: white;
-            padding: 30px;
-            border-top: 5px solid var(--oro);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             border-radius: 4px;
         }
 
-        h3 { font-family: 'Cinzel', serif; color: var(--azul-profundo); }
+        #res_brecha { font-family: 'Cinzel', serif; color: var(--negro-ebano); font-size: 3rem; font-weight: 700; }
+
+        /* CHATBOT */
+        #chat-window { 
+            display: none; width: 350px; height: 500px; background: #050505; 
+            position: fixed; bottom: 100px; right: 25px; border: 1px solid var(--oro); 
+            z-index: 9999; flex-direction: column; box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        .chat-header { background: var(--gradient-oro); color: black; padding: 15px; font-family: 'Cinzel', serif; font-weight: 700; text-align: center; }
 
         footer {
             background: var(--negro-ebano);
-            padding: 40px;
+            padding: 60px 20px;
             text-align: center;
             border-top: 1px solid #222;
-            font-size: 0.8rem;
-            color: #555;
+            font-size: 0.75rem;
+            color: #666;
+            letter-spacing: 1px;
         }
 
         @media (max-width: 768px) {
-            .grid-herramientas { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.5rem; }
+            section { padding: 30px 20px; }
+            .brand-slogan-nav { display: none; }
+            .nav-links { gap: 10px; }
         }
     </style>
 </head>
 <body>
 
+    <nav>
+        <a href="#" class="brand-container">
+            <img src="img/logo-jcnay.jpg" alt="JN" class="favicon-img">
+            <div class="brand-info">
+                <span class="brand-name">JCNay Vida Team</span>
+                <span class="brand-slogan-nav">Más que Seguros, diseñamos Seguridad Financiera</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#sobre">Misión</a></li>
+            <li><a href="#herramientas">Herramientas</a></li>
+            <li><a href="#socios">Socios</a></li>
+        </ul>
+    </nav>
+
     <header class="hero">
-        <h1>JCNay Vida Team</h1>
-        <p>Expertos en IUL, Anualidades y Protección Familiar de Alto Nivel</p>
-        <a href="#leads" class="boton-oro">Obtener mi Asesoría Gratis</a>
+        <p data-aos="fade-up">Más que Seguros, diseñamos Seguridad Financiera</p>
+        <a href="#guia" class="boton-oro" data-aos="zoom-in">Descargar Guía Privada</a>
     </header>
 
-    <section class="partners">
-        <h2>Respaldados por Gigantes de la Industria</h2>
-        <div class="contenedor-logos">
-            <img src="https://via.placeholder.com/150x50?text=National+Life" alt="National Life" class="logo-img">
-            <img src="https://via.placeholder.com/150x50?text=F%26G" alt="F&G" class="logo-img">
-            <img src="https://via.placeholder.com/150x50?text=Ethos" alt="Ethos" class="logo-img">
-            <img src="https://via.placeholder.com/150x50?text=Senior+Life" alt="Senior Life" class="logo-img">
-            <img src="https://via.placeholder.com/150x50?text=American+Amicable" alt="American Amicable" class="logo-img">
-        </div>
-    </section>
+    <div class="container">
+        
+        <section id="sobre" data-aos="fade-up">
+            <h3>Arquitectura Financiera</h3>
+            <p style="text-align: center; font-size: 1.1rem; line-height: 1.8; color: var(--blanco-marmol);">
+                En <span style="color: var(--oro); font-weight: 600;">JCNay Vida Team</span>, no solo vendemos pólizas. Diseñamos estructuras de protección de alto nivel bajo el concepto de Nexo Infinito. Conectamos tus metas con la seguridad real del siglo XXI a través de estrategias de <span style="color: var(--oro);">IUL y Anualidades</span>.
+            </p>
+        </section>
 
-    <section id="leads" class="seccion-herramientas">
-        <div class="grid-herramientas">
-            
-            <div class="caja-crm">
-                <h3>Tu Plan de Protección</h3>
-                <p>Completa tus datos para recibir una propuesta personalizada.</p>
-                <div id="mi-crm-formulario">
-                    [CÓDIGO DE TU CRM AQUÍ]
-                </div>
+        <section id="guia" data-aos="fade-up">
+            <h3>📥 Guía "Banco Libre"</h3>
+            <p style="text-align: center; margin-bottom: 20px;">Acceda a la estrategia utilizada por las familias que dominan su flujo de caja.</p>
+            <form id="f_guia" style="max-width: 500px; margin: 0 auto;">
+                <input type="text" id="n1" placeholder="NOMBRE COMPLETO" required>
+                <input type="number" id="e1" placeholder="EDAD ACTUAL" required>
+                <button type="submit" class="boton-oro" style="width: 100%; margin-top: 10px;">Solicitar Guía VIP</button>
+            </form>
+        </section>
+
+        <section id="dime" class="dime-container" data-aos="fade-up">
+            <h3 style="color: var(--negro-ebano);">📊 Análisis D.I.M.E.</h3>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:15px; margin-bottom: 30px;">
+                <input type="number" id="d_deu" placeholder="Deudas ($)" style="background: white; color: black;">
+                <input type="number" id="d_hip" placeholder="Hipoteca ($)" style="background: white; color: black;">
+                <input type="number" id="d_uni" placeholder="Universidad ($)" style="background: white; color: black;">
+                <input type="number" id="d_fun" placeholder="Gastos Finales ($)" style="background: white; color: black;">
             </div>
-
-            <div class="caja-calculadora">
-                <h3>Calculadora de Retiro IUL</h3>
-                <div id="mis-calculadoras">
-                    [CÓDIGO DE TUS CALCULADORAS AQUÍ]
-                </div>
+            <div style="text-align:center;">
+                <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 600; color: #888;">Su Brecha de Protección:</p>
+                <div id="res_brecha">$0</div>
+                <button onclick="runDIME()" class="boton-oro" style="margin-top:20px;">Calcular Ahora</button>
+                <a id="waDIME" href="#" target="_blank" class="boton-oro" style="background:#25D366; display:none; margin-top:15px; color:white !important;">Consultar Análisis por WhatsApp</a>
             </div>
+        </section>
 
+        <h3 id="herramientas" data-aos="fade-up">🛠️ Ecosistema Digital</h3>
+        <div class="grid-herramientas" data-aos="fade-up">
+            <div class="card">
+                <h4>Blindaje Familiar</h4>
+                <a href="https://jcynay0206.github.io/landing-seguros/" class="boton-oro" style="padding: 12px 25px; font-size: 0.7rem;">Abrir Portal</a>
+            </div>
+            <div class="card">
+                <h4>Escudo Financiero</h4>
+                <a href="https://jcynay0206.github.io/escudo-financiero/" class="boton-oro" style="padding: 12px 25px; font-size: 0.7rem;">Abrir Portal</a>
+            </div>
+            <div class="card">
+                <h4>Retiro IUL</h4>
+                <a href="https://jcynay0206.github.io/calculadora-iul/" class="boton-oro" style="padding: 12px 25px; font-size: 0.7rem;">Abrir Portal</a>
+            </div>
+            <div class="card">
+                <h4>Plan Universidad</h4>
+                <a href="https://jcynay0206.github.io/calculadora-universitaria/" class="boton-oro" style="padding: 12px 25px; font-size: 0.7rem;">Abrir Portal</a>
+            </div>
         </div>
-    </section>
+
+        <section id="socios" data-aos="fade-up" style="margin-top: 80px; border: 2px solid var(--oro);">
+            <h3>🤝 Expansión de Negocios</h3>
+            <p style="text-align: center; margin-bottom: 30px;">Buscamos líderes visionarios para expandir el Nexo Infinito en todo el país.</p>
+            <div style="text-align: center;">
+                <button onclick="alert('Formulario de socios en proceso de validación')" class="boton-oro">Aplicar como Socio Estratégico</button>
+            </div>
+        </section>
+
+    </div>
+
+    <div style="position: fixed; bottom: 30px; right: 30px; z-index: 9999;">
+        <button onclick="toggleChat()" style="background: var(--gradient-oro); border: none; border-radius: 50%; width: 65px; height: 65px; font-size: 28px; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">💬</button>
+        <div id="chat-window">
+            <div class="chat-header">Asistente Ejecutivo</div>
+            <div id="chat-content" style="flex:1; padding:25px; overflow-y:auto; color:white; font-size:0.9rem; line-height: 1.6;">
+                Bienvenido a JCNay Vida Team. ¿Cómo puedo asistirle hoy en el diseño de su seguridad financiera?
+            </div>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2026 JCNay Vida Team | Soluciones Financieras Premium</p>
-        <p>Diseño exclusivo por Azure Gold Studio</p>
+        <p style="margin-top: 10px; color: var(--oro);">DISEÑO EXCLUSIVO POR AZURE GOLD STUDIO</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Tu script del bot va aquí abajo para que no afecte la carga visual
-    </script>
+        AOS.init({ duration: 1200, once: true });
 
+        // Redirección Guía
+        document.getElementById('f_guia').onsubmit = function(e) {
+            e.preventDefault();
+            window.location.href = "gracias.html";
+        };
+
+        // Lógica DIME
+        function runDIME() {
+            const t = (parseFloat(document.getElementById('d_deu').value)||0) + 
+                      (parseFloat(document.getElementById('d_hip').value)||0) + 
+                      (parseFloat(document.getElementById('d_uni').value)||0) + 
+                      (parseFloat(document.getElementById('d_fun').value)||0);
+            document.getElementById('res_brecha').innerText = "$" + t.toLocaleString();
+            document.getElementById('waDIME').style.display = t > 0 ? 'inline-block' : 'none';
+            document.getElementById('waDIME').href = `https://wa.me/19086774196?text=He realizado mi análisis DIME y mi brecha de protección es de $${t.toLocaleString()}. Deseo una asesoría privada.`;
+        }
+
+        // Chatbot
+        function toggleChat() {
+            const c = document.getElementById('chat-window');
+            c.style.display = (c.style.display === 'none' || c.style.display === '') ? 'flex' : 'none';
+        }
+    </script>
 </body>
 </html>
