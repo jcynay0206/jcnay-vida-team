@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JCNay Vida Team | Protección y Legado</title>
     
+    <meta name="description" content="JCNay Vida Team: Asesoría premium en seguros de vida y legados financieros..">
+    
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -33,36 +35,42 @@
         .nav-links a:hover { color: var(--terracotta); }
 
         /* SECCIONES */
-        section { padding: 80px 8%; max-width: 1400px; margin: 0 auto; }
+        section { padding: 80px 8%; max-width: 1300px; margin: 0 auto; }
         .section-title { font-family: var(--font-display); font-size: 2.8rem; text-align: center; margin-bottom: 10px; }
         .section-title span { color: var(--gold); }
         .subtitle { text-align: center; margin-bottom: 40px; opacity: 0.8; }
 
-        /* CARDS */
-        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--blush); transition: 0.3s; display: flex; flex-direction: column; }
-        .card:hover { transform: translateY(-5px); }
+        /* CARDS & FORMS */
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--blush); transition: 0.3s; position: relative; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; margin-top: 8px; font-family: var(--font-body); }
         
-        input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; margin-top: 8px; font-family: var(--font-body); font-size: 0.85rem; }
-        
-        .btn-main { background: var(--terracotta); color: white; padding: 12px 20px; border-radius: 6px; border: none; cursor: pointer; font-weight: 600; text-decoration: none; display: inline-block; transition: 0.3s; text-align: center; font-size: 0.9rem; }
-        .btn-main:hover { background: var(--navy); }
-        
-        .btn-wa { background: #25D366; color: white; padding: 8px; border-radius: 6px; text-decoration: none; font-size: 0.75rem; font-weight: 700; display: none; margin-top: 10px; text-align: center; }
+        .btn-main { background: var(--terracotta); color: white; padding: 14px 28px; border-radius: 6px; border: none; cursor: pointer; font-weight: 600; text-decoration: none; display: inline-block; transition: 0.3s; text-align: center; }
+        .btn-main:hover { background: var(--navy); transform: translateY(-2px); }
 
-        /* GRID CALCULADORAS */
-        .grid-calcs { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .dime-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+        /* CALCULADORAS */
+        .grid-calcs { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .dime-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px; }
+
+        /* BLOG */
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .blog-card h4 { font-family: var(--font-display); font-size: 1.4rem; color: var(--terracotta); margin-bottom: 10px; }
 
         /* BOT */
-        #bot-trigger { position: fixed; bottom: 30px; right: 30px; background: var(--navy); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        #bot-trigger { position: fixed; bottom: 30px; right: 30px; background: var(--navy); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); font-size: 1.5rem; }
         #chat-window { position: fixed; bottom: 100px; right: 30px; width: 320px; height: 480px; background: white; border-radius: 15px; display: none; flex-direction: column; box-shadow: 0 10px 40px rgba(0,0,0,0.2); z-index: 2000; border: 1px solid var(--blush); overflow: hidden; }
-        .btn-opt { background: white; border: 1px solid var(--navy); padding: 10px; border-radius: 8px; cursor: pointer; font-size: 0.8rem; margin-bottom: 5px; text-align: left; }
+        .btn-opt { background: white; border: 1px solid var(--navy); padding: 10px; border-radius: 8px; cursor: pointer; font-size: 0.8rem; transition: 0.3s; text-align: left; margin-bottom: 5px; width: 100%; }
+        .btn-opt:hover { background: var(--blush); }
 
-        .section-badge { display: inline-block; padding: 4px 12px; border: 1px solid var(--gold); border-radius: 20px; color: var(--gold); font-size: 0.65rem; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; font-weight: 700; }
+        /* FOOTER */
+        footer { background: var(--navy); color: white; padding: 60px 8% 20px; text-align: center; }
+        .social-icons a { color: white; font-size: 1.4rem; margin: 0 15px; transition: 0.3s; }
+        .social-icons a:hover { color: var(--gold); }
+        .section-badge { display: inline-block; padding: 4px 12px; border: 1px solid var(--gold); border-radius: 20px; color: var(--gold); font-size: 0.7rem; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase; }
 
-        footer { background: var(--navy); color: white; padding: 60px 8% 20px; text-align: center; font-size: 0.8rem; }
-        
-        @media (max-width: 768px) { .nav-links { display: none; } .section-title { font-size: 2.2rem; } }
+        @media (max-width: 768px) {
+            .section-title { font-size: 2.2rem; }
+            .nav-links { display: none; }
+        }
     </style>
 </head>
 <body>
@@ -78,69 +86,42 @@
         </div>
     </nav>
 
-    <section id="inicio" style="padding-top: 150px; text-align: center;" data-aos="fade-up">
+    <section id="inicio" style="padding-top: 160px; text-align: center;" data-aos="fade-up">
         <h1 class="section-title">JCNay <span>Vida Team</span></h1>
-        <p class="subtitle" style="max-width: 700px; margin: 0 auto 30px;">
-            Blindaje Financiero con el estándar de Azure Gold Studio. Protegiendo a las familias hispanas en todos los Estados Unidos.
+        <p class="subtitle" style="max-width: 700px; margin: 10px auto 30px;">
+            Diseñando legados con el estándar de Azure Gold Studio. Protección estratégica para familias y emprendedoras en EE.UU.
         </p>
         <a href="#agenda" class="btn-main">Agendar Consulta Gratuita</a>
     </section>
 
     <section id="calculadoras" style="background: var(--blush); border-radius: 50px 50px 0 0;">
-        <h2 class="section-title">Ecosistema <span>Financiero</span></h2>
-        <p class="subtitle">5 Herramientas clave para tu diagnóstico patrimonial.</p>
+        <h2 class="section-title">Tu <span>Patrimonio</span> en Cifras</h2>
+        <p class="subtitle">Análisis basado en el Método D.I.M.E. + Educación.</p>
         
         <div class="grid-calcs">
-            <div class="card" data-aos="fade-up">
-                <span class="section-badge">Algoritmo JCNay</span>
-                <h4 style="font-family: var(--font-display);">1. Método D.I.M.E.</h4>
+            <div class="card" data-aos="fade-right">
+                <span class="section-badge">Algoritmo D.I.M.E.</span>
+                <h3>Calculadora de Protección</h3>
                 <div class="dime-inputs">
-                    <input type="number" id="d_deudas" placeholder="Deudas $">
-                    <input type="number" id="d_ingresos" placeholder="Ingreso x10">
-                    <input type="number" id="d_mortgage" placeholder="Hipoteca $">
-                    <input type="text" id="d_edades" placeholder="Edades hijos" style="grid-column: span 2;">
+                    <input type="number" id="d_deudas" placeholder="Deudas ($)">
+                    <input type="number" id="d_ingresos" placeholder="Ingreso Anual x10">
+                    <input type="number" id="d_mortgage" placeholder="Hipoteca ($)">
+                    <input type="number" id="d_hijos" placeholder="Nº de Hijos">
+                    <input type="text" id="d_edades" placeholder="Edades (ej: 4, 12)" style="grid-column: span 2;">
                 </div>
-                <button onclick="calcularDIME()" class="btn-main">Calcular</button>
-                <div id="res-dime" style="margin-top:10px; font-weight:700; font-size: 0.8rem;"></div>
-                <a id="wa-dime" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Enviar resultados</a>
+                <button onclick="calcularDIME()" class="btn-main" style="width:100%">Calcular Necesidad</button>
+                <div id="res-dime" style="margin-top:15px; text-align:center; font-weight:700; color: var(--navy);"></div>
             </div>
 
-            <div class="card" data-aos="fade-up" data-aos-delay="100">
-                <span class="section-badge">Protección de Ingreso</span>
-                <h4 style="font-family: var(--font-display);">2. Valor Humano</h4>
-                <p style="font-size: 0.7rem; margin-bottom: 8px;">¿Cuánto dinero producirás hasta tu jubilación?</p>
-                <input type="number" id="p_ingreso_mes" placeholder="Ingreso Mensual $">
-                <input type="number" id="p_años" placeholder="Años hasta retiro">
-                <button onclick="calcularIngresos()" class="btn-main" style="margin-top:10px; background:var(--navy);">Ver Valor</button>
-                <div id="res-ingresos" style="margin-top:10px; font-weight:700; font-size: 0.8rem;"></div>
-                <a id="wa-ingresos" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Enviar resultados</a>
-            </div>
-
-            <div class="card" data-aos="fade-up" data-aos-delay="200">
-                <span class="section-badge">Final Expense</span>
-                <h4 style="font-family: var(--font-display);">3. Gastos Finales</h4>
-                <p style="font-size: 0.7rem; margin-bottom: 8px;">Costo estimado de servicios y trámites finales.</p>
-                <select id="g_estado">
-                    <option value="15000">Costo Estándar ($15,000)</option>
-                    <option value="25000">Costo Premium ($25,000)</option>
-                </select>
-                <button onclick="calcularGastosFinales()" class="btn-main" style="margin-top:28px;">Ver Sugerencia</button>
-                <div id="res-gastos" style="margin-top:10px; font-weight:700; font-size: 0.8rem;"></div>
-                <a id="wa-gastos" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Enviar a Yunersy</a>
-            </div>
-
-            <div class="card" data-aos="fade-up" data-aos-delay="300" style="border: 1px solid var(--gold);">
-                <span class="section-badge" style="background:var(--gold); color:white;">Estrategia Pro</span>
-                <h4 style="font-family: var(--font-display);">4. Acelerador de Deudas</h4>
-                <p style="font-size: 0.75rem; margin-bottom: 15px;">Cómo eliminar deudas bancarias usando tu seguro IUL.</p>
-                <a href="https://jcynay0206.github.io/landing-seguros/" target="_blank" class="btn-main" style="background: var(--gold);">Abrir Simulador <i class="fas fa-external-link-alt"></i></a>
-            </div>
-
-            <div class="card" data-aos="fade-up" data-aos-delay="400">
-                <span class="section-badge">Interés Compuesto</span>
-                <h4 style="font-family: var(--font-display);">5. Ahorro Indexado</h4>
-                <p style="font-size: 0.75rem; margin-bottom: 15px;">Proyecta tu retiro con crecimiento del mercado y riesgo cero.</p>
-                <a href="https://jcynay0206.github.io/calculadora-iul/" target="_blank" class="btn-main" style="background: var(--navy);">Proyectar IUL <i class="fas fa-external-link-alt"></i></a>
+            <div class="card" style="display: flex; flex-direction: column; justify-content: space-between;" data-aos="fade-left">
+                <div>
+                    <h3>Ecosistema Digital</h3>
+                    <p>Acceso a herramientas de aceleración y ahorro indexado (IUL).</p>
+                </div>
+                <div style="margin-top: 20px;">
+                    <a href="https://jcynay0206.github.io/landing-seguros/" target="_blank" class="btn-main" style="width:100%; margin-bottom:10px; background:var(--navy);">Acelerador de Deudas</a>
+                    <a href="https://jcynay0206.github.io/calculadora-iul/" target="_blank" class="btn-main" style="width:100%; background:var(--gold);">Simulador de Ahorro</a>
+                </div>
             </div>
         </div>
     </section>
@@ -148,172 +129,194 @@
     <section id="descarga-guia">
         <div style="background: var(--navy); color: white; padding: 50px; border-radius: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center;">
             <div>
-                <span class="section-badge" style="border-color: var(--gold); color: var(--gold);">Lead Magnet</span>
-                <h2 style="font-family: var(--font-display); font-size: 2.5rem; color: white;">Guía: El Banco Libre</h2>
-                <p style="margin: 20px 0; opacity: 0.9;">Descubre el secreto financiero para financiar tus proyectos personales sin depender de los bancos.</p>
+                <span class="section-badge" style="border-color: var(--gold); color: var(--gold);">Recurso Privado</span>
+                <h2 style="color: white; font-family: var(--font-display); font-size: 2.5rem;">Guía: El Banco Libre</h2>
+                <p style="margin: 20px 0; opacity: 0.9;">Aprende cómo las familias más prósperas utilizan el interés compuesto indexado para ser sus propios bancos.</p>
             </div>
             <div class="card" style="color: var(--navy);">
                 <form id="formGuia">
                     <input type="text" id="g_nombre" placeholder="Nombre completo" required>
-                    <input type="tel" id="g_tel" placeholder="Tu WhatsApp" required>
+                    <input type="number" id="g_edad" placeholder="Edad" required>
+                    <input type="tel" id="g_tel" placeholder="WhatsApp" required>
                     <select id="g_ingresos" required>
                         <option value="">Ingresos anuales...</option>
                         <option value="-50k">Menos de $50,000</option>
                         <option value="50-100k">$50,000 - $100,000</option>
                         <option value="+100k">Más de $100,000</option>
                     </select>
-                    <button type="submit" class="btn-main" style="width:100%; margin-top:15px; background: var(--gold);">Solicitar a Yunersy</button>
+                    <button type="submit" class="btn-main" style="width:100%; margin-top:15px; background: var(--gold);">Solicitar Guía al Bot</button>
                 </form>
             </div>
         </div>
     </section>
 
     <section id="blog">
-        <h2 class="section-title">Temas de <span>Valor</span></h2>
-        <div class="grid-calcs">
-            <div class="card"><h4>IUL / Banco Libre</h4><p style="font-size: 0.8rem;">Ahorro con protección indexada.</p></div>
-            <div class="card"><h4>Beneficios en Vida</h4><p style="font-size: 0.8rem;">Liquidez ante enfermedades graves.</p></div>
-            <div class="card"><h4>Pago de Hipoteca</h4><p style="font-size: 0.8rem;">Blindaje para tu hogar familiar.</p></div>
-            <div class="card"><h4>College Fund</h4><p style="font-size: 0.8rem;">Ahorro flexible para tus hijos.</p></div>
-            <div class="card"><h4>Retiro Tax-Free</h4><p style="font-size: 0.8rem;">Jubilación sin impuestos del IRS.</p></div>
-            <div class="card"><h4>Negocios</h4><p style="font-size: 0.8rem;">Continuidad para emprendedoras.</p></div>
+        <h2 class="section-title">Educación <span>Financiera</span></h2>
+        <div class="blog-grid">
+            <div class="card blog-card"><h4>1. El Banco Libre (IUL)</h4><p>Estrategias de liquidez usando el valor en efectivo de tu póliza para inversiones.</p></div>
+            <div class="card blog-card"><h4>2. Beneficios en Vida</h4><p>Acceso a capital en caso de enfermedades críticas o crónicas sin fallecer.</p></div>
+            <div class="card blog-card"><h4>3. Protección de Hipoteca</h4><p>Garantiza que el hogar de tu familia quede libre de deuda hipotecaria.</p></div>
+            <div class="card blog-card"><h4>4. College Fund Inteligente</h4><p>Ahorro flexible para la educación superior o emprendimiento de tus hijos.</p></div>
+            <div class="card blog-card"><h4>5. Retiro Tax-Free</h4><p>Cómo jubilarte con ingresos libres de impuestos federales (IRS).</p></div>
+            <div class="card blog-card"><h4>6. Legado Emprendedor</h4><p>Blindaje especial para dueños de negocio y continuidad empresarial.</p></div>
         </div>
     </section>
 
     <section id="socios" style="background: var(--blush);">
-        <h2 class="section-title">Únete al <span>Team</span></h2>
-        <div style="max-width: 500px; margin: 0 auto;">
+        <h2 class="section-title">Carrera con <span>JCNay Team</span></h2>
+        <div style="max-width: 600px; margin: 0 auto;">
+            <p style="text-align: center; margin-bottom: 20px; font-size: 0.9rem;">Únete a nuestra red nacional. Requiere SSN y ser mayor de 18 años.</p>
             <form id="formSocios" class="card">
-                <input type="text" id="s_nombre" placeholder="Nombre" required>
+                <input type="text" id="s_nombre" placeholder="Nombre Completo" required>
                 <input type="tel" id="s_tel" placeholder="WhatsApp" required>
-                <select id="s_lic">
-                    <option value="no">Sin Licencia</option>
-                    <option value="si">Con Licencia</option>
+                <select id="s_licencia">
+                    <option value="no">No tengo licencia (Deseo obtenerla)</option>
+                    <option value="si">Ya tengo licencia activa</option>
                 </select>
-                <button type="submit" class="btn-main" style="width:100%; margin-top:15px;">Enviar Aplicación</button>
+                <button type="submit" class="btn-main" style="width:100%; margin-top:15px;">Aplicar como Socio</button>
             </form>
         </div>
     </section>
 
+    <div style="background: white; padding: 40px 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; filter: grayscale(1); opacity: 0.5;">
+        <img src="img/nlg.png" alt="NLG" height="30">
+        <img src="img/fg.png" alt="F&G" height="30">
+        <img src="img/ethos.png" alt="Ethos" height="30">
+        <img src="img/american.png" alt="American Amicable" height="30">
+        <img src="img/senior.png" alt="Senior Life" height="30">
+    </div>
+
     <section id="contacto">
         <div class="grid-calcs">
             <div id="agenda">
-                <div class="calendly-inline-widget" data-url="https://calendly.com/jcnay157/consulta" style="min-width:320px;height:500px;"></div>
+                <h3>Agenda tu Auditoría</h3>
+                <div class="calendly-inline-widget" data-url="https://calendly.com/blindajefamiliarus" style="min-width:320px;height:550px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
             </div>
-            <div style="padding-top: 20px;">
+            <div>
                 <h3>JCNay Vida Team</h3>
-                <p>908-220-5337 | jcnay157@gmail.com</p>
+                <p><i class="fas fa-envelope"></i> jcnay157@gmail.com</p>
+                <p><i class="fab fa-whatsapp"></i> 908-220-5337</p>
                 <br>
-                <div style="font-size: 1.5rem;">
-                    <a href="https://instagram.com/blindajefamiliarus" target="_blank" style="margin-right:15px; color:var(--navy);"><i class="fab fa-instagram"></i></a>
-                    <a href="https://facebook.com/yunersyblindajefamiliar" target="_blank" style="margin-right:15px; color:var(--navy);"><i class="fab fa-facebook"></i></a>
-                    <a href="https://youtube.com/@blindajefamiliarUS" target="_blank" style="color:var(--navy);"><i class="fab fa-youtube"></i></a>
+                <h3>Redes Sociales</h3>
+                <div class="social-icons" style="text-align: left;">
+                    <a href="https://instagram.com/blindajefamiliarus" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com/yunersyblindajefamiliar" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://youtube.com/@blindajefamiliarUS" target="_blank"><i class="fab fa-youtube"></i></a>
                 </div>
+                <br>
+                <p style="font-size: 0.8rem; opacity: 0.7;">📍 New Jersey, EE.UU. (Servicio Nacional en los 50 Estados)</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 JCNay Vida Team | Estándar Azure Gold Studio</p>
-        <p style="opacity: 0.5; margin-top:10px;">New Jersey, EE.UU. Servicio nacional en los 50 estados.</p>
+        <p>© 2026 JCNay Vida Team | Todos los derechos reservados.</p>
+        <p style="font-size: 0.7rem; opacity: 0.5; margin-top: 10px;">Las proyecciones son ilustrativas. Seguros emitidos por compañías de primer nivel (A Rated).</p>
     </footer>
 
     <div id="chat-window">
-        <div style="background: var(--navy); color: white; padding: 15px; font-weight: 700; display:flex; justify-content:space-between;">
-            <span>Nexo Asistente</span>
+        <div style="background: var(--navy); color: white; padding: 15px; font-weight: 700; display: flex; justify-content: space-between;">
+            <span>Asistente JCNay</span>
             <i class="fas fa-times" id="close-bot" style="cursor:pointer;"></i>
         </div>
-        <div id="chat-content" style="flex:1; padding: 15px; overflow-y:auto; font-size:0.85rem;">
-            <p style="background:var(--blush); padding:10px; border-radius:10px;">¡Hola! Soy Nexo de JCNay Vida Team. ¿Cómo te ayudo?</p>
-            <div style="display:flex; flex-direction:column; gap:5px; margin-top:10px;">
+        <div id="chat-content" style="flex:1; padding: 15px; overflow-y: auto;">
+            <p style="background: var(--blush); padding: 10px; border-radius: 10px; margin-bottom: 15px; font-size: 0.85rem;">
+                ¡Hola! Soy tu asistente de JCNay Vida Team. ¿Cómo prefieres comenzar?
+            </p>
+            <div id="bot-menu">
                 <button class="btn-opt" onclick="botAction('guia')">📘 Solicitar Guía Banco Libre</button>
-                <button class="btn-opt" onclick="botAction('humano')" style="color:var(--terracotta); font-weight:700;">👤 Hablar con Yunersy</button>
+                <button class="btn-opt" onclick="botAction('calc')">🧮 Calcular mi Protección</button>
+                <button class="btn-opt" onclick="botAction('humano')" style="color: var(--terracotta); font-weight: 600;">👤 Hablar con Yunersy</button>
             </div>
         </div>
-        <div style="padding:10px; border-top:1px solid #eee;">
-            <input type="text" id="bot-input" placeholder="Escribe tus datos...">
+        <div style="padding: 10px; border-top: 1px solid #eee;">
+            <input type="text" id="bot-input" placeholder="Escribe tus datos o dudas...">
         </div>
     </div>
-    <div id="bot-trigger"><i class="fas fa-comment-dots"></i></div>
+    <div id="bot-trigger"><i class="fas fa-robot"></i></div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script>
         AOS.init({ duration: 1000, once: true });
 
         const NGROK_URL = 'https://blae-lashaunda-loopily.ngrok-free.dev/guardar-lead';
-        const WA_LINK = "https://wa.me/19082205337";
+        const WHATSAPP_LINK = "https://wa.me/19082205337";
 
-        async function enviarLead(msg) {
+        // CRM FETCH UNIFICADO
+        async function enviarLead(val) {
             try {
                 await fetch(NGROK_URL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true' },
-                    body: JSON.stringify({ info: msg })
+                    body: JSON.stringify({ info: val })
                 });
-            } catch (e) { console.log(e); }
+                return true;
+            } catch (e) { console.error("Error CRM:", e); return false; }
         }
 
-        // 1. LÓGICA DIME
+        // LÓGICA DIME
         function calcularDIME() {
             const d = parseFloat(document.getElementById('d_deudas').value) || 0;
             const i = parseFloat(document.getElementById('d_ingresos').value) || 0;
             const m = parseFloat(document.getElementById('d_mortgage').value) || 0;
-            const eds = document.getElementById('d_edades').value;
-            const total = d + i + m + 100000;
+            const edades = document.getElementById('d_edades').value.split(',').filter(x => x.trim() !== "");
             
-            document.getElementById('res-dime').innerHTML = `Protección Sugerida: $${total.toLocaleString()}`;
-            const btn = document.getElementById('wa-dime');
-            btn.style.display = "block";
-            btn.href = `${WA_LINK}?text=Hola%20Yunersy,%20mi%20resultado%20DIME%20es%20$${total.toLocaleString()}.%20Quiero%20una%20cotización.`;
-            enviarLead(`DIME: $${total}`);
-        }
+            let edu = 0;
+            edades.forEach(e => { if(parseInt(e) < 18) edu += 100000; });
+            const total = d + i + m + edu;
 
-        // 2. LÓGICA VALOR HUMANO
-        function calcularIngresos() {
-            const mes = parseFloat(document.getElementById('p_ingreso_mes').value) || 0;
-            const años = parseFloat(document.getElementById('p_años').value) || 0;
-            const total = (mes * 12) * años;
-            
-            document.getElementById('res-ingresos').innerHTML = `Valor Humano: $${total.toLocaleString()}`;
-            const btn = document.getElementById('wa-ingresos');
-            btn.style.display = "block";
-            btn.href = `${WA_LINK}?text=Hola%20Yunersy,%20mi%20Valor%20Humano%20es%20$${total.toLocaleString()}.%20¿Cómo%20lo%20protejo?`;
-            enviarLead(`Valor Humano: $${total}`);
-        }
-
-        // 3. LÓGICA GASTOS FINALES
-        function calcularGastosFinales() {
-            const val = document.getElementById('g_estado').value;
-            document.getElementById('res-gastos').innerHTML = `Sugerencia: $${parseInt(val).toLocaleString()}`;
-            const btn = document.getElementById('wa-gastos');
-            btn.style.display = "block";
-            btn.href = `${WA_LINK}?text=Hola%20Yunersy,%20me%20interesa%20un%20plan%20de%20Gastos%20Finales%20de%20$${parseInt(val).toLocaleString()}.`;
-            enviarLead(`Gastos Finales: $${val}`);
+            document.getElementById('res-dime').innerHTML = `Protección Sugerida: <span style="color:var(--terracotta); font-size:1.4rem;">$${total.toLocaleString()}</span>`;
+            enviarLead(`DIME Calc: Total $${total} | Hipoteca: ${m}`);
         }
 
         // FORMULARIOS
         document.getElementById('formGuia').onsubmit = async (e) => {
             e.preventDefault();
-            const info = `GUÍA: ${document.getElementById('g_nombre').value} | WA: ${document.getElementById('g_tel').value}`;
+            const info = `GUÍA: ${document.getElementById('g_nombre').value} | Tel: ${document.getElementById('g_tel').value} | Ingresos: ${document.getElementById('g_ingresos').value}`;
             await enviarLead(info);
-            alert("Solicitud enviada a Yunersy.");
+            botAction('confirmar_guia');
         };
 
-        // BOT
-        document.getElementById('bot-trigger').onclick = () => document.getElementById('chat-window').style.display = 'flex';
-        document.getElementById('close-bot').onclick = () => document.getElementById('chat-window').style.display = 'none';
+        document.getElementById('formSocios').onsubmit = async (e) => {
+            e.preventDefault();
+            const info = `SOCIO: ${document.getElementById('s_nombre').value} | Tel: ${document.getElementById('s_tel').value}`;
+            await enviarLead(info);
+            alert("Aplicación recibida. JCNay Vida Team revisará tu perfil.");
+        };
 
-        async function botAction(t) {
-            if(t==='humano') window.open(`${WA_LINK}?text=Hola%20Yunersy,%20vengo%20de%20tu%20web%20y%20necesito%20ayuda.`, '_blank');
-            if(t==='guia') document.getElementById('descarga-guia').scrollIntoView({behavior:'smooth'});
+        // BOT LOGIC
+        const botTrigger = document.getElementById('bot-trigger');
+        const chatWin = document.getElementById('chat-window');
+        botTrigger.onclick = () => chatWin.style.display = chatWin.style.display === 'flex' ? 'none' : 'flex';
+        document.getElementById('close-bot').onclick = () => chatWin.style.display = 'none';
+
+        async function botAction(type) {
+            const content = document.getElementById('chat-content');
+            if (type === 'humano') {
+                content.innerHTML += `<p style="font-size:0.8rem; margin-top:10px;"><b>Nexo:</b> Conectando a WhatsApp...</p>`;
+                await enviarLead("Solicitud Hablar con Humano");
+                setTimeout(() => { 
+                    window.open(`${WHATSAPP_LINK}?text=Hola%20Yunersy,%20vengo%20de%20tu%20web%20JCNay%20Vida%20Team%20y%20necesito%20asesoría.`, '_blank'); 
+                }, 1000);
+            } else if (type === 'calc') {
+                document.getElementById('calculadoras').scrollIntoView({behavior:'smooth'});
+                chatWin.style.display = 'none';
+            } else if (type === 'guia' || type === 'confirmar_guia') {
+                content.innerHTML += `<p style="font-size:0.85rem; color:var(--terracotta); margin-top:10px;"><b>Nexo:</b> He recibido tu solicitud. Un asesor validará tu perfil para enviarte el acceso a la Guía Privada.</p>`;
+                document.getElementById('descarga-guia').scrollIntoView({behavior:'smooth'});
+            }
         }
 
+        // CAPTURA MANUAL BOT
         document.getElementById('bot-input').onkeypress = async (e) => {
-            if(e.key === 'Enter') {
-                await enviarLead(`Chat Bot: ${e.target.value}`);
-                e.target.value = "";
-                alert("Datos recibidos.");
+            if (e.key === 'Enter') {
+                const val = e.target.value;
+                if(val.length > 5) {
+                    await enviarLead(`Chat: ${val}`);
+                    document.getElementById('chat-content').innerHTML += `<p style="text-align:right; font-size:0.8rem;">${val}</p><p style="font-size:0.8rem; color:green;">Nexo: Información recibida.</p>`;
+                    e.target.value = "";
+                }
             }
         };
     </script>
