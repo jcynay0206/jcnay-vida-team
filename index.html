@@ -3,1049 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JCNay Vida Team | Arquitectura Digital de Legados Premium</title>
+    <title>JCNay Vida Team | Protección y Legado</title>
     
-    <!-- Azure Gold Studio Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
-        :root { 
-            /* Azure Gold Studio Palette */
-            --oro: #D4AF37; 
-            --oro-light: #F5E6C8;
-            --oro-dark: #B8941F;
-            --oro-soft: rgba(212, 175, 55, 0.15);
-            --negro: #0A1628; 
-            --negro-card: #1A2942;
-            --negro-light: #2C3E5C;
-            --cream: #FAF8F3;
-            --gradient-oro: linear-gradient(135deg, #B8941F, #D4AF37, #F5E6C8); 
-            
-            /* Typography */
-            --font-display: 'Cormorant Garamond', serif;
-            --font-body: 'Montserrat', sans-serif;
+        :root {
+            --blush: #F5E6E0; --ivory: #FAF8F3; --navy: #1A2942;
+            --terracotta: #D97A5E; --gold: #D4AF37;
+            --font-display: "Cormorant Garamond", serif;
+            --font-body: "Montserrat", sans-serif;
         }
 
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            scroll-behavior: smooth; 
-        }
-        
-        body { 
-            font-family: var(--font-body); 
-            background-color: var(--negro); 
-            color: white; 
-            overflow-x: hidden; 
-            line-height: 1.6;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); background-color: var(--ivory); color: var(--navy); line-height: 1.6; overflow-x: hidden; }
 
-        /* Navegación Premium */
-        nav { 
-            background: rgba(10, 22, 40, 0.95); 
-            padding: 1.2rem 8%; 
-            position: fixed; 
-            width: 100%; 
-            top: 0; 
-            z-index: 1000; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3); 
-            backdrop-filter: blur(15px);
-            transition: all 0.3s ease;
+        /* NAVEGACIÓN */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1rem 5%;
+            background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        
-        .favicon-img { 
-            width: 50px; 
-            height: 50px; 
-            border: 2px solid var(--oro); 
-            border-radius: 2px; 
-            object-fit: cover;
-            transition: all 0.3s ease;
-        }
-        
-        .favicon-img:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
-        }
-        
-        .brand-text { 
-            font-family: var(--font-display); 
-            font-weight: 700; 
-            letter-spacing: 2px; 
-            text-transform: uppercase; 
-            font-size: 1.2rem;
-            color: var(--oro);
-        }
+        .logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 1px; }
+        .logo span { color: var(--gold); }
+        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--navy); font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
+        .nav-links a:hover { color: var(--terracotta); }
 
-        /* Hero Impactante */
-        .hero { 
-            min-height: 100vh; 
-            background: linear-gradient(rgba(10, 22, 40, 0.7), rgba(10, 22, 40, 0.9)), 
-                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1350&q=80'); 
-            background-size: cover; 
-            background-position: center; 
-            background-attachment: fixed;
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center; 
-            border-bottom: 1px solid var(--oro); 
-            padding: 8rem 20px 4rem;
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
-            animation: pulseGlow 8s ease-in-out infinite;
-        }
-        
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 1000px;
-        }
-        
-        .hero-badge {
-            display: inline-block;
-            padding: 0.6rem 2rem;
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            border-radius: 30px;
-            color: var(--oro-light);
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-            animation: fadeInDown 1s ease-out;
-        }
-        
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .main-slogan { 
-            font-family: var(--font-display); 
-            font-size: clamp(2rem, 6vw, 4.5rem); 
-            font-style: italic; 
-            color: white; 
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            font-weight: 700;
-        }
-        
-        .hero-subtitle {
-            color: var(--oro); 
-            letter-spacing: 6px; 
-            font-size: 0.8rem; 
-            text-transform: uppercase; 
-            margin-top: 2rem;
-            font-weight: 500;
-        }
-        
-        .hero-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-            animation: fadeInUp 1s ease-out 0.5s both;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            padding: 2rem;
-            border-radius: 4px;
-            transition: all 0.4s ease;
-        }
-        
-        .stat-card:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(212, 175, 55, 0.5);
-            transform: translateY(-5px);
-        }
-        
-        .stat-number {
-            font-family: var(--font-display);
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--oro);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-label {
-            color: var(--oro-light);
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-        }
+        /* SECCIONES */
+        section { padding: 80px 8%; max-width: 1400px; margin: 0 auto; }
+        .section-title { font-family: var(--font-display); font-size: 2.8rem; text-align: center; margin-bottom: 10px; }
+        .section-title span { color: var(--gold); }
+        .subtitle { text-align: center; margin-bottom: 40px; opacity: 0.8; }
 
-        .container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 6rem 20px; 
-        }
+        /* CARDS */
+        .card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--blush); transition: 0.3s; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-5px); }
         
-        /* Section Headers */
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
+        input, select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; margin-top: 8px; font-family: var(--font-body); font-size: 0.85rem; }
         
-        .section-badge {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background: rgba(212, 175, 55, 0.1);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 30px;
-            color: var(--oro);
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
+        .btn-main { background: var(--terracotta); color: white; padding: 12px 20px; border-radius: 6px; border: none; cursor: pointer; font-weight: 600; text-decoration: none; display: inline-block; transition: 0.3s; text-align: center; font-size: 0.9rem; }
+        .btn-main:hover { background: var(--navy); }
         
-        /* Secciones Premium */
-        .dark-section { 
-            background: linear-gradient(135deg, var(--negro-card), var(--negro-light));
-            padding: 4rem; 
-            border-radius: 8px; 
-            border: 1px solid rgba(212, 175, 55, 0.15); 
-            margin-bottom: 4rem; 
-            position: relative;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s ease;
-        }
-        
-        .dark-section:hover {
-            border-color: rgba(212, 175, 55, 0.3);
-            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
-        }
-        
-        .dark-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--gradient-oro);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.6s ease;
-        }
-        
-        .dark-section:hover::before {
-            transform: scaleX(1);
-        }
-        
-        h3 { 
-            font-family: var(--font-display); 
-            color: var(--oro); 
-            text-align: center; 
-            margin-bottom: 2.5rem; 
-            text-transform: uppercase; 
-            letter-spacing: 4px; 
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .intro-text {
-            text-align: center; 
-            line-height: 2; 
-            color: #999; 
-            font-weight: 300;
-            font-size: 1.1rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .intro-text strong {
-            color: white;
-            font-weight: 600;
-        }
-        
-        .intro-text .highlight-oro {
-            color: var(--oro);
-            font-weight: 600;
-        }
+        .btn-wa { background: #25D366; color: white; padding: 8px; border-radius: 6px; text-decoration: none; font-size: 0.75rem; font-weight: 700; display: none; margin-top: 10px; text-align: center; }
 
-        /* Calculadoras Premium */
-        .card-calc { 
-            background: rgba(26, 41, 66, 0.5);
-            backdrop-filter: blur(10px);
-            color: white; 
-            padding: 3rem; 
-            border-radius: 8px; 
-            text-align: center; 
-            border: 1px solid rgba(212, 175, 55, 0.15); 
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .card-calc:hover { 
-            border-color: var(--oro);
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        .card-calc.externa { 
-            background: rgba(10, 22, 40, 0.6); 
-            border: 1px solid rgba(212, 175, 55, 0.1); 
-            border-top: 2px solid var(--oro);
-        }
-        
-        .card-calc h4 {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            color: var(--oro);
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
+        /* GRID CALCULADORAS */
+        .grid-calcs { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .dime-inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
 
-        .grid-herramientas { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-            gap: 2rem;
-            margin-top: 3rem;
-        }
+        /* BOT */
+        #bot-trigger { position: fixed; bottom: 30px; right: 30px; background: var(--navy); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2000; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        #chat-window { position: fixed; bottom: 100px; right: 30px; width: 320px; height: 480px; background: white; border-radius: 15px; display: none; flex-direction: column; box-shadow: 0 10px 40px rgba(0,0,0,0.2); z-index: 2000; border: 1px solid var(--blush); overflow: hidden; }
+        .btn-opt { background: white; border: 1px solid var(--navy); padding: 10px; border-radius: 8px; cursor: pointer; font-size: 0.8rem; margin-bottom: 5px; text-align: left; }
 
-        /* Forms Premium */
-        input, select { 
-            width: 100%; 
-            padding: 1rem 1.5rem; 
-            margin: 0.8rem 0; 
-            background: rgba(255, 255, 255, 0.03); 
-            border: 2px solid rgba(212, 175, 55, 0.2); 
-            color: white; 
-            border-radius: 4px; 
-            font-size: 0.95rem;
-            font-family: var(--font-body);
-            transition: all 0.3s ease;
-        }
-        
-        input:focus, select:focus { 
-            outline: none; 
-            border-color: var(--oro); 
-            background: rgba(212, 175, 55, 0.08);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
-        }
-        
-        input::placeholder {
-            color: rgba(255, 255, 255, 0.4);
-            letter-spacing: 1px;
-        }
-        
-        select {
-            cursor: pointer;
-        }
+        .section-badge { display: inline-block; padding: 4px 12px; border: 1px solid var(--gold); border-radius: 20px; color: var(--gold); font-size: 0.65rem; letter-spacing: 1px; margin-bottom: 10px; text-transform: uppercase; font-weight: 700; }
 
-        .boton-oro { 
-            background: transparent; 
-            color: var(--oro) !important; 
-            padding: 1.2rem 2rem; 
-            font-weight: 700; 
-            border: 2px solid var(--oro); 
-            cursor: pointer; 
-            width: 100%; 
-            text-transform: uppercase; 
-            letter-spacing: 2px;
-            font-size: 0.85rem;
-            font-family: var(--font-body);
-            transition: all 0.4s ease; 
-            margin-top: 1rem;
-            border-radius: 4px;
-            text-decoration: none;
-            display: inline-block;
-        }
+        footer { background: var(--navy); color: white; padding: 60px 8% 20px; text-align: center; font-size: 0.8rem; }
         
-        .boton-oro:hover { 
-            background: var(--oro); 
-            color: var(--negro) !important; 
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-            transform: translateY(-3px);
-        }
-        
-        /* DIME Results */
-        #res-dime {
-            margin-top: 2.5rem; 
-            color: var(--oro); 
-            font-family: var(--font-display); 
-            font-size: 2rem; 
-            letter-spacing: 2px;
-            font-weight: 700;
-            text-align: center;
-            padding: 2rem;
-            background: rgba(212, 175, 55, 0.05);
-            border: 2px solid var(--oro);
-            border-radius: 4px;
-        }
-
-        /* Aseguradoras Elegante */
-        .carriers-section {
-            padding: 4rem 0;
-            text-align: center;
-        }
-        
-        .aseguradoras-grid { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .logo-aseg { 
-            max-width: 120px; 
-            height: auto;
-            filter: grayscale(1) invert(1) opacity(0.4); 
-            transition: all 0.4s ease;
-        }
-        
-        .logo-aseg:hover {
-            filter: grayscale(0) invert(0) opacity(1);
-            transform: scale(1.1);
-        }
-
-        /* Bot Premium Azure Gold */
-        .bot-trigger { 
-            position: fixed; 
-            bottom: 30px; 
-            right: 30px; 
-            background: var(--oro); 
-            width: 65px; 
-            height: 65px; 
-            border-radius: 4px;
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-size: 26px; 
-            cursor: pointer; 
-            z-index: 3001; 
-            color: var(--negro);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-            transition: all 0.3s ease;
-        }
-        
-        .bot-trigger:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
-        }
-        
-        .chat-window { 
-            position: fixed; 
-            bottom: 110px; 
-            right: 30px; 
-            width: 380px; 
-            max-width: calc(100vw - 60px);
-            height: 550px; 
-            background: var(--negro-card);
-            border-radius: 8px;
-            display: none; 
-            flex-direction: column; 
-            z-index: 3000; 
-            border: 2px solid var(--oro); 
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-        
-        .chat-header {
-            background: var(--oro);
-            color: var(--negro);
-            padding: 1.5rem;
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 1.2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            letter-spacing: 2px;
-        }
-        
-        .chat-header span:last-child {
-            cursor: pointer;
-            font-size: 1.8rem;
-            transition: all 0.2s ease;
-        }
-        
-        .chat-header span:last-child:hover {
-            transform: scale(1.2);
-        }
-        
-        #chat-content {
-            flex: 1;
-            padding: 1.5rem;
-            overflow-y: auto;
-            background: var(--negro);
-            font-size: 0.9rem;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .chat-footer {
-            padding: 1rem;
-            display: flex;
-            gap: 0.8rem;
-            background: var(--negro-card);
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .chat-footer input {
-            margin: 0;
-            flex: 1;
-        }
-        
-        .chat-footer button {
-            background: var(--oro);
-            border: none;
-            padding: 1rem 1.5rem;
-            cursor: pointer;
-            border-radius: 4px;
-            color: var(--negro);
-            transition: all 0.3s ease;
-        }
-        
-        .chat-footer button:hover {
-            background: var(--oro-light);
-            transform: scale(1.05);
-        }
-        
-        /* Caso de Estudio Section */
-        .case-study-section {
-            background: var(--negro-card);
-            padding: 5rem 2rem;
-            margin: 6rem 0;
-        }
-        
-        .case-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: linear-gradient(135deg, rgba(26, 41, 66, 0.5), rgba(44, 62, 92, 0.5));
-            padding: 4rem;
-            border-radius: 8px;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-        }
-        
-        .case-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .case-label {
-            color: var(--oro);
-            font-size: 0.9rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-        
-        .case-title {
-            font-family: var(--font-display);
-            font-size: 2.2rem;
-            color: white;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-        
-        .case-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-        
-        .case-section h4 {
-            color: var(--oro);
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 2px solid var(--oro);
-        }
-        
-        .case-list {
-            list-style: none;
-            margin-top: 1rem;
-        }
-        
-        .case-list li {
-            padding: 0.8rem 0;
-            padding-left: 2rem;
-            position: relative;
-            color: #ccc;
-            line-height: 1.6;
-        }
-        
-        .case-list li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--oro);
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-        
-        .case-results {
-            background: rgba(10, 22, 40, 0.5);
-            padding: 2.5rem;
-            border-radius: 8px;
-            margin-top: 3rem;
-            border-left: 4px solid var(--oro);
-        }
-        
-        .result-metric {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.2rem;
-        }
-        
-        .result-icon {
-            font-size: 1.5rem;
-            color: var(--oro);
-        }
-        
-        .result-text {
-            font-size: 1.05rem;
-            color: white;
-            font-weight: 600;
-        }
-        
-        .testimonial-box {
-            background: var(--negro);
-            color: white;
-            padding: 3rem;
-            border-radius: 8px;
-            margin-top: 2.5rem;
-            position: relative;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-        
-        .testimonial-box::before {
-            content: '"';
-            font-size: 6rem;
-            color: var(--oro);
-            position: absolute;
-            top: 1rem;
-            left: 2rem;
-            opacity: 0.2;
-            font-family: var(--font-display);
-        }
-        
-        .testimonial-text {
-            font-family: var(--font-display);
-            font-size: 1.4rem;
-            font-style: italic;
-            line-height: 1.7;
-            position: relative;
-            z-index: 1;
-            color: #ddd;
-        }
-        
-        .testimonial-author {
-            margin-top: 1.5rem;
-            color: var(--oro-light);
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                min-height: 90vh;
-                padding: 6rem 1.5rem 3rem;
-            }
-            
-            .hero-stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .stat-card {
-                padding: 1.5rem;
-            }
-            
-            .main-slogan {
-                font-size: 2rem;
-            }
-            
-            .dark-section {
-                padding: 2.5rem 1.5rem;
-            }
-            
-            .container {
-                padding: 4rem 1.5rem;
-            }
-            
-            .grid-herramientas {
-                grid-template-columns: 1fr;
-            }
-            
-            .case-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .case-container {
-                padding: 2.5rem 1.5rem;
-            }
-            
-            h3 {
-                font-size: 1.5rem;
-            }
-            
-            .chat-window {
-                width: calc(100vw - 40px);
-                right: 20px;
-                bottom: 100px;
-            }
-        }
-        
-        /* Scrollbar Premium */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: var(--negro);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: var(--oro);
-            border-radius: 5px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--oro-light);
-        }
+        @media (max-width: 768px) { .nav-links { display: none; } .section-title { font-size: 2.2rem; } }
     </style>
 </head>
 <body>
 
     <nav>
-        <div style="display:flex; align-items:center; gap:15px;">
-            <img src="img/logo-jcnay.jpg" class="favicon-img" alt="JCNay Vida Team">
-            <span class="brand-text">JCNay Vida Team</span>
+        <div class="logo">JCNay <span>Vida Team</span></div>
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#calculadoras">Calculadoras</a>
+            <a href="#descarga-guia">Guía Gratis</a>
+            <a href="#socios">Socios</a>
+            <a href="#contacto">Contacto</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-content">
-            <span class="hero-badge">Arquitectura Digital de Legados</span>
-            <h1 class="main-slogan" id="type-text"></h1>
-            <p class="hero-subtitle">Diseñando Legados Financieros</p>
-            
-            <div class="hero-stats">
-                <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-number">$25M+</div>
-                    <div class="stat-label">En Protección Implementada</div>
-                </div>
-                <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Familias Protegidas</div>
-                </div>
-                <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="stat-number">15</div>
-                    <div class="stat-label">Años de Experiencia</div>
-                </div>
-                <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="stat-number">4.9★</div>
-                    <div class="stat-label">Satisfacción</div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <section id="inicio" style="padding-top: 150px; text-align: center;" data-aos="fade-up">
+        <h1 class="section-title">JCNay <span>Vida Team</span></h1>
+        <p class="subtitle" style="max-width: 700px; margin: 0 auto 30px;">
+            Blindaje Financiero con el estándar de Azure Gold Studio. Protegiendo a las familias hispanas en todos los Estados Unidos.
+        </p>
+        <a href="#agenda" class="btn-main">Agendar Consulta Gratuita</a>
+    </section>
 
-    <div class="container">
+    <section id="calculadoras" style="background: var(--blush); border-radius: 50px 50px 0 0;">
+        <h2 class="section-title">Ecosistema <span>Financiero</span></h2>
+        <p class="subtitle">5 Herramientas clave para tu diagnóstico patrimonial.</p>
         
-        <section class="dark-section" data-aos="fade-up">
-            <div class="section-header">
-                <span class="section-badge">Nuestra Filosofía</span>
-                <h3>Arquitectos de tu Legado</h3>
+        <div class="grid-calcs">
+            <div class="card" data-aos="fade-up">
+                <span class="section-badge">Algoritmo JCNay</span>
+                <h4 style="font-family: var(--font-display);">1. Método D.I.M.E.</h4>
+                <div class="dime-inputs">
+                    <input type="number" id="d_deudas" placeholder="Deudas $">
+                    <input type="number" id="d_ingresos" placeholder="Ingreso x10">
+                    <input type="number" id="d_mortgage" placeholder="Hipoteca $">
+                    <input type="text" id="d_edades" placeholder="Edades hijos" style="grid-column: span 2;">
+                </div>
+                <button onclick="calcularDIME()" class="btn-main">Calcular</button>
+                <div id="res-dime" style="margin-top:10px; font-weight:700; font-size: 0.8rem;"></div>
+                <a id="wa-dime" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Enviar resultados</a>
             </div>
-            <p class="intro-text">
-                En <strong>JCNay Vida Team</strong>, no creemos en los seguros como un gasto, sino como la pieza maestra de su Arquitectura Financiera. 
-                Bajo el concepto del <span class="highlight-oro">Nexo Infinito</span>, fusionamos la solidez institucional con una estrategia personalizada de protección y crecimiento.<br><br>
-                Su éxito ha tomado años en construirse. Nosotros nos aseguramos de que sea eterno.
-            </p>
-        </section>
 
-        <!-- Caso de Estudio -->
-        <section class="case-study-section" data-aos="fade-up">
-            <div class="case-container">
-                <div class="case-header">
-                    <div class="case-label">Caso de Éxito</div>
-                    <h2 class="case-title">Cómo Protegimos el Legado de $2.3M de una Familia en NJ</h2>
-                </div>
-                
-                <div class="case-grid">
-                    <div class="case-section">
-                        <h4>El Desafío</h4>
-                        <p style="color: #999; margin-bottom: 1rem;">Familia profesional (nombre modificado por privacidad)</p>
-                        <ul class="case-list">
-                            <li>Profesionales con $850K ingresos anuales</li>
-                            <li>Sin protección de vida</li>
-                            <li>Hipoteca $450K sin plan de contingencia</li>
-                            <li>2 hijos menores sin plan universitario</li>
-                            <li>Preocupación constante sobre el futuro</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="case-section">
-                        <h4>Solución: Nexo Infinito</h4>
-                        <ul class="case-list">
-                            <li>IUL de $1.5M con cash value acumulativo</li>
-                            <li>Escudo Financiero contra deudas</li>
-                            <li>Plan universitario garantizado $400K</li>
-                            <li>Estrategia de optimización fiscal</li>
-                            <li>Protección multi-generacional</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="case-results">
-                    <h4 style="color: var(--oro); margin-bottom: 1.5rem; border: none;">Resultados Medibles</h4>
-                    <div class="result-metric">
-                        <span class="result-icon">✅</span>
-                        <span class="result-text">$2.3M en protección total implementada</span>
-                    </div>
-                    <div class="result-metric">
-                        <span class="result-icon">✅</span>
-                        <span class="result-text">Paz mental absoluta garantizada</span>
-                    </div>
-                    <div class="result-metric">
-                        <span class="result-icon">✅</span>
-                        <span class="result-text">$15K anuales en beneficios fiscales</span>
-                    </div>
-                    <div class="result-metric">
-                        <span class="result-icon">✅</span>
-                        <span class="result-text">Plan universitario $400K asegurado</span>
-                    </div>
-                </div>
-                
-                <div class="testimonial-box">
-                    <p class="testimonial-text">
-                        Antes vivíamos con miedo constante de qué pasaría si algo nos sucedía. 
-                        JCNay Vida Team no solo nos dio protección - nos dio paz mental absoluta.
-                    </p>
-                    <p class="testimonial-author">— Cliente Profesional, NJ</p>
-                </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <span class="section-badge">Protección de Ingreso</span>
+                <h4 style="font-family: var(--font-display);">2. Valor Humano</h4>
+                <p style="font-size: 0.7rem; margin-bottom: 8px;">¿Cuánto dinero producirás hasta tu jubilación?</p>
+                <input type="number" id="p_ingreso_mes" placeholder="Ingreso Mensual $">
+                <input type="number" id="p_años" placeholder="Años hasta retiro">
+                <button onclick="calcularIngresos()" class="btn-main" style="margin-top:10px; background:var(--navy);">Ver Valor</button>
+                <div id="res-ingresos" style="margin-top:10px; font-weight:700; font-size: 0.8rem;"></div>
+                <a id="wa-ingresos" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Enviar resultados</a>
             </div>
-        </section>
 
-        <section class="dark-section" data-aos="fade-up">
-            <div class="section-header">
-                <span class="section-badge">Recurso Exclusivo</span>
-                <h3>📥 Guía Privada: Banco Libre</h3>
-            </div>
-            <form id="form-guia">
-                <input type="text" name="nombre" placeholder="NOMBRE COMPLETO" required>
-                <input type="number" name="edad" placeholder="EDAD" required>
-                <select name="ingresos" required>
-                    <option value="" disabled selected>INGRESOS ANUALES ESTIMADOS</option>
-                    <option value="Menos de 50K">Menos de $50,000</option>
-                    <option value="50K a 100K">$50,000 a $100,000</option>
-                    <option value="Mas de 100K">Más de $100,000</option>
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <span class="section-badge">Final Expense</span>
+                <h4 style="font-family: var(--font-display);">3. Gastos Finales</h4>
+                <p style="font-size: 0.7rem; margin-bottom: 8px;">Costo estimado de servicios y trámites finales.</p>
+                <select id="g_estado">
+                    <option value="15000">Costo Estándar ($15,000)</option>
+                    <option value="25000">Costo Premium ($25,000)</option>
                 </select>
-                <input type="tel" name="telefono" placeholder="WHATSAPP" required>
-                <input type="email" name="email" placeholder="EMAIL" required>
-                <input type="hidden" name="tipo" value="CLIENTE_GUIA">
-                <button type="submit" class="boton-oro">Solicitar Acceso</button>
+                <button onclick="calcularGastosFinales()" class="btn-main" style="margin-top:28px;">Ver Sugerencia</button>
+                <div id="res-gastos" style="margin-top:10px; font-weight:700; font-size: 0.8rem;"></div>
+                <a id="wa-gastos" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Enviar a Yunersy</a>
+            </div>
+
+            <div class="card" data-aos="fade-up" data-aos-delay="300" style="border: 1px solid var(--gold);">
+                <span class="section-badge" style="background:var(--gold); color:white;">Estrategia Pro</span>
+                <h4 style="font-family: var(--font-display);">4. Acelerador de Deudas</h4>
+                <p style="font-size: 0.75rem; margin-bottom: 15px;">Cómo eliminar deudas bancarias usando tu seguro IUL.</p>
+                <a href="https://jcynay0206.github.io/landing-seguros/" target="_blank" class="btn-main" style="background: var(--gold);">Abrir Simulador <i class="fas fa-external-link-alt"></i></a>
+            </div>
+
+            <div class="card" data-aos="fade-up" data-aos-delay="400">
+                <span class="section-badge">Interés Compuesto</span>
+                <h4 style="font-family: var(--font-display);">5. Ahorro Indexado</h4>
+                <p style="font-size: 0.75rem; margin-bottom: 15px;">Proyecta tu retiro con crecimiento del mercado y riesgo cero.</p>
+                <a href="https://jcynay0206.github.io/calculadora-iul/" target="_blank" class="btn-main" style="background: var(--navy);">Proyectar IUL <i class="fas fa-external-link-alt"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="descarga-guia">
+        <div style="background: var(--navy); color: white; padding: 50px; border-radius: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center;">
+            <div>
+                <span class="section-badge" style="border-color: var(--gold); color: var(--gold);">Lead Magnet</span>
+                <h2 style="font-family: var(--font-display); font-size: 2.5rem; color: white;">Guía: El Banco Libre</h2>
+                <p style="margin: 20px 0; opacity: 0.9;">Descubre el secreto financiero para financiar tus proyectos personales sin depender de los bancos.</p>
+            </div>
+            <div class="card" style="color: var(--navy);">
+                <form id="formGuia">
+                    <input type="text" id="g_nombre" placeholder="Nombre completo" required>
+                    <input type="tel" id="g_tel" placeholder="Tu WhatsApp" required>
+                    <select id="g_ingresos" required>
+                        <option value="">Ingresos anuales...</option>
+                        <option value="-50k">Menos de $50,000</option>
+                        <option value="50-100k">$50,000 - $100,000</option>
+                        <option value="+100k">Más de $100,000</option>
+                    </select>
+                    <button type="submit" class="btn-main" style="width:100%; margin-top:15px; background: var(--gold);">Solicitar a Yunersy</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <h2 class="section-title">Temas de <span>Valor</span></h2>
+        <div class="grid-calcs">
+            <div class="card"><h4>IUL / Banco Libre</h4><p style="font-size: 0.8rem;">Ahorro con protección indexada.</p></div>
+            <div class="card"><h4>Beneficios en Vida</h4><p style="font-size: 0.8rem;">Liquidez ante enfermedades graves.</p></div>
+            <div class="card"><h4>Pago de Hipoteca</h4><p style="font-size: 0.8rem;">Blindaje para tu hogar familiar.</p></div>
+            <div class="card"><h4>College Fund</h4><p style="font-size: 0.8rem;">Ahorro flexible para tus hijos.</p></div>
+            <div class="card"><h4>Retiro Tax-Free</h4><p style="font-size: 0.8rem;">Jubilación sin impuestos del IRS.</p></div>
+            <div class="card"><h4>Negocios</h4><p style="font-size: 0.8rem;">Continuidad para emprendedoras.</p></div>
+        </div>
+    </section>
+
+    <section id="socios" style="background: var(--blush);">
+        <h2 class="section-title">Únete al <span>Team</span></h2>
+        <div style="max-width: 500px; margin: 0 auto;">
+            <form id="formSocios" class="card">
+                <input type="text" id="s_nombre" placeholder="Nombre" required>
+                <input type="tel" id="s_tel" placeholder="WhatsApp" required>
+                <select id="s_lic">
+                    <option value="no">Sin Licencia</option>
+                    <option value="si">Con Licencia</option>
+                </select>
+                <button type="submit" class="btn-main" style="width:100%; margin-top:15px;">Enviar Aplicación</button>
             </form>
-        </section>
-
-        <section data-aos="fade-up">
-            <div class="section-header">
-                <span class="section-badge">Herramientas Interactivas</span>
-                <h3>Análisis D.I.M.E. Interactivo</h3>
-            </div>
-            <div class="card-calc" style="max-width: 900px; margin: 0 auto 3rem auto;">
-                <p style="color: #999; margin-bottom: 2rem; line-height: 1.8;">
-                    Diagnóstico completo de <strong style="color: var(--oro);">D</strong>eudas, <strong style="color: var(--oro);">I</strong>ngresos, <strong style="color: var(--oro);">M</strong>etas y <strong style="color: var(--oro);">E</strong>scenarios
-                </p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-                    <input type="number" id="d_val" placeholder="(D) Deudas Totales $">
-                    <input type="number" id="i_val" placeholder="(I) Ingresos Anuales $">
-                    <input type="number" id="m_val" placeholder="(M) Hipoteca $">
-                    <input type="number" id="e_val" placeholder="(E) Educación $">
-                </div>
-                <button onclick="calcDIME()" class="boton-oro">Obtener Diagnóstico</button>
-                <div id="res-dime" style="display:none;">
-                    Protección Sugerida: <span id="total-dime"></span>
-                </div>
-            </div>
-
-            <div class="grid-herramientas">
-                <div class="card-calc externa" data-aos="fade-up" data-aos-delay="100">
-                    <h4>💰 Acelerador de Deudas</h4>
-                    <p style="color: #999; margin-bottom: 1.5rem; font-size: 0.9rem;">Elimine deudas más rápido mientras construye protección</p>
-                    <a href="https://jcynay0206.github.io/landing-seguros/" target="_blank" class="boton-oro">Abrir</a>
-                </div>
-                <div class="card-calc externa" data-aos="fade-up" data-aos-delay="200">
-                    <h4>🛡️ Escudo Financiero</h4>
-                    <p style="color: #999; margin-bottom: 1.5rem; font-size: 0.9rem;">Calcule la protección necesaria para su patrimonio</p>
-                    <a href="https://jcynay0206.github.io/escudo-financiero/" target="_blank" class="boton-oro">Abrir</a>
-                </div>
-                <div class="card-calc externa" data-aos="fade-up" data-aos-delay="300">
-                    <h4>🎓 Calculadora Universitaria</h4>
-                    <p style="color: #999; margin-bottom: 1.5rem; font-size: 0.9rem;">Proyecte costos y diseñe plan de ahorro garantizado</p>
-                    <a href="https://jcynay0206.github.io/calculadora-universitaria/" target="_blank" class="boton-oro">Abrir</a>
-                </div>
-                <div class="card-calc externa" data-aos="fade-up" data-aos-delay="400">
-                    <h4>📈 Simulador IUL</h4>
-                    <p style="color: #999; margin-bottom: 1.5rem; font-size: 0.9rem;">Visualice crecimiento potencial de su inversión</p>
-                    <a href="https://jcynay0206.github.io/calculadora-iul/" target="_blank" class="boton-oro">Abrir</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="carriers-section" data-aos="fade-up">
-            <div class="section-header">
-                <span class="section-badge">Nuestros Partners</span>
-                <h3>Trabajamos Con Los Mejores Carriers</h3>
-            </div>
-            <div class="aseguradoras-grid">
-                <img src="img/nlg.png" class="logo-aseg" alt="NLG">
-                <img src="img/fg.png" class="logo-aseg" alt="FG">
-                <img src="img/ethos.png" class="logo-aseg" alt="Ethos">
-                <img src="img/american.png" class="logo-aseg" alt="American">
-                <img src="img/senior.png" class="logo-aseg" alt="Senior">
-            </div>
-        </section>
-    </div>
-
-    <!-- Chat Bot Premium (Funcionalidad 100% Preservada) -->
-    <div class="chat-window" id="chatWindow">
-        <div class="chat-header">
-            <span>IA SUPPORT</span>
-            <span onclick="toggleChat()">&times;</span>
         </div>
-        <div id="chat-content"></div>
-        <div class="chat-footer">
-            <input type="text" id="chat-input" placeholder="Escriba su consulta..." onkeypress="if(event.key==='Enter') sendMsg()">
-            <button onclick="sendMsg()"><i class="fas fa-paper-plane"></i></button>
+    </section>
+
+    <section id="contacto">
+        <div class="grid-calcs">
+            <div id="agenda">
+                <div class="calendly-inline-widget" data-url="https://calendly.com/jcnay157/consulta" style="min-width:320px;height:500px;"></div>
+            </div>
+            <div style="padding-top: 20px;">
+                <h3>JCNay Vida Team</h3>
+                <p>908-220-5337 | jcnay157@gmail.com</p>
+                <br>
+                <div style="font-size: 1.5rem;">
+                    <a href="https://instagram.com/blindajefamiliarus" target="_blank" style="margin-right:15px; color:var(--navy);"><i class="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com/yunersyblindajefamiliar" target="_blank" style="margin-right:15px; color:var(--navy);"><i class="fab fa-facebook"></i></a>
+                    <a href="https://youtube.com/@blindajefamiliarUS" target="_blank" style="color:var(--navy);"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 JCNay Vida Team | Estándar Azure Gold Studio</p>
+        <p style="opacity: 0.5; margin-top:10px;">New Jersey, EE.UU. Servicio nacional en los 50 estados.</p>
+    </footer>
+
+    <div id="chat-window">
+        <div style="background: var(--navy); color: white; padding: 15px; font-weight: 700; display:flex; justify-content:space-between;">
+            <span>Nexo Asistente</span>
+            <i class="fas fa-times" id="close-bot" style="cursor:pointer;"></i>
+        </div>
+        <div id="chat-content" style="flex:1; padding: 15px; overflow-y:auto; font-size:0.85rem;">
+            <p style="background:var(--blush); padding:10px; border-radius:10px;">¡Hola! Soy Nexo de JCNay Vida Team. ¿Cómo te ayudo?</p>
+            <div style="display:flex; flex-direction:column; gap:5px; margin-top:10px;">
+                <button class="btn-opt" onclick="botAction('guia')">📘 Solicitar Guía Banco Libre</button>
+                <button class="btn-opt" onclick="botAction('humano')" style="color:var(--terracotta); font-weight:700;">👤 Hablar con Yunersy</button>
+            </div>
+        </div>
+        <div style="padding:10px; border-top:1px solid #eee;">
+            <input type="text" id="bot-input" placeholder="Escribe tus datos...">
         </div>
     </div>
-    <div class="bot-trigger" onclick="toggleChat()"><i class="fas fa-comment-dots"></i></div>
+    <div id="bot-trigger"><i class="fas fa-comment-dots"></i></div>
 
-    <!-- JavaScript - PRESERVADO AL 100% -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     <script>
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-        
-        // CRM URL - PRESERVADO
-        const CRM_URL = 'https://script.google.com/macros/s/AKfycbykZuGS78TLHdGUaGOPvkSVzLIa1h7BfMhcKE6FB-lhf4d3SVcubFkd-scoFGWWBg9hqg/exec';
+        AOS.init({ duration: 1000, once: true });
 
-        // Typewriter Effect - PRESERVADO
-        const slogan = "Más que Seguros, diseñamos Seguridad Financiera";
-        let i = 0;
-        function typeWriter() {
-            if (i < slogan.length) {
-                document.getElementById("type-text").innerHTML += slogan.charAt(i);
-                i++;
-                setTimeout(typeWriter, 70);
-            }
-        }
-        window.onload = typeWriter;
+        const NGROK_URL = 'https://blae-lashaunda-loopily.ngrok-free.dev/guardar-lead';
+        const WA_LINK = "https://wa.me/19082205337";
 
-        // Cálculo DIME - PRESERVADO
-        function calcDIME() {
-            const d = parseFloat(document.getElementById('d_val').value)||0;
-            const i = parseFloat(document.getElementById('i_val').value)||0;
-            const m = parseFloat(document.getElementById('m_val').value)||0;
-            const e = parseFloat(document.getElementById('e_val').value)||0;
-            const total = d + i + m + e;
-            document.getElementById('total-dime').innerText = "$" + total.toLocaleString();
-            document.getElementById('res-dime').style.display = 'block';
-        }
-
-        // Chat Functions - PRESERVADAS
-        function toggleChat() { 
-            const w = document.getElementById('chatWindow'); 
-            w.style.display = (w.style.display==='flex')?'none':'flex'; 
-        }
-        
-        async function sendMsg() {
-            const input = document.getElementById('chat-input');
-            const content = document.getElementById('chat-content');
-            if (!input.value.trim()) return;
-            
-            const val = input.value;
-            content.innerHTML += `<div style="background:var(--oro); color:var(--negro); padding:12px; margin-bottom:15px; align-self:flex-end; max-width:85%; border-radius:8px;">${val}</div>`;
-            input.value = '';
-            content.scrollTop = content.scrollHeight;
-            
+        async function enviarLead(msg) {
             try {
-                const response = await fetch('https://blae-lashaunda-loopily.ngrok-free.dev/webhook-web', {
+                await fetch(NGROK_URL, {
                     method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/json', 
-                        'ngrok-skip-browser-warning': 'true' 
-                    },
-                    body: JSON.stringify({message: val})
+                    headers: { 'Content-Type': 'application/json', 'ngrok-skip-browser-warning': 'true' },
+                    body: JSON.stringify({ info: msg })
                 });
-                const data = await response.json();
-                content.innerHTML += `<div style="border:1px solid #333; background:rgba(255,255,255,0.05); padding:12px; margin-bottom:15px; align-self:flex-start; max-width:85%; color:#ddd; border-radius:8px;">${data.reply}</div>`;
-                content.scrollTop = content.scrollHeight;
-            } catch (err) { 
-                console.log(err); 
-            }
+            } catch (e) { console.log(e); }
         }
 
-        // Form Submit - PRESERVADO
-        document.getElementById('form-guia').addEventListener('submit', function(e){
+        // 1. LÓGICA DIME
+        function calcularDIME() {
+            const d = parseFloat(document.getElementById('d_deudas').value) || 0;
+            const i = parseFloat(document.getElementById('d_ingresos').value) || 0;
+            const m = parseFloat(document.getElementById('d_mortgage').value) || 0;
+            const eds = document.getElementById('d_edades').value;
+            const total = d + i + m + 100000;
+            
+            document.getElementById('res-dime').innerHTML = `Protección Sugerida: $${total.toLocaleString()}`;
+            const btn = document.getElementById('wa-dime');
+            btn.style.display = "block";
+            btn.href = `${WA_LINK}?text=Hola%20Yunersy,%20mi%20resultado%20DIME%20es%20$${total.toLocaleString()}.%20Quiero%20una%20cotización.`;
+            enviarLead(`DIME: $${total}`);
+        }
+
+        // 2. LÓGICA VALOR HUMANO
+        function calcularIngresos() {
+            const mes = parseFloat(document.getElementById('p_ingreso_mes').value) || 0;
+            const años = parseFloat(document.getElementById('p_años').value) || 0;
+            const total = (mes * 12) * años;
+            
+            document.getElementById('res-ingresos').innerHTML = `Valor Humano: $${total.toLocaleString()}`;
+            const btn = document.getElementById('wa-ingresos');
+            btn.style.display = "block";
+            btn.href = `${WA_LINK}?text=Hola%20Yunersy,%20mi%20Valor%20Humano%20es%20$${total.toLocaleString()}.%20¿Cómo%20lo%20protejo?`;
+            enviarLead(`Valor Humano: $${total}`);
+        }
+
+        // 3. LÓGICA GASTOS FINALES
+        function calcularGastosFinales() {
+            const val = document.getElementById('g_estado').value;
+            document.getElementById('res-gastos').innerHTML = `Sugerencia: $${parseInt(val).toLocaleString()}`;
+            const btn = document.getElementById('wa-gastos');
+            btn.style.display = "block";
+            btn.href = `${WA_LINK}?text=Hola%20Yunersy,%20me%20interesa%20un%20plan%20de%20Gastos%20Finales%20de%20$${parseInt(val).toLocaleString()}.`;
+            enviarLead(`Gastos Finales: $${val}`);
+        }
+
+        // FORMULARIOS
+        document.getElementById('formGuia').onsubmit = async (e) => {
             e.preventDefault();
-            fetch(CRM_URL, { 
-                method: 'POST', 
-                body: new FormData(this), 
-                mode: 'no-cors' 
-            });
-            alert("¡Éxito! Iniciando descarga segura...");
-            const a = document.createElement('a'); 
-            a.href='Banco_Libre.pdf'; 
-            a.download='Banco_Libre.pdf'; 
-            a.click();
-        });
+            const info = `GUÍA: ${document.getElementById('g_nombre').value} | WA: ${document.getElementById('g_tel').value}`;
+            await enviarLead(info);
+            alert("Solicitud enviada a Yunersy.");
+        };
+
+        // BOT
+        document.getElementById('bot-trigger').onclick = () => document.getElementById('chat-window').style.display = 'flex';
+        document.getElementById('close-bot').onclick = () => document.getElementById('chat-window').style.display = 'none';
+
+        async function botAction(t) {
+            if(t==='humano') window.open(`${WA_LINK}?text=Hola%20Yunersy,%20vengo%20de%20tu%20web%20y%20necesito%20ayuda.`, '_blank');
+            if(t==='guia') document.getElementById('descarga-guia').scrollIntoView({behavior:'smooth'});
+        }
+
+        document.getElementById('bot-input').onkeypress = async (e) => {
+            if(e.key === 'Enter') {
+                await enviarLead(`Chat Bot: ${e.target.value}`);
+                e.target.value = "";
+                alert("Datos recibidos.");
+            }
+        };
     </script>
 </body>
 </html>
