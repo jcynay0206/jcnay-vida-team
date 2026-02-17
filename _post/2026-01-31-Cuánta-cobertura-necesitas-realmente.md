@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Mi primer artículo"
-date: 2026-02-16
+title: "Mi segundo artículo"
+date: 2026-01-31
 ---
 
 
