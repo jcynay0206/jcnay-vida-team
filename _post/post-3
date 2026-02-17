@@ -1,10 +1,26 @@
----
-layout: post
-title: "Mi tercer articulo artículo"
-date: 2026-02-07
----
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi tercer artículo</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Mi Blog</h1>
+        <nav>
+            <a href="../../index.html">Inicio</a>
+            <a href="../index.html">Blog</a>
+        </nav>
+    </header>
 
-3 errores comunes al contratar un seguro (que pueden costarle caro a tu familia)
+    <main>
+        <article>
+            <h1>Mi tercer artículo</h1>
+            <p class="date">7 de febrero, 2026</p>
+            
+            <p>3 errores comunes al contratar un seguro (que pueden costarle caro a tu familia)
 
 Contratar un seguro de vida no es solo “firmar un papel”.
 Es tomar una decisión que puede sostener o destruir la estabilidad financiera de tu hogar.
@@ -112,4 +128,12 @@ Y si estás considerando convertirte en agente, entiende esto desde el principio
 No vendas por comisión rápida.
 Educa, calcula y diseña correctamente.
 
-Porque cuando haces las cosas bien, no solo vendes un seguro… construyes seguridad y libertad para generaciones.
+Porque cuando haces las cosas bien, no solo vendes un seguro… construyes seguridad y libertad para generaciones....</p>
+        </article>
+
+        <a href="../index.html">← Volver al blog</a>
+    </main>
+</body>
+</html>
+
+
