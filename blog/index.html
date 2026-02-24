@@ -10,9 +10,6 @@
 
 <body>
 
-<!-- ========================= -->
-<!--         HEADER            -->
-<!-- ========================= -->
 <header class="header">
   <nav class="nav container">
     <a href="../index.html" class="logo">JCNay Vida Team</a>
@@ -26,9 +23,6 @@
   </nav>
 </header>
 
-<!-- ========================= -->
-<!--           HERO            -->
-<!-- ========================= -->
 <section style="
   padding: 140px 8%;
   background: var(--blush);
@@ -40,38 +34,23 @@
   </p>
 </section>
 
-<!-- ========================= -->
-<!--        LISTA BLOG         -->
-<!-- ========================= -->
 <section style="padding: 100px 8%;">
   <div class="cards-grid">
 
-    <a href="articulo-1.html" class="card">
-      <h3>Cómo proteger a tu familia en USA</h3>
-      <p>Guía esencial para latinos que buscan claridad y seguridad.</p>
+    {% for post in site.posts %}
+    <a href="{{ post.url }}" class="card">
+      {% if post.image %}
+      <img src="{{ post.image }}" alt="{{ post.title }}" style="width:100%; border-radius: 6px; margin-bottom: 15px;">
+      {% endif %}
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.description }}</p>
+      <span style="opacity: 0.6; font-size: 0.9rem;">{{ post.date | date: "%d %b %Y" }}</span>
     </a>
-
-    <a href="articulo-2.html" class="card">
-      <h3>Errores financieros comunes</h3>
-      <p>Evita los tropiezos más frecuentes y construye estabilidad.</p>
-    </a>
-
-    <a href="articulo-3.html" class="card">
-      <h3>¿Qué es un IUL?</h3>
-      <p>La herramienta que combina protección y crecimiento.</p>
-    </a>
-
-    <a href="articulo-4.html" class="card">
-      <h3>Cómo salir de deudas</h3>
-      <p>Estrategias reales para avanzar sin estrés.</p>
-    </a>
+    {% endfor %}
 
   </div>
 </section>
 
-<!-- ========================= -->
-<!--          FOOTER           -->
-<!-- ========================= -->
 <footer style="padding: 60px 8%; background: var(--navy); color: white; text-align: center;">
   <p style="opacity: 0.8;">Más que seguros, diseñamos Seguridad Financiera.</p>
   <p style="opacity: 0.5; margin-top: 10px;">© 2026 JCNay Vida Team — Azure Gold Studio Standard</p>
