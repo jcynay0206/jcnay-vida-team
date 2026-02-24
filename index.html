@@ -1,371 +1,244 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JCNay Vida Team | Footer Azure Gold Studio</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JCNay Vida Team | Seguridad Financiera</title>
 
-    <style>
-        :root {
-            --blush: #F5E6E0; --ivory: #FAF8F3; --navy: #1A2942;
-            --terracotta: #D97A5E; --gold: #D4AF37;
-            --font-display: "Cormorant Garamond", serif;
-            --font-body: "Montserrat", sans-serif;
-        }
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-body); background-color: var(--ivory); color: var(--navy); line-height: 1.6; }
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-        nav { position: fixed; top: 0; width: 100%; padding: 1rem 5%; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .logo { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--navy); text-transform: uppercase; }
-        .logo span { color: var(--gold); }
-        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--navy); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }
-
-        section { padding: 100px 8%; max-width: 1400px; margin: 0 auto; }
-        .section-title { font-family: var(--font-display); font-size: 3rem; text-align: center; margin-bottom: 15px; }
-        .section-title span { color: var(--gold); }
-        .subtitle { text-align: center; max-width: 700px; margin: 0 auto 50px; opacity: 0.8; }
-
-        .card { background: white; padding: 30px; border-radius: 20px; border: 1px solid var(--blush); transition: 0.4s; position: relative; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); border-color: var(--gold); }
-
-        .carrier-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding: 50px 0; filter: grayscale(1); opacity: 0.6; transition: 0.5s; }
-        .carrier-grid:hover { filter: grayscale(0); opacity: 1; }
-        .carrier-logo { height: 45px; transition: 0.3s; cursor: pointer; }
-        .carrier-logo:hover { transform: scale(1.1); }
-
-        .btn-main { background: var(--terracotta); color: white; padding: 15px 30px; border-radius: 8px; border: none; cursor: pointer; font-weight: 600; text-decoration: none; display: inline-block; text-align: center; transition: 0.3s; width: 100%; }
-        .btn-main:hover { background: var(--navy); transform: scale(1.02); }
-        .btn-wa { background: #25D366; color: white; padding: 10px; border-radius: 8px; text-decoration: none; display: none; margin-top: 15px; text-align: center; font-weight: 700; font-size: 0.8rem; }
-
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        
-        #bot-trigger { position: fixed; bottom: 30px; right: 30px; background: var(--navy); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 2000; box-shadow: 0 10px 30px rgba(0,0,0,0.2); font-size: 1.8rem; }
-        #chat-window { position: fixed; bottom: 110px; right: 30px; width: 350px; height: 500px; background: white; border-radius: 20px; display: none; flex-direction: column; box-shadow: 0 20px 50px rgba(0,0,0,0.2); z-index: 2000; overflow: hidden; border: 1px solid var(--blush); }
-
-        input, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; margin-top: 10px; }
-        .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
-        .modal-content { background: white; margin: 10% auto; padding: 40px; border-radius: 20px; width: 90%; max-width: 600px; position: relative; }
-        .btn-opt { background: #f9f9f9; border: 1px solid #eee; padding: 10px; border-radius: 10px; cursor: pointer; font-size: 0.75rem; margin-bottom: 6px; text-align: left; width: 100%; }
-    </style>
+  <!-- Animaciones -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 </head>
+
 <body>
 
-    <nav>
-        <div class="logo">JCNay <span>Vida Team</span></div>
-        <div class="nav-links">
-            <a href="#inicio">Inicio</a>
-            <a href="#nosotros">Nosotros</a>
-            <a href="#calculadoras">Calculadoras</a>
-            <a href="#blog">Blog</a>
-            <a href="#socios">Socios</a>
-        </div>
-    </nav>
+<!-- ========================= -->
+<!--         HEADER            -->
+<!-- ========================= -->
+<header class="header">
+  <nav class="nav container">
+    <a href="#" class="logo">JCNay Vida Team</a>
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#calculadoras">Calculadoras</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <section id="inicio" style="padding-top: 180px; text-align: center;">
-        <h1 class="section-title">Protección con el <span>Estándar de Oro</span></h1>
-        <p class="subtitle">Diseñamos estrategias de blindaje familiar y retiro libre de impuestos para la comunidad hispana en EE.UU.</p>
-        <a href="#contacto" class="btn-main" style="max-width: 300px;">Agendar Auditoría Gratis</a>
-    </section>
+<!-- ========================= -->
+<!--           HERO            -->
+<!-- ========================= -->
+<section id="inicio" style="
+  padding: 180px 8% 160px;
+  text-align: center;
+  background: var(--ivory) url('assets/img/texture-crema.png') center/cover no-repeat;
+">
+  <h1 class="section-title" data-aos="fade-up" style="font-size: 3.5rem;">
+    Más que seguros, diseñamos Seguridad Financiera
+  </h1>
 
-    <section id="nosotros" style="background: white;">
-        <div class="grid-3" style="align-items: center;">
-            <div data-aos="fade-right">
-                <h2 class="section-title" style="text-align: left;">Sobre <span>JCNay Vida Team</span></h2>
-                <p>Somos un equipo élite de asesores financieros dedicados a romper el ciclo de inseguridad económica en nuestras familias, combinamos educación financiera con las herramientas más poderosas del mercado americano.</p>
-                <br>
-                <p>Nuestra misión es que cada familia tenga un <b>Blindaje Familiar</b> real, con beneficios en vida y un legado garantizado.</p>
-            </div>
-            <div class="card" style="background: var(--blush);" data-aos="fade-left">
-                <h3>Nuestros Valores</h3>
-                <ul style="margin-top: 20px; list-style: none;">
-                    <li><i class="fas fa-check-circle" style="color:var(--gold)"></i> Transparencia Absoluta</li>
-                    <li><i class="fas fa-check-circle" style="color:var(--gold)"></i> Educación antes que venta</li>
-                    <li><i class="fas fa-check-circle" style="color:var(--gold)"></i> Soporte en los 50 estados</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+  <p style="
+    max-width: 750px;
+    margin: 20px auto 40px;
+    opacity: 0.85;
+    font-size: 1.15rem;
+  ">
+    Estrategias de blindaje familiar y crecimiento financiero para la comunidad latina en USA.
+  </p>
 
-    <section id="calculadoras" style="background: var(--ivory);">
-        <h2 class="section-title">Tu <span>Estación</span> Financiera</h2>
-        <div class="grid-3">
-            <div class="card" data-aos="fade-up">
-                <h4>1. Método D.I.M.E.</h4>
-                <input type="number" id="d_deudas" placeholder="Deudas $">
-                <input type="number" id="d_ingresos" placeholder="Ingreso Anual x10">
-                <input type="number" id="d_mortgage" placeholder="Hipoteca $">
-                <button onclick="calcularDIME()" class="btn-main" style="margin-top:15px;">Calcular</button>
-                <div id="res-dime" style="margin-top:10px; font-weight:700;"></div>
-                <a id="wa-dime" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Enviar Resultados</a>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="100">
-                <h4>2. Valor Humano</h4>
-                <input type="number" id="p_mes" placeholder="Ingreso Mensual $">
-                <input type="number" id="p_años" placeholder="Años hasta retiro">
-                <button onclick="calcularIngresos()" class="btn-main" style="margin-top:15px; background:var(--navy);">Ver Valor</button>
-                <div id="res-ingresos" style="margin-top:10px; font-weight:700;"></div>
-                <a id="wa-ingresos" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Enviar Resultados</a>
-            </div>
-            <div class="card" data-aos="fade-up" data-aos-delay="200">
-                <h4>3. Gastos Finales</h4>
-                <select id="g_val">
-                    <option value="15000">Costo Estándar ($15k)</option>
-                    <option value="25000">Costo Premium ($25k)</option>
-                </select>
-                <button onclick="calcularGastos()" class="btn-main" style="margin-top:28px;">Ver Estimado</button>
-                <div id="res-gastos" style="margin-top:10px; font-weight:700;"></div>
-                <a id="wa-gastos" class="btn-wa" target="_blank"><i class="fab fa-whatsapp"></i> Enviar</a>
-            </div>
-            <div class="card" data-aos="fade-up" style="border: 2px solid var(--gold);">
-                <h4>4. Acelerador de Deudas</h4>
-                <p style="font-size: 0.8rem; margin: 10px 0;">Elimina intereses y paga tu casa en la mitad del tiempo.</p>
-                <a href="https://jcynay0206.github.io/landing-seguros/" target="_blank" class="btn-main" style="background:var(--gold);">Simular Ahora</a>
-            </div>
-            <div class="card" data-aos="fade-up">
-                <h4>5. Ahorro IUL</h4>
-                <p style="font-size: 0.8rem; margin: 10px 0;">Interés compuesto indexado para tu jubilación.</p>
-                <a href="https://jcynay0206.github.io/calculadora-iul/" target="_blank" class="btn-main" style="background:var(--navy);">Ver Proyección</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="guia" style="background: var(--navy); color: white; border-radius: 40px; margin: 50px auto;">
-        <div class="grid-3" style="align-items: center;">
-            <div>
-                <h2 style="color: white; font-family: var(--font-display); font-size: 2.5rem;">Guía: El Banco Libre</h2>
-                <p style="margin: 20px 0; opacity: 0.8;">Aprende cómo las familias prósperas usan el IUL para autofinanciarse.</p>
-            </div>
-            <div class="card" style="color: var(--navy);">
-                <form id="formGuia">
-                    <input type="text" id="g_nombre" placeholder="Nombre completo" required>
-                    <input type="tel" id="g_tel" placeholder="WhatsApp" required>
-                    <button type="submit" class="btn-main" style="margin-top:15px; background: var(--gold);">Descargar Guía</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <section class="blog-preview">
-    <h2>Últimas publicaciones</h2>
-    
-    <article>
-        <h3><a href="_post/post-4.html">Cómo usar el seguro como herramienta de legado</a></h3>
-         <p>(No solo para proteger… sino para dejar huella)
-
-Cuando escuchamos “seguro de vida”, muchos piensan en muerte.
-Pero las familias financieramente inteligentes lo ven diferente.
-
-Lo ven como una herramienta para transferir riqueza, proteger generaciones y crear estabilidad cuando ellos ya no estén.
-
-Eso es legado.
-
-Y la mayoría de las familias latinas nunca recibe educación sobre cómo hacerlo correctamente.
-
-Hoy vamos a hablar claro....</p>
-    </article>
-    
-    <article>
-        <h3><a href="blog/_posts/post-3.html">Título del artículo 3</a></h3>
-          <p>Breve descripción...</p>
-    </article>
-
-    <a href="blog/index.html">Ver todos los artículos →</a>
+  <a href="#contacto" class="btn-main" style="max-width: 300px;">
+    Agendar Auditoría Gratis
+  </a>
 </section>
-```
 
-## 3. **Navegación consistente en todo el sitio**
+<!-- ========================= -->
+<!--         NOSOTROS          -->
+<!-- ========================= -->
+<section id="nosotros" style="padding: 100px 8%;">
+  <div class="container" data-aos="fade-up">
+    <h2 class="section-title">Nosotros</h2>
 
-Asegúrate de que tanto tu página principal como todas las páginas del blog tengan el mismo menú de navegación para que los usuarios puedan moverse fácilmente.
+    <p style="max-width: 850px; margin-top: 20px; opacity: 0.85; line-height: 1.7;">
+      En JCNay Vida Team creemos que más que seguros, diseñamos Seguridad Financiera.  
+      Nuestra misión es guiar a las familias latinas en Estados Unidos hacia un futuro
+      más estable, protegido y lleno de oportunidades.  
+      Combinamos educación financiera, estrategias personalizadas y herramientas modernas
+      para ayudarte a tomar decisiones con claridad y confianza.
+    </p>
+  </div>
+</section>
 
-## Ejemplo visual:
-```
-index.html (home)
-    ↓ (enlace "Blog")
-blog/index.html (lista de posts)
-    ↓ (clic en artículo)
-blog/posts/post-1.html (artículo completo)
-    ↓ (botón "volver")
-blog/index.html
-            </div>
-        </div>
-    </section>
+<!-- ========================= -->
+<!--      NÚMEROS QUE HABLAN   -->
+<!-- ========================= -->
+<section style="padding: 100px 8%; background: var(--ivory);">
+  <h2 class="section-title" data-aos="fade-up">Números que Hablan</h2>
 
-    <div class="carrier-grid">
-       <img src="img/nlg.png" class="logo-aseg" alt="NLG">
-                <img src="img/fg.png" class="logo-aseg" alt="FG">
-                <img src="img/ethos.png" class="logo-aseg" alt="Ethos">
-                <img src="img/american.png" class="logo-aseg" alt="American">
-                <img src="img/senior.png" class="logo-aseg" alt="Senior">
+  <div class="stats-grid" data-aos="fade-up" style="margin-top: 50px;">
+    <div class="stat-card">
+      <h3>+250</h3>
+      <p>Familias protegidas</p>
     </div>
 
-    <section id="socios" style="background: var(--blush);">
-        <h2 class="section-title">Únete a nuestro <span>Team</span></h2>
-        <div class="grid-3">
-            <div class="card">
-                <h3>Carrera Profesional</h3>
-                <p>¿Buscas independencia financiera? Te ayudamos a obtener tu licencia y a construir tu propio negocio de seguros.</p>
-                <form id="formSocios" style="margin-top: 20px;">
-                    <input type="text" id="s_nombre" placeholder="Nombre" required>
-                    <input type="tel" id="s_tel" placeholder="WhatsApp" required>
-                    <button type="submit" class="btn-main" style="margin-top: 15px;">Aplicar Ahora</button>
-                </form>
-            </div>
-            <div style="display: flex; align-items: center; justify-content: center;">
-                <i class="fas fa-handshake" style="font-size: 8rem; color: var(--navy); opacity: 0.2;"></i>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto">
-        <h2 class="section-title">Reserva tu <span>Asesoría</span></h2>
-        <div class="card" style="height: 600px; padding: 0;">
-            <div class="calendly-inline-widget" data-url="https://calendly.com/blindajefamiliarus/consulta?primary_color=d4af37" style="min-width:320px;height:600px;"></div>
-        </div>
-    </section>
-
-    <footer style="background: var(--navy); color: white; padding: 60px 8%; text-align: center;">
-        <h3>JCNay Vida Team</h3>
-        <p>jcnay157@gmail.com | 908-220-5337</p>
-        <p style="font-size: 0.7rem; opacity: 0.5; margin-top:20px;">© 2026 JCNay Vida Team | Azure Gold Studio</p>
-    </footer>
-
-    <div id="chat-window">
-        <div style="background: var(--navy); color: white; padding: 15px; font-weight: 700; display: flex; justify-content: space-between;">
-            <span>Nexo Asistente</span>
-            <span onclick="toggleBot()" style="cursor:pointer;">&times;</span>
-        </div>
-        <div id="chat-content" style="flex:1; padding: 15px; overflow-y:auto; font-size: 0.85rem;">
-            <p style="background: var(--blush); padding: 10px; border-radius: 10px;">¡Hola! Soy Nexo. ¿En qué puedo ayudarte hoy?</p>
-            <div id="bot-questions" style="margin-top: 10px;">
-                <button class="btn-opt" onclick="botReply('¿Necesito papeles o SSN?')">📑 ¿Necesito papeles o SSN?</button>
-                <button class="btn-opt" onclick="botReply('Ahorro para hijos')">🎓 Ahorro para hijos</button>
-                <button class="btn-opt" onclick="botReply('Hablar con Yunersy')">👤 Hablar con Yunersy</button>
-            </div>
-        </div>
-        <div style="padding: 10px; border-top: 1px solid #eee;">
-            <input type="text" id="bot-input" placeholder="Pregunta algo...">
-        </div>
-    </div>
-    <div id="bot-trigger" onclick="toggleBot()"><i class="fas fa-comment-dots"></i></div>
-
-    <div id="blogModal" class="modal">
-        <div class="modal-content">
-            <span onclick="closeBlog()" style="position:absolute; top:10px; right:20px; font-size:2rem; cursor:pointer;">&times;</span>
-            <h2 id="modalTitle" style="color: var(--terracotta);"></h2>
-            <div id="modalBody" style="margin-top: 20px;"></div>
-        </div>
+    <div class="stat-card">
+      <h3>+120</h3>
+      <p>Planes financieros diseñados</p>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    
-    <script>
-        AOS.init();
-        
-        // URL DE TU CRM GOOGLE SHEETS
-        const URL_CRM = "https://script.google.com/macros/s/AKfycbykZuGS78TLHdGUaGOPvkSVzLIa1h7BfMhcKE6FB-lhf4d3SVcubFkd-scoFGWWBg9hqg/exec";
-        const WA_LINK = "https://wa.me/19082205337";
+    <div class="stat-card">
+      <h3>+15</h3>
+      <p>Estados atendidos</p>
+    </div>
 
-        // FUNCIÓN MAESTRA DE ENVÍO
-        async function enviarLead(msg) {
-            try {
-                await fetch(URL_CRM, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ info: msg })
-                });
-                console.log("CRM Sincronizado");
-            } catch (e) { console.error("Error CRM:", e); }
-        }
+    <div class="stat-card">
+      <h3>100%</h3>
+      <p>Compromiso con tu futuro</p>
+    </div>
+  </div>
+</section>
 
-        // CALCULADORAS
-        function calcularDIME() {
-            const total = (parseFloat(document.getElementById('d_deudas').value)||0) + (parseFloat(document.getElementById('d_ingresos').value)||0) + (parseFloat(document.getElementById('d_mortgage').value)||0) + 100000;
-            document.getElementById('res-dime').innerText = "Protección Sugerida: $" + total.toLocaleString();
-            const btn = document.getElementById('wa-dime'); btn.style.display="block";
-            btn.href = WA_LINK + "?text=Mi resultado DIME: $" + total.toLocaleString();
-            enviarLead("DIME: " + total);
-        }
+<!-- ========================= -->
+<!--     ASEGURADORAS ALIADAS  -->
+<!-- ========================= -->
+<section id="partners" style="padding: 90px 8%; background: var(--ivory);">
+  <h2 class="section-title">Aseguradoras <span>Aliadas</span></h2>
 
-        function calcularIngresos() {
-            const total = (parseFloat(document.getElementById('p_mes').value)||0) * 12 * (parseFloat(document.getElementById('p_años').value)||0);
-            document.getElementById('res-ingresos').innerText = "Valor Humano: $" + total.toLocaleString();
-            const btn = document.getElementById('wa-ingresos'); btn.style.display="block";
-            btn.href = WA_LINK + "?text=Mi Valor Humano: $" + total.toLocaleString();
-            enviarLead("Valor Humano: " + total);
-        }
+  <div class="partner-strip" style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+  ">
 
-        function calcularGastos() {
-            const val = document.getElementById('g_val').value;
-            document.getElementById('res-gastos').innerText = "Sugerencia: $" + parseInt(val).toLocaleString();
-            const btn = document.getElementById('wa-gastos'); btn.style.display="block";
-            btn.href = WA_LINK + "?text=Gastos Finales: $" + val;
-            enviarLead("Gastos Finales: " + val);
-        }
+    <img src="assets/img/nlg.png" class="partner-logo">
+    <img src="assets/img/fg.png" class="partner-logo">
+    <img src="assets/img/ethos.png" class="partner-logo">
+    <img src="assets/img/american.png" class="partner-logo">
+    <img src="assets/img/senior.png" class="partner-logo">
 
-        // GUÍA
-        document.getElementById('formGuia').onsubmit = async (e) => {
-            e.preventDefault();
-            const info = `GUÍA: ${document.getElementById('g_nombre').value} | WA: ${document.getElementById('g_tel').value}`;
-            await enviarLead(info);
-            alert("Solicitud recibida. Te contactaremos por WhatsApp.");
-            e.target.reset();
-        };
+  </div>
+</section>
 
-        // SOCIOS
-        document.getElementById('formSocios').onsubmit = async (e) => {
-            e.preventDefault();
-            const info = `SOCIO: ${document.getElementById('s_nombre').value} | WA: ${document.getElementById('s_tel').value}`;
-            await enviarLead(info);
-            alert("Aplicación enviada con éxito.");
-            e.target.reset();
-        };
+<!-- ========================= -->
+<!--        TESTIMONIOS        -->
+<!-- ========================= -->
+<section style="padding: 100px 8%;">
+  <h2 class="section-title" data-aos="fade-up">Testimonios</h2>
 
-        // BOT
-        function toggleBot() { 
-            const win = document.getElementById('chat-window');
-            win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
-        }
+  <div class="testimonials-grid" data-aos="fade-up" style="margin-top: 50px;">
+    <div class="testimonial-card">
+      <p>"Gracias a JCNay Vida Team entendí por primera vez cómo proteger a mi familia y construir un futuro real."</p>
+      <h4>— María G.</h4>
+    </div>
 
-        async function botReply(msg) {
-            const content = document.getElementById('chat-content');
-            content.innerHTML += `<p style="text-align:right; margin-top:10px;"><b>Tú:</b> ${msg}</p>`;
-            let r = "Entendido. Yunersy te dará los detalles.";
-            if(msg.includes('papeles')) r = "¡No necesitas SSN! Aceptamos ITIN y Pasaporte.";
-            if(msg.includes('hijos')) r = "Tenemos planes de ahorro infantil excelentes.";
-            if(msg.includes('Yunersy')) {
-                r = "Conectando a WhatsApp...";
-                setTimeout(()=> window.open(WA_LINK, '_blank'), 1000);
-            }
-            setTimeout(() => {
-                content.innerHTML += `<p style="background:#eee; padding:10px; border-radius:10px; margin-top:5px;"><b>Nexo:</b> ${r}</p>`;
-                content.scrollTop = content.scrollHeight;
-            }, 500);
-            await enviarLead("BOT: " + msg);
-        }
+    <div class="testimonial-card">
+      <p>"Su asesoría cambió mi perspectiva financiera. Hoy tengo un plan claro y tranquilidad."</p>
+      <h4>— Carlos R.</h4>
+    </div>
 
-        document.getElementById('bot-input').onkeypress = (e) => {
-            if(e.key === 'Enter') { botReply(e.target.value); e.target.value = ""; }
-        };
+    <div class="testimonial-card">
+      <p>"Profesionales, humanos y estratégicos. Los recomiendo a toda mi comunidad."</p>
+      <h4>— Andrea P.</h4>
+    </div>
+  </div>
+</section>
 
-        // BLOG
-        const blogData = {
-            iul: { t: "El Banco Libre (IUL)", b: "El IUL es un seguro de vida indexado que acumula ahorros. Crece con la bolsa pero nunca pierde si el mercado cae. Es tu propio banco privado." },
-            vida: { t: "Beneficios en Vida", b: "Si sufres una enfermedad crítica, el seguro te adelanta dinero en efectivo mientras sigues vivo para cubrir tus facturas." },
-            retiro: { t: "Retiro Tax-Free", b: "Estructuramos tu póliza para que en el futuro retires dinero libre de impuestos federales (IRS)." }
-        };
-        function openBlog(id) {
-            document.getElementById('modalTitle').innerText = blogData[id].t;
-            document.getElementById('modalBody').innerText = blogData[id].b;
-            document.getElementById('blogModal').style.display = "block";
-        }
-        function closeBlog() { document.getElementById('blogModal').style.display = "none"; }
-    </script>
+<!-- ========================= -->
+<!--        CALCULADORAS       -->
+<!-- ========================= -->
+<section id="calculadoras" style="padding: 100px 8%; background: var(--ivory);">
+  <h2 class="section-title" data-aos="fade-up">Calculadoras</h2>
+
+  <div class="cards-grid" data-aos="fade-up" style="margin-top: 50px;">
+
+    <a href="calculadoras/acelerador.html" class="card">
+      <h3>Acelerador de Deudas</h3>
+      <p>Elimina tus deudas más rápido con estrategia.</p>
+    </a>
+
+    <a href="calculadoras/escudo-financiero.html" class="card">
+      <h3>Escudo Financiero</h3>
+      <p>Protege a tu familia con claridad.</p>
+    </a>
+
+    <a href="calculadoras/universitaria.html" class="card">
+      <h3>Calculadora Universitaria</h3>
+      <p>Planifica la educación de tus hijos.</p>
+    </a>
+
+    <a href="calculadoras/iul.html" class="card">
+      <h3>Calculadora IUL</h3>
+      <p>Proyecta tu crecimiento financiero.</p>
+    </a>
+
+  </div>
+</section>
+
+<!-- ========================= -->
+<!--           BLOG            -->
+<!-- ========================= -->
+<section id="blog" style="padding: 100px 8%;">
+  <h2 class="section-title" data-aos="fade-up">Blog</h2>
+
+  <div class="cards-grid" data-aos="fade-up" style="margin-top: 50px;">
+
+    <a href="blog/articulo-1.html" class="card">
+      <h3>Cómo proteger a tu familia en USA</h3>
+      <p>Guía esencial para latinos.</p>
+    </a>
+
+    <a href="blog/articulo-2.html" class="card">
+      <h3>Errores financieros comunes</h3>
+      <p>Evítalos y construye estabilidad.</p>
+    </a>
+
+    <a href="blog/articulo-3.html" class="card">
+      <h3>¿Qué es un IUL?</h3>
+      <p>La herramienta que combina protección y crecimiento.</p>
+    </a>
+
+    <a href="blog/articulo-4.html" class="card">
+      <h3>Cómo salir de deudas</h3>
+      <p>Estrategias reales para avanzar.</p>
+    </a>
+
+  </div>
+</section>
+
+<!-- ========================= -->
+<!--           CONTACTO        -->
+<!-- ========================= -->
+<section id="contacto" style="padding: 100px 8%; background: var(--ivory); text-align: center;">
+  <h2 class="section-title">Agenda tu Auditoría</h2>
+
+  <p style="max-width: 700px; margin: 20px auto; opacity: 0.85;">
+    Conversemos sobre tu futuro financiero y diseñemos un plan que te dé claridad, protección y crecimiento.
+  </p>
+
+  <iframe src="https://calendly.com" style="width:100%; height:600px; border:none;"></iframe>
+</section>
+
+<!-- ========================= -->
+<!--          FOOTER           -->
+<!-- ========================= -->
+<footer style="padding: 60px 8%; background: var(--navy); color: white; text-align: center;">
+  <p style="opacity: 0.8;">Más que seguros, diseñamos Seguridad Financiera.</p>
+  <p style="opacity: 0.5; margin-top: 10px;">© 2026 JCNay Vida Team — Azure Gold Studio Standard</p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
 </body>
 </html>
