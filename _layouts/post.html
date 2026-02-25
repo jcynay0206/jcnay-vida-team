@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | JCNay Vida Team</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #0a1a2a;
+      --gold: #c9a86a;
+      --ivory: #faf7f2;
+      --muted: #6b6b6b;
+      --radius: 16px;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--ivory);
+      color: var(--navy);
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero {
+      padding: 80px 20px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .category {
+      font-size: 0.8rem;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.8rem;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .hero-img {
+      width: 100%;
+      max-width: 900px;
+      height: 380px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      margin: 0 auto 40px;
+      display: block;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .content h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      margin: 40px 0 16px;
+    }
+
+    .content p {
+      margin-bottom: 18px;
+    }
+
+    .quote {
+      border-left: 4px solid var(--gold);
+      padding-left: 18px;
+      margin: 30px 0;
+      font-style: italic;
+      color: var(--navy);
+    }
+
+    .highlight {
+      background: #fff7e1;
+      border-left: 4px solid var(--gold);
+      padding: 18px;
+      border-radius: var(--radius);
+      margin: 30px 0;
+      font-size: 1rem;
+    }
+
+    .cta {
+      margin-top: 60px;
+      background: var(--navy);
+      color: #fff;
+      padding: 40px 30px;
+      border-radius: var(--radius);
+      text-align: center;
+    }
+
+    .cta h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      margin-bottom: 20px;
+      color: #e8e8e8;
+    }
+
+    .cta-btn {
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .cta-btn:hover {
+      background: #b89555;
+    }
+
+    .nav-links {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="category">{{ page.category }}</div>
+    <h1>{{ page.title }}</h1>
+    <div class="meta">{{ page.date | date: "%B %d, %Y" }}</div>
+  </section>
+
+  {% if page.image %}
+    <img src="{{ page.image }}" class="hero-img">
+  {% endif %}
+
+  <section class="content">
+    {{ content }}
+
+    <div class="cta">
+      <h3>¿Lista para claridad financiera real?</h3>
+      <p>Agenda tu diagnóstico editorial y construyamos juntas un plan que proteja tu presente y tu futuro.</p>
+      <button class="cta-btn" onclick="window.location.href='https://calendly.com/blindajefamiliarus'">Agendar Diagnóstico</button>
+    </div>
+
+    <div class="nav-links">
+      {% if page.previous %}
+        <a href="{{ page.previous.url }}">← Artículo anterior</a>
+      {% endif %}
+      {% if page.next %}
+        <a href="{{ page.next.url }}">Siguiente artículo →</a>
+      {% endif %}
+    </div>
+  </section>
+
+</body>
+</html>
