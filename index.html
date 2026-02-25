@@ -3,242 +3,335 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JCNay Vida Team | Seguridad Financiera</title>
+  <title>JCNay Vida Team | Protección Financiera Editorial</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Animaciones -->
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <style>
+    :root {
+      --navy: #0a1a2a;
+      --gold: #c9a86a;
+      --ivory: #faf7f2;
+      --muted: #6b6b6b;
+      --radius: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--ivory);
+      color: var(--navy);
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 40px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 26px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    nav ul li a:hover {
+      color: var(--gold);
+    }
+
+    /* HERO MINIMALISTA */
+    .hero {
+      padding: 120px 20px 100px;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 3.2rem;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto 30px;
+      line-height: 1.6;
+    }
+
+    .hero-line {
+      width: 80px;
+      height: 3px;
+      background: var(--gold);
+      margin: 24px auto 0;
+      border-radius: 2px;
+    }
+
+    /* SECTION WRAPPER */
+    .section {
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+
+    .section h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .section p {
+      text-align: center;
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    /* GRID */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 26px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 26px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      text-align: center;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* BLOG PREVIEW */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .blog-card {
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .blog-card-body {
+      padding: 20px;
+    }
+
+    .blog-card-body h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    /* CTA FINAL */
+    .cta {
+      background: var(--navy);
+      color: #fff;
+      padding: 60px 30px;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .cta h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      margin-bottom: 24px;
+      color: #e8e8e8;
+    }
+
+    .btn-primary {
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .btn-primary:hover {
+      background: #b89555;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+      margin-top: 80px;
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- ========================= -->
-<!--         HEADER            -->
-<!-- ========================= -->
-<header class="header">
-  <nav class="nav container">
-    <a href="#" class="logo">JCNay Vida Team</a>
-    <ul class="nav-links">
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#nosotros">Nosotros</a></li>
-      <li><a href="#calculadoras">Calculadoras</a></li>
-      <li><a href="#blog">Blog</a></li>
+  <!-- NAV -->
+  <nav>
+    <div class="logo">JCNay Vida Team</div>
+    <ul>
+      <li><a href="/index.html">Inicio</a></li>
+      <li><a href="/calculadoras/">Calculadoras</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="/unete/">Únete</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
-</header>
 
-<!-- ========================= -->
-<!--           HERO            -->
-<!-- ========================= -->
-<section id="inicio" style="
-  padding: 180px 8% 160px;
-  text-align: center;
-  background: var(--ivory) url('assets/img/texture-crema.png') center/cover no-repeat;
-">
-  <h1 class="section-title" data-aos="fade-up" style="font-size: 3.5rem;">
-    Más que seguros, diseñamos Seguridad Financiera
-  </h1>
+  <!-- HERO MINIMALISTA -->
+  <section class="hero">
+    <h1>Protección Financiera con Estrategia, Claridad y Humanidad</h1>
+    <p>Herramientas, educación y acompañamiento para familias que quieren construir un futuro sólido, protegido y libre de impuestos.</p>
+    <div class="hero-line"></div>
+  </section>
 
-  <p style="
-    max-width: 750px;
-    margin: 20px auto 40px;
-    opacity: 0.85;
-    font-size: 1.15rem;
-  ">
-    Estrategias de blindaje familiar y crecimiento financiero para la comunidad latina en USA.
-  </p>
+  <!-- SERVICIOS -->
+  <section class="section">
+    <h2>Servicios</h2>
+    <p>Soluciones diseñadas para proteger tu presente y construir tu futuro con intención.</p>
 
-  <a href="#contacto" class="btn-main" style="max-width: 300px;">
-    Agendar Auditoría Gratis
-  </a>
-</section>
+    <div class="grid-3">
+      <div class="card" onclick="window.location.href='/calculadoras/dime/'">
+        <h3>Protección Familiar</h3>
+        <p>Evalúa cuánto necesita tu familia para estar protegida con claridad y estrategia.</p>
+      </div>
 
-<!-- ========================= -->
-<!--         NOSOTROS          -->
-<!-- ========================= -->
-<section id="nosotros" style="padding: 100px 8%;">
-  <div class="container" data-aos="fade-up">
-    <h2 class="section-title">Nosotros</h2>
+      <div class="card" onclick="window.location.href='/calculadoras/escudo/'">
+        <h3>Escudo Financiero</h3>
+        <p>Compara IUL vs Banco y descubre cómo proteger tu crecimiento.</p>
+      </div>
 
-    <p style="max-width: 850px; margin-top: 20px; opacity: 0.85; line-height: 1.7;">
-      En JCNay Vida Team creemos que más que seguros, diseñamos Seguridad Financiera.  
-      Nuestra misión es guiar a las familias latinas en Estados Unidos hacia un futuro
-      más estable, protegido y lleno de oportunidades.  
-      Combinamos educación financiera, estrategias personalizadas y herramientas modernas
-      para ayudarte a tomar decisiones con claridad y confianza.
-    </p>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!--      NÚMEROS QUE HABLAN   -->
-<!-- ========================= -->
-<section style="padding: 100px 8%; background: var(--ivory);">
-  <h2 class="section-title" data-aos="fade-up">Números que Hablan</h2>
-
-  <div class="stats-grid" data-aos="fade-up" style="margin-top: 50px;">
-    <div class="stat-card">
-      <h3>+250</h3>
-      <p>Familias protegidas</p>
+      <div class="card" onclick="window.location.href='/calculadoras/universidad/'">
+        <h3>Planificación Universitaria</h3>
+        <p>Evita que la universidad destruya tus finanzas con estrategias inteligentes.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="stat-card">
-      <h3>+120</h3>
-      <p>Planes financieros diseñados</p>
+  <!-- BLOG -->
+  <section class="section">
+    <h2>Desde el Blog</h2>
+    <p>Ideas, claridad y estrategias para tomar decisiones financieras inteligentes.</p>
+
+    <div class="blog-grid">
+      <div class="blog-card" onclick="window.location.href='/blog/2026/02/25/error-silencioso.html'">
+        <img src="/assets/blog/hero1.jpg">
+        <div class="blog-card-body">
+          <h3>El error silencioso que está costando miles</h3>
+        </div>
+      </div>
+
+      <div class="blog-card" onclick="window.location.href='/blog/2026/02/25/proteger-familia.html'">
+        <img src="/assets/blog/hero2.jpg">
+        <div class="blog-card-body">
+          <h3>Cómo proteger a tu familia sin pagar de más</h3>
+        </div>
+      </div>
+
+      <div class="blog-card" onclick="window.location.href='/blog/2026/02/25/universidad-finanzas.html'">
+        <img src="/assets/blog/hero3.jpg">
+        <div class="blog-card-body">
+          <h3>Cómo evitar que la universidad destruya tus finanzas</h3>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="stat-card">
-      <h3>+15</h3>
-      <p>Estados atendidos</p>
+  <!-- ÚNETE -->
+  <section class="section">
+    <h2>Únete al Equipo</h2>
+    <p>Construye una carrera sólida en planificación financiera con formación profesional y crecimiento real.</p>
+
+    <div class="grid-3">
+      <div class="card" onclick="window.location.href='/unete/'">
+        <h3>Oportunidad Profesional</h3>
+        <p>Descubre cómo puedes crecer dentro de la industria financiera.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="stat-card">
-      <h3>100%</h3>
-      <p>Compromiso con tu futuro</p>
+  <!-- CONTACTO -->
+  <section class="section" id="contacto">
+    <div class="cta">
+      <h2>¿Lista para claridad financiera real?</h2>
+      <p>Agenda tu diagnóstico editorial y construyamos juntas un plan que proteja tu presente y tu futuro.</p>
+
+      <button class="btn-primary" onclick="window.location.href='https://calendly.com/blindajefamiliarus'">Agendar Diagnóstico</button>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ========================= -->
-<!--     ASEGURADORAS ALIADAS  -->
-<!-- ========================= -->
-<section id="partners" style="padding: 90px 8%; background: var(--ivory);">
-  <h2 class="section-title">Aseguradoras <span>Aliadas</span></h2>
-
-  <div class="partner-strip" style="
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
-    margin-top: 50px;
-    flex-wrap: wrap;
-  ">
-
-    <img src="assets/img/nlg.png" class="partner-logo">
-    <img src="assets/img/fg.png" class="partner-logo">
-    <img src="assets/img/ethos.png" class="partner-logo">
-    <img src="assets/img/american.png" class="partner-logo">
-    <img src="assets/img/senior.png" class="partner-logo">
-
-  </div>
-</section>
-
-<!-- ========================= -->
-<!--        TESTIMONIOS        -->
-<!-- ========================= -->
-<section style="padding: 100px 8%;">
-  <h2 class="section-title" data-aos="fade-up">Testimonios</h2>
-
-  <div class="testimonials-grid" data-aos="fade-up" style="margin-top: 50px;">
-    <div class="testimonial-card">
-      <p>"Gracias a JCNay Vida Team entendí por primera vez cómo proteger a mi familia y construir un futuro real."</p>
-      <h4>— María G.</h4>
-    </div>
-
-    <div class="testimonial-card">
-      <p>"Su asesoría cambió mi perspectiva financiera. Hoy tengo un plan claro y tranquilidad."</p>
-      <h4>— Carlos R.</h4>
-    </div>
-
-    <div class="testimonial-card">
-      <p>"Profesionales, humanos y estratégicos. Los recomiendo a toda mi comunidad."</p>
-      <h4>— Andrea P.</h4>
-    </div>
-  </div>
-</section>
-
-<!-- ========================= -->
-<!--        CALCULADORAS       -->
-<!-- ========================= -->
-<section id="calculadoras" style="padding: 100px 8%; background: var(--ivory);">
-  <h2 class="section-title" data-aos="fade-up">Calculadoras</h2>
-
-  <div class="cards-grid" data-aos="fade-up" style="margin-top: 50px;">
-
-    <a href="calculadoras/acelerador.html" class="card">
-      <h3>Acelerador de Deudas</h3>
-      <p>Elimina tus deudas más rápido con estrategia.</p>
-    </a>
-
-    <a href="calculadoras/escudo-financiero.html" class="card">
-      <h3>Escudo Financiero</h3>
-      <p>Protege a tu familia con claridad.</p>
-    </a>
-
-    <a href="calculadoras/universitaria.html" class="card">
-      <h3>Calculadora Universitaria</h3>
-      <p>Planifica la educación de tus hijos.</p>
-    </a>
-
-    <a href="calculadoras/iul.html" class="card">
-      <h3>Calculadora IUL</h3>
-      <p>Proyecta tu crecimiento financiero.</p>
-    </a>
-
-  </div>
-</section>
-
-<!-- ========================= -->
-<!--           BLOG            -->
-<!-- ========================= -->
-<section id="blog" style="padding: 100px 8%;">
-  <h2 class="section-title" data-aos="fade-up">Blog</h2>
-
-  <div class="cards-grid" data-aos="fade-up" style="margin-top: 50px;">
-
-    <a href="blog/articulo-1.html" class="card">
-      <h3>Cómo proteger a tu familia en USA</h3>
-      <p>Guía esencial para latinos.</p>
-    </a>
-
-    <a href="blog/articulo-2.html" class="card">
-      <h3>Errores financieros comunes</h3>
-      <p>Evítalos y construye estabilidad.</p>
-    </a>
-
-    <a href="blog/articulo-3.html" class="card">
-      <h3>¿Qué es un IUL?</h3>
-      <p>La herramienta que combina protección y crecimiento.</p>
-    </a>
-
-    <a href="blog/articulo-4.html" class="card">
-      <h3>Cómo salir de deudas</h3>
-      <p>Estrategias reales para avanzar.</p>
-    </a>
-
-  </div>
-</section>
-
-<!-- ========================= -->
-<!--           CONTACTO        -->
-<!-- ========================= -->
-<section id="contacto" style="padding: 100px 8%; background: var(--ivory); text-align: center;">
-  <h2 class="section-title">Agenda tu Auditoría</h2>
-
-  <p style="max-width: 700px; margin: 20px auto; opacity: 0.85;">
-    Conversemos sobre tu futuro financiero y diseñemos un plan que te dé claridad, protección y crecimiento.
-  </p>
-
-  <iframe src="https://calendly.com" style="width:100%; height:600px; border:none;"></iframe>
-</section>
-
-<!-- ========================= -->
-<!--          FOOTER           -->
-<!-- ========================= -->
-<footer style="padding: 60px 8%; background: var(--navy); color: white; text-align: center;">
-  <p style="opacity: 0.8;">Más que seguros, diseñamos Seguridad Financiera.</p>
-  <p style="opacity: 0.5; margin-top: 10px;">© 2026 JCNay Vida Team — Azure Gold Studio Standard</p>
-</footer>
-
-<!-- Scripts -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 JCNay Vida Team — Protección Financiera Editorial
+  </footer>
 
 </body>
 </html>
