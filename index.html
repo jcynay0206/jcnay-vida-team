@@ -24,7 +24,6 @@
       color: var(--navy);
     }
 
-    /* NAV */
     nav {
       display: flex;
       justify-content: space-between;
@@ -56,11 +55,8 @@
       font-size: 0.95rem;
     }
 
-    nav ul li a:hover {
-      color: var(--gold);
-    }
+    nav ul li a:hover { color: var(--gold); }
 
-    /* HERO MINIMALISTA */
     .hero {
       padding: 120px 20px 100px;
       text-align: center;
@@ -91,7 +87,6 @@
       border-radius: 2px;
     }
 
-    /* SECTION WRAPPER */
     .section {
       max-width: 1100px;
       margin: 80px auto;
@@ -113,7 +108,6 @@
       line-height: 1.6;
     }
 
-    /* GRID */
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -147,43 +141,6 @@
       line-height: 1.5;
     }
 
-    /* BLOG PREVIEW */
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-    }
-
-    .blog-card {
-      background: #fff;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-      cursor: pointer;
-      transition: 0.25s;
-    }
-
-    .blog-card:hover {
-      transform: translateY(-6px);
-    }
-
-    .blog-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .blog-card-body {
-      padding: 20px;
-    }
-
-    .blog-card-body h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.3rem;
-      margin-bottom: 10px;
-    }
-
-    /* CTA FINAL */
     .cta {
       background: var(--navy);
       color: #fff;
@@ -215,11 +172,8 @@
       transition: 0.25s;
     }
 
-    .btn-primary:hover {
-      background: #b89555;
-    }
+    .btn-primary:hover { background: #b89555; }
 
-    /* FOOTER */
     footer {
       background: #fff;
       padding: 40px 20px;
@@ -234,91 +188,45 @@
 
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="logo">JCNay Vida Team</div>
     <ul>
-      <li><a href="/index.html">Inicio</a></li>
-      <li><a href="/calculadoras/">Calculadoras</a></li>
-      <li><a href="/blog/">Blog</a></li>
-      <li><a href="/unete/">Únete</a></li>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="calculadoras/">Calculadoras</a></li>
+      <li><a href="blog/">Blog</a></li>
+      <li><a href="unete/">Únete</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
 
-  <!-- HERO MINIMALISTA -->
   <section class="hero">
     <h1>Protección Financiera con Estrategia, Claridad y Humanidad</h1>
     <p>Herramientas, educación y acompañamiento para familias que quieren construir un futuro sólido, protegido y libre de impuestos.</p>
     <div class="hero-line"></div>
   </section>
 
-  <!-- SERVICIOS -->
   <section class="section">
     <h2>Servicios</h2>
     <p>Soluciones diseñadas para proteger tu presente y construir tu futuro con intención.</p>
 
     <div class="grid-3">
-      <div class="card" onclick="window.location.href='/calculadoras/dime/'">
+      <div class="card" onclick="window.location.href='calculadoras/dime/'">
         <h3>Protección Familiar</h3>
         <p>Evalúa cuánto necesita tu familia para estar protegida con claridad y estrategia.</p>
       </div>
 
-      <div class="card" onclick="window.location.href='/calculadoras/escudo/'">
+      <div class="card" onclick="window.location.href='calculadoras/escudo/'">
         <h3>Escudo Financiero</h3>
         <p>Compara IUL vs Banco y descubre cómo proteger tu crecimiento.</p>
       </div>
 
-      <div class="card" onclick="window.location.href='/calculadoras/universidad/'">
+      <div class="card" onclick="window.location.href='calculadoras/universidad/'">
         <h3>Planificación Universitaria</h3>
         <p>Evita que la universidad destruya tus finanzas con estrategias inteligentes.</p>
       </div>
     </div>
   </section>
 
-  <!-- BLOG -->
-  <section class="section">
-    <h2>Desde el Blog</h2>
-    <p>Ideas, claridad y estrategias para tomar decisiones financieras inteligentes.</p>
-
-    <div class="blog-grid">
-      <div class="blog-card" onclick="window.location.href='/blog/2026/02/25/error-silencioso.html'">
-        <img src="/assets/blog/hero1.jpg">
-        <div class="blog-card-body">
-          <h3>El error silencioso que está costando miles</h3>
-        </div>
-      </div>
-
-      <div class="blog-card" onclick="window.location.href='/blog/2026/02/25/proteger-familia.html'">
-        <img src="/assets/blog/hero2.jpg">
-        <div class="blog-card-body">
-          <h3>Cómo proteger a tu familia sin pagar de más</h3>
-        </div>
-      </div>
-
-      <div class="blog-card" onclick="window.location.href='/blog/2026/02/25/universidad-finanzas.html'">
-        <img src="/assets/blog/hero3.jpg">
-        <div class="blog-card-body">
-          <h3>Cómo evitar que la universidad destruya tus finanzas</h3>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ÚNETE -->
-  <section class="section">
-    <h2>Únete al Equipo</h2>
-    <p>Construye una carrera sólida en planificación financiera con formación profesional y crecimiento real.</p>
-
-    <div class="grid-3">
-      <div class="card" onclick="window.location.href='/unete/'">
-        <h3>Oportunidad Profesional</h3>
-        <p>Descubre cómo puedes crecer dentro de la industria financiera.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACTO -->
   <section class="section" id="contacto">
     <div class="cta">
       <h2>¿Lista para claridad financiera real?</h2>
@@ -328,7 +236,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     © 2026 JCNay Vida Team — Protección Financiera Editorial
   </footer>
