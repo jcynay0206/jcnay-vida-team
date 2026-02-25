@@ -1,0 +1,147 @@
+---
+layout: post
+title: "¿Cuánta cobertura de seguro de vida necesitas realmente?"
+description: "La pregunta que casi nadie calcula bien… y que puede cambiar el futuro de tu familia."
+date: 2026-01-31
+categories: [seguros, finanzas]
+---
+
+## ¿Cuánta cobertura necesitas realmente?
+
+*(La pregunta que casi nadie calcula bien… y que puede cambiar el futuro de tu familia)*
+
+La mayoría de las familias compran seguro de vida basándose en lo que “pueden pagar” y no en lo que realmente necesitan.
+
+Ese es el primer error.
+
+El seguro no se calcula por emoción ni por precio.  
+**Se calcula por responsabilidad.**
+
+Hoy vamos a hacerlo de forma clara y directa.
+
+---
+
+## 1. Empieza por tu ingreso anual
+
+Tu ingreso es el motor financiero de tu hogar.
+
+Si mañana ese ingreso desaparece, ¿cuánto tiempo podría sobrevivir tu familia sin cambiar su estilo de vida?
+
+**Regla básica y práctica:**  
+Entre **10 y 15 veces tu ingreso anual**.
+
+**Ejemplo:**  
+Si ganas $70,000 al año →  
+Necesitas entre **$700,000 y $1,050,000** en cobertura.
+
+¿Por qué tanto?
+
+Porque no se trata solo del funeral.  
+Se trata de **reemplazar ingresos durante años**.
+
+---
+
+## 2. Suma tus deudas reales
+
+Incluye:
+
+- Hipoteca  
+- Préstamos de auto  
+- Tarjetas de crédito  
+- Deudas personales  
+
+Si debes $250,000 de casa y $30,000 en otras deudas, eso también debe estar cubierto.
+
+Muchos olvidan esto y dejan a su familia heredando deudas.
+
+---
+
+## 3. Educación de tus hijos
+
+¿Quieres que tus hijos tengan opciones?
+
+La universidad en EE.UU. puede costar entre **$80,000 y $200,000 por hijo** dependiendo del estado.
+
+Si tienes dos hijos pequeños, eso es un factor importante.
+
+---
+
+## 4. Gastos finales (sí, también cuentan)
+
+Un funeral promedio puede costar entre **$10,000 y $20,000**.
+
+No es el punto principal… pero sí es parte del cálculo.
+
+---
+
+## Fórmula práctica
+
+- Ingreso anual × 10 o 15  
+- Deudas  
+- Educación  
+- Gastos finales  
+
+Ese es un cálculo responsable.
+
+---
+
+## Error común que veo todos los días
+
+Familias con ingresos de $80,000 al año comprando pólizas de $100,000 porque “es lo que el amigo les vendió”.
+
+Eso no protege.  
+Eso da una **falsa sensación de seguridad**.
+
+---
+
+## ¿Y qué tipo de póliza usar?
+
+Depende de tu estrategia.
+
+### ✔ Si solo quieres protección temporal  
+El **término** puede funcionar.
+
+### ✔ Si quieres protección permanente + acumulación  
+Una estrategia como un **Indexed Universal Life (IUL)** puede ayudarte a:
+
+- Proteger a tu familia  
+- Acumular valor en efectivo  
+- Tener acceso a dinero libre de impuestos en el futuro  
+
+Pero cuidado:  
+**Mal estructurado, no cumple su propósito.**  
+El diseño importa más que el producto.
+
+---
+
+## La pregunta real que debes hacerte
+
+No es:
+
+> “¿Cuánto cuesta el seguro?”
+
+Es:
+
+> **“¿Cuánto costaría no tener suficiente cobertura?”**
+
+La diferencia puede ser la estabilidad o el colapso financiero de tu familia.
+
+---
+
+## Conclusión
+
+La cobertura correcta no se elige por presupuesto.  
+**Se diseña según tu responsabilidad.**
+
+Si tienes hijos, deudas o alguien que depende de ti…  
+Tu ingreso es tu activo más valioso.
+
+Protégelo como tal.
+
+Y si estás pensando en convertirte en agente, aprende esto desde el inicio:
+
+**No vendas números pequeños para cerrar rápido.  
+Educa, calcula y diseña bien.**
+
+Porque cuando un asesor entiende esto…  
+Deja de vender pólizas y empieza a construir futuros.
