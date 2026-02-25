@@ -4,96 +4,341 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Únete al Equipo | JCNay Vida Team</title>
-  <link rel="stylesheet" href="../assets/css/style.css">
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #0a1a2a;
+      --gold: #c9a86a;
+      --ivory: #faf7f2;
+      --muted: #6b6b6b;
+      --radius: 16px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--ivory);
+      color: var(--navy);
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .hero img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.45);
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 24px;
+      color: #e8e8e8;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .btn-primary:hover { background: #b89555; }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+    }
+
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+
+    /* SECTION WRAPPER */
+    .section {
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+
+    .section h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .section p {
+      text-align: center;
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    /* BENEFITS GRID */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 26px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 26px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+
+    .card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      max-width: 700px;
+      margin: 40px auto;
+      border-left: 2px solid var(--gold);
+      padding-left: 20px;
+    }
+
+    .step {
+      margin-bottom: 30px;
+    }
+
+    .step h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* FAQ */
+    .faq-item {
+      background: #fff;
+      padding: 20px;
+      border-radius: var(--radius);
+      margin-bottom: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    }
+
+    .faq-item h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .faq-item p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* CTA FINAL */
+    .cta {
+      background: var(--navy);
+      color: #fff;
+      padding: 60px 30px;
+      border-radius: var(--radius);
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .cta h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      margin-bottom: 24px;
+      color: #e8e8e8;
+    }
+  </style>
 </head>
 
 <body>
 
-<header class="header">
-  <nav class="nav container">
-    <a href="../index.html" class="logo">JCNay Vida Team</a>
-    <ul class="nav-links">
-      <li><a href="../index.html#inicio">Inicio</a></li>
-      <li><a href="../index.html#nosotros">Nosotros</a></li>
-      <li><a href="../index.html#calculadoras">Calculadoras</a></li>
-      <li><a href="../blog/index.html">Blog</a></li>
-      <li><a href="../index.html#contacto">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
+  <!-- HERO -->
+  <section class="hero">
+    <img src="/assets/unete/hero-corporativo.jpg" alt="Equipo corporativo">
+    <div class="hero-content">
+      <h1>Construye una Carrera Sólida en Planificación Financiera</h1>
+      <p>Únete a un equipo profesional, con formación continua, liderazgo real y oportunidades de crecimiento dentro de la industria.</p>
 
-<!-- HERO -->
-<section style="
-  padding: 140px 8%;
-  background: var(--blush);
-  text-align: center;
-">
-  <h1 class="section-title">Únete al Equipo</h1>
-  <p style="max-width: 700px; margin: 20px auto; opacity: 0.85;">
-    Construye una carrera con propósito, impacto y libertad financiera.
-  </p>
-</section>
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="window.location.href='https://calendly.com/blindajefamiliarus'">Agendar Entrevista</button>
+        <button class="btn btn-ghost" onclick="window.location.href='https://wa.me/19086774196'">Hablar por WhatsApp</button>
+      </div>
+    </div>
+  </section>
 
-<!-- CONTENIDO -->
-<section style="padding: 100px 8%; max-width: 900px; margin: auto;">
+  <!-- POR QUÉ UNIRTE -->
+  <section class="section">
+    <h2>¿Por qué unirte a nuestro equipo?</h2>
+    <p>Formamos profesionales, no vendedores. Te ofrecemos estructura, acompañamiento y un modelo de crecimiento diseñado para construir una carrera real.</p>
 
-  <h2 class="section-title">¿Por qué unirte a nosotros?</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Formación Profesional Continua</h3>
+        <p>Entrenamiento constante, certificaciones y acompañamiento 1:1 para que desarrolles habilidades reales en planificación financiera.</p>
+      </div>
 
-  <p style="opacity: 0.85; line-height: 1.7; margin-top: 20px;">
-    En JCNay Vida Team formamos agentes con visión, ética y estrategia.  
-    No vendemos pólizas. Diseñamos Seguridad Financiera para familias latinas en USA.
-  </p>
+      <div class="card">
+        <h3>Modelo de Compensación Competitivo</h3>
+        <p>Comisiones escalables, bonos por desempeño y oportunidades de liderazgo dentro del equipo.</p>
+      </div>
 
-  <div class="cards-grid" style="margin-top: 50px;">
-    <div class="card">
-      <h3>Entrenamiento Real</h3>
-      <p>Aprende estrategias financieras, no solo productos. Te formamos para crecer.</p>
+      <div class="card">
+        <h3>Crecimiento Real</h3>
+        <p>Un camino claro para avanzar, con metas alcanzables y apoyo constante para lograrlo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIADORES -->
+  <section class="section">
+    <h2>Lo que nos hace diferentes</h2>
+
+    <div class="grid-3">
+      <div class="card">
+        <h3>Cultura Profesional</h3>
+        <p>Ambiente de trabajo ético, respetuoso y orientado al crecimiento.</p>
+      </div>
+
+      <div class="card">
+        <h3>Acompañamiento Real</h3>
+        <p>Mentoría directa y apoyo estratégico en cada etapa de tu desarrollo.</p>
+      </div>
+
+      <div class="card">
+        <h3>Herramientas Premium</h3>
+        <p>Acceso a calculadoras, funnels y contenido editorial exclusivo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERFIL -->
+  <section class="section">
+    <h2>¿Qué buscamos?</h2>
+    <p>Personas con visión, ética y deseo de construir una carrera profesional dentro de la industria financiera.</p>
+
+    <div class="grid-3">
+      <div class="card"><h3>Responsabilidad</h3><p>Compromiso con el cliente y con el proceso.</p></div>
+      <div class="card"><h3>Comunicación Clara</h3><p>Capacidad de explicar conceptos financieros con sencillez.</p></div>
+      <div class="card"><h3>Deseo de Crecimiento</h3><p>Ambición profesional y mentalidad de aprendizaje.</p></div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="section">
+    <h2>Proceso de Aplicación</h2>
+
+    <div class="timeline">
+      <div class="step">
+        <h4>1. Agenda tu entrevista</h4>
+        <p>Una conversación inicial para conocerte y entender tus objetivos.</p>
+      </div>
+
+      <div class="step">
+        <h4>2. Evaluación de perfil</h4>
+        <p>Revisamos tus fortalezas y tu potencial dentro del equipo.</p>
+      </div>
+
+      <div class="step">
+        <h4>3. Entrenamiento inicial</h4>
+        <p>Acceso a formación profesional para comenzar tu carrera.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <h2>Preguntas Frecuentes</h2>
+
+    <div class="faq-item">
+      <h4>¿Necesito experiencia previa?</h4>
+      <p>No. Te formamos desde cero con entrenamiento profesional.</p>
     </div>
 
-    <div class="card">
-      <h3>Libertad de Tiempo</h3>
-      <p>Trabaja desde cualquier lugar, sin horarios fijos y con autonomía real.</p>
+    <div class="faq-item">
+      <h4>¿Es un trabajo remoto?</h4>
+      <p>Sí. Puedes trabajar desde cualquier lugar de Estados Unidos.</p>
     </div>
 
-    <div class="card">
-      <h3>Ingresos Sin Límites</h3>
-      <p>Comisiones, renovaciones y bonos. Tu esfuerzo define tu crecimiento.</p>
+    <div class="faq-item">
+      <h4>¿Cómo funciona la compensación?</h4>
+      <p>Modelo basado en comisiones, bonos y crecimiento por liderazgo.</p>
     </div>
 
-    <div class="card">
-      <h3>Impacto en la Comunidad</h3>
-      <p>Ayuda a familias a proteger ingresos, construir legado y crear estabilidad.</p>
+    <div class="faq-item">
+      <h4>¿Qué licencias necesito?</h4>
+      <p>Te guiamos en el proceso de obtener las licencias necesarias.</p>
     </div>
-  </div>
+  </section>
 
-  <h2 class="section-title" style="margin-top: 80px;">¿Qué buscamos?</h2>
+  <!-- CTA FINAL -->
+  <section class="section">
+    <div class="cta">
+      <h2>¿Lista para dar el siguiente paso?</h2>
+      <p>Agenda tu entrevista y descubre cómo construir una carrera sólida en planificación financiera.</p>
 
-  <ul style="opacity: 0.85; line-height: 1.8; margin-top: 20px;">
-    <li>Personas con ética y responsabilidad</li>
-    <li>Ganas de aprender y crecer</li>
-    <li>Deseo de ayudar a la comunidad latina</li>
-    <li>Disciplina y mentalidad de liderazgo</li>
-  </ul>
-
-  <h2 class="section-title" style="margin-top: 80px;">¿List@ para comenzar?</h2>
-
-  <p style="opacity: 0.85; line-height: 1.7; margin-top: 20px;">
-    Agenda una llamada de orientación y te explicamos el proceso paso a paso.
-  </p>
-
-  <div style="text-align: center; margin-top: 40px;">
-    <a href="../index.html#contacto" class="btn-main" style="max-width: 300px;">
-      Agendar Llamada
-    </a>
-  </div>
-
-</section>
-
-<footer style="padding: 60px 8%; background: var(--navy); color: white; text-align: center;">
-  <p style="opacity: 0.8;">Más que seguros, diseñamos Seguridad Financiera.</p>
-  <p style="opacity: 0.5; margin-top: 10px;">© 2026 JCNay Vida Team — Azure Gold Studio Standard</p>
-</footer>
+      <button class="btn btn-primary" onclick="window.location.href='https://calendly.com/blindajefamiliarus'">Agendar Entrevista</button>
+    </div>
+  </section>
 
 </body>
 </html>
