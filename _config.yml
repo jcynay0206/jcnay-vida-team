@@ -1,22 +1,18 @@
 title: "JCNay Vida Team"
 description: "Protección Financiera Editorial"
 
-# Ruta base de tu sitio dentro de GitHub Pages
 baseurl: "/jcnay-vida-team"
-
-# Dominio donde se publica
 url: "https://jcynay0206.github.io"
 
-# Motor de markdown
 markdown: kramdown
-
-# Tema mínimo requerido por GitHub Pages
 theme: minima
 
-# Plugins permitidos por GitHub Pages
 plugins:
   - jekyll-paginate
 
-# Configuración de paginación del blog
+collections:
+  posts:
+    output: true
+
 paginate: 10
 paginate_path: "/blog/page:num/"
