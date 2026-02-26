@@ -21,6 +21,10 @@
 
 /* ================================
    BASE GLOBAL
+body {
+  border: 10px solid red;
+}
+
 ================================ */
 body {
   background: var(--crema);
