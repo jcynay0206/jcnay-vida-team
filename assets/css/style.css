@@ -46,12 +46,16 @@ a:hover {
   color: var(--gold);
 }
 
+.muted {
+  color: var(--muted);
+}
+
 /* ================================
    HEADER
 ================================ */
 header {
   background: var(--blanco);
-  padding: 22px 40px;
+  padding: 22px 0;
   border-bottom: 1px solid #eee;
 }
 
@@ -83,6 +87,7 @@ header {
   box-shadow: var(--shadow);
   border: 1px solid #eee;
   transition: 0.3s ease;
+  list-style: none;
 }
 
 .card:hover,
@@ -102,6 +107,14 @@ header {
   gap: 24px;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   margin-top: 40px;
+}
+
+/* ================================
+   LISTA BLOG
+================================ */
+.blog-list {
+  padding: 0;
+  margin: 40px 0;
 }
 
 /* ================================
@@ -149,4 +162,47 @@ footer {
   font-size: 0.9rem;
   border-top: 1px solid #eee;
   margin-top: 80px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+/* ================================
+   SOCIAL NAV HEADER
+================================ */
+.social-nav {
+  display: flex;
+  gap: 16px;
+  font-size: 0.9rem;
+}
+
+.social-nav a {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.social-nav a:hover {
+  color: var(--gold);
+}
+
+/* ================================
+   PAGINACIÓN
+================================ */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
 }
