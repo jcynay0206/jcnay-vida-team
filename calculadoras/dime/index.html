@@ -1,931 +1,159 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Calculadora de Seguro de Vida | DIME</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora DIME | JCNay Vida Team</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --navy: #0a1a2a;
-      --blush: #f7e9e4;
-      --ivory: #faf7f2;
       --gold: #c9a86a;
+      --ivory: #faf7f2;
       --muted: #6b6b6b;
-      --radius: 12px;
+      --radius: 16px;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: "Inter", sans-serif;
       background: var(--ivory);
       color: var(--navy);
-      line-height: 1.6;
+      padding-bottom: 60px;
     }
 
-    .page-wrap {
-      min-height: 100vh;
-      padding: 40px 16px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
+    .wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
     }
 
-    .calculator {
-      width: 100%;
-      max-width: 1100px;
-      background: #fff;
-      border-radius: 24px;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
-      padding: 32px 24px 40px;
-    }
-
-    .calc-header {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      margin-bottom: 24px;
-    }
-
-    .icon-shield {
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--navy), #1f3550);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .icon-shield svg {
-      width: 22px;
-      height: 22px;
-      stroke: #fff;
-    }
-
-    .calc-title {
+    h1 {
       font-family: "Playfair Display", serif;
-      font-size: 1.9rem;
-      margin-bottom: 4px;
-    }
-
-    .calc-subtitle {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    /* Steps */
-    .steps {
-      display: flex;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 28px;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 12px;
-      overflow-x: auto;
-    }
-
-    .step {
-      flex: 1;
-      min-width: 120px;
+      font-size: 2.6rem;
       text-align: center;
-      font-size: 0.8rem;
-      color: var(--muted);
-      position: relative;
-      padding-bottom: 4px;
-    }
-
-    .step-number {
-      width: 26px;
-      height: 26px;
-      border-radius: 999px;
-      border: 1px solid #ccc;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      margin-bottom: 4px;
-      background: #fff;
-    }
-
-    .step.active .step-number {
-      background: var(--navy);
-      color: #fff;
-      border-color: var(--navy);
-    }
-
-    .step.active {
-      color: var(--navy);
-      font-weight: 600;
-    }
-
-    .step::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: -13px;
-      width: 0;
-      height: 2px;
-      background: var(--navy);
-      transition: width 0.25s ease;
-    }
-
-    .step.active::after {
-      width: 40%;
-    }
-
-    /* Layout */
-    .calc-body {
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
-      gap: 32px;
-    }
-
-    @media (max-width: 900px) {
-      .calc-body {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .panel {
-      background: #fafafa;
-      border-radius: 18px;
-      padding: 20px 18px;
-    }
-
-    .panel-title {
-      font-family: "Playfair Display", serif;
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .panel-title span.icon {
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      background: var(--navy);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .panel-title span.icon svg {
-      width: 12px;
-      height: 12px;
-      stroke: #fff;
-    }
-
-    .fields-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px 18px;
-    }
-
-    @media (max-width: 700px) {
-      .fields-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    label {
-      display: block;
-      font-size: 0.8rem;
-      font-weight: 500;
-      margin-bottom: 4px;
-      color: #444;
-    }
-
-    .field-note {
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    input[type="number"],
-    input[type="text"] {
-      width: 100%;
-      padding: 8px 10px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      font-size: 0.9rem;
-      outline: none;
-      transition: border 0.2s ease, box-shadow 0.2s ease;
-      background: #fff;
-    }
-
-    input[type="number"]:focus,
-    input[type="text"]:focus {
-      border-color: var(--navy);
-      box-shadow: 0 0 0 1px rgba(10, 26, 42, 0.1);
-    }
-
-    input[type="range"] {
-      width: 100%;
-    }
-
-    /* Wizard controls */
-    .wizard-controls {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .btn {
-      border-radius: 999px;
-      padding: 9px 18px;
-      font-size: 0.9rem;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      justify-content: center;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: var(--navy);
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: #13263b;
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--navy);
-      border: 1px solid #ddd;
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--navy);
-    }
-
-    /* Results panel */
-    .results-main {
-      background: linear-gradient(135deg, var(--navy), #1f3550);
-      border-radius: 18px;
-      padding: 20px 18px;
-      color: #fff;
-      margin-bottom: 16px;
-      position: sticky;
-      top: 12px;
-    }
-
-    .results-main h2 {
-      font-size: 1rem;
-      margin-bottom: 12px;
-      font-weight: 600;
-    }
-
-    .results-block {
-      background: rgba(255, 255, 255, 0.12);
-      border-radius: 12px;
-      padding: 10px 12px;
-      margin-bottom: 8px;
-    }
-
-    .results-block p.label {
-      font-size: 0.75rem;
-      opacity: 0.9;
-      margin-bottom: 2px;
-    }
-
-    .results-block p.value {
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-
-    .results-secondary {
-      background: #f5f5f7;
-      border-radius: 16px;
-      padding: 16px 14px;
-      margin-bottom: 14px;
-    }
-
-    .results-secondary h3 {
-      font-size: 0.95rem;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-
-    .row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.8rem;
-      margin-bottom: 4px;
-    }
-
-    .row span.label {
-      color: var(--muted);
-    }
-
-    .row span.value {
-      font-weight: 600;
-    }
-
-    .row.highlight {
-      margin-top: 6px;
-      padding-top: 6px;
-      border-top: 1px solid #ddd;
-    }
-
-    .row.negative span.value {
-      color: #b3261e;
-    }
-
-    .row.positive span.value {
-      color: #1b7a3c;
-    }
-
-    .badge-strip {
-      background: #e6edf7;
-      border-radius: 12px;
-      padding: 8px 10px;
-      font-size: 0.78rem;
-      margin-top: 6px;
-    }
-
-    .note-box {
-      margin-top: 10px;
-      font-size: 0.75rem;
-      color: #f3f4ff;
-      opacity: 0.9;
-    }
-
-    .recommend-box,
-    .scenario-box {
-      background: #fff7e6;
-      border-radius: 14px;
-      padding: 12px 12px;
-      font-size: 0.8rem;
-      border: 1px solid #f1e0b8;
       margin-bottom: 10px;
     }
 
-    .recommend-box h3,
-    .scenario-box h3 {
-      font-size: 0.85rem;
-      margin-bottom: 6px;
+    .muted {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 26px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      margin-bottom: 30px;
+    }
+
+    label {
       font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      display: block;
+      margin-bottom: 6px;
     }
 
-    .recommend-box ul {
-      padding-left: 16px;
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      font-size: 1rem;
     }
 
-    .recommend-box li {
-      margin-bottom: 4px;
-    }
-
-    .final-note {
-      margin-top: 14px;
-      font-size: 0.75rem;
+    .btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 999px;
+      background: var(--gold);
       color: var(--navy);
-      background: #e7f0ff;
-      border-left: 3px solid var(--navy);
-      padding: 8px 10px;
-      border-radius: 8px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: 0.25s;
+      font-size: 1rem;
     }
 
-    .hidden {
-      display: none;
+    .btn:hover { background: #b89555; }
+
+    .result {
+      background: #fff;
+      padding: 26px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      margin-top: 30px;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 600;
     }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+      color: var(--navy);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .back:hover { color: var(--gold); }
   </style>
 </head>
+
 <body>
-<div class="page-wrap">
-  <div class="calculator">
-    <div class="calc-header">
-      <div class="icon-shield">
-        <!-- Shield SVG -->
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22s7-3 7-10V5l-7-3-7 3v7c0 7 7 10 7 10z"></path>
-        </svg>
-      </div>
-      <div>
-        <h1 class="calc-title">Calculadora de Seguro de Vida</h1>
-        <p class="calc-subtitle">Estimación editorial de tu necesidad de cobertura para proteger a tu familia.</p>
-      </div>
+
+  <div class="wrapper">
+
+    <h1>Calculadora DIME</h1>
+    <p class="muted">Descubre cuánto seguro de vida necesita tu familia para estar protegida.</p>
+
+    <div class="card">
+      <label>Deudas (D)</label>
+      <input type="number" id="deudas" placeholder="Ej: 15000">
+
+      <label>Ingresos anuales (I)</label>
+      <input type="number" id="ingresos" placeholder="Ej: 55000">
+
+      <label>Años que deseas reemplazar (M)</label>
+      <input type="number" id="anios" placeholder="Ej: 10">
+
+      <label>Educación de hijos (E)</label>
+      <input type="number" id="educacion" placeholder="Ej: 80000">
+
+      <button class="btn" onclick="calcularDIME()">Calcular</button>
     </div>
 
-    <!-- Steps -->
-    <div class="steps">
-      <div class="step active" data-step="1">
-        <div class="step-number">1</div>
-        <div>Datos e ingresos</div>
-      </div>
-      <div class="step" data-step="2">
-        <div class="step-number">2</div>
-        <div>Deudas</div>
-      </div>
-      <div class="step" data-step="3">
-        <div class="step-number">3</div>
-        <div>Gastos futuros</div>
-      </div>
-      <div class="step" data-step="4">
-        <div class="step-number">4</div>
-        <div>Recursos</div>
-      </div>
-      <div class="step" data-step="5">
-        <div class="step-number">5</div>
-        <div>Resultados</div>
-      </div>
-    </div>
+    <div id="resultado" class="result" style="display:none;"></div>
 
-    <div class="calc-body">
-      <!-- LEFT: Wizard panels -->
-      <div>
-        <!-- STEP 1 -->
-        <div class="panel" data-panel="1">
-          <h2 class="panel-title">
-            <span class="icon">
-              <!-- Users SVG -->
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            </span>
-            Información del proveedor principal
-          </h2>
-          <div class="fields-grid">
-            <div>
-              <label>Edad</label>
-              <input type="number" id="age" value="35" min="18" max="80" />
-              <div class="field-note">Usaremos la edad para estimar el costo mensual.</div>
-            </div>
-            <div>
-              <label>Ingreso anual (USD)</label>
-              <input type="number" id="annualIncome" value="60000" min="0" />
-            </div>
-            <div>
-              <label>Años de ingreso a reemplazar</label>
-              <input type="number" id="yearsToReplace" value="10" min="1" />
-            </div>
-            <div>
-              <label>% de ingreso a reemplazar</label>
-              <input type="number" id="incomeReplacement" value="70" min="50" max="100" step="5" />
-              <div class="field-note">Entre 50% y 100% según el estilo de vida que quieras proteger.</div>
-            </div>
-          </div>
-          <div class="wizard-controls">
-            <button class="btn btn-ghost" disabled>Anterior</button>
-            <button class="btn btn-primary" data-next>Continuar</button>
-          </div>
-        </div>
+    <a href="../../index.html" class="back">← Volver al inicio</a>
 
-        <!-- STEP 2 -->
-        <div class="panel hidden" data-panel="2">
-          <h2 class="panel-title">
-            <span class="icon">
-              <!-- Home SVG -->
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 9.5L12 3l9 6.5V21a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"></path>
-              </svg>
-            </span>
-            Deudas pendientes
-          </h2>
-          <div class="fields-grid">
-            <div>
-              <label>Saldo de hipoteca</label>
-              <input type="number" id="mortgageBalance" value="200000" min="0" />
-            </div>
-            <div>
-              <label>Préstamos de autos</label>
-              <input type="number" id="carLoans" value="25000" min="0" />
-            </div>
-            <div>
-              <label>Tarjetas de crédito</label>
-              <input type="number" id="creditCards" value="10000" min="0" />
-            </div>
-            <div>
-              <label>Otras deudas</label>
-              <input type="number" id="otherDebts" value="5000" min="0" />
-            </div>
-          </div>
-          <div class="wizard-controls">
-            <button class="btn btn-ghost" data-prev>← Anterior</button>
-            <button class="btn btn-primary" data-next>Siguiente →</button>
-          </div>
-        </div>
-
-        <!-- STEP 3 -->
-        <div class="panel hidden" data-panel="3">
-          <h2 class="panel-title">
-            <span class="icon">
-              <!-- TrendingUp SVG -->
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
-                <polyline points="17 6 23 6 23 12"></polyline>
-              </svg>
-            </span>
-            Gastos futuros y transición
-          </h2>
-          <div class="fields-grid">
-            <div>
-              <label>Número de hijos</label>
-              <input type="number" id="numChildren" value="2" min="0" />
-            </div>
-            <div>
-              <label>Costo universitario por hijo</label>
-              <input type="number" id="collegePerChild" value="50000" min="0" />
-            </div>
-            <div>
-              <label>Gastos funerarios</label>
-              <input type="number" id="funeralCosts" value="15000" min="0" />
-            </div>
-            <div>
-              <label>Fondo de emergencia</label>
-              <input type="number" id="emergencyFund" value="30000" min="0" />
-            </div>
-            <div>
-              <label>Gastos mensuales del hogar</label>
-              <input type="number" id="monthlyExpenses" value="4000" min="0" />
-              <div class="field-note">Usaremos 6 meses de gastos como período de transición.</div>
-            </div>
-          </div>
-          <div class="wizard-controls">
-            <button class="btn btn-ghost" data-prev>← Anterior</button>
-            <button class="btn btn-primary" data-next>Siguiente →</button>
-          </div>
-        </div>
-
-        <!-- STEP 4 -->
-        <div class="panel hidden" data-panel="4">
-          <h2 class="panel-title">
-            <span class="icon">
-              <!-- Dollar SVG -->
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="12" y1="1" x2="12" y2="23"></line>
-                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-              </svg>
-            </span>
-            Recursos financieros existentes
-          </h2>
-          <div class="fields-grid">
-            <div>
-              <label>Ahorros actuales</label>
-              <input type="number" id="currentSavings" value="20000" min="0" />
-            </div>
-            <div>
-              <label>Seguro de vida existente</label>
-              <input type="number" id="existingLifeInsurance" value="100000" min="0" />
-            </div>
-            <div>
-              <label>Otros activos líquidos</label>
-              <input type="number" id="otherAssets" value="10000" min="0" />
-            </div>
-          </div>
-          <div class="wizard-controls">
-            <button class="btn btn-ghost" data-prev>← Anterior</button>
-            <button class="btn btn-primary" data-next>Ver resultados →</button>
-          </div>
-        </div>
-
-        <!-- STEP 5 -->
-        <div class="panel hidden" data-panel="5">
-          <h2 class="panel-title">
-            <span class="icon">
-              <!-- AlertCircle SVG -->
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="8" x2="12" y2="12"></line>
-                <line x1="12" y1="16" x2="12.01" y2="16"></line>
-              </svg>
-            </span>
-            Resumen y recomendaciones
-          </h2>
-          <p style="font-size:0.85rem; color:var(--muted); margin-bottom:10px;">
-            Este resumen se actualiza con los datos que ingresaste en los pasos anteriores.
-          </p>
-          <div class="recommend-box">
-            <h3>
-              <span>⚖️</span> Recomendaciones clave
-            </h3>
-            <ul>
-              <li>Considera una póliza de término de <span id="termYearsText"></span> años para cubrir hasta que tus hijos sean independientes.</li>
-              <li>Revisa tu cobertura anualmente o después de eventos importantes (nacimientos, compras grandes, cambios de empleo).</li>
-              <li>Complementa con el seguro de vida de tu empleador si está disponible.</li>
-              <li>Mantén un testamento actualizado y designa beneficiarios claros.</li>
-              <li>Evalúa un componente de seguro permanente si quieres dejar un legado adicional.</li>
-            </ul>
-          </div>
-
-          <div class="scenario-box">
-            <h3>
-              <span>📊</span> Comparación de coberturas
-            </h3>
-            <div class="row">
-              <span class="label">Cobertura básica (10× ingresos)</span>
-              <span class="value" id="basicCoverageText"></span>
-            </div>
-            <div class="row">
-              <span class="label">Cobertura recomendada</span>
-              <span class="value" id="recommendedCoverageText2"></span>
-            </div>
-            <div class="row">
-              <span class="label">Cobertura premium (+25%)</span>
-              <span class="value" id="premiumCoverageText"></span>
-            </div>
-          </div>
-
-          <div class="final-note">
-            <strong>Nota importante:</strong> Esta calculadora ofrece una estimación general basada en tus respuestas.
-            El costo real y las condiciones de una póliza dependen de tu salud, aseguradora y tipo de producto.
-            Usa este resultado como punto de partida para una conversación personalizada con tu agente.
-          </div>
-
-          <div class="wizard-controls">
-            <button class="btn btn-ghost" data-prev>← Ajustar datos</button>
-            <button class="btn btn-primary" onclick="window.location.href='../index.html#contacto'">
-              Agendar diagnóstico financiero →
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- RIGHT: Results live -->
-      <div>
-        <div class="results-main">
-          <h2>Análisis de cobertura</h2>
-          <div class="results-block">
-            <p class="label">Cobertura recomendada</p>
-            <p class="value" id="recommendedCoverageText">$0</p>
-          </div>
-          <div class="results-block">
-            <p class="label">Déficit de seguro</p>
-            <p class="value" id="insuranceGapText">$0</p>
-          </div>
-          <div class="results-block">
-            <p class="label">Costo mensual estimado</p>
-            <p class="value" id="estimatedMonthlyCostText">$0</p>
-          </div>
-          <div class="note-box">
-            Basado en edad y salud promedio. El valor real puede variar según aseguradora y tipo de póliza.
-          </div>
-        </div>
-
-        <div class="results-secondary">
-          <h3>Desglose de necesidades</h3>
-          <div class="row">
-            <span class="label">Reemplazo de ingresos</span>
-            <span class="value" id="incomeNeededText">$0</span>
-          </div>
-          <div class="row">
-            <span class="label">Total de deudas</span>
-            <span class="value negative" id="totalDebtsText">$0</span>
-          </div>
-          <div class="row">
-            <span class="label">Educación</span>
-            <span class="value" id="educationCostsText">$0</span>
-          </div>
-          <div class="row">
-            <span class="label">Gastos finales</span>
-            <span class="value" id="finalExpensesText">$0</span>
-          </div>
-          <div class="row">
-            <span class="label">Período de transición</span>
-            <span class="value" id="transitionExpensesText">$0</span>
-          </div>
-          <div class="row highlight">
-            <span class="label">Total necesario</span>
-            <span class="value" id="totalNeededText">$0</span>
-          </div>
-          <div class="row positive">
-            <span class="label">Recursos existentes</span>
-            <span class="value" id="totalAssetsText">$0</span>
-          </div>
-          <div class="badge-strip">
-            Seguro adicional necesario: <strong id="insuranceGapText2">$0</strong>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
-</div>
 
-<script>
-  const state = {
-    age: 35,
-    annualIncome: 60000,
-    yearsToReplace: 10,
-    incomeReplacement: 70,
-    mortgageBalance: 200000,
-    carLoans: 25000,
-    creditCards: 10000,
-    otherDebts: 5000,
-    numChildren: 2,
-    collegePerChild: 50000,
-    funeralCosts: 15000,
-    emergencyFund: 30000,
-    monthlyExpenses: 4000,
-    currentSavings: 20000,
-    existingLifeInsurance: 100000,
-    otherAssets: 10000
-  };
+  <script>
+    function calcularDIME() {
+      const D = Number(document.getElementById("deudas").value);
+      const I = Number(document.getElementById("ingresos").value);
+      const M = Number(document.getElementById("anios").value);
+      const E = Number(document.getElementById("educacion").value);
 
-  const formatCurrency = (value) => {
-    return new Intl.NumberFormat("es-ES", {
-      style: "currency",
-      currency: "USD",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
-    }).format(value || 0);
-  };
+      if (!D && !I && !M && !E) {
+        alert("Por favor completa al menos un campo.");
+        return;
+      }
 
-  function calculate() {
-    const incomeNeeded =
-      (state.annualIncome * (state.incomeReplacement / 100)) *
-      state.yearsToReplace;
+      const total = D + (I * M) + E;
 
-    const totalDebts =
-      state.mortgageBalance +
-      state.carLoans +
-      state.creditCards +
-      state.otherDebts;
+      document.getElementById("resultado").style.display = "block";
+      document.getElementById("resultado").innerHTML =
+        "Monto recomendado: $" + total.toLocaleString();
+    }
+  </script>
 
-    const educationCosts = state.numChildren * state.collegePerChild;
-    const finalExpenses = state.funeralCosts + state.emergencyFund;
-    const transitionExpenses = state.monthlyExpenses * 6;
-
-    const totalNeeded =
-      incomeNeeded +
-      totalDebts +
-      educationCosts +
-      finalExpenses +
-      transitionExpenses;
-
-    const totalAssets =
-      state.currentSavings +
-      state.existingLifeInsurance +
-      state.otherAssets;
-
-    const insuranceGap = Math.max(0, totalNeeded - totalAssets);
-
-    let costPer1000;
-    if (state.age < 30) costPer1000 = 0.08;
-    else if (state.age < 40) costPer1000 = 0.12;
-    else if (state.age < 50) costPer1000 = 0.20;
-    else costPer1000 = 0.35;
-
-    const estimatedMonthlyCost = (insuranceGap / 1000) * costPer1000;
-    const recommendedCoverage = Math.ceil(insuranceGap / 50000) * 50000;
-
-    return {
-      incomeNeeded,
-      totalDebts,
-      educationCosts,
-      finalExpenses,
-      transitionExpenses,
-      totalNeeded,
-      totalAssets,
-      insuranceGap,
-      estimatedMonthlyCost,
-      recommendedCoverage
-    };
-  }
-
-  function updateResults() {
-    const r = calculate();
-
-    // Main
-    document.getElementById("recommendedCoverageText").textContent =
-      formatCurrency(r.recommendedCoverage);
-    document.getElementById("insuranceGapText").textContent =
-      formatCurrency(r.insuranceGap);
-    document.getElementById("estimatedMonthlyCostText").textContent =
-      formatCurrency(r.estimatedMonthlyCost);
-
-    // Breakdown
-    document.getElementById("incomeNeededText").textContent =
-      formatCurrency(r.incomeNeeded);
-    document.getElementById("totalDebtsText").textContent =
-      formatCurrency(r.totalDebts);
-    document.getElementById("educationCostsText").textContent =
-      formatCurrency(r.educationCosts);
-    document.getElementById("finalExpensesText").textContent =
-      formatCurrency(r.finalExpenses);
-    document.getElementById("transitionExpensesText").textContent =
-      formatCurrency(r.transitionExpenses);
-    document.getElementById("totalNeededText").textContent =
-      formatCurrency(r.totalNeeded);
-    document.getElementById("totalAssetsText").textContent =
-      formatCurrency(r.totalAssets);
-    document.getElementById("insuranceGapText2").textContent =
-      formatCurrency(r.insuranceGap);
-
-    // Step 5 texts
-    const basicCoverage = state.annualIncome * 10;
-    document.getElementById("basicCoverageText").textContent =
-      formatCurrency(basicCoverage);
-    document.getElementById("recommendedCoverageText2").textContent =
-      formatCurrency(r.recommendedCoverage);
-    document.getElementById("premiumCoverageText").textContent =
-      formatCurrency(r.recommendedCoverage * 1.25);
-
-    const termYears = 20 + (state.numChildren * 2);
-    document.getElementById("termYearsText").textContent = termYears;
-  }
-
-  function bindInputs() {
-    const ids = [
-      "age",
-      "annualIncome",
-      "yearsToReplace",
-      "incomeReplacement",
-      "mortgageBalance",
-      "carLoans",
-      "creditCards",
-      "otherDebts",
-      "numChildren",
-      "collegePerChild",
-      "funeralCosts",
-      "emergencyFund",
-      "monthlyExpenses",
-      "currentSavings",
-      "existingLifeInsurance",
-      "otherAssets"
-    ];
-
-    ids.forEach((id) => {
-      const el = document.getElementById(id);
-      el.addEventListener("input", (e) => {
-        const val = parseFloat(e.target.value.replace(",", ".")) || 0;
-        state[id] = val;
-        updateResults();
-      });
-    });
-  }
-
-  function setupWizard() {
-    let currentStep = 1;
-    const totalSteps = 5;
-
-    const showStep = (step) => {
-      currentStep = step;
-      document
-        .querySelectorAll("[data-panel]")
-        .forEach((panel) => {
-          panel.classList.toggle(
-            "hidden",
-            parseInt(panel.getAttribute("data-panel")) !== step
-          );
-        });
-
-      document
-        .querySelectorAll(".step")
-        .forEach((s) => {
-          s.classList.toggle(
-            "active",
-            parseInt(s.getAttribute("data-step")) === step
-          );
-        });
-    };
-
-    document.querySelectorAll("[data-next]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        if (currentStep < totalSteps) {
-          showStep(currentStep + 1);
-        }
-      });
-    });
-
-    document.querySelectorAll("[data-prev]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        if (currentStep > 1) {
-          showStep(currentStep - 1);
-        }
-      });
-    });
-
-    document.querySelectorAll(".step").forEach((stepEl) => {
-      stepEl.addEventListener("click", () => {
-        const step = parseInt(stepEl.getAttribute("data-step"));
-        showStep(step);
-      });
-    });
-
-    showStep(1);
-  }
-
-  bindInputs();
-  setupWizard();
-  updateResults();
-</script>
 </body>
 </html>
