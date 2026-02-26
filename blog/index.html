@@ -124,8 +124,15 @@ paginate: true
     <p class="muted">Ideas, claridad y estrategias para proteger tu futuro financiero.</p>
 
     <ul class="blog-list">
-      {% if paginator %}
-        {% for post in paginator.posts %}
+      <ul class="blog-list">
+  {% for post in paginator.posts %}
+    <li>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <span class="muted"> — {{ post.date | date: "%d %b %Y" }}</span>
+    </li>
+  {% endfor %}
+</ul>
+
           <li>
             <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             <span class="muted"> — {{ post.date | date: "%d %b %Y" }}</span>
