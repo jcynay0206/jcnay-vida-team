@@ -2,7 +2,7 @@ title: "JCNay Vida Team"
 description: "Protección Financiera Editorial"
 
 baseurl: "/jcnay-vida-team"
-url: "https://jcynay0206.github.io"
+url: "https://jcnay0206.github.io"
 
 markdown: kramdown
 
@@ -17,3 +17,4 @@ paginate: 10
 paginate_path: "/blog/page:num/"
 
 future: true
+timezone: America/New_York
