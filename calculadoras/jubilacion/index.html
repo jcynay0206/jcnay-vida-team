@@ -1,553 +1,168 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculadora de Jubilación Segura | JCNay Vida Team</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Jubilación | 401k vs IUL</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<style>
-/* ---------------------- */
-/* VARIABLES EDITORIALES  */
-/* ---------------------- */
-:root {
-  --navy: #0a1a2a;
-  --gold: #c9a86a;
-  --ivory: #faf7f2;
-  --muted: #6b6b6b;
-  --radius: 16px;
-}
+  <style>
+    :root {
+      --navy: #0a1a2a;
+      --gold: #c9a86a;
+      --ivory: #faf7f2;
+      --muted: #6b6b6b;
+      --radius: 16px;
+    }
 
-/* ---------------------- */
-/* RESET + BASE           */
-/* ---------------------- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-  font-family: "Inter", sans-serif;
-  background: var(--ivory);
-  color: var(--navy);
-  padding: 32px 16px;
-  display: flex;
-  justify-content: center;
-}
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--ivory);
+      color: var(--navy);
+      padding-bottom: 60px;
+    }
 
-.container {
-  width: 100%;
-  max-width: 1100px;
-  background: #fff;
-  border-radius: 24px;
-  box-shadow: 0 18px 45px rgba(0,0,0,0.08);
-  overflow: hidden;
-}
+    .wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
 
-/* ---------------------- */
-/* HEADER                 */
-/* ---------------------- */
-.header {
-  padding: 26px 26px 22px;
-  border-bottom: 1px solid #eee;
-}
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.6rem;
+      text-align: center;
+      margin-bottom: 10px;
+    }
 
-.header h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 1.9rem;
-  margin-bottom: 6px;
-}
+    .muted {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
 
-.header p {
-  font-size: 0.9rem;
-  color: var(--muted);
-}
+    .card {
+      background: #fff;
+      padding: 26px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      margin-bottom: 30px;
+    }
 
-/* ---------------------- */
-/* WIZARD STEPS           */
-/* ---------------------- */
-.steps {
-  display: flex;
-  justify-content: space-between;
-  padding: 18px 26px;
-  border-bottom: 1px solid #eee;
-}
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 6px;
+    }
 
-.step {
-  text-align: center;
-  flex: 1;
-  font-size: 0.8rem;
-  color: var(--muted);
-  cursor: pointer;
-}
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
 
-.step-number {
-  width: 26px;
-  height: 26px;
-  border-radius: 999px;
-  border: 1px solid #ccc;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 4px;
-  font-size: 0.8rem;
-}
+    .btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: 0.25s;
+      font-size: 1rem;
+    }
 
-.step.active { color: var(--navy); font-weight: 600; }
-.step.active .step-number {
-  background: var(--navy);
-  color: #fff;
-  border-color: var(--navy);
-}
+    .btn:hover { background: #b89555; }
 
-/* ---------------------- */
-/* CONTENT LAYOUT         */
-/* ---------------------- */
-.content {
-  padding: 26px;
-}
+    .result {
+      background: #fff;
+      padding: 26px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      margin-top: 30px;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.6;
+    }
 
-.panel {
-  display: none;
-}
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+      color: var(--navy);
+      font-weight: 600;
+      text-decoration: none;
+    }
 
-.panel.active {
-  display: block;
-}
-
-/* ---------------------- */
-/* INPUTS                 */
-/* ---------------------- */
-.input-group { margin-bottom: 18px; }
-
-label {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--muted);
-  margin-bottom: 6px;
-}
-
-input {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  font-size: 1rem;
-  outline: none;
-  transition: 0.2s;
-}
-
-input:focus {
-  border-color: var(--navy);
-  box-shadow: 0 0 0 2px rgba(10,26,42,0.08);
-}
-
-/* ---------------------- */
-/* BUTTONS                */
-/* ---------------------- */
-.btn-row {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.btn {
-  padding: 12px 18px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.btn-primary {
-  background: var(--navy);
-  color: #fff;
-}
-
-.btn-primary:hover { background: #13263b; }
-
-.btn-ghost {
-  background: transparent;
-  border: 1px solid #ddd;
-  color: var(--navy);
-}
-
-.btn-ghost:hover { border-color: var(--navy); }
-
-/* ---------------------- */
-/* RESULT CARDS           */
-/* ---------------------- */
-.result-card {
-  background: #f7f4ec;
-  padding: 20px;
-  border-radius: 16px;
-  border: 1px solid #e4ddcc;
-  margin-bottom: 16px;
-}
-
-.result-card h3 {
-  font-size: 1rem;
-  margin-bottom: 6px;
-}
-
-.result-value {
-  font-size: 1.8rem;
-  font-weight: 700;
-}
-
-/* ---------------------- */
-/* SVG CHART              */
-/* ---------------------- */
-.chart-box {
-  background: #fff;
-  border: 1px solid #eee;
-  border-radius: 16px;
-  padding: 20px;
-  margin-top: 20px;
-}
-
-svg {
-  width: 100%;
-  height: 260px;
-}
-
-/* ---------------------- */
-/* TABLE                  */
-/* ---------------------- */
-.table-wrap {
-  margin-top: 20px;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid #eee;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.8rem;
-}
-
-th {
-  background: var(--navy);
-  color: #fff;
-  padding: 10px;
-  text-align: left;
-}
-
-td {
-  padding: 10px;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-tr:hover td { background: #fafafa; }
-
-</style>
+    .back:hover { color: var(--gold); }
+  </style>
 </head>
 
 <body>
-<div class="container">
 
-  <!-- HEADER -->
-  <div class="header">
-    <h1>Calculadora de Jubilación Segura</h1>
-    <p>401k vs IUL — Wizard Premium de 5 pasos</p>
+  <div class="wrapper">
+
+    <h1>Calculadora de Jubilación</h1>
+    <p class="muted">Compara el crecimiento de un 401k tradicional vs un IUL con piso 0%.</p>
+
+    <div class="card">
+      <label>Saldo actual</label>
+      <input type="number" id="saldo" placeholder="Ej: 20000">
+
+      <label>Aporte anual</label>
+      <input type="number" id="aporte" placeholder="Ej: 6000">
+
+      <label>Años hasta la jubilación</label>
+      <input type="number" id="anios" placeholder="Ej: 25">
+
+      <button class="btn" onclick="calcular()">Calcular</button>
+    </div>
+
+    <div id="resultado" class="result" style="display:none;"></div>
+
+    <a href="../../index.html" class="back">← Volver al inicio</a>
+
   </div>
 
-  <!-- STEPS -->
-  <div class="steps">
-    <div class="step active" data-step="1"><div class="step-number">1</div>Datos personales</div>
-    <div class="step" data-step="2"><div class="step-number">2</div>Contribución</div>
-    <div class="step" data-step="3"><div class="step-number">3</div>Supuestos</div>
-    <div class="step" data-step="4"><div class="step-number">4</div>Resultados</div>
-    <div class="step" data-step="5"><div class="step-number">5</div>Análisis</div>
-  </div>
+  <script>
+    function calcular() {
+      const saldoInicial = Number(document.getElementById("saldo").value);
+      const aporte = Number(document.getElementById("aporte").value);
+      const anios = Number(document.getElementById("anios").value);
 
-  <!-- CONTENT -->
-  <div class="content">
+      if (!saldoInicial && !aporte && !anios) {
+        alert("Por favor completa al menos un campo.");
+        return;
+      }
 
-    <!-- STEP 1 -->
-    <div class="panel active" data-panel="1">
-      <h2 class="panel-title">Datos personales</h2>
+      let saldo401k = saldoInicial;
+      let saldoIUL = saldoInicial;
 
-      <div class="input-group">
-        <label>Edad actual</label>
-        <input type="number" id="edadActual" value="35">
-      </div>
+      for (let i = 0; i < anios; i++) {
+        // 401k crece 8% anual
+        saldo401k = saldo401k * 1.08 + aporte;
 
-      <div class="input-group">
-        <label>Edad de jubilación</label>
-        <input type="number" id="edadJubilacion" value="65">
-      </div>
+        // IUL crece 8% pero con piso 0%
+        let crecimiento = saldoIUL * 1.08;
+        saldoIUL = Math.max(crecimiento, saldoIUL) + aporte;
+      }
 
-      <div class="btn-row">
-        <button class="btn btn-ghost" disabled>Anterior</button>
-        <button class="btn btn-primary" data-next>Siguiente</button>
-      </div>
-    </div>
-
-    <!-- STEP 2 -->
-    <div class="panel" data-panel="2">
-      <h2 class="panel-title">Contribución mensual</h2>
-
-      <div class="input-group">
-        <label>Contribución mensual (USD)</label>
-        <input type="number" id="contribucionMensual" value="500">
-      </div>
-
-      <div class="btn-row">
-        <button class="btn btn-ghost" data-prev>Anterior</button>
-        <button class="btn btn-primary" data-next>Siguiente</button>
-      </div>
-    </div>
-
-    <!-- STEP 3 -->
-    <div class="panel" data-panel="3">
-      <h2 class="panel-title">Supuestos financieros</h2>
-
-      <div class="input-group">
-        <label>Crecimiento anual 401k (%)</label>
-        <input type="number" id="tasa401k" value="8">
-      </div>
-
-      <div class="input-group">
-        <label>Crecimiento anual IUL (%) — Piso 0% fijo</label>
-        <input type="number" id="tasaIUL" value="8">
-      </div>
-
-      <div class="input-group">
-        <label>Impuestos estimados (%)</label>
-        <input type="number" id="tasaImpuestos" value="30">
-      </div>
-
-      <div class="input-group">
-        <label>Años de retiro</label>
-        <input type="number" id="anosRetiro" value="25">
-      </div>
-
-      <div class="btn-row">
-        <button class="btn btn-ghost" data-prev>Anterior</button>
-        <button class="btn btn-primary" data-next>Siguiente</button>
-      </div>
-    </div>
-
-    <!-- STEP 4 -->
-    <div class="panel" data-panel="4">
-      <h2 class="panel-title">Resultados principales</h2>
-
-      <div class="result-card">
-        <h3>Total acumulado 401k</h3>
-        <div class="result-value" id="total401k">$0</div>
-      </div>
-
-      <div class="result-card">
-        <h3>Neto 401k después de impuestos</h3>
-        <div class="result-value" id="neto401k">$0</div>
-      </div>
-
-      <div class="result-card">
-        <h3>Total acumulado IUL</h3>
-        <div class="result-value" id="totalIUL">$0</div>
-      </div>
-
-      <div class="result-card">
-        <h3>Diferencia a favor del IUL</h3>
-        <div class="result-value" id="diferencia">$0</div>
-      </div>
-
-      <div class="btn-row">
-        <button class="btn btn-ghost" data-prev>Anterior</button>
-        <button class="btn btn-primary" data-next>Siguiente</button>
-      </div>
-    </div>
-
-    <!-- STEP 5 -->
-    <div class="panel" data-panel="5">
-      <h2 class="panel-title">Análisis avanzado</h2>
-
-      <!-- SVG CHART -->
-      <div class="chart-box">
-        <h3 style="margin-bottom:10px;">Crecimiento comparado</h3>
-        <svg id="chart"></svg>
-      </div>
-
-      <!-- TABLE -->
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr>
-              <th>Año</th>
-              <th>Edad</th>
-              <th>401k</th>
-              <th>IUL</th>
-              <th>Diferencia</th>
-            </tr>
-          </thead>
-          <tbody id="tableBody"></tbody>
-        </table>
-      </div>
-
-      <div class="btn-row">
-        <button class="btn btn-ghost" data-prev>Anterior</button>
-        <button class="btn btn-primary" onclick="window.location.href='../index.html#contacto'">Agendar consulta</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<script>
-/* ---------------------- */
-/* WIZARD NAVIGATION      */
-/* ---------------------- */
-let currentStep = 1;
-
-function showStep(step) {
-  currentStep = step;
-
-  document.querySelectorAll(".panel").forEach(p => {
-    p.classList.toggle("active", p.dataset.panel == step);
-  });
-
-  document.querySelectorAll(".step").forEach(s => {
-    s.classList.toggle("active", s.dataset.step == step);
-  });
-}
-
-document.querySelectorAll("[data-next]").forEach(btn => {
-  btn.onclick = () => {
-    if (currentStep < 5) {
-      if (currentStep === 3) calcular();
-      showStep(currentStep + 1);
+      document.getElementById("resultado").style.display = "block";
+      document.getElementById("resultado").innerHTML =
+        "Resultado después de " + anios + " años:<br><br>" +
+        "<strong>401k:</strong> $" + saldo401k.toLocaleString() + "<br>" +
+        "<strong>IUL (piso 0%):</strong> $" + saldoIUL.toLocaleString();
     }
-  };
-});
-
-document.querySelectorAll("[data-prev]").forEach(btn => {
-  btn.onclick = () => {
-    if (currentStep > 1) showStep(currentStep - 1);
-  };
-});
-
-document.querySelectorAll(".step").forEach(step => {
-  step.onclick = () => showStep(step.dataset.step);
-});
-
-/* ---------------------- */
-/* CALCULATION LOGIC      */
-/* ---------------------- */
-function formatCurrency(num) {
-  return "$" + Math.round(num).toLocaleString("en-US");
-}
-
-function calcular() {
-  const edadActual = parseInt(document.getElementById("edadActual").value);
-  const edadJubilacion = parseInt(document.getElementById("edadJubilacion").value);
-  const contribucionMensual = parseFloat(document.getElementById("contribucionMensual").value);
-
-  const tasa401k = parseFloat(document.getElementById("tasa401k").value) / 100;
-  const tasaIUL = parseFloat(document.getElementById("tasaIUL").value) / 100;
-  const tasaImpuestos = parseFloat(document.getElementById("tasaImpuestos").value) / 100;
-  const anosRetiro = parseInt(document.getElementById("anosRetiro").value);
-
-  const anos = edadJubilacion - edadActual;
-  const contribucionAnual = contribucionMensual * 12;
-
-  let saldo401k = 0;
-  let saldoIUL = 0;
-
-  const data401k = [];
-  const dataIUL = [];
-  const labels = [];
-
-  let tableHTML = "";
-
-  for (let i = 1; i <= anos; i++) {
-    const edad = edadActual + i;
-
-    // 401k con crisis cada 10 años
-    if (i % 10 === 8) {
-      saldo401k = saldo401k * (1 - 0.30) + contribucionAnual;
-    } else {
-      saldo401k = saldo401k * (1 + tasa401k) + contribucionAnual;
-    }
-
-    // IUL piso 0%
-    const crecimientoIUL = Math.max(saldoIUL * tasaIUL, 0);
-    saldoIUL = saldoIUL + crecimientoIUL + contribucionAnual;
-
-    data401k.push(saldo401k);
-    dataIUL.push(saldoIUL);
-    labels.push(i);
-
-    const diferencia = saldoIUL - saldo401k;
-
-    tableHTML += `
-      <tr>
-        <td>${i}</td>
-        <td>${edad}</td>
-        <td>${formatCurrency(saldo401k)}</td>
-        <td>${formatCurrency(saldoIUL)}</td>
-        <td style="color:${diferencia>0?'#1b7a3c':'#b3261e'}">${formatCurrency(diferencia)}</td>
-      </tr>
-    `;
-  }
-
-  const impuestos = saldo401k * tasaImpuestos;
-  const neto401k = saldo401k - impuestos;
-  const netoIUL = saldoIUL;
-
-  document.getElementById("total401k").textContent = formatCurrency(saldo401k);
-  document.getElementById("neto401k").textContent = formatCurrency(neto401k);
-  document.getElementById("totalIUL").textContent = formatCurrency(saldoIUL);
-  document.getElementById("diferencia").textContent = formatCurrency(netoIUL - neto401k);
-
-  document.getElementById("tableBody").innerHTML = tableHTML;
-
-  drawChart(labels, data401k.map(v => v * (1 - tasaImpuestos)), dataIUL);
-}
-
-/* ---------------------- */
-/* SVG CHART              */
-/* ---------------------- */
-function drawChart(labels, data401k, dataIUL) {
-  const svg = document.getElementById("chart");
-  svg.innerHTML = "";
-
-  const width = svg.clientWidth;
-  const height = svg.clientHeight;
-  const padding = 30;
-
-  const maxVal = Math.max(...data401k, ...dataIUL);
-
-  function scaleY(val) {
-    return height - padding - (val / maxVal) * (height - padding * 2);
-  }
-
-  function scaleX(i) {
-    return padding + (i / (labels.length - 1)) * (width - padding * 2);
-  }
-
-  function makePath(data, color) {
-    let d = "";
-    data.forEach((val, i) => {
-      const x = scaleX(i);
-      const y = scaleY(val);
-      d += (i === 0 ? "M" : "L") + x + " " + y + " ";
-    });
-
-    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path.setAttribute("d", d);
-    path.setAttribute("stroke", color);
-    path.setAttribute("stroke-width", "2.5");
-    path.setAttribute("fill", "none");
-    svg.appendChild(path);
-  }
-
-  makePath(data401k, "#b3261e");
-  makePath(dataIUL, "#1b7a3c");
-}
-
-</script>
+  </script>
 
 </body>
 </html>
