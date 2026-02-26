@@ -2,22 +2,24 @@
 layout: default
 title: "Blog"
 permalink: /blog/
-paginate: true
+paginate: 10
 ---
 
-<h1>Blog</h1>
-<p class="muted">Ideas, claridad y estrategias para proteger tu futuro financiero.</p>
+<h1 class="fade-in">Blog</h1>
+<p class="muted fade-in">Ideas, claridad y estrategias para proteger tu futuro financiero.</p>
 
-<ul class="blog-list">
+<ul class="blog-list fade-in">
   {% for post in paginator.posts %}
-    <li>
-      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      <span class="muted"> — {{ post.date | date: "%d %b %Y" }}</span>
+    <li class="card">
+      <a href="{{ post.url | relative_url }}">
+        <h3>{{ post.title }}</h3>
+      </a>
+      <span class="muted">{{ post.date | date: "%d %b %Y" }}</span>
     </li>
   {% endfor %}
 </ul>
 
-<nav class="pagination">
+<nav class="pagination fade-in">
   {% if paginator.previous_page %}
     <a href="{{ paginator.previous_page_path | relative_url }}">← Anterior</a>
   {% endif %}
