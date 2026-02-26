@@ -2,7 +2,7 @@
 layout: post
 title: "Cómo proteger a tu familia sin pagar de más"
 category: "Protección Financiera"
-image: "/assets/blog/hero2.jpg"
+
 ---
 
 La mayoría de las personas compra seguros como quien compra un paraguas en medio de la tormenta: rápido, sin estrategia y con miedo.
