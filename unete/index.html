@@ -26,28 +26,10 @@
 
     /* HERO */
     .hero {
-      position: relative;
-      height: 480px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 120px 20px 80px;
       text-align: center;
-      color: #fff;
-      overflow: hidden;
-    }
-
-    .hero img {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.45);
-    }
-
-    .hero-content {
-      position: relative;
-      max-width: 800px;
-      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
     }
 
     .hero h1 {
@@ -58,43 +40,21 @@
 
     .hero p {
       font-size: 1.2rem;
-      margin-bottom: 24px;
-      color: #e8e8e8;
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.6;
     }
 
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 12px 22px;
-      border-radius: 999px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      transition: 0.25s;
-    }
-
-    .btn-primary {
+    .hero-line {
+      width: 80px;
+      height: 3px;
       background: var(--gold);
-      color: var(--navy);
+      margin: 24px auto 0;
+      border-radius: 2px;
     }
 
-    .btn-primary:hover { background: #b89555; }
-
-    .btn-ghost {
-      background: transparent;
-      border: 1px solid #fff;
-      color: #fff;
-    }
-
-    .btn-ghost:hover { background: rgba(255,255,255,0.1); }
-
-    /* SECTION WRAPPER */
+    /* SECTION */
     .section {
       max-width: 1100px;
       margin: 80px auto;
@@ -116,7 +76,7 @@
       line-height: 1.6;
     }
 
-    /* BENEFITS GRID */
+    /* GRID */
     .grid-3 {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -166,28 +126,7 @@
       font-size: 0.95rem;
     }
 
-    /* FAQ */
-    .faq-item {
-      background: #fff;
-      padding: 20px;
-      border-radius: var(--radius);
-      margin-bottom: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
-    }
-
-    .faq-item h4 {
-      font-size: 1rem;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-
-    .faq-item p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    /* CTA FINAL */
+    /* CTA */
     .cta {
       background: var(--navy);
       color: #fff;
@@ -207,6 +146,29 @@
       margin-bottom: 24px;
       color: #e8e8e8;
     }
+
+    .btn-primary {
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .btn-primary:hover { background: #b89555; }
+
+    footer {
+      background: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+      margin-top: 80px;
+    }
   </style>
 </head>
 
@@ -214,16 +176,9 @@
 
   <!-- HERO -->
   <section class="hero">
-    <img src="/assets/unete/hero-corporativo.jpg" alt="Equipo corporativo">
-    <div class="hero-content">
-      <h1>Construye una Carrera Sólida en Planificación Financiera</h1>
-      <p>Únete a un equipo profesional, con formación continua, liderazgo real y oportunidades de crecimiento dentro de la industria.</p>
-
-      <div class="hero-buttons">
-        <button class="btn btn-primary" onclick="window.location.href='https://calendly.com/blindajefamiliarus'">Agendar Entrevista</button>
-        <button class="btn btn-ghost" onclick="window.location.href='https://wa.me/19086774196'">Hablar por WhatsApp</button>
-      </div>
-    </div>
+    <h1>Construye una Carrera Sólida en Planificación Financiera</h1>
+    <p>Únete a un equipo profesional, con formación continua, liderazgo real y oportunidades de crecimiento dentro de la industria.</p>
+    <div class="hero-line"></div>
   </section>
 
   <!-- POR QUÉ UNIRTE -->
@@ -305,40 +260,19 @@
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="section">
-    <h2>Preguntas Frecuentes</h2>
-
-    <div class="faq-item">
-      <h4>¿Necesito experiencia previa?</h4>
-      <p>No. Te formamos desde cero con entrenamiento profesional.</p>
-    </div>
-
-    <div class="faq-item">
-      <h4>¿Es un trabajo remoto?</h4>
-      <p>Sí. Puedes trabajar desde cualquier lugar de Estados Unidos.</p>
-    </div>
-
-    <div class="faq-item">
-      <h4>¿Cómo funciona la compensación?</h4>
-      <p>Modelo basado en comisiones, bonos y crecimiento por liderazgo.</p>
-    </div>
-
-    <div class="faq-item">
-      <h4>¿Qué licencias necesito?</h4>
-      <p>Te guiamos en el proceso de obtener las licencias necesarias.</p>
-    </div>
-  </section>
-
   <!-- CTA FINAL -->
   <section class="section">
     <div class="cta">
       <h2>¿Lista para dar el siguiente paso?</h2>
       <p>Agenda tu entrevista y descubre cómo construir una carrera sólida en planificación financiera.</p>
 
-      <button class="btn btn-primary" onclick="window.location.href='https://calendly.com/blindajefamiliarus'">Agendar Entrevista</button>
+      <button class="btn-primary" onclick="window.location.href='https://calendly.com/blindajefamiliarus'">Agendar Entrevista</button>
     </div>
   </section>
+
+  <footer>
+    © 2026 JCNay Vida Team — Protección Financiera Editorial
+  </footer>
 
 </body>
 </html>
