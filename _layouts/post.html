@@ -1,148 +1,18 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>{{ page.title }} | JCNay Vida Team</title>
-  <meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 }}" />
+<main class="wrapper">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <p class="post-date">{{ page.date | date: "%d %b %Y" }}</p>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <section class="post-content">
+    {{ content }}
+  </section>
 
-  <style>
-    :root {
-      --navy: #0a1a2a;
-      --gold: #c9a86a;
-      --ivory: #faf7f2;
-      --muted: #6b6b6b;
-      --radius: 16px;
-    }
+  <section class="post-cta">
+    <h3>¿Lista para claridad financiera real?</h3>
+    <p>Agenda tu diagnóstico editorial y construyamos juntas un plan que proteja tu presente y tu futuro.</p>
+    <a class="btn" href="https://calendly.com/blindajefamiliarus">Agendar Diagnóstico</a>
+  </section>
+</main>
 
-    body {
-      margin: 0;
-      font-family: "Inter", sans-serif;
-      background: var(--ivory);
-      color: var(--navy);
-    }
-
-    header {
-      padding: 22px 40px;
-      background: #fff;
-      border-bottom: 1px solid #eee;
-    }
-
-    .logo {
-      font-family: "Playfair Display", serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-    }
-
-    .wrapper {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    .post-title {
-      font-family: "Playfair Display", serif;
-      font-size: 2.6rem;
-      margin-bottom: 10px;
-    }
-
-    .post-date {
-      color: var(--muted);
-      margin-bottom: 40px;
-      font-size: 0.95rem;
-    }
-
-    .post-content {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      color: var(--navy);
-      margin-bottom: 60px;
-    }
-
-    .post-content h2,
-    .post-content h3 {
-      font-family: "Playfair Display", serif;
-      margin-top: 40px;
-      margin-bottom: 16px;
-    }
-
-    .post-content p {
-      margin-bottom: 20px;
-    }
-
-    .post-cta {
-      background: var(--navy);
-      color: #fff;
-      padding: 40px;
-      border-radius: var(--radius);
-      text-align: center;
-      margin-top: 60px;
-    }
-
-    .post-cta h3 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-
-    .post-cta p {
-      color: #e8e8e8;
-      margin-bottom: 20px;
-    }
-
-    .btn {
-      padding: 12px 22px;
-      border-radius: 999px;
-      background: var(--gold);
-      color: var(--navy);
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
-      transition: 0.25s;
-    }
-
-    .btn:hover { background: #b89555; }
-
-    footer {
-      background: #fff;
-      padding: 40px 20px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-      border-top: 1px solid #eee;
-      margin-top: 80px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <header class="wrapper">
-    <div class="logo">JCNay Vida Team</div>
-  </header>
-
-  <main class="wrapper">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-date">{{ page.date | date: "%d %b %Y" }}</p>
-
-    <section class="post-content">
-      {{ content }}
-    </section>
-
-    <section class="post-cta">
-      <h3>¿Lista para claridad financiera real?</h3>
-      <p>Agenda tu diagnóstico editorial y construyamos juntas un plan que proteja tu presente y tu futuro.</p>
-      <a class="btn" href="https://calendly.com/blindajefamiliarus">Agendar Diagnóstico</a>
-    </section>
-  </main>
-
-  <footer>
-    © {{ site.time | date: "%Y" }} JCNay Vida Team — Protección Financiera Editorial
-  </footer>
-
-</body>
-</html>
+<footer>
+  © {{ site.time | date: "%Y" }} JCNay Vida Team – Protección Financiera Editorial
+</footer>
