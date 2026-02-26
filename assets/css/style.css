@@ -53,17 +53,49 @@ a:hover {
 /* ================================
    HEADER
 ================================ */
-header {
+.site-header {
   background: var(--blanco);
-  padding: 22px 0;
   border-bottom: 1px solid #eee;
+  padding: 20px 0;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
   font-family: "Playfair Display", serif;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--navy);
+}
+
+.main-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.main-nav a {
+  font-weight: 600;
+}
+
+.main-nav a:hover {
+  color: var(--gold);
+}
+
+/* ================================
+   SOCIAL NAV
+================================ */
+.social-nav {
+  display: flex;
+  gap: 12px;
+  font-size: 0.9rem;
+}
+
+.social-nav a {
+  font-weight: 600;
 }
 
 /* ================================
@@ -73,6 +105,18 @@ header {
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
+}
+
+/* ================================
+   HERO
+================================ */
+.hero {
+  margin-bottom: 40px;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
 }
 
 /* ================================
@@ -110,7 +154,7 @@ header {
 }
 
 /* ================================
-   LISTA BLOG
+   BLOG LIST
 ================================ */
 .blog-list {
   padding: 0;
@@ -177,24 +221,6 @@ footer {
 }
 
 .footer-links a:hover {
-  color: var(--gold);
-}
-
-/* ================================
-   SOCIAL NAV HEADER
-================================ */
-.social-nav {
-  display: flex;
-  gap: 16px;
-  font-size: 0.9rem;
-}
-
-.social-nav a {
-  color: var(--navy);
-  font-weight: 600;
-}
-
-.social-nav a:hover {
   color: var(--gold);
 }
 
