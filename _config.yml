@@ -15,3 +15,5 @@ collections:
 
 paginate: 10
 paginate_path: "/blog/page:num/"
+
+future: true
