@@ -1,12 +1,13 @@
-title: Mi Sitio Web
-description: Blog personal
-url: "https://tu-usuario.github.io"
-baseurl: ""
+title: "JCNay Vida Team"
+description: "Protección Financiera Editorial"
+baseurl: "/jcnay-vida-team"
+url: "https://jcynay0206.github.io"
 
-# Configuración de Jekyll
 markdown: kramdown
-permalink: /blog/:year/:month/:day/:title/
+theme: minima
 
-# Excluir archivos
-exclude:
-  - README.md
+plugins:
+  - jekyll-paginate
+
+paginate: 10
+paginate_path: "/blog/page:num/"
