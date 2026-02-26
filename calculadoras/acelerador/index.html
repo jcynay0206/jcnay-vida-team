@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acelerador de Riqueza | JCNay Vida Team</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <title>Acelerador de Riqueza</title>
 
   <style>
     :root {
@@ -16,154 +14,116 @@
       --radius: 14px;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: "Inter", sans-serif;
+      font-family: Arial, sans-serif;
       background: var(--ivory);
       color: var(--navy);
-      padding: 40px 16px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .card {
-      width: 100%;
-      max-width: 480px;
-      background: #fff;
-      padding: 32px 28px;
-      border-radius: 28px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+      margin: 0;
+      padding: 20px;
     }
 
     h1 {
-      font-family: "Playfair Display", serif;
-      font-size: 1.9rem;
-      margin-bottom: 6px;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
 
-    .subtitle {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 28px;
+    .calculator {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 26px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
     }
 
     label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--muted);
-      text-transform: uppercase;
-      margin-bottom: 6px;
+      font-weight: bold;
       display: block;
+      margin-top: 16px;
     }
 
     input {
       width: 100%;
-      padding: 12px 14px;
+      padding: 10px;
       border-radius: var(--radius);
-      border: 1px solid #ddd;
-      font-size: 1rem;
-      outline: none;
-      transition: 0.2s;
-      background: #fff;
-    }
-
-    input:focus {
-      border-color: var(--navy);
-      box-shadow: 0 0 0 2px rgba(10,26,42,0.1);
-    }
-
-    .btn {
-      width: 100%;
-      background: var(--navy);
-      color: #fff;
-      padding: 14px;
-      border-radius: var(--radius);
-      font-weight: 600;
-      margin-top: 20px;
-      cursor: pointer;
-      transition: 0.25s;
-      border: none;
-    }
-
-    .btn:hover {
-      background: #13263b;
-    }
-
-    .result-box {
-      margin-top: 28px;
-      padding: 22px;
-      background: #e8eef9;
-      border-left: 4px solid var(--navy);
-      border-radius: var(--radius);
-      display: none;
-    }
-
-    .result-box h3 {
-      font-size: 1.8rem;
-      font-weight: 700;
+      border: 1px solid #ccc;
       margin-top: 6px;
     }
 
-    .note {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 10px;
-      font-style: italic;
+    button {
+      width: 100%;
+      padding: 12px;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      border-radius: var(--radius);
+      font-weight: bold;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #b89555;
+    }
+
+    .result {
+      margin-top: 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
     }
   </style>
 </head>
 
 <body>
 
-  <div class="card">
-    <h1>Acelerador de Riqueza</h1>
-    <p class="subtitle">Calcula el costo de oportunidad de tus deudas actuales.</p>
+  <h1>Acelerador de Riqueza</h1>
 
-    <div>
-      <label>Total de Deuda (Tarjetas/Préstamos)</label>
-      <input type="number" id="deuda" placeholder="Ej: 5000">
-    </div>
+  <div class="calculator">
+    <label>Deuda actual ($)</label>
+    <input type="number" id="deuda">
 
-    <div style="margin-top: 18px;">
-      <label>Interés Promedio Anual (%)</label>
-      <input type="number" id="interes" placeholder="Ej: 18">
-    </div>
+    <label>Tasa de interés (%)</label>
+    <input type="number" id="interes">
 
-    <button class="btn" onclick="calcular()">Calcular costo de oportunidad</button>
+    <label>Pago mensual ($)</label>
+    <input type="number" id="pago">
 
-    <div id="resultado" class="result-box">
-      <p class="label">En 20 años, este dinero invertido en un IUL sería:</p>
-      <h3 id="valor-futuro">$0.00</h3>
-      <p class="note">*Cálculo basado en un 7% de retorno indexado promedio.</p>
-    </div>
+    <button onclick="calcular()">Calcular</button>
+
+    <div class="result" id="resultado"></div>
   </div>
 
   <script>
     function calcular() {
-      const deuda = parseFloat(document.getElementById('deuda').value);
-      const interes = parseFloat(document.getElementById('interes').value);
+      const deuda = parseFloat(document.getElementById("deuda").value);
+      const interes = parseFloat(document.getElementById("interes").value) / 100;
+      const pago = parseFloat(document.getElementById("pago").value);
 
-      if (deuda > 0) {
-        const pagoAnualInteres = deuda * (interes / 100);
-
-        const r = 0.07;
-        const n = 20;
-
-        const valorFuturo = pagoAnualInteres * ((Math.pow(1 + r, n) - 1) / r);
-
-        document.getElementById('valor-futuro').innerText =
-          new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD'
-          }).format(valorFuturo);
-
-        document.getElementById('resultado').style.display = "block";
+      if (!deuda || !interes || !pago) {
+        document.getElementById("resultado").innerHTML = "Por favor completa todos los campos.";
+        return;
       }
+
+      let balance = deuda;
+      let meses = 0;
+      let interesesPagados = 0;
+
+      while (balance > 0 && meses < 1000) {
+        const interesMes = balance * (interes / 12);
+        interesesPagados += interesMes;
+        balance = balance + interesMes - pago;
+        meses++;
+      }
+
+      const años = (meses / 12).toFixed(1);
+
+      document.getElementById("resultado").innerHTML = `
+        <p><strong>Tiempo estimado para pagar:</strong> ${años} años</p>
+        <p><strong>Intereses totales pagados:</strong> $${interesesPagados.toFixed(2)}</p>
+      `;
     }
   </script>
 
