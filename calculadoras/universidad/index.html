@@ -22,411 +22,139 @@
       font-family: "Inter", sans-serif;
       background: var(--ivory);
       color: var(--navy);
-      padding: 32px 16px;
-      display: flex;
-      justify-content: center;
+      padding-bottom: 60px;
     }
 
-    .container {
-      width: 100%;
-      max-width: 1100px;
-      background: #fff;
-      border-radius: 24px;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.08);
-      overflow: hidden;
+    .wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
     }
 
-    .header {
-      padding: 26px 26px 22px;
-      border-bottom: 1px solid #eee;
-    }
-
-    .header h1 {
+    h1 {
       font-family: "Playfair Display", serif;
-      font-size: 1.8rem;
-      margin-bottom: 6px;
+      font-size: 2.6rem;
+      text-align: center;
+      margin-bottom: 10px;
     }
 
-    .header p {
-      font-size: 0.9rem;
+    .muted {
+      text-align: center;
       color: var(--muted);
+      margin-bottom: 40px;
     }
 
-    .content {
+    .card {
+      background: #fff;
       padding: 26px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.4fr);
-      gap: 26px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      margin-bottom: 30px;
     }
-
-    @media (max-width: 900px) {
-      .content { grid-template-columns: 1fr; }
-    }
-
-    .input-section {
-      background: #faf7f2;
-      padding: 20px 18px;
-      border-radius: 18px;
-    }
-
-    .input-section-title {
-      font-family: "Playfair Display", serif;
-      font-size: 1.05rem;
-      margin-bottom: 14px;
-    }
-
-    .input-group { margin-bottom: 18px; }
 
     label {
-      display: block;
-      font-size: 0.8rem;
       font-weight: 600;
-      color: var(--muted);
+      display: block;
       margin-bottom: 6px;
-    }
-
-    .input-wrapper {
-      position: relative;
     }
 
     input {
       width: 100%;
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: 1px solid #ddd;
-      font-size: 1rem;
-      outline: none;
-      transition: 0.2s;
-      background: #fff;
-    }
-
-    input:focus {
-      border-color: var(--navy);
-      box-shadow: 0 0 0 2px rgba(10,26,42,0.08);
-    }
-
-    .currency, .percent {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 0.9rem;
-      color: var(--muted);
-      font-weight: 600;
-      pointer-events: none;
-    }
-
-    .currency { left: 12px; }
-    .percent { right: 12px; }
-
-    .with-currency { padding-left: 32px; }
-    .with-percent { padding-right: 32px; }
-
-    .bank-options {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .bank-option {
       padding: 12px;
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      text-align: center;
-      cursor: pointer;
-      transition: 0.2s;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      font-size: 1rem;
     }
 
-    .bank-option.active {
-      border-color: var(--navy);
-      background: var(--navy);
-      color: #fff;
-    }
-
-    .calculate-btn {
+    .btn {
       width: 100%;
-      padding: 12px 14px;
-      background: var(--navy);
-      color: #fff;
-      border: none;
+      padding: 14px;
       border-radius: 999px;
-      font-size: 0.95rem;
+      background: var(--gold);
+      color: var(--navy);
       font-weight: 600;
+      border: none;
       cursor: pointer;
-      margin-top: 10px;
       transition: 0.25s;
+      font-size: 1rem;
     }
 
-    .calculate-btn:hover { background: #13263b; }
+    .btn:hover { background: #b89555; }
 
-    .results { display: none; flex-direction: column; gap: 20px; }
-
-    .comparison-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 14px;
-    }
-
-    .result-card {
-      background: #f7f4ec;
-      padding: 20px;
-      border-radius: 16px;
-      border: 1px solid #e4ddcc;
-      text-align: center;
-    }
-
-    .result-label { font-size: 0.9rem; color: var(--muted); }
-    .result-amount { font-size: 1.8rem; font-weight: 700; margin: 6px 0; }
-
-    .gap-card {
-      background: var(--navy);
-      color: #fff;
-      padding: 20px;
-      border-radius: 18px;
-      text-align: center;
-    }
-
-    .gap-card .result-amount { color: var(--gold); }
-
-    .chart-container {
+    .result {
       background: #fff;
-      padding: 20px;
-      border-radius: 16px;
-      border: 1px solid #eee;
-    }
-
-    .bar-chart {
-      display: flex;
-      align-items: flex-end;
-      gap: 20px;
-      height: 260px;
-      margin-top: 20px;
-    }
-
-    .bar-wrapper { flex: 1; text-align: center; }
-
-    .bar {
-      width: 100%;
-      max-width: 120px;
-      margin: 0 auto;
-      border-radius: 12px 12px 0 0;
-      position: relative;
-      transition: 0.4s;
-    }
-
-    .bar.bank { background: #b8c4d1; }
-    .bar.iul { background: var(--gold); }
-
-    .bar-value {
-      position: absolute;
-      top: -28px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 0.85rem;
+      padding: 26px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      margin-top: 30px;
+      text-align: center;
+      font-size: 1.4rem;
       font-weight: 600;
     }
 
-    .insight-box {
-      background: #fff8e1;
-      border-left: 4px solid var(--gold);
-      padding: 18px;
-      border-radius: 14px;
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+      color: var(--navy);
+      font-weight: 600;
+      text-decoration: none;
     }
 
-    .insight-box h3 {
-      font-family: "Playfair Display", serif;
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-    }
-
-    .insight-box ul { padding-left: 18px; }
-    .insight-box li { margin-bottom: 6px; font-size: 0.9rem; }
+    .back:hover { color: var(--gold); }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>Calculadora Universitaria</h1>
-      <p>Compara cuánto crecerá tu ahorro en Banco vs IUL.</p>
+
+  <div class="wrapper">
+
+    <h1>Calculadora Universitaria</h1>
+    <p class="muted">Proyecta cuánto costará la universidad cuando tu hijo(a) esté listo(a) para comenzar.</p>
+
+    <div class="card">
+      <label>Costo actual anual de la universidad</label>
+      <input type="number" id="costoActual" placeholder="Ej: 25000">
+
+      <label>Años hasta que comience la universidad</label>
+      <input type="number" id="anios" placeholder="Ej: 10">
+
+      <label>Inflación educativa anual (%)</label>
+      <input type="number" id="inflacion" placeholder="Ej: 5">
+
+      <button class="btn" onclick="calcularUniversidad()">Calcular</button>
     </div>
 
-    <div class="content">
-      <!-- Inputs -->
-      <div class="input-section">
-        <h2 class="input-section-title">Datos de tu estrategia</h2>
+    <div id="resultado" class="result" style="display:none;"></div>
 
-        <div class="input-group">
-          <label>Aporte mensual</label>
-          <div class="input-wrapper">
-            <span class="currency">$</span>
-            <input type="number" id="monthly" class="with-currency" value="500">
-          </div>
-        </div>
+    <a href="../../index.html" class="back">← Volver al inicio</a>
 
-        <div class="input-group">
-          <label>Tasa del banco</label>
-          <div class="bank-options">
-            <div class="bank-option" onclick="selectBankRate(0.01)">0.01%</div>
-            <div class="bank-option active" onclick="selectBankRate(0.5)">0.5%</div>
-            <div class="bank-option" onclick="selectBankRate(1.0)">1.0%</div>
-            <div class="bank-option" onclick="selectBankRate('custom')">Personalizado</div>
-          </div>
-
-          <div id="customRateWrapper" style="display:none; margin-top:10px;">
-            <div class="input-wrapper">
-              <input type="number" id="customBankRate" class="with-percent" value="0.5">
-              <span class="percent">%</span>
-            </div>
-          </div>
-
-          <input type="hidden" id="bankRate" value="0.5">
-        </div>
-
-        <div class="input-group">
-          <label>Tasa del IUL</label>
-          <div class="input-wrapper">
-            <input type="number" id="iulRate" class="with-percent" value="6">
-            <span class="percent">%</span>
-          </div>
-        </div>
-
-        <div class="input-group">
-          <label>Años hasta universidad</label>
-          <input type="number" id="years" value="18">
-        </div>
-
-        <button class="calculate-btn" onclick="calculate()">Calcular</button>
-      </div>
-
-      <!-- Results -->
-      <div class="results" id="results">
-        <div class="comparison-grid">
-          <div class="result-card">
-            <div class="result-label">Banco</div>
-            <div class="result-amount" id="bankTotal">$0</div>
-          </div>
-
-          <div class="result-card">
-            <div class="result-label">IUL</div>
-            <div class="result-amount" id="iulTotal">$0</div>
-          </div>
-
-          <div class="gap-card">
-            <div class="result-label">Diferencia</div>
-            <div class="result-amount" id="gapAmount">$0</div>
-          </div>
-        </div>
-
-        <div class="chart-container">
-          <h3 style="text-align:center;">Comparación visual</h3>
-          <div class="bar-chart">
-            <div class="bar-wrapper">
-              <div class="bar bank" id="bankBar" style="height:0%">
-                <div class="bar-value" id="bankBarValue">$0</div>
-              </div>
-              <div class="bar-label">Banco</div>
-            </div>
-
-            <div class="bar-wrapper">
-              <div class="bar iul" id="iulBar" style="height:0%">
-                <div class="bar-value" id="iulBarValue">$0</div>
-              </div>
-              <div class="bar-label">IUL</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="insight-box">
-          <h3>Ventajas del IUL</h3>
-          <ul>
-            <li>No afecta FAFSA</li>
-            <li>Acceso flexible sin penalidades</li>
-            <li>El dinero sigue creciendo incluso al usarlo</li>
-            <li>Protección familiar incluida</li>
-            <li>Piso de 0% en años malos</li>
-          </ul>
-        </div>
-      </div>
-    </div>
   </div>
 
-<script>
-let currentBankRate = 0.5;
+  <script>
+    function calcularUniversidad() {
+      const costoActual = Number(document.getElementById("costoActual").value);
+      const anios = Number(document.getElementById("anios").value);
+      const inflacion = Number(document.getElementById("inflacion").value) / 100;
 
-function formatCurrency(amount) {
-  return '$' + Math.round(amount).toLocaleString('en-US');
-}
+      if (!costoActual || !anios || !inflacion) {
+        alert("Por favor completa todos los campos.");
+        return;
+      }
 
-function selectBankRate(rate) {
-  const options = document.querySelectorAll('.bank-option');
-  options.forEach(o => o.classList.remove('active'));
+      // Fórmula: costo futuro = costoActual × (1 + inflacion)^anios
+      const costoFuturo = costoActual * Math.pow(1 + inflacion, anios);
 
-  if (rate === 'custom') {
-    document.getElementById('customRateWrapper').style.display = 'block';
-    options[3].classList.add('active');
-    currentBankRate = parseFloat(document.getElementById('customBankRate').value);
-  } else {
-    document.getElementById('customRateWrapper').style.display = 'none';
-    currentBankRate = rate;
-    if (rate === 0.01) options[0].classList.add('active');
-    if (rate === 0.5) options[1].classList.add('active');
-    if (rate === 1.0) options[2].classList.add('active');
-  }
+      // Costo total de 4 años
+      const totalCarrera = costoFuturo * 4;
 
-  document.getElementById('bankRate').value = currentBankRate;
-  calculate();
-}
-
-function calculate() {
-  const monthly = parseFloat(document.getElementById('monthly').value);
-  let bankRate = currentBankRate / 100;
-  const iulRate = parseFloat(document.getElementById('iulRate').value) / 100;
-  const years = parseInt(document.getElementById('years').value);
-
-  if (document.getElementById('customRateWrapper').style.display === 'block') {
-    bankRate = parseFloat(document.getElementById('customBankRate').value) / 100;
-  }
-
-  const months = years * 12;
-  const totalContributed = monthly * months;
-
-  const bankMonthlyRate = bankRate / 12;
-  let bankTotal = bankMonthlyRate < 0.00001
-    ? totalContributed
-    : monthly * (Math.pow(1 + bankMonthlyRate, months) - 1) / bankMonthlyRate;
-
-  const iulMonthlyRate = iulRate / 12;
-  const iulTotal = monthly * (Math.pow(1 + iulMonthlyRate, months) - 1) / iulMonthlyRate;
-
-  const gap = iulTotal - bankTotal;
-
-  document.getElementById('bankTotal').textContent = formatCurrency(bankTotal);
-  document.getElementById('iulTotal').textContent = formatCurrency(iulTotal);
-  document.getElementById('gapAmount').textContent = formatCurrency(gap);
-
-  const maxValue = Math.max(bankTotal, iulTotal);
-  document.getElementById('bankBar').style.height = (bankTotal / maxValue) * 100 + '%';
-  document.getElementById('iulBar').style.height = (iulTotal / maxValue) * 100 + '%';
-
-  document.getElementById('bankBarValue').textContent = formatCurrency(bankTotal);
-  document.getElementById('iulBarValue').textContent = formatCurrency(iulTotal);
-
-  document.getElementById('results').style.display = 'flex';
-}
-
-document.getElementById('customBankRate').addEventListener('input', function() {
-  currentBankRate = parseFloat(this.value);
-  calculate();
-});
-
-document.getElementById('monthly').addEventListener('input', calculate);
-document.getElementById('iulRate').addEventListener('input', calculate);
-document.getElementById('years').addEventListener('input', calculate);
-
-window.addEventListener('load', calculate);
-</script>
+      document.getElementById("resultado").style.display = "block";
+      document.getElementById("resultado").innerHTML =
+        "Costo estimado por año: $" + costoFuturo.toLocaleString() +
+        "<br><br>Costo total de 4 años: $" + totalCarrera.toLocaleString();
+    }
+  </script>
 
 </body>
 </html>
