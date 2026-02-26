@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ page.title }} | JCNay Vida Team</title>
+  <meta name="description" content="{{ page.excerpt | strip_html | truncate: 160 }}" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #0a1a2a;
+      --gold: #c9a86a;
+      --ivory: #faf7f2;
+      --muted: #6b6b6b;
+      --radius: 16px;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: var(--ivory);
+      color: var(--navy);
+    }
+
+    header {
+      padding: 22px 40px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    footer {
+      background: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+      margin-top: 80px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="wrapper">
+    <div class="logo">JCNay Vida Team</div>
+  </header>
+
+  <main class="wrapper">
+    {{ content }}
+  </main>
+
+  <footer>
+    © {{ site.time | date: "%Y" }} JCNay Vida Team — Protección Financiera Editorial
+  </footer>
+
+</body>
+</html>
