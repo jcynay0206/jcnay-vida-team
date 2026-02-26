@@ -1,255 +1,31 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JCNay Vida Team | Protección Financiera Editorial</title>
+---
+layout: default
+title: "Inicio"
+---
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<h1 class="fade-in">Protección financiera con claridad editorial</h1>
+<p class="muted fade-in">Educación, herramientas y acompañamiento para construir un futuro seguro.</p>
 
-  <style>
-    :root {
-      --navy: #0a1a2a;
-      --gold: #c9a86a;
-      --ivory: #faf7f2;
-      --muted: #6b6b6b;
-      --radius: 16px;
-    }
+<div class="grid fade-in">
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  <a class="card" href="/jcnay-vida-team/calculadoras/">
+    <h3>Calculadoras</h3>
+    <p>Herramientas rápidas para claridad financiera.</p>
+  </a>
 
-    body {
-      font-family: "Inter", sans-serif;
-      background: var(--ivory);
-      color: var(--navy);
-    }
+  <a class="card" href="/jcnay-vida-team/blog/">
+    <h3>Blog</h3>
+    <p>Artículos claros, prácticos y editoriales.</p>
+  </a>
 
-    /* NAV */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 40px;
-      background: #fff;
-      border-bottom: 1px solid #eee;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+  <a class="card" href="/jcnay-vida-team/unete/">
+    <h3>Únete al equipo</h3>
+    <p>Construye una carrera en protección financiera.</p>
+  </a>
 
-    nav .logo {
-      font-family: "Playfair Display", serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-    }
+  <a class="card" href="/jcnay-vida-team/contacto/">
+    <h3>Contacto</h3>
+    <p>Agenda una consulta o envía un mensaje.</p>
+  </a>
 
-    nav ul {
-      display: flex;
-      gap: 26px;
-      list-style: none;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: var(--navy);
-      font-weight: 500;
-      font-size: 0.95rem;
-    }
-
-    nav ul li a:hover { color: var(--gold); }
-
-    /* HERO */
-    .hero {
-      padding: 120px 20px 100px;
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-family: "Playfair Display", serif;
-      font-size: 3.2rem;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--muted);
-      max-width: 650px;
-      margin: 0 auto 30px;
-      line-height: 1.6;
-    }
-
-    .hero-line {
-      width: 80px;
-      height: 3px;
-      background: var(--gold);
-      margin: 24px auto 0;
-      border-radius: 2px;
-    }
-
-    /* SECTION */
-    .section {
-      max-width: 1100px;
-      margin: 80px auto;
-      padding: 0 20px;
-    }
-
-    .section h2 {
-      font-family: "Playfair Display", serif;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .section p {
-      text-align: center;
-      color: var(--muted);
-      max-width: 700px;
-      margin: 0 auto 40px;
-      line-height: 1.6;
-    }
-
-    /* GRID */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 26px;
-    }
-
-    .card {
-      background: #fff;
-      padding: 26px;
-      border-radius: var(--radius);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
-      text-align: center;
-      cursor: pointer;
-      transition: 0.25s;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 14px 40px rgba(0,0,0,0.1);
-    }
-
-    .card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    /* CTA */
-    .cta {
-      background: var(--navy);
-      color: #fff;
-      padding: 60px 30px;
-      border-radius: var(--radius);
-      text-align: center;
-      margin-top: 80px;
-    }
-
-    .cta h2 {
-      font-family: "Playfair Display", serif;
-      font-size: 2rem;
-      margin-bottom: 12px;
-    }
-
-    .cta p {
-      margin-bottom: 24px;
-      color: #e8e8e8;
-    }
-
-    .btn-primary {
-      padding: 12px 22px;
-      border-radius: 999px;
-      background: var(--gold);
-      color: var(--navy);
-      font-weight: 600;
-      border: none;
-      cursor: pointer;
-      transition: 0.25s;
-    }
-
-    .btn-primary:hover { background: #b89555; }
-
-    /* FOOTER */
-    footer {
-      background: #fff;
-      padding: 40px 20px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-      border-top: 1px solid #eee;
-      margin-top: 80px;
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- NAV -->
-  <nav>
-    <div class="logo">JCNay Vida Team</div>
-    <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="calculadoras/">Calculadoras</a></li>
-      <li><a href="blog/">Blog</a></li>
-      <li><a href="unete/">Únete</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <h1>Protección Financiera con Estrategia, Claridad y Humanidad</h1>
-    <p>Herramientas, educación y acompañamiento para familias que quieren construir un futuro sólido, protegido y libre de impuestos.</p>
-    <div class="hero-line"></div>
-  </section>
-
-  <!-- SERVICIOS -->
-  <section class="section">
-    <h2>Servicios</h2>
-    <p>Soluciones diseñadas para proteger tu presente y construir tu futuro con intención.</p>
-
-    <div class="grid-3">
-      <div class="card" onclick="window.location.href='calculadoras/dime/'">
-        <h3>Protección Familiar</h3>
-        <p>Evalúa cuánto necesita tu familia para estar protegida con claridad y estrategia.</p>
-      </div>
-
-      <div class="card" onclick="window.location.href='calculadoras/escudo/'">
-        <h3>Escudo Financiero</h3>
-        <p>Compara IUL vs Banco y descubre cómo proteger tu crecimiento.</p>
-      </div>
-
-      <div class="card" onclick="window.location.href='calculadoras/universidad/'">
-        <h3>Planificación Universitaria</h3>
-        <p>Evita que la universidad destruya tus finanzas con estrategias inteligentes.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section" id="contacto">
-    <div class="cta">
-      <h2>¿Lista para claridad financiera real?</h2>
-      <p>Agenda tu diagnóstico editorial y construyamos juntas un plan que proteja tu presente y tu futuro.</p>
-
-      <button class="btn-primary" onclick="window.location.href='https://calendly.com/blindajefamiliarus'">Agendar Diagnóstico</button>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2026 JCNay Vida Team — Protección Financiera Editorial
-  </footer>
-
-</body>
-</html>
+</div>
