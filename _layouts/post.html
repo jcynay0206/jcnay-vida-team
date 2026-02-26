@@ -1,18 +1,18 @@
-<main class="wrapper">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <p class="post-date">{{ page.date | date: "%d %b %Y" }}</p>
+---
+layout: default
+---
 
-  <section class="post-content">
+<article class="fade-in">
+
+  <h1>{{ page.title }}</h1>
+  <p class="muted">{{ page.date | date: "%d %b %Y" }}</p>
+
+  <div class="post-content">
     {{ content }}
-  </section>
+  </div>
 
-  <section class="post-cta">
-    <h3>¿Lista para claridad financiera real?</h3>
-    <p>Agenda tu diagnóstico editorial y construyamos juntas un plan que proteja tu presente y tu futuro.</p>
-    <a class="btn" href="https://calendly.com/blindajefamiliarus">Agendar Diagnóstico</a>
-  </section>
-</main>
+  <hr>
 
-<footer>
-  © {{ site.time | date: "%Y" }} JCNay Vida Team – Protección Financiera Editorial
-</footer>
+  <a href="/jcnay-vida-team/blog/" class="btn">← Volver al blog</a>
+
+</article>
