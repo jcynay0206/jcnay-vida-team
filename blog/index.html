@@ -4,34 +4,155 @@ title: "Blog"
 permalink: /blog/
 ---
 
-<main class="wrapper">
-  <h1>Blog</h1>
-  <p class="muted">Ideas, claridad y estrategias para proteger tu futuro financiero.</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ page.title }} | JCNay Vida Team</title>
+  <meta name="description" content="Artículos sobre estrategia, protección financiera y claridad editorial." />
 
-  <ul class="blog-list">
-    {% if paginator %}
-      {% for post in paginator.posts %}
-        <li>
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          <span class="muted"> — {{ post.date | date: "%d %b %Y" }}</span>
-        </li>
-      {% endfor %}
-    {% else %}
-      {% for post in site.posts %}
-        <li>
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          <span class="muted"> — {{ post.date | date: "%d %b %Y" }}</span>
-        </li>
-      {% endfor %}
-    {% endif %}
-  </ul>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <nav class="pagination">
-    {% if paginator and paginator.previous_page %}
-      <a href="{{ paginator.previous_page_path | relative_url }}">← Anterior</a>
-    {% endif %}
-    {% if paginator and paginator.next_page %}
-      <a href="{{ paginator.next_page_path | relative_url }}">Siguiente →</a>
-    {% endif %}
-  </nav>
-</main>
+  <style>
+    :root {
+      --navy: #0a1a2a;
+      --gold: #c9a86a;
+      --ivory: #faf7f2;
+      --muted: #6b6b6b;
+      --radius: 16px;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--ivory);
+      color: var(--navy);
+      margin: 0;
+    }
+
+    header {
+      padding: 22px 40px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: 2.6rem;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .muted {
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .blog-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .blog-list li {
+      background: #fff;
+      padding: 22px;
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      transition: 0.25s;
+    }
+
+    .blog-list li:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.1);
+    }
+
+    .blog-list a {
+      text-decoration: none;
+      color: var(--navy);
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .pagination {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .pagination a {
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0 10px;
+    }
+
+    footer {
+      background: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+      margin-top: 80px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="wrapper">
+    <div class="logo">JCNay Vida Team</div>
+  </header>
+
+  <main class="wrapper">
+    <h1>Blog</h1>
+    <p class="muted">Ideas, claridad y estrategias para proteger tu futuro financiero.</p>
+
+    <ul class="blog-list">
+      {% if paginator %}
+        {% for post in paginator.posts %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <span class="muted"> — {{ post.date | date: "%d %b %Y" }}</span>
+          </li>
+        {% endfor %}
+      {% else %}
+        {% for post in site.posts %}
+          <li>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            <span class="muted"> — {{ post.date | date: "%d %b %Y" }}</span>
+          </li>
+        {% endfor %}
+      {% endif %}
+    </ul>
+
+    <nav class="pagination">
+      {% if paginator and paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}">← Anterior</a>
+      {% endif %}
+      {% if paginator and paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}">Siguiente →</a>
+      {% endif %}
+    </nav>
+  </main>
+
+  <footer>
+    © {{ site.time | date: "%Y" }} JCNay Vida Team — Protección Financiera Editorial
+  </footer>
+
+</body>
+</html>
