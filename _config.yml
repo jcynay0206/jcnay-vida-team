@@ -5,7 +5,6 @@ baseurl: "/jcnay-vida-team"
 url: "https://jcynay0206.github.io"
 
 markdown: kramdown
-theme: minima
 
 plugins:
   - jekyll-paginate
