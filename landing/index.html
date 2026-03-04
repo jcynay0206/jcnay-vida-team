@@ -1351,6 +1351,54 @@
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
   });
+ <form id="leadForm">
+  <input type="text" name="name" placeholder="Nombre completo" required />
+  <input type="email" name="email" placeholder="Correo electrónico" required />
+  <input type="tel" name="phone" placeholder="Teléfono" required />
+
+  <select name="product">
+    <option value="Gastos Finales">Gastos Finales</option>
+    <option value="Whole Life">Whole Life</option>
+    <option value="Term Life">Term Life</option>
+    <option value="IUL">IUL</option>
+    <option value="Anualidad">Anualidad</option>
+  </select>
+
+  <textarea name="notes" placeholder="Notas o mensaje"></textarea>
+
+  <button type="submit">Enviar</button>
+</form>
+
+<div id="successMessage" style="display:none; color:green; margin-top:10px;">
+  ¡Gracias! Tu solicitud fue enviada correctamente.
+</div>
+
+<script>
+document.getElementById("leadForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const form = e.target;
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    phone: form.phone.value,
+    product: form.product.value,
+    notes: form.notes.value,
+    source: "landing"
+  };
+
+  const res = await fetch("https://psychic-space-lamp-7vq7g7475jr43pp59-8000.app.github.dev/api/leads/create", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data)
+  });
+
+  if (res.ok) {
+    form.reset();
+    document.getElementById("successMessage").style.display = "block";
+  }
+});
 </script>
+
 </body>
 </html>
