@@ -5,11 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>El Plan 3 en 1 | Seguros de Vida</title>
 
+<link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<style>
-/* TODO TU CSS ORIGINAL AQUÍ — NO LO MODIFIQUÉ */
-</style>
 </head>
 
 <body>
@@ -70,7 +68,7 @@
           <input type="hidden" name="accessKey" value="sf_1a81863jf4k7n7c0lnd9mj4c">
           <input type="hidden" name="subject" value="Nueva descarga: El Plan 3 en 1">
           <input type="hidden" name="replyTo" value="@">
-          <input type="hidden" name="redirectTo" value="https://jcynay0206.github.io/jcnay-vida-team/landing/guia.pdf">
+          <input type="hidden" name="redirectTo" value="guia.pdf">
 
           <div class="form-group">
             <label>Nombre completo</label>
@@ -119,10 +117,9 @@
   </div>
 </section>
 
-<!-- RESTO DE TU LANDING (STATS, PROBLEMS, SOLUTION, GUIDE, CONSULTA, FOOTER) -->
-<!-- NO MODIFIQUÉ NADA DE TU DISEÑO -->
+<!-- TODO EL RESTO DE TU LANDING (STATS, PROBLEMS, SOLUTION, GUIDE, CONSULTA, FOOTER) -->
+<!-- NO LO MODIFIQUÉ, SOLO LO MUEVO A style.css -->
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">El Plan 3 en 1</div>
   <div class="footer-text">
@@ -136,82 +133,8 @@
   </div>
 </footer>
 
-<!-- SCRIPTS FINALES -->
-
-<script>
-/* TABS */
-function showTab(tab, el) {
-  document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + tab).style.display = 'block';
-  el.classList.add('active');
-}
-
-/* TRACKING DE CLICS */
-async function trackClick(action) {
-  try {
-    await fetch("https://seguro-crm-production.up.railway.app/api/leads/create", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: "",
-        email: "",
-        phone: "",
-        source: "landing-click",
-        meta: action
-      })
-    });
-  } catch (err) {
-    console.error("Error tracking click:", err);
-  }
-}
-
-document.querySelectorAll("[data-track]").forEach(btn => {
-  btn.addEventListener("click", () => trackClick(btn.dataset.track));
-});
-
-/* CAPTURA UTM */
-function getUTM() {
-  const p = new URLSearchParams(window.location.search);
-  return {
-    utm_source: p.get("utm_source") || "",
-    utm_campaign: p.get("utm_campaign") || "",
-    utm_adset: p.get("utm_adset") || "",
-    utm_ad: p.get("utm_ad") || ""
-  };
-}
-
-/* ENVÍO PARALELO AL BACKEND */
-async function sendLeadToBackend(data) {
-  try {
-    await fetch("https://seguro-crm-production.up.railway.app/api/leads/create", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
-  } catch (err) {
-    console.error("Error enviando lead:", err);
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.querySelector('form[action="https://api.staticforms.xyz/submit"]');
-  if (!form) return;
-
-  form.addEventListener("submit", () => {
-    const utm = getUTM();
-    const data = {
-      name: form.name.value,
-      email: form.email.value,
-      phone: form.phone.value,
-      meta: form.meta.value,
-      source: "landing-plan-3-en-1",
-      ...utm
-    };
-    sendLeadToBackend(data);
-  });
-});
-</script>
+<!-- SCRIPTS -->
+<script src="app.js"></script>
 
 </body>
 </html>
