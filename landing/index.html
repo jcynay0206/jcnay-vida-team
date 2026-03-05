@@ -1399,6 +1399,45 @@ document.getElementById("leadForm").addEventListener("submit", async (e) => {
   }
 });
 </script>
+ <script>
+  const API_URL = "https://seguro-crm-production.up.railway.app";
+
+  async function sendLeadToBackend(data) {
+    try {
+      await fetch(`${API_URL}/api/leads/create`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+    } catch (err) {
+      console.error("Error enviando lead al backend:", err);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector('form[action="https://api.staticforms.xyz/submit"]');
+    if (!form) return;
+
+    form.addEventListener("submit", async (e) => {
+      const name = form.querySelector('input[name="name"]').value;
+      const email = form.querySelector('input[name="email"]').value;
+      const phone = form.querySelector('input[name="phone"]').value;
+      const meta = form.querySelector('select[name="meta"]').value;
+
+      const leadData = {
+        name,
+        email,
+        phone,
+        meta,
+        source: "landing-plan-3-en-1"
+      };
+
+      // Enviar al backend sin detener StaticForms
+      sendLeadToBackend(leadData);
+    });
+  });
+</script>
+
 
 </body>
 </html>
