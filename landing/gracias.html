@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gracias – Tu guía está descargando</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+  .gracias-container {
+    max-width: 600px;
+    margin: 8rem auto;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .gracias-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .gracias-text {
+    font-size: 1.1rem;
+    color: var(--white);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .btn-descargar {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 1rem 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: 0.3s;
+  }
+
+  .btn-descargar:hover {
+    background: var(--gold-light);
+  }
+</style>
+
+<script>
+// Descarga automática
+window.onload = function() {
+  const link = document.createElement("a");
+  link.href = "guia.pdf";
+  link.download = "Guia-Plan-3-en-1.pdf";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+</script>
+
+</head>
+
+<body>
+
+<div class="gracias-container">
+  <h1 class="gracias-title">¡Gracias, tu guía está en camino!</h1>
+
+  <p class="gracias-text">
+    Tu guía del <strong>Plan 3 en 1</strong> está descargándose automáticamente.  
+    Si no inicia en unos segundos, puedes descargarla manualmente aquí:
+  </p>
+
+  <a href="guia.pdf" class="btn-descargar">Descargar Guía</a>
+
+  <p class="gracias-text" style="margin-top:2rem; font-size:0.9rem; opacity:0.7;">
+    También te enviamos una copia a tu correo para que la tengas guardada.
+  </p>
+</div>
+
+</body>
+</html>
