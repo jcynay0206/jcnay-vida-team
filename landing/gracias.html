@@ -46,14 +46,11 @@
 </style>
 
 <script>
-// Descarga automática
+// MÉTODO QUE SÍ FUNCIONA EN GITHUB PAGES
 window.onload = function() {
-  const link = document.createElement("a");
-  link.href = "guia.pdf";
-  link.download = "Guia-Plan-3-en-1.pdf";
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  setTimeout(() => {
+    window.location.href = "guia.pdf?download=1";
+  }, 800);
 };
 </script>
 
