@@ -60,39 +60,29 @@
         <button class="tab-btn" onclick="showTab('llamada', this)">🗓 Agendar Llamada</button>
       </div>
 
-      <!-- TAB 1: STATICFORMS -->
+      <!-- TAB 1: FORMULARIO DIRECTO AL BACKEND -->
       <div id="tab-guia" class="tab-content active">
         <div class="card-sub" style="margin-bottom:1.2rem;">Déjanos tus datos y te enviamos la guía a tu correo al instante</div>
 
-        <form action="https://api.staticforms.xyz/submit" method="post">
-          <input type="hidden" name="accessKey" value="sf_1a81863jf4k7n7c0lnd9mj4c">
-          <input type="hidden" name="subject" value="Nueva descarga: El Plan 3 en 1">
-          <input type="hidden" name="replyTo" value="@">
-
-          <!-- REDIRECT CORRECTO -->
-          <input type="hidden" name="redirectTo" value="https://jcynay0206.github.io/jcnay-vida-team/landing/gracias.html">
-
-          <!-- WEBHOOK PARA TU CRM (FUNCIONANDO) -->
-          <input type="hidden" name="webhook" value="https://seguro-crm-production.up.railway.app/api/leads/staticforms">
-
+        <form onsubmit="sendLead(event)">
           <div class="form-group">
             <label>Nombre completo</label>
-            <input type="text" name="name" required>
+            <input type="text" id="name" required>
           </div>
 
           <div class="form-group">
             <label>Correo electrónico</label>
-            <input type="email" name="email" required>
+            <input type="email" id="email" required>
           </div>
 
           <div class="form-group">
             <label>Teléfono / WhatsApp</label>
-            <input type="tel" name="phone">
+            <input type="tel" id="phone">
           </div>
 
           <div class="form-group">
             <label>¿Cuál es tu meta principal?</label>
-            <select name="meta">
+            <select id="meta">
               <option value="" disabled selected>Selecciona una opción</option>
               <option>Jubilarme antes de los 55</option>
               <option>Pagar la universidad de mis hijos</option>
@@ -101,36 +91,26 @@
             </select>
           </div>
 
-          <button type="submit" class="btn-form" data-track="cta-form-guia">ENVIARME LA GUÍA GRATIS →</button>
-       <form onsubmit="sendLead(event)">
-  <div class="form-group">
-    <label>Nombre completo</label>
-    <input type="text" id="name" required>
-  </div>
+          <button type="submit" class="btn-form" data-track="cta-form-guia">
+            ENVIARME LA GUÍA GRATIS →
+          </button>
+        </form>
 
-  <div class="form-group">
-    <label>Correo electrónico</label>
-    <input type="email" id="email" required>
-  </div>
+        <p class="form-privacy">🔒 Tu información es privada. Recibirás la guía en tu correo.</p>
+      </div>
 
-  <div class="form-group">
-    <label>Teléfono / WhatsApp</label>
-    <input type="tel" id="phone">
-  </div>
+      <!-- TAB 2: CALENDLY -->
+      <div id="tab-llamada" class="tab-content" style="display:none;">
+        <div class="card-sub">Elige tu fecha y hora para una consulta personalizada</div>
 
-  <div class="form-group">
-    <label>¿Cuál es tu meta principal?</label>
-    <select id="meta">
-      <option value="" disabled selected>Selecciona una opción</option>
-      <option>Jubilarme antes de los 55</option>
-      <option>Pagar la universidad de mis hijos</option>
-      <option>Pagar menos impuestos</option>
-      <option>Las 3 metas anteriores</option>
-    </select>
-  </div>
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/blindajefamiliarus"
+             style="min-width:280px; height:480px;">
+        </div>
+        <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      </div>
 
-  <button type="submit" class="btn-form">ENVIARME LA GUÍA GRATIS →</button>
-</form>
+    </div>
   </div>
 </section>
 
@@ -148,6 +128,40 @@
 </footer>
 
 <script src="app.js"></script>
+
+<!-- SCRIPT PARA ENVIAR DIRECTO AL BACKEND -->
+<script>
+async function sendLead(event) {
+  event.preventDefault();
+
+  const data = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
+    meta: document.getElementById("meta").value,
+    source: "landing",
+    status: "nuevo"
+  };
+
+  try {
+    const res = await fetch("https://seguro-crm-production.up.railway.app/api/leads/create", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
+
+    if (!res.ok) {
+      alert("Hubo un error enviando tu información. Intenta nuevamente.");
+      return;
+    }
+
+    window.location.href = "gracias.html";
+
+  } catch (error) {
+    alert("Error de conexión. Intenta nuevamente.");
+  }
+}
+</script>
 
 </body>
 </html>
