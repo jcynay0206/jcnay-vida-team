@@ -46,7 +46,9 @@
     </div>
 
     <div class="hero-cta-group">
-      <a href="#" onclick="document.querySelector('.hero-right').scrollIntoView({behavior:'smooth'}); return false;" class="btn-primary" data-track="cta-guia-hero">Quiero mi Guía Gratis →</a>
+      <a href="#" onclick="showTab('guia', document.querySelector('.tab-btn')); document.querySelector('.hero-right').scrollIntoView({behavior:'smooth'}); return false;" class="btn-primary" data-track="cta-guia-hero">
+        Quiero mi Guía Gratis →
+      </a>
       <a href="#como-funciona" class="btn-secondary" data-track="cta-ver-como-funciona">Ver cómo funciona →</a>
     </div>
   </div>
@@ -77,12 +79,12 @@
 
           <div class="form-group">
             <label>Teléfono / WhatsApp</label>
-            <input type="tel" id="phone">
+            <input type="tel" id="phone" required>
           </div>
 
           <div class="form-group">
             <label>¿Cuál es tu meta principal?</label>
-            <select id="meta">
+            <select id="meta" required>
               <option value="" disabled selected>Selecciona una opción</option>
               <option>Jubilarme antes de los 55</option>
               <option>Pagar la universidad de mis hijos</option>
@@ -138,13 +140,14 @@ async function sendLead(event) {
     name: document.getElementById("name").value,
     email: document.getElementById("email").value,
     phone: document.getElementById("phone").value,
-    meta: document.getElementById("meta").value,
-    source: "landing",
+    goal: document.getElementById("meta").value,
+    source: "landing-plan-3en1",
+    tag: "descarga-guia",
     status: "nuevo"
   };
 
   try {
-    const res = await fetch("https://seguro-crm-production.up.railway.app/api/leads/create", {
+    const res = await fetch("https://seguro-crm-production.up.railway.app/leads/create", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
@@ -160,6 +163,14 @@ async function sendLead(event) {
   } catch (error) {
     alert("Error de conexión. Intenta nuevamente.");
   }
+}
+
+function showTab(tab, btn) {
+  document.querySelectorAll(".tab-content").forEach(t => t.style.display = "none");
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+
+  document.getElementById("tab-" + tab).style.display = "block";
+  btn.classList.add("active");
 }
 </script>
 
