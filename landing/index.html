@@ -8,6 +8,19 @@
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+<style>
+/* Ajustes visuales solicitados */
+.hero-sub { color: #1A1A1A !important; }
+
+.pill {
+  color: #1A1A1A !important;
+  border: 1px solid var(--gold) !important;
+  background: rgba(255,255,255,0.85) !important;
+}
+
+.tab-buttons { display: none !important; }
+</style>
+
 </head>
 
 <body>
@@ -15,11 +28,12 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">El Plan 3 en 1</div>
-  <a href="#consulta" class="nav-cta" data-track="cta-nav-consulta">Consulta Gratis</a>
 </nav>
 
 <!-- FLOATING CTA -->
-<a href="#consulta" class="floating-cta" data-track="cta-floating">🗓 Agendar Consulta Gratis</a>
+<a href="#" onclick="document.querySelector('.hero-right').scrollIntoView({behavior:'smooth'});" class="floating-cta">
+  📘 Descargar Guía Gratis
+</a>
 
 <!-- HERO -->
 <section class="hero">
@@ -46,25 +60,20 @@
     </div>
 
     <div class="hero-cta-group">
-      <a href="#" onclick="showTab('guia', document.querySelector('.tab-btn')); document.querySelector('.hero-right').scrollIntoView({behavior:'smooth'}); return false;" class="btn-primary" data-track="cta-guia-hero">
-        Quiero mi Guía Gratis →
+      <a href="#" onclick="document.querySelector('.hero-right').scrollIntoView({behavior:'smooth'}); return false;" class="btn-primary">
+        Descargar Guía Gratis →
       </a>
-      <a href="#como-funciona" class="btn-secondary" data-track="cta-ver-como-funciona">Ver cómo funciona →</a>
     </div>
   </div>
 
   <div class="hero-right">
     <div class="hero-card">
 
-      <!-- TABS -->
-      <div class="tab-buttons">
-        <button class="tab-btn active" onclick="showTab('guia', this)">📘 Recibir Guía Gratis</button>
-        <button class="tab-btn" onclick="showTab('llamada', this)">🗓 Agendar Llamada</button>
-      </div>
-
-      <!-- TAB 1: FORMULARIO DIRECTO AL BACKEND -->
+      <!-- FORMULARIO ÚNICO -->
       <div id="tab-guia" class="tab-content active">
-        <div class="card-sub" style="margin-bottom:1.2rem;">Déjanos tus datos y te enviamos la guía a tu correo al instante</div>
+        <div class="card-sub" style="margin-bottom:1.2rem; color:#1A1A1A;">
+          Déjanos tus datos y te enviamos la guía a tu correo al instante
+        </div>
 
         <form onsubmit="sendLead(event)">
           <div class="form-group">
@@ -93,23 +102,12 @@
             </select>
           </div>
 
-          <button type="submit" class="btn-form" data-track="cta-form-guia">
+          <button type="submit" class="btn-form">
             ENVIARME LA GUÍA GRATIS →
           </button>
         </form>
 
         <p class="form-privacy">🔒 Tu información es privada. Recibirás la guía en tu correo.</p>
-      </div>
-
-      <!-- TAB 2: CALENDLY -->
-      <div id="tab-llamada" class="tab-content" style="display:none;">
-        <div class="card-sub">Elige tu fecha y hora para una consulta personalizada</div>
-
-        <div class="calendly-inline-widget"
-             data-url="https://calendly.com/blindajefamiliarus"
-             style="min-width:280px; height:480px;">
-        </div>
-        <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
       </div>
 
     </div>
@@ -147,7 +145,7 @@ async function sendLead(event) {
   };
 
   try {
-    const res = await fetch("https://seguro-crm-production.up.railway.app/leads/create", {
+    const res = await fetch("https://seguro-crm-production.up.railway.app/api/leads/create", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
@@ -163,14 +161,6 @@ async function sendLead(event) {
   } catch (error) {
     alert("Error de conexión. Intenta nuevamente.");
   }
-}
-
-function showTab(tab, btn) {
-  document.querySelectorAll(".tab-content").forEach(t => t.style.display = "none");
-  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-
-  document.getElementById("tab-" + tab).style.display = "block";
-  btn.classList.add("active");
 }
 </script>
 
