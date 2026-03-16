@@ -30,10 +30,7 @@
   <div class="nav-logo">El Plan 3 en 1</div>
 </nav>
 
-<!-- FLOATING CTA -->
-<a href="#" onclick="document.querySelector('.hero-right').scrollIntoView({behavior:'smooth'});" class="floating-cta">
-  📘 Descargar Guía Gratis
-</a>
+
 
 <!-- HERO -->
 <section class="hero">
@@ -59,6 +56,19 @@
       <span class="pill"><span class="pill-dot"></span>Universidad sin deudas</span>
     </div>
 
+    <!-- IMAGEN HERO -->
+    <div class="hero-img-wrap" style="margin: 1.2rem 0; border-radius: 12px; overflow: hidden; max-height: 220px;">
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80"
+           alt="Familia feliz planificando su retiro"
+           style="width:100%; object-fit:cover; max-height:220px; border-radius:12px; display:block;">
+    </div>
+
+    <!-- PRUEBA SOCIAL -->
+    <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:1rem; font-size:0.85rem; color:#7a6a3a;">
+      <span style="font-size:1rem;">✅</span>
+      <span><strong>+200 familias</strong> ya descargaron esta guía</span>
+    </div>
+
     <div class="hero-cta-group">
       <a href="#" onclick="document.querySelector('.hero-right').scrollIntoView({behavior:'smooth'}); return false;" class="btn-primary">
         Descargar Guía Gratis →
@@ -69,37 +79,23 @@
   <div class="hero-right">
     <div class="hero-card">
 
-      <!-- FORMULARIO ÚNICO -->
       <div id="tab-guia" class="tab-content active">
-        <div class="card-sub" style="margin-bottom:1.2rem; color:#1A1A1A;">
-          Déjanos tus datos y te enviamos la guía a tu correo al instante
+        <div class="card-sub" style="margin-bottom:1.2rem; color:#1A1A1A; font-weight:600; font-size:1.05rem;">
+          ¿A quién le enviamos la guía?
+        </div>
+        <div style="font-size:0.82rem; color:#666; margin-bottom:1.2rem;">
+          Ingresa tu nombre y WhatsApp — te la enviamos al instante.
         </div>
 
         <form onsubmit="sendLead(event)">
           <div class="form-group">
             <label>Nombre completo</label>
-            <input type="text" id="name" required>
+            <input type="text" id="name" placeholder="Ej: María González" required>
           </div>
 
           <div class="form-group">
-            <label>Correo electrónico</label>
-            <input type="email" id="email" required>
-          </div>
-
-          <div class="form-group">
-            <label>Teléfono / WhatsApp</label>
-            <input type="tel" id="phone" required>
-          </div>
-
-          <div class="form-group">
-            <label>¿Cuál es tu meta principal?</label>
-            <select id="meta" required>
-              <option value="" disabled selected>Selecciona una opción</option>
-              <option>Jubilarme antes de los 55</option>
-              <option>Pagar la universidad de mis hijos</option>
-              <option>Pagar menos impuestos</option>
-              <option>Las 3 metas anteriores</option>
-            </select>
+            <label>WhatsApp</label>
+            <input type="tel" id="phone" placeholder="Ej: +1 555 000 0000" required>
           </div>
 
           <button type="submit" class="btn-form">
@@ -107,7 +103,7 @@
           </button>
         </form>
 
-        <p class="form-privacy">🔒 Tu información es privada. Recibirás la guía en tu correo.</p>
+        <p class="form-privacy">🔒 Tu información es privada. Sin spam.</p>
       </div>
 
     </div>
@@ -136,9 +132,7 @@ async function sendLead(event) {
 
   const data = {
     name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
     phone: document.getElementById("phone").value,
-    goal: document.getElementById("meta").value,
     source: "landing-plan-3en1",
     tag: "descarga-guia",
     status: "nuevo"
